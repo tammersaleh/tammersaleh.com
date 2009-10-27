@@ -1,0 +1,34 @@
+!!!
+%html{ "xml:lang" => "en", :lang => "en", :xmlns => "http://www.w3.org/1999/xhtml" }
+  %head
+    %meta{ :content => "text/html; charset=utf-8", "http-equiv" => "Content-type" }
+    %title
+      Tammer Saleh
+    = stylesheet_link_tag "blueprint/screen", :media => "screen, projection"
+    = stylesheet_link_tag "blueprint/print", :media => "print"
+    = stylesheet_link_tag "formtastic"
+    = stylesheet_link_tag "formtastic_changes"
+    = stylesheet_link_tag 'screen', :media => 'all', :cache => true
+  %body{ :class => body_class }
+    #header
+      %h1
+        Tammer Saleh
+      #session_links
+        - if current_user
+          .welcome
+            Hello,
+            = link_to current_user, current_user
+          .logout
+            = link_to "Logout", user_session_url, :method => :delete
+        - else
+          .login
+            = link_to "Login", login_url
+          or
+          .signup
+            = link_to "Signup for a new account", signup_url
+    #content
+      = render :partial => 'layouts/flashes'
+      = yield
+    #footer
+      &copy; 2009 Tammer Saleh Consulting, Inc.
+    = render :partial => 'layouts/javascript'

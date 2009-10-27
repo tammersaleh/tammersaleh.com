@@ -1,0 +1,55 @@
+= Trusted Params
+
+Rails plugin which adds a convenient way to override attr_accessible protection.
+
+If you are unfamiliar with the dangers of mass assignment please check these links
+
+* http://railspikes.com/2008/9/22/is-your-rails-application-safe-from-mass-assignment
+* http://railscasts.com/episodes/26-hackers-love-mass-assignment
+
+
+== Install
+
+You can install this as a plugin into your Rails app.
+
+  script/plugin install git://github.com/ryanb/trusted-params.git
+
+
+== Features
+
+This plugin does several things.
+
+* Adds "trust" method on hash to bypass attribute protection
+* Disables attr_protected because you should use attr_accessible.
+* Requires attr_accessible be specified in every model
+* Adds :all as option to attr_accessible to allow all attributes to be mass-assignable
+* Raises an exception when assigning a protected attribute (instead of just a log message)
+
+
+== Usage
+
+When using this plugin, you must define attr_accessible in every model to allow mass assignment. You can use :all to mark all attributes as accessible.
+
+  class Comment < ActiveRecord::Base
+    attr_accessible :all
+  end
+
+However, only do this if you want all attributes accessible to the public. Many times you will want to limit what the general public can set.
+
+  class Comment < ActiveRecord::Base
+    attr_accessible :author_name, :email, :content
+  end
+
+Administrators should be able to bypass the protected attributes and set anything. This can be done with the "trust" method.
+
+  def create
+    params[:comment].trust if admin?
+    @comment = Comment.new(params[:comment])
+    # ...
+  end
+
+You can mark certain attributes as trusted for different roles
+
+  params[:comment].trust(:spam, :important) if moderator?
+
+Then only those attributes will be allowed to bypass mass assignment.

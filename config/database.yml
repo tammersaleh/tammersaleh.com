@@ -1,0 +1,16 @@
+
+development:
+  adapter: mysql
+  database: tammer_saleh_development
+  username: root
+  password: 
+  host: localhost
+  encoding: utf8
+  
+test:
+  adapter: mysql
+  database: tammer_saleh_test
+  username: root
+  password: 
+  host: localhost
+  encoding: utf8

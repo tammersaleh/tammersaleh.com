@@ -1,0 +1,10 @@
+- semantic_form_for @user_session, :url => user_session_path do |form|
+  - form.inputs :name => "Sign in!" do
+    = form.input :email
+    = form.input :password
+    = form.input :remember_me, :as => :boolean
+  - form.buttons do
+    = form.commit_button "Login"
+%h2
+  Or
+  = link_to "sign up for an account.", new_user_path

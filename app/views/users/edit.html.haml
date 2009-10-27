@@ -1,0 +1,11 @@
+- semantic_form_for @user, :html => {:multipart => true} do |form|
+  - form.inputs :name => "Credentials" do
+    = form.input :name
+    = form.input :email
+    = form.input :password
+    = form.input :password_confirmation
+  - form.inputs :name => "Profile photo" do
+    = form.input :photo, :type => "file" 
+    
+  - form.buttons do
+    = form.commit_button

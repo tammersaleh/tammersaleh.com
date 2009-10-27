@@ -1,0 +1,9 @@
+- semantic_form_for @user_activation do |form|
+
+  - form.semantic_fields_for @user_activation.user do |user_form|
+    = user_form.input :name
+    = user_form.input :password
+    = user_form.input :password_confirmation
+    
+  - form.buttons do
+    = form.commit_button "Sign up!"

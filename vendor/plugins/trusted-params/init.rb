@@ -1,0 +1,1 @@
+require 'trusted_params'

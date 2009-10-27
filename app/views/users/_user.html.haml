@@ -1,0 +1,6 @@
+%div[user]
+  .user_name
+    = h user.name
+  - if user == current_user
+    .edit_profile_link
+      = link_to "Edit profile", edit_user_path(user)
