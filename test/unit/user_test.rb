@@ -7,8 +7,6 @@ class UserTest < ActiveSupport::TestCase
   should_have_db_index :active
   should_have_db_index :perishable_token
 
-  should_have_attached_file :photo
-
   should "be authentic" do
     assert !User.ancestors.map(&:to_s).grep(/Authlogic/).empty?
   end
@@ -37,12 +35,6 @@ class UserTest < ActiveSupport::TestCase
     assert user.active?
     user.destroy
     assert !user.reload.active?
-  end
-
-  should "send a confirmation email when saving an inactive user" do
-    ActionMailer::Base.deliveries.clear
-    user = Factory(:inactive_user)
-    assert_sent_email { |e| e.to.first == user.email }
   end
 
   context "a new user" do
