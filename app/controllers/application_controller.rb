@@ -26,12 +26,17 @@ private
     @current_user = current_user_session && current_user_session.user
   end
 
+  def logged_in?
+    current_user
+  end
+  helper_method :logged_in?
+
   def require_user
-    deny_access unless current_user
+    deny_access unless logged_in?
   end
 
   def require_no_user
-    if current_user
+    if logged_in?
       deny_access :redirect_to => root_url,
                   :flash       => "You must be logged out to access this page."
     end
@@ -39,7 +44,7 @@ private
 
   def deny_access(opts = {})
     opts[:flash]       ||= "You must be logged in to access this page."
-    opts[:redirect_to] ||= new_user_session_url
+    opts[:redirect_to] ||= login_url
 
     store_location
     flash[:notice] = opts[:flash]

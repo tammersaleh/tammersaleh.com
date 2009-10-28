@@ -35,12 +35,17 @@ class UserSessionsControllerTest < ActionController::TestCase
       should_not_set_the_flash
     end
 
-    should_be_denied_on "delete :destroy"
+    should_deny_access_on("DELETE to /user_session") { delete :destroy }
   end
 
   as_a_logged_in_user do
-    should_be_denied_on "get :new"
-    should_be_denied_on "post :create, :user_session => {}"
+    should_deny_access_on("GET to /user_session/new", :flash => /logged out/, :redirect => "root_url") do
+      get :new 
+    end
+
+    should_deny_access_on("POST to /user_session", :flash => /logged out/, :redirect => "root_url") do
+      post :create 
+    end
 
     context "on DELETE to /user_session" do
       setup { delete :destroy }

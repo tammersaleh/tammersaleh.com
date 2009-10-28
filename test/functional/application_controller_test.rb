@@ -29,7 +29,7 @@ class ApplicationControllerTest < ActionController::TestCase
     context "getting a protected page" do
       setup { get :foo }
 
-      should_redirect_to("the login page") { new_user_session_url }
+      should_redirect_to("the login page") { login_url }
       should_set_the_flash_to /must be logged in/i
     end
 

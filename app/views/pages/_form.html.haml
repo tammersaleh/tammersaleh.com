@@ -1,0 +1,42 @@
+= error_messages_for :page
+
+- form_for(@page) do |f|
+
+  .title
+    %label{ :for => "page_title" }
+      Title
+    %br/
+    = f.text_field :title, :class => "title"
+
+  .published
+    = f.check_box :published
+    %label{ :for => "page_published" }
+      Published?
+    %br/
+
+  .navigation
+    = f.check_box :navigation
+    %label{ :for => "page_published" }
+      Navigation page?
+    %br/
+
+  .description
+    %label{ :for => "page_body" }
+      Short Description
+    %br/
+    ~ f.text_area :description, :rows => 5
+
+  .body
+    %label{ :for => "page_body" }
+      Body
+    %br/
+    ~ f.text_area :body, :rows => 20
+
+  .buttons
+    - if @page.new_record?
+      = f.submit "Create"
+    - else
+      = f.submit "Update"
+    or
+    = link_to 'Back', :back
+

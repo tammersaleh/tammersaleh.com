@@ -1,0 +1,12 @@
+- page_title @post
+= render :partial => @post
+
+#comments
+  - if @post.comments.any?
+    %h3
+      Comments
+    = render :partial => @post.comments
+  .comment_form
+    %h3
+      Leave a comment:
+    = render :partial => 'comments/form', :locals => { :comment => Comment.new(:post => @post) }

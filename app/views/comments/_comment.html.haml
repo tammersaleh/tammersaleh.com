@@ -1,0 +1,16 @@
+- div_for(comment, :class => my_comment_class(comment)) do
+  .submitter
+    .gravatar
+      %img{:src => comment.gravatar_url}
+    .name
+      = submitter_link(comment)
+    .when
+      said about
+      = time_ago_in_words(comment.created_at)
+      ago
+    -# = admin_links_for comment
+    .owner-tag
+      Posted by author
+  .body
+    ~ comment_format(comment.body)
+  .clear

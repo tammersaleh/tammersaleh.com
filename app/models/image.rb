@@ -1,4 +1,6 @@
 class Image < ActiveRecord::Base
+  attr_accessible :image_content_type, :image_file_name, :image, :description, :source_url
+
   has_attached_file :image, 
                     :url => "/system/images/:style/:basename.:extension", 
                     :path => ":rails_root/public/system/images/:style/:basename.:extension", 

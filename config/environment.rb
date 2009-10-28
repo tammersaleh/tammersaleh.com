@@ -16,6 +16,7 @@ Rails::Initializer.run do |config|
   config.gem 'thoughtbot-paperclip', :lib => 'paperclip', :source => 'http://gems.github.com', :version => '>= 2.3.1'
   config.gem 'josevalim-inherited_resources', :lib => 'inherited_resources', :source => 'http://gems.github.com', :version => '>= 0.8.5'
   config.gem 'justinfrench-formtastic', :lib => 'formtastic', :source => 'http://gems.github.com', :version => '>= 0.2.2'
+  config.gem 'chrislloyd-gravtastic', :lib => 'gravtastic', :source => 'http://gems.github.com', :version => '>= 2.0.0'
   config.gem 'authlogic', :version => '>= 2.1.1'
   config.gem 'RedCloth'
   # Settings in config/environments/* take precedence over those specified here.

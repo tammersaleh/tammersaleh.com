@@ -9,8 +9,8 @@ begin require 'redgreen'; rescue LoadError; end
 
 FakeWeb.allow_net_connect = false
 
-Mocha::Configuration.warn_when(:stubbing_non_existent_method)
-Mocha::Configuration.warn_when(:stubbing_non_public_method)
+# Mocha::Configuration.warn_when(:stubbing_non_existent_method)
+# Mocha::Configuration.warn_when(:stubbing_non_public_method)
 
 class ActiveSupport::TestCase
   self.use_transactional_fixtures = true
