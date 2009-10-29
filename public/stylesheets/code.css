@@ -1,0 +1,29 @@
+pre {
+  background: black;
+  color: white;
+  padding: 1em;
+  margin-bottom: 1em;
+  /* conflicts with the curvy corners thing */
+  overflow: auto; }
+  pre code {
+    color: white;
+    margin: 0;
+    padding: 0; }
+    pre code * {
+      border: none; }
+    pre code .symbol {
+      color: red; }
+    pre code .comment {
+      color: gray;
+      border: none !important; }
+    pre code .brackets {
+      color: #888888; }
+    pre code .constant {
+      color: yellow; }
+    pre code .string {
+      font-style: italic;
+      color: #55FF55; }
+    pre code .keywords {
+      color: #999999; }
+    pre code .instance_variable {
+      color: orange; }

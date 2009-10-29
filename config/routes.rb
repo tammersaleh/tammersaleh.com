@@ -11,5 +11,5 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :images
   map.resources :assets
 
-  map.root :controller => "pages", :action => "show", :id => "home"
+  map.root :controller => "posts", :action => "index"
 end

@@ -1,2 +1,4 @@
-= javascript_include_tag "jquery-1.3.2", "application", :cache => true
+= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"
+= javascript_include_tag "application.js", "code_highlighter/base.js", "code_highlighter/css.js", "code_highlighter/html.js", "code_highlighter/javascript.js", "code_highlighter/ruby.js", :cache => "all-cached"
+
 = yield :javascript

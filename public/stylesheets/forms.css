@@ -1,0 +1,20 @@
+form .buttons {
+  float: right;
+  padding-bottom: 1em; }
+form p .file {
+  width: 200px;
+  float: left; }
+form label {
+  display: block;
+  width: 100px;
+  float: left; }
+form textarea {
+  margin: 0.5em 0.5em 0.5em 0;
+  width: 98%;
+  height: 400px;
+  border: 3px solid #cccccc; }
+form input.text {
+  margin: 0.5em 0.5em 0.5em 0; }
+form .posts-edit input#post_title {
+  width: 98%;
+  border: 3px solid #cccccc; }

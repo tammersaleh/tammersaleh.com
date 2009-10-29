@@ -1,31 +1,28 @@
 !!!
-%html{ "xml:lang" => "en", :lang => "en", :xmlns => "http://www.w3.org/1999/xhtml" }
+%html
   %head
-    %meta{ :content => "text/html; charset=utf-8", "http-equiv" => "Content-type" }
-    %title
-      Tammer Saleh
-    = stylesheet_link_tag "blueprint/screen", :media => "screen, projection"
-    = stylesheet_link_tag "blueprint/print", :media => "print"
-    = stylesheet_link_tag "formtastic"
-    = stylesheet_link_tag "formtastic_changes"
-    = stylesheet_link_tag 'screen', :media => 'all', :cache => true
+    = render :partial => 'layouts/head'
   %body{ :class => body_class }
-    #header
-      %h1
-        Tammer Saleh
-      #session_links
-        - if current_user
-          .welcome
-            Hello,
-            = current_user
-          .logout
-            = link_to "Logout", user_session_url, :method => :delete
-        - else
-          .login
-            = link_to "Login", login_url
-    #content
-      = render :partial => 'layouts/flashes'
-      = yield
-    #footer
-      &copy; 2009 Tammer Saleh Consulting, Inc.
+    .container
+      #banner.column.span-24.last
+        %ul.navigation
+          - if logged_in?
+            %li
+              = link_to "Dash", dashboard_posts_path
+          - Page.navigation_pages.show_unpublished(logged_in?).ordered.each do |page|
+            %li
+              = link page
+        %h1
+          = link_to "Tammer Saleh", root_url
+      .column.span-6
+        = render :partial => 'layouts/sidebar'
+      #content.column.span-18.last
+        #flash
+          - flash.each do |key, value|
+            %div{ :id => "flash_#{key}", :class => key } 
+              = value
+        = yield
+      #footer.column.span-24.last
+        Copyright Tammer Saleh Consulting, Inc.
+        = Time.now.year
     = render :partial => 'layouts/javascript'

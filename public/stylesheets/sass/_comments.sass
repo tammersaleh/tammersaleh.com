@@ -1,0 +1,66 @@
+#comments
+  .by-owner
+    .owner-tag
+      :display block !important
+      :background-color = !banner_highlight_color
+      :margin-top 10px
+      :padding 5px
+      :color white
+  h3
+    :clear both
+    :color = !link_color
+    :border-bottom = 5px solid !primary_color
+    :padding 5px
+  .comment
+    :clear both
+    :border-bottom = 1px solid !secondary_color
+    &:first-child
+      :border-top none
+    .submitter
+      .owner-tag
+        :display none
+      :display block
+      :width 150px
+      :float left
+      :font-weight bold
+      :margin-right 10px
+      :padding 5px 5px 5px 0
+      :font-size 0.6em
+      .name
+        :font-size 1.8em
+    .body
+      :background = !primary_background_color
+      :padding 5px
+      :margin-left 165px
+      p
+        :text-align justify
+    .gravatar img
+      :border 1px solid grey
+      :background grey
+
+.comment_form
+  .help 
+    .text
+      :float left
+      :width 300px
+      :margin-right 50px
+    pre#example
+      :border = 1px solid !secondary_color
+      :color = !primary_color
+      :background = !secondary_color
+      :padding 5px
+      :width 330px
+      :margin 0
+
+  #new_comment
+    :clear both
+    #meta_fields
+      :float left
+      span
+        :display block
+    #comment_body
+      :width 450px
+      :height 90px
+    input.text
+      :width 215px
+      :display inline

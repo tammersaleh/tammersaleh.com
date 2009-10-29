@@ -1,73 +1,57 @@
-function toggle_contents(node, content_class) {
-  var contents = node.find(content_class);
-  if (contents.is(":visible")) {
-    node.addClass("closed");
-    node.removeClass("opened");
-    contents.slideUp();
-  } else {
-    node.removeClass("closed");
-    node.addClass("opened");
-    contents.slideDown();
-  }
-};
+$(document).ready( 
+  function () { 
+    // comment placeholder texts
+    placeholder("#comment_submitter_name",  "Name");
+    placeholder("#comment_submitter_email", "email@address");
+    placeholder("#comment_submitter_url",   "http://my.url");
+    placeholder("#comment_body",            "Have your say.");
 
-function hide_or_show_notes_by_company(checkbox_node) {
-  var checkbox = $(checkbox_node);
-  var company_name = $.trim(checkbox.val());
-  $(".note").each(function() {
-    if ($.trim($(this).children(".company_name").text()) == company_name) { 
-      if (checkbox.is(":checked")) {
-        $(this).fadeIn("normal", function() {$(this).show()}); 
-      } else {
-        $(this).fadeOut("normal", function() {$(this).hide()}); 
-      };
-    };
-  });
-};
+    placeholder("#image_description", "Description");
+    placeholder("#image_source_url",  "http://...");
 
-function open_external_links_in_new_window() {
-  $(".external").attr("target", "_blank");
+    toggle("#comment_help_toggle_link",     ".help");
+    toggle("#extended_toggle_link",     ".extended");
+  } 
+);
+
+function toggle(link, target) {
+  $(link).click(
+    function (e) {
+      $(target).slideToggle();
+      return false;
+    }
+  )
 }
 
-$(document).ready(function() {
-  $('#participating_company_filters input').change(function() { 
-    hide_or_show_notes_by_company(this);
-  });
+function placeholder(sel, txt) {
+  $(sel).each(
+    function (i) {
+      if (! $(this).val()) { $(this).val(txt); }
 
-  $('.pages-show .notes .note').each(function() { 
-    var note = $(this);
-    $(note).find('.contents').hide();
-    $(note).find('.note_type').hide();
-    note.find('.title').click(function(event) { 
-      toggle_contents(note, ".contents"); 
-      toggle_contents(note, ".note_type")
-      event.preventDefault();
-    });
-    note.find('.note_type').click(function(event) { 
-      toggle_contents(note, ".contents"); 
-      toggle_contents(note, ".note_type")
-      event.preventDefault();
-    });
-  });
-  
-  $('.pages-show #filter_notes').each(function() { 
-    var filter = $(this);
-    $(filter).find('.companies').hide();
-    filter.find('.title').click(function(event) { 
-      toggle_contents(filter, ".companies"); 
-      event.preventDefault();
-    });
-  });
+      $(this).blur(
+        function () {
+          if ($(this).val() == '') { $(this).val(txt); }
+        }
+      )
+      $(this).focus(
+        function () {
+          if ($(this).val() == txt) { $(this).val(''); }
+        }
+      )
+    }
+  );
 
-  $('.user').each(function() { 
-    var owner = $(this);
-    owner.find('.name').click(function(event) { 
-      toggle_contents(owner, ".owner_contents"); 
-      event.preventDefault();
-    });
-    $(owner).find('.owner_contents').hide();
-  });
+  $('form').filter(':has('+ sel +')').submit(
+    function () {
+      $(sel).each(
+        function (i) {
+          if ($(this).val() == txt) {
+            $(this).val('');
+          }
+        }
+      )
+    }
+  )
+}
 
-  open_external_links_in_new_window();
-});
 

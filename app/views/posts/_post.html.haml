@@ -6,10 +6,12 @@
       .publication_date
         written about
         = time_ago_in_words(post.published_at)
-        ago |
+        ago 
+        |
     - else
       .unpublished
-        unpublished |
+        unpublished 
+        |
     .comment_count
       = pluralize post.comments_count, "comment"
     = admin_links_for post
