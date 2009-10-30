@@ -4,7 +4,7 @@ class Mailer < ActionMailer::Base
   def new_comment(comment)
     subject    "[Blog] comment on \"#{comment.post}\""
     recipients 'Tammer Saleh <tsaleh+comments@gmail.com>'
-    from       'Notifier <notifier@tammersaleh.com>'
+    from       'notifier@tammersaleh.com'
     body       :comment => comment
   end
 end

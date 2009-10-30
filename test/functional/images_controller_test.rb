@@ -27,7 +27,9 @@ class ImagesControllerTest < ActionController::TestCase
     end
 
     context "on POST to /images with good values" do
-      setup { post :create, :image => {:image_file_name => "file1", :image_content_type => "text/plain"} }
+      setup do
+        post :create, :image => {:image_file_name => "image.jpg", :image_content_type => "text/plain"} 
+      end
       should_set_the_flash_to %r{created}i
       should "send the user to the index, with the image shown" do
         assert_redirected_to images_url(:anchor => "image_#{assigns(:image).id}")

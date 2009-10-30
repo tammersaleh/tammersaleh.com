@@ -62,56 +62,32 @@ module Paperclip
       end
     end
 
-    # Stubs the HTTP PUT for an attachment using S3 storage.
-    #
-    # @example
-    #   stub_paperclip_s3('user', 'avatar', 'png')
-    def stub_paperclip_s3(model, attachment, extension)
-      definition = model.gsub(" ", "_").classify.constantize.
-                         attachment_definitions[attachment.to_sym]
+    def stub_all_s3_for_paperclip_model(klass)
+      attachment_definitions = klass.read_inheritable_attribute(:attachment_definitions)
+      attachment_definitions.each do |attachment_name, definition|
+        next unless definition[:storage].to_s == "s3"
 
-      path = "http://s3.amazonaws.com/:id/#{definition[:path]}"
-      path.gsub!(/:([^\/\.]+)/) do |match|
-        "([^\/\.]+)"
+        path = "http://s3.amazonaws.com/#{definition[:bucket]}/#{definition[:path]}"
+
+        regexp = Regexp.escape(path)
+        regexp.gsub!(/:attachment/,   attachment_name.to_s.underscore.pluralize)
+        regexp.gsub!(/:class/,        klass.name.tableize)
+
+        if definition[:styles]
+          styles = definition[:styles].keys.map(&:to_s) + ["original"]
+          regexp.gsub!(/:style/, "(#{styles.join('|')})")
+        end
+        regexp.gsub!(/:id/,           '\d+')
+        regexp.gsub!(/:id_partition/, '\d+\/\d+\/\d+')
+        regexp.gsub!(/:rails_env/,    Rails.env)
+        regexp.gsub!(/:rails_root/,   Rails.root)
+        regexp.gsub!(/:[^\/]+/,      '[^\/]+')
+        FakeWeb.register_uri(:any, Regexp.new(regexp), :body => "OK")
       end
-
-      begin
-        FakeWeb.register_uri(:put, Regexp.new(path), :body => "OK")
-      rescue NameError
-        raise NameError, "the stub_paperclip_s3 shoulda macro requires the fakeweb gem."
-      end
-    end
-
-    # Stub S3 and return a file for attachment. Best with Factory Girl.
-    # Uses a strict directory convention:
-    #
-    #     features/support/paperclip
-    #
-    # This method is used by the Paperclip-provided Cucumber step:
-    #
-    #     When I attach a "demo_tape" "mp3" file to a "band" on S3
-    #
-    # @example
-    #   Factory.define :band_with_demo_tape, :parent => :band do |band|
-    #     band.demo_tape { band.paperclip_fixture("band", "demo_tape", "png") }
-    #   end
-    def paperclip_fixture(model, attachment, extension)
-      stub_paperclip_s3(model, attachment, extension)
-      base_path = File.join(File.dirname(__FILE__), "..", "..",
-                            "features", "support", "paperclip")
-      File.new(File.join(base_path, model, "#{attachment}.#{extension}"))
     end
   end
 end
 
-class ActionController::Integration::Session  #:nodoc:
-  include Paperclip::Shoulda
-end
-
-class Factory
-  include Paperclip::Shoulda  #:nodoc:
-end
-
 class Test::Unit::TestCase #:nodoc:
- extend  Paperclip::Shoulda
+  extend Paperclip::Shoulda
 end

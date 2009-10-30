@@ -70,14 +70,13 @@ class HelpersTest < ActionView::TestCase
   context "when an image named foo exists" do
     setup do
       image = Factory(:image, 
-                      :image       => File.new(File.join(Rails.root, "test", "fixtures", "file.jpg")),
                       :description => "blah",
                       :source_url  => "http://source.com")
       assert_equal "file.jpg", image.reload.image_file_name
     end
 
     post_format('%>file.jpg%') do
-      should_contain %r{src=".*/system/images/original/file.jpg"}
+      should_contain %r{src=".*original.*"}
       should_contain %r{alt="blah"}
       should_contain %r{href="http://source.com"}
       should_contain %r{class=".*\bfloat-right\b.*"}
@@ -96,7 +95,6 @@ class HelpersTest < ActionView::TestCase
   context "when an image exists without a source url" do
     setup do
       image = Factory(:image, 
-                      :image       => File.new(File.join(Rails.root, "test", "fixtures", "file.jpg")),
                       :description => "blah")
       assert_equal "file.jpg", image.reload.image_file_name
     end
@@ -106,7 +104,7 @@ class HelpersTest < ActionView::TestCase
     end
 
     post_format('%file.jpg medium%') do
-      should_contain %r{src=".*/system/images/medium/file.jpg"}
+      should_contain %r{src=".*medium.*"}
     end
   end
 end

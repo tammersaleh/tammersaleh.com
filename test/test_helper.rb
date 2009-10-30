@@ -15,6 +15,9 @@ FakeWeb.allow_net_connect = false
 class ActiveSupport::TestCase
   self.use_transactional_fixtures = true
   self.use_instantiated_fixtures  = false
+
+  stub_all_s3_for_paperclip_model(Image)
+  stub_all_s3_for_paperclip_model(Asset)
 end
 
 class ActionView::TestCase
