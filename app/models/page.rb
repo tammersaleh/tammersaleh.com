@@ -1,7 +1,7 @@
 class Page < ActiveRecord::Base
   include Slugalicious
 
-  attr_accessible :title, :body, :published
+  attr_accessible :title, :body, :published, :description, :navigation
 
   validates_presence_of :title, :body
 

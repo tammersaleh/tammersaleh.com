@@ -106,7 +106,7 @@ module ApplicationHelper
   end
 
   def page_format(txt)
-    RedCloth.new(txt || "").to_html
+    RedCloth.new(image_filter(code_filter(txt || ""))).to_html
   end
 
   def post_format(txt)
