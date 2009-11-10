@@ -1,7 +1,7 @@
 class Post < ActiveRecord::Base
   include Slugalicious
 
-  attr_accessible :published_at, :published, :title, :body
+  attr_accessible :published_at, :published, :title, :body, :extended
 
   has_many :comments, :dependent => :destroy, :order => "created_at"
 

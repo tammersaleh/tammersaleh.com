@@ -88,7 +88,7 @@ class PostsControllerTest < ActionController::TestCase
     end
 
     context "on POST to /posts with good values" do
-      setup { post :create, :post => {:title => "Post Title", :body => "Post Body"}}
+      setup { post :create, :post => {:title => "Post Title", :body => "Post Body", :extended => ""}}
       should_set_the_flash_to %r{created}i
       should_redirect_to("edit page for post") { edit_post_url(assigns(:post)) }
       should_create :post
