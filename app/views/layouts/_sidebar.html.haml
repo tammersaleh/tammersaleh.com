@@ -50,12 +50,12 @@
       %img{ :src => "http://feeds.feedburner.com/~fc/TammerSaleh?bg=000000&fg=FFFFFF&anim=0&label=readers", :height => 26, :width => 88, :style => "border:0", :alt => "" }
   - else
     - form_tag user_session_path do
-      = text_field_tag 'email'
-      = password_field_tag 'password'
+      = text_field_tag 'user_session[email]'
+      = password_field_tag 'user_session[password]'
       .clear
-        %label{ :for => "remember_me", :style => "float: right" }
+        %label{ :for => "user_session_remember_me" }
           remember me
-        = check_box_tag 'remember_me', '1', true
+        = check_box_tag 'use_session[remember_me]', '1', true
       %p.buttons
-        = submit_tag 'Log in', :style => "float: right"
+        = submit_tag 'Log in'
      
