@@ -45,7 +45,7 @@
       %li= link_to pluralize(Image.count, 'image'), images_url
       %li= link_to pluralize(Asset.count, 'asset'), assets_url
       %li= link_to "Google Analytics", "https://www.google.com/analytics/reporting/dashboard?id=5669006&scid=338217"
-      %li= link_to "Logout", login_url, {:method => :delete }
+      %li= link_to "Logout", logout_url, {:method => :delete }
     %a{ :href => "http://feeds.feedburner.com/TammerSaleh" }
       %img{ :src => "http://feeds.feedburner.com/~fc/TammerSaleh?bg=000000&fg=FFFFFF&anim=0&label=readers", :height => 26, :width => 88, :style => "border:0", :alt => "" }
   - else
