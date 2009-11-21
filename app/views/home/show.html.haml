@@ -1,0 +1,26 @@
+#goggles.column.span-24.last
+  %h2 Agile Rails Consulting
+
+  %p
+    I build teams and applications.
+    = link_to "Hire me.", "#"
+
+  %p
+    People 
+    = link_to "like what I do,", page_url("about")
+    and sometimes 
+    = link_to "ask me to speak.", page_url("speaking")
+    Soon, you'll be able to 
+    = link_to "ready my book.", "http://my.safaribooksonline.com/9780321620293"
+
+#recent-posts.column.span-24.last
+  %h3.column.span-18
+    = link_to "I also write about things...", posts_url
+  %h3.more.column.span-6.last
+    = link_to "...read more", posts_url
+  - @posts.each do |post|
+    - klass = (post == @posts.last) ? "recent-post column span-6 last" : "recent-post column span-6"
+
+    - link_to post, :class => klass do
+      %h2.title 
+        = post

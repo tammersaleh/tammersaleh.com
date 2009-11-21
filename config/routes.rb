@@ -2,7 +2,8 @@ ActionController::Routing::Routes.draw do |map|
   map.login  "/login",  :controller => :user_sessions, :action => :new
   map.logout "/logout", :controller => :user_sessions, :action => :destroy
 
-  map.resource  :user_session
+  map.resource :user_session
+  map.resource :home, :controller => "home"
 
   map.resources :posts, :collection => {:dashboard => :get} do |post|
     post.resources :comments
@@ -11,5 +12,5 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :images
   map.resources :assets
 
-  map.root :controller => "posts", :action => "index"
+  map.root :controller => "home", :action => "show"
 end

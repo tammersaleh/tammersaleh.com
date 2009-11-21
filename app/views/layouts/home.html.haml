@@ -1,0 +1,27 @@
+!!!
+%html
+  %head
+    = render :partial => 'layouts/head'
+  %body{ :class => body_class }
+    .container
+      #banner.column.span-24.last
+        %ul.navigation
+          - if logged_in?
+            %li
+              = link_to "Dash", dashboard_posts_path
+          - Page.navigation_pages.show_unpublished(logged_in?).ordered.each do |page|
+            %li
+              = link page
+        %h1
+          = link_to "Tammer Saleh", root_url
+      
+      #content.column.span-24.last
+        #flash
+          - flash.each do |key, value|
+            %div{ :id => "flash_#{key}", :class => key } 
+              = value
+        = yield
+      #footer.column.span-24.last
+        Copyright Tammer Saleh Consulting, Inc.
+        = Time.now.year
+    = render :partial => 'layouts/javascript'
