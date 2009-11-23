@@ -6,9 +6,6 @@
     .container
       #banner.column.span-24.last
         %ul.navigation
-          - if logged_in?
-            %li
-              = link_to "Dash", dashboard_posts_path
           - Page.navigation_pages.show_unpublished(logged_in?).ordered.each do |page|
             %li
               = link page

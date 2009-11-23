@@ -114,24 +114,29 @@ p.footnote {
     border-bottom: 1px solid; }
   .home #goggles a:hover {
     color: yellow; }
-.home #recent-posts h3 {
-  padding-top: 20px; }
-  .home #recent-posts h3 a:hover {
-    background: yellow; }
-  .home #recent-posts h3 a {
-    color: inherit; }
-.home #recent-posts .more {
-  text-align: right; }
-.home #recent-posts a.recent-post {
-  color: white; }
-  .home #recent-posts a.recent-post .title {
-    color: inherit;
-    background-color: black;
-    font-size: 1em;
-    height: 100px;
-    padding: 5px 15px; }
-.home #recent-posts a.recent-post:hover {
-  color: yellow; }
+.home #recent-posts, .home #recent-accolades {
+  padding-bottom: 15px; }
+  .home #recent-posts h3, .home #recent-accolades h3 {
+    padding-top: 20px; }
+    .home #recent-posts h3 a:hover, .home #recent-accolades h3 a:hover {
+      background: yellow; }
+    .home #recent-posts h3 a, .home #recent-accolades h3 a {
+      color: inherit; }
+  .home #recent-posts .more, .home #recent-accolades .more {
+    text-align: right; }
+  .home #recent-posts a.recent-post, .home #recent-posts a.recent-accolade, .home #recent-accolades a.recent-post, .home #recent-accolades a.recent-accolade {
+    color: white;
+    background-color: black; }
+    .home #recent-posts a.recent-post .title, .home #recent-posts a.recent-accolade .title, .home #recent-accolades a.recent-post .title, .home #recent-accolades a.recent-accolade .title {
+      color: inherit;
+      font-size: 1em;
+      height: 70px;
+      padding: 5px 15px; }
+    .home #recent-posts a.recent-post .date, .home #recent-posts a.recent-accolade .date, .home #recent-accolades a.recent-post .date, .home #recent-accolades a.recent-accolade .date {
+      margin: 5px;
+      text-align: right; }
+  .home #recent-posts a.recent-post:hover, .home #recent-posts a.recent-accolade:hover, .home #recent-accolades a.recent-post:hover, .home #recent-accolades a.recent-accolade:hover {
+    color: yellow; }
 
 div.posts h3 {
   clear: both;

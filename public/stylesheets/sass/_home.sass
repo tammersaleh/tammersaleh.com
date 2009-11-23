@@ -18,7 +18,8 @@
     a:hover
       color: yellow
       
-  #recent-posts
+  #recent-posts, #recent-accolades
+    padding-bottom: 15px
     h3 
       padding-top: 20px
       a:hover
@@ -27,13 +28,16 @@
         color: inherit
     .more
       text-align: right
-    a.recent-post
+    a.recent-post, a.recent-accolade
       color: white
+      background-color: black
       .title
         color: inherit
-        background-color: black
         font-size: 1em
-        height: 100px
+        height: 70px
         padding: 5px 15px
-    a.recent-post:hover
+      .date
+        margin: 5px
+        text-align: right
+    a.recent-post:hover, a.recent-accolade:hover
       color: yellow
