@@ -26,6 +26,9 @@
         %h2.title 
           = post
         .date 
-          = post.published_at.to_s(:short_date)
+          - if post.published?
+            = post.published_at.to_s(:short_date)
+          - else
+            Unpublished
 
 
