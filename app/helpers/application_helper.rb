@@ -62,26 +62,38 @@ module ApplicationHelper
     txt.gsub(/%([<>]?)([0-9a-zA-Z_.-]+)([^%]*)%/) do
       float    = $1
       image_id = $2
-      size     = $3.blank? ? :original : $3.strip.to_sym
+      size     = $3
 
-      if image = Image.find_by_image_file_name(image_id)
-        image_options = { :src => image.image.url(size), :alt => image.description }
-        image_options[:class] = "clear"
-        image_options[:class] << " float-right" if float == '>'
-        image_options[:class] << " float-left"  if float == '<'
+      float = :right if float == '>'
+      float = :left  if float == '<'
 
-        url_options = { :href => image.source_url }
+      uploaded_image_tag(image_id, :size => size, :float => float)
+    end
+  end
 
-        if image.source_url?
-          content_tag :a, url_options do
-            content_tag :img, "", image_options
-          end
-        else
-          content_tag :img, "", image_options
-        end
-      else
-        "<p><strong>Could not find image named #{$2}</strong></p>"
-      end
+  def uploaded_image_tag(image_name, opts = {})
+    opts.symbolize_keys
+
+    opts[:size] = "original" if opts[:size].blank?
+    opts[:size].strip!
+
+    image = Image.find_by_image_file_name(image_name)
+
+    return "<p><strong>Could not find image named #{image_name}</strong></p>" unless image
+
+    image_options = { :src   => image.image.url(opts[:size]), 
+                      :alt   => image.description,  
+                      :class => "clear" }
+    image_options[:class] << " float-right" if opts[:float] == :right
+    image_options[:class] << " float-left"  if opts[:float] == :left
+
+    url_options = { :href => image.source_url }
+
+    img_tag = content_tag :img, "", image_options
+    if image.source_url?
+      return content_tag(:a, url_options) { img_tag }
+    else
+      return img_tag
     end
   end
 
