@@ -12,7 +12,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :posts, :collection => {:dashboard => :get} do |post|
     post.resources :comments
   end
-  map.resources :pages
+  map.resources :pages, :only => :show
   map.resources :images
   map.resources :assets
 

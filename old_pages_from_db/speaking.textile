@@ -1,0 +1,44 @@
+h1. Speaking
+
+h2(#mwrc). Mountain West Ruby Conference
+
+I described Shoulda and what it means to develop software using BDD at MWRC 2008.
+
+%mwrc_bdd_with_shoulda_thumbnail.jpg%
+
+Slides are available "here":/system/assets/bdd_with_shoulda.pdf, and you can see the presentation in different forms at the "confreaks page":http://mtnwestrubyconf2008.confreaks.com/12saleh.html.
+
+h2(#rubyconf2008). RubyConf
+
+Coding for Failure: All you need to know for building rock solid applications (in 45 minutes).
+
+%coding_for_failure.jpg large%
+
+Slides are available "here":/system/assets/coding_for_failure.pdf, and you can see the presentation in different forms at the "confreaks page":http://rubyconf2008.confreaks.com/coding-for-failure.html.
+
+h2(#railsconf2007). RailsConf
+
+I explain how to build and support a custom daemon process in _Angels and Daemons_ at RailsConf 2007. 
+
+Listed as one of "3 fresh presentations that year":http://www.rubyinside.com/3-fresh-presentations-from-railsconf-2007-502.html by "Peter Cooper":http://www.rubyinside.com.
+
+bq. "This was a great talk with real code. We need more code." - "Justin Ball":http://www.justinball.com/2007/05/19/taking-care-of-rails-support-tasks-through-custom-daemons-tammer-saleh/
+
+%a_and_d_slide1.jpg large%
+
+h2(#vtm). Voices that Matter
+
+"Chad Pytel":http://thoughtbot.com/about/people#cpytel and I discuss some examples of bad practices we've seen in the wild and walk through a couple of refactoring examples in _Rails Antipatterns_ during the "2008 Voices that Matter":http://www.voicesthatmatter.com/Ruby2008/ conference  (aka: Obieconf). 
+
+%vtm_rails_antipatterns_thumbnail.jpg large%
+
+I was also part of the panel discussion on Testing for that conference.
+
+%vtm_ruby_2008_testing_panel.jpg large%
+
+h2(#hoptoad). Pivotal Labs Tech Talk
+
+I discussed Thoughtbot's "Hoptoad":http://hoptoadapp.com application, including a short introduction, some internal details, and future directions during a Pivotal Labs Tech Talk.  You can find the talk in other formats on the Pivotal Labs "Tech Talk page":http://pivotallabs.com/talks/41.
+
+%pivotal_hoptaod_thumbnail.jpg large%
+
