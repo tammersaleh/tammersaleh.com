@@ -42,7 +42,6 @@
         Admin
       %li= link_to "Dashboard", dashboard_posts_path
       %li= link_to pluralize(Post.show_unpublished(true).count, 'post'),  posts_url
-      %li= link_to pluralize(Page.show_unpublished(true).count, 'page'),  pages_url
       %li= link_to pluralize(Image.count, 'image'), images_url
       %li= link_to pluralize(Asset.count, 'asset'), assets_url
       %li= link_to "Google Analytics", "https://www.google.com/analytics/reporting/dashboard?id=5669006&scid=338217"
