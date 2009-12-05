@@ -3,13 +3,13 @@
 
   %p
     I build products and teams.  You should
-    = link_to("hire me", page_url("hire")) + "."
+    = link_to("hire me", hire_url) + "."
 
   %p
     People 
-    = link_to("like what I do", page_url("about")) + ","
+    = link_to("like what I do", about_url) + ","
     and sometimes 
-    = link_to("ask me to speak", page_url("speaking")) + "."
+    = link_to("ask me to speak", speaking_url) + "."
     Soon, you'll be able to 
     = link_to("ready my book", "http://my.safaribooksonline.com/9780321620293") + "."
 
@@ -18,13 +18,14 @@
     = link_to "I also write, when I find the time...", posts_url
   %h3.more.column.span-6.last
     = link_to "...read more", posts_url
-  - @posts.each do |post|
-    - klass = (post == @posts.last) ? "recent-post column span-6 last" : "recent-post column span-6"
+  - @posts.in_groups_of(4) do |group|
+    - group.each do |post|
+      - klass = (post == group.last) ? "recent-post column span-6 last" : "recent-post column span-6"
 
-    - link_to post, :class => klass do
-      %h2.title 
-        = post
-      .date 
-        = post.published_at.to_s(:short_date)
+      - link_to post, :class => klass do
+        %h2.title 
+          = post
+        .date 
+          = post.published_at.to_s(:short_date)
 
 

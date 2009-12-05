@@ -4,13 +4,8 @@
     = render :partial => 'layouts/head'
   %body{ :class => body_class }
     .container
-      #banner.column.span-24.last
-        %ul.navigation
-          - Page.navigation_pages.show_unpublished(logged_in?).ordered.each do |page|
-            %li
-              = link page
-        %h1
-          = link_to "Tammer Saleh", root_url
+      = render :partial => 'layouts/banner'
+
       
       #content.column.span-24.last
         #flash

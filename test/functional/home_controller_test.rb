@@ -6,14 +6,8 @@ class HomeControllerTest < ActionController::TestCase
       setup { get :show }
 
       should_render_template :show
-      should_assign_to :pages
       should_assign_to :posts
       should_render_with_layout :home
-
-      before_should "see the pages in order" do
-        ordered = Page.ordered
-        Page.expects(:ordered).at_least_once.returns(ordered)
-      end
 
       before_should "see the posts in order" do
         ordered = Post.ordered

@@ -117,7 +117,7 @@ p.footnote {
 .home #recent-posts, .home #recent-accolades {
   padding-bottom: 15px; }
   .home #recent-posts h3, .home #recent-accolades h3 {
-    padding-top: 20px; }
+    padding-top: 50px; }
     .home #recent-posts h3 a:hover, .home #recent-accolades h3 a:hover {
       background: yellow; }
     .home #recent-posts h3 a, .home #recent-accolades h3 a {
@@ -125,11 +125,12 @@ p.footnote {
   .home #recent-posts .more, .home #recent-accolades .more {
     text-align: right; }
   .home #recent-posts a.recent-post, .home #recent-posts a.recent-accolade, .home #recent-accolades a.recent-post, .home #recent-accolades a.recent-accolade {
+    margin-bottom: 15px;
     color: white;
     background-color: black; }
     .home #recent-posts a.recent-post .title, .home #recent-posts a.recent-accolade .title, .home #recent-accolades a.recent-post .title, .home #recent-accolades a.recent-accolade .title {
       color: inherit;
-      font-size: 1em;
+      font-size: 1.2em;
       height: 70px;
       padding: 5px 15px; }
     .home #recent-posts a.recent-post .date, .home #recent-posts a.recent-accolade .date, .home #recent-accolades a.recent-post .date, .home #recent-accolades a.recent-accolade .date {
@@ -137,6 +138,8 @@ p.footnote {
       text-align: right; }
   .home #recent-posts a.recent-post:hover, .home #recent-posts a.recent-accolade:hover, .home #recent-accolades a.recent-post:hover, .home #recent-accolades a.recent-accolade:hover {
     color: yellow; }
+    .home #recent-posts a.recent-post:hover .date, .home #recent-posts a.recent-accolade:hover .date, .home #recent-accolades a.recent-post:hover .date, .home #recent-accolades a.recent-accolade:hover .date {
+      color: #888888; }
 
 div.posts h3 {
   clear: both;
@@ -232,7 +235,7 @@ div.pages .body {
 
 #comments .by-owner .owner-tag {
   display: block !important;
-  background-color: #0072b9;
+  background-color: yellow;
   margin-top: 10px;
   padding: 5px;
   color: white; }
@@ -347,7 +350,7 @@ pre {
   #banner a {
     color: white; }
     #banner a:hover {
-      color: #0072b9; }
+      color: yellow; }
   #banner h1 {
     font-variant: small-caps;
     letter-spacing: 0.4em;
@@ -357,7 +360,7 @@ pre {
   #banner .motto {
     float: right;
     padding: 40px 40px 4px 10px;
-    color: #0072b9; }
+    color: yellow; }
   #banner .navigation {
     margin: 0;
     padding: 0;
@@ -373,8 +376,7 @@ pre {
         padding: 40px 40px 4px 10px;
         font-weight: bold; }
         #banner .navigation li a:hover {
-          background-color: #0072b9;
-          color: white; }
+          color: yellow; }
 
 #sidebar {
   text-align: right;

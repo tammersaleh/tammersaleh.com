@@ -3,10 +3,6 @@ require File.dirname(__FILE__) + '/../test_helper'
 class PageTest < ActiveSupport::TestCase
   should_have_db_columns :title, :body, :published, :slug, :description
 
-  # should_have_named_scope :ordered, :order => "title"
-  # should_have_named_scope "show_unpublished(true)", {}
-  # should_have_named_scope "show_unpublished(nil)", :conditions => {:published => true}
-    
   context "A page" do
     setup { @page = Factory(:page) }
     subject { @page }
@@ -27,18 +23,12 @@ class PageTest < ActiveSupport::TestCase
     should "default to unpublished" do
       assert !@page.published?
     end
-    
-    should "default to not a navigation page" do
-      assert !@page.navigation?
-    end
   end
 
   context "given some published and unpublished pages" do
     setup do
       Factory(:page, :published => true )
       Factory(:page, :published => false)
-      Factory(:page, :published => true, :navigation => true)
-      Factory(:page, :published => false, :navigation => true)
     end
     
     context "show_unpublished(false)" do
@@ -54,14 +44,6 @@ class PageTest < ActiveSupport::TestCase
       
       should "return all pages" do
         assert_equal Page.count, @pages.count
-      end
-    end
-
-    context "navigation_pages" do
-      setup { @pages = Page.navigation_pages }
-      
-      should "return all navigation pages" do
-        assert @pages.reject(&:navigation?).empty?
       end
     end
   end
