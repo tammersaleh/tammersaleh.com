@@ -43,3 +43,10 @@ Factory.define :asset do |f|
   f.asset File.new(File.join(Rails.root, "test", "fixtures", "file.jpg")) 
 end
 
+Factory.define :recommendation do |f|
+  f.quote     "Tammer's a pretty cool kid." 
+  f.who       "Some dude"                   
+  f.where     "Another site"                
+  f.where_url "http://anothersite.com"      
+end
+
