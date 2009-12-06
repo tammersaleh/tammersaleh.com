@@ -52,7 +52,7 @@ class CommentsControllerTest < ActionController::TestCase
       context "on DELETE to /post/:id/comments/:id" do
         setup { delete :destroy, :post_id => @comment.post.to_param, :id => @comment.to_param}
         should_change("the nubmer of comments for that post", :by => -1) { @comment.post.comments(true).count }
-        should_set_the_flash_to /removed/i
+        should_set_the_flash_to /destroyed/i
         should_redirect_to("dashboard_posts_url") { dashboard_posts_url }
       end
     end

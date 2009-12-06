@@ -1,9 +1,11 @@
-class CommentsController < ApplicationController
-  before_filter :grab_post
+class CommentsController < InheritedResources::Base
+  belongs_to :post
   skip_before_filter :require_user, :only => [:create]
 
+  actions :create, :destroy
+
   def create
-    @comment = @post.comments.new(params[:comment])
+    @comment = build_resource
 
     if verify_recaptcha(@comment) and @comment.save
       flash[:notice] = "Thanks for commenting, #{@comment.submitter_name}."
@@ -14,15 +16,8 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @comment = @post.comments.find(params[:id])
-    @comment.destroy
-    flash[:notice] = "Comment #{@comment} has been removed."
-    redirect_to(dashboard_posts_url)
-  end
-
-  private
-
-  def grab_post
-    @post = Post.find(params[:post_id])
+    destroy! do |format|
+      format.html { redirect_to(dashboard_posts_url) }
+    end
   end
 end
