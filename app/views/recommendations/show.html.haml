@@ -1,0 +1,37 @@
+[@recommendation]
+
+%h2
+  = @recommendation
+
+.quote
+  Quote:
+  = h @recommendation.quote
+
+.who
+  Who:
+  = h @recommendation.who
+
+.where
+  Where:
+  = h @recommendation.where
+
+.where_url
+  Where url:
+  = h @recommendation.where_url
+
+.position
+  Position:
+  = h @recommendation.position
+
+.company
+  Company:
+  = h @recommendation.company
+
+.company_url
+  Company url:
+  = h @recommendation.company_url
+
+
+= link_to 'Edit', edit_recommendation_path(@recommendation) 
+|
+= link_to 'Back', recommendations_path 
