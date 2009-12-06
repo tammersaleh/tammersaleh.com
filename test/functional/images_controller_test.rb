@@ -36,16 +36,6 @@ class ImagesControllerTest < ActionController::TestCase
       end
     end
 
-    context "on POST to /images with bad values" do
-      setup do
-        Image.any_instance.stubs(:valid?).returns(false)
-        post :create, :image => {} 
-      end
-
-      should_not_set_the_flash
-      should_render_template :new
-    end
-
     context "given an image" do
       setup { @image = Factory(:image) }
 
@@ -69,20 +59,10 @@ class ImagesControllerTest < ActionController::TestCase
         end
       end
 
-      context "on PUT to /images/:id with bad values" do
-        setup do
-          Image.any_instance.stubs(:valid?).returns(false)
-          put :update, :id => @image.to_param, :image => {} 
-        end
-
-        should_not_set_the_flash
-        should_render_template :edit
-      end
-
       context "on DELETE to /images/:id" do
         setup { delete :destroy, :id => @image.to_param }
         should_redirect_to("images_url") { images_url }
-        should_set_the_flash_to %r{removed}i
+        should_set_the_flash_to %r{destroyed}i
       end
     end
   end
