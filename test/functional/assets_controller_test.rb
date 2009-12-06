@@ -32,16 +32,6 @@ class AssetsControllerTest < ActionController::TestCase
       end
     end
 
-    context "on POST to /assets with bad values" do
-      setup do
-        Asset.any_instance.stubs(:valid?).returns(false)
-        post :create, :asset => {} 
-      end
-
-      should_not_set_the_flash
-      should_render_template :new
-    end
-
     context "given an asset" do
       setup { @asset = Factory(:asset) }
 
@@ -65,20 +55,10 @@ class AssetsControllerTest < ActionController::TestCase
         end
       end
 
-      context "on PUT to /assets/:id with bad values" do
-        setup do
-          Asset.any_instance.stubs(:valid?).returns(false)
-          put :update, :id => @asset.to_param, :asset => {} 
-        end
-
-        should_not_set_the_flash
-        should_render_template :edit
-      end
-
       context "on DELETE to /assets/:id" do
         setup { delete :destroy, :id => @asset.to_param }
         should_redirect_to("assets_url") { assets_url }
-        should_set_the_flash_to %r{removed}i
+        should_set_the_flash_to %r{destroyed}i
       end
     end
   end
