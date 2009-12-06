@@ -1,4 +1,4 @@
-class PostsController < ApplicationController
+class PostsController < InheritedResources::Base
   skip_before_filter :require_user, :only => [:index, :show]
   
   def index
@@ -18,44 +18,15 @@ class PostsController < ApplicationController
     @recent_comments   = Comment.ordered.limit(20)
   end
 
-  def show
-    @post = Post.find(params[:id])
-  end
-
-  def new
-    @post = Post.new
-  end
-
-  def edit
-    @post = Post.find(params[:id])
-  end
-
   def create
-    @post = Post.new(params[:post])
-
-    if @post.save
-      flash[:notice] = 'Post was successfully created.'
-      redirect_to(edit_post_url(@post))
-    else
-      render :action => "new"
+    create! do |success, failure|
+      success.html { redirect_to(edit_post_url(@post)) }
     end
   end
 
   def update
-    @post = Post.find(params[:id])
-
-    if @post.update_attributes(params[:post])
-      flash[:notice] = 'Post was successfully updated.'
-      redirect_to(edit_post_url(@post))
-    else
-      render :action => "edit"
+    update! do |success, failure|
+      success.html { redirect_to(edit_post_url(@post)) }
     end
-  end
-
-  def destroy
-    @post = Post.find(params[:id])
-    @post.destroy
-    flash[:notice] = 'Post was successfully removed.'
-    redirect_to(posts_url)
   end
 end

@@ -144,7 +144,7 @@ class PostsControllerTest < ActionController::TestCase
 
       context "on DELETE to /posts/:id" do
         setup { delete :destroy, :id => @post.to_param }
-        should_set_the_flash_to %r{removed}i
+        should_set_the_flash_to %r{destroyed}i
         should_redirect_to("posts listing") { posts_url }
         should_destroy :post
       end
