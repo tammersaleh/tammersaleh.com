@@ -35,28 +35,18 @@ class ApplicationControllerTest < ActionController::TestCase
 
     context "getting a public page" do
       setup { get :unprotected_foo }
-
-      # should "not try to include the user's name" do
-      #   assert_no_match(/Hello/, @response.body)
-      # end
-
-      # should "not present a logout link" do
-      #   assert_no_match(/Logout/, @response.body)
-      # end
+      should "not present a logout link" do
+        assert_no_match(/logout/, @response.body)
+      end
     end
   end
 
   as_a_logged_in_user do
     context "the layout" do
       setup { get :foo }
-
-      # should "include the user's name" do
-      #   assert_match(/#{@logged_in_user.name}/, @response.body)
-      # end
-
-      # should "present the user with a logout link" do
-      #   assert_select 'a[href=?]', user_session_url, "Logout"
-      # end
+      should "present the user with a logout link" do
+        assert_select 'a[href=?]', logout_url, "Logout"
+      end
     end
   end
 end
