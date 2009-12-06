@@ -19,6 +19,7 @@ Rails::Initializer.run do |config|
   config.gem 'gravtastic',          :version => '>= 2.0.0'
   config.gem 'authlogic',           :version => '>= 2.1.1'
   config.gem 'RedCloth',            :version => '>= 4.0.0'
+  config.gem 'master_may_i',        :version => '>= 0.4.0'
   # Settings in config/environments/* take precedence over those specified here.
   # Application configuration should go into files in config/initializers
   # -- all .rb files in that directory are automatically loaded.

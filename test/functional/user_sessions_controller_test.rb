@@ -39,14 +39,6 @@ class UserSessionsControllerTest < ActionController::TestCase
   end
 
   as_a_logged_in_user do
-    should_deny_access_on("GET to /user_session/new", :flash => /logged out/, :redirect => "root_url") do
-      get :new 
-    end
-
-    should_deny_access_on("POST to /user_session", :flash => /logged out/, :redirect => "root_url") do
-      post :create 
-    end
-
     context "on DELETE to /user_session" do
       setup { delete :destroy }
 

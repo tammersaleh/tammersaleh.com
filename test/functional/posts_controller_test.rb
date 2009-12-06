@@ -34,8 +34,8 @@ class PostsControllerTest < ActionController::TestCase
         end
 
         before_should "only see published posts" do
-          posts = Post.show_unpublished(nil)
-          ActiveRecord::NamedScope::Scope.any_instance.expects(:show_unpublished).at_least_once.with(nil).returns(posts)
+          posts = Post.show_unpublished(false)
+          ActiveRecord::NamedScope::Scope.any_instance.expects(:show_unpublished).at_least_once.with(false).returns(posts)
         end
       end
 
