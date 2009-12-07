@@ -21,7 +21,7 @@ class RecommendationsControllerTest < ActionController::TestCase
              }
       end
 
-      should_redirect_to("recommendation page") { recommendation_path(assigns(:recommendation)) }
+      should_redirect_to("recommendations page") { recommendations_path }
       should_set_the_flash_to /created/i
       should_create(:recommendation)
     end
@@ -57,7 +57,7 @@ class RecommendationsControllerTest < ActionController::TestCase
           put :update, :id => @recommendation.to_param, :recommendation => { :quote => "New Quote" }
         end
 
-        should_redirect_to("recommendations page") { recommendation_path(@recommendation) }
+        should_redirect_to("recommendations page") { recommendations_path }
         should_set_the_flash_to /updated/i
       end
 

@@ -46,10 +46,12 @@ h4 {
   border: none; }
 
 #footer {
-  text-align: right;
   font-size: .8em;
-  font-weight: bold;
-  color: gray; }
+  font-weight: bold; }
+  #footer * {
+    color: gray; }
+  #footer .citation {
+    text-align: right; }
 
 #content {
   padding: 0;
@@ -74,17 +76,6 @@ tt {
   display: inline;
   margin: 0; }
 
-blockquote {
-  background: url(/images/quote.png) no-repeat;
-  background-position: 0px 5px;
-  padding: 10px 0 0 10px;
-  margin: 1em 4em 1em 2em;
-  color: black;
-  font-size: 1em; }
-  blockquote .citation {
-    font-size: .8em;
-    font-family: Helvetica; }
-
 sup.footnote a, sup.footnote a:visited {
   font-size: 75%;
   text-decoration: none !important; }
@@ -96,49 +87,82 @@ p.footnote {
   p.footnote sup {
     font-size: 75%; }
 
-.home #goggles {
+body.home #goggles {
   background: url(/images/goggle-banner.jpg);
   height: 268px; }
-  .home #goggles h2 {
+  body.home #goggles h2 {
     font-size: 2.5em;
     margin: 20px 0px 20px 20px; }
-  .home #goggles p {
+  body.home #goggles p {
     margin: 10px;
     padding: 10px;
     width: 50%;
     font-size: 1.2em;
     color: white;
     background: rgba(0, 0, 0, 0.5); }
-  .home #goggles a {
+  body.home #goggles a {
     color: inherit;
     border-bottom: 1px solid; }
-  .home #goggles a:hover {
+  body.home #goggles a:hover {
     color: yellow; }
-.home #recent-posts, .home #recent-accolades {
-  padding-bottom: 15px; }
-  .home #recent-posts h3, .home #recent-accolades h3 {
-    padding-top: 50px; }
-    .home #recent-posts h3 a:hover, .home #recent-accolades h3 a:hover {
-      background: yellow; }
-    .home #recent-posts h3 a, .home #recent-accolades h3 a {
-      color: inherit; }
-  .home #recent-posts .more, .home #recent-accolades .more {
+body.home #random-recommendation {
+  color: black;
+  background: #DFB946;
+  padding: 0.5em;
+  margin-bottom: 0.5em;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px; }
+  body.home #random-recommendation blockquote {
+    color: black;
+    font-size: 1.2em;
+    margin: 0.5em;
+    overflow: hidden;
+    background: inherit;
+    font-family: ‘Palatino Linotype’, ‘Book Antiqua’, Palatino, serif; }
+  body.home #random-recommendation a {
+    color: black;
+    text-decoration: none;
+    border-bottom: 1px solid black; }
+  body.home #random-recommendation .citation {
+    text-align: right;
+    margin-right: 0.5em;
+    font-size: .6em;
+    font-family: Helvetica; }
+  body.home #random-recommendation .more {
     text-align: right; }
-  .home #recent-posts a.recent-post, .home #recent-posts a.recent-accolade, .home #recent-accolades a.recent-post, .home #recent-accolades a.recent-accolade {
+    body.home #random-recommendation .more a:hover {
+      background: yellow; }
+    body.home #random-recommendation .more a {
+      border-bottom: none;
+      color: inherit; }
+body.home #recent-posts, body.home #recent-accolades {
+  margin-top: 40px;
+  padding-bottom: 15px; }
+  body.home #recent-posts h3, body.home #recent-accolades h3 {
+    padding: 5px 0px; }
+    body.home #recent-posts h3:hover, body.home #recent-accolades h3:hover {
+      background: yellow; }
+    body.home #recent-posts h3 a:hover, body.home #recent-accolades h3 a:hover {
+      background: yellow; }
+    body.home #recent-posts h3 a, body.home #recent-accolades h3 a {
+      color: inherit; }
+  body.home #recent-posts .more, body.home #recent-accolades .more {
+    text-align: right; }
+  body.home #recent-posts a.recent-post, body.home #recent-posts a.recent-accolade, body.home #recent-accolades a.recent-post, body.home #recent-accolades a.recent-accolade {
     margin-bottom: 15px;
     color: white;
     background-color: black; }
-    .home #recent-posts a.recent-post .title, .home #recent-posts a.recent-accolade .title, .home #recent-accolades a.recent-post .title, .home #recent-accolades a.recent-accolade .title {
+    body.home #recent-posts a.recent-post .title, body.home #recent-posts a.recent-accolade .title, body.home #recent-accolades a.recent-post .title, body.home #recent-accolades a.recent-accolade .title {
       color: inherit;
       font-size: 1.2em;
       height: 70px;
       padding: 5px 15px; }
-    .home #recent-posts a.recent-post .date, .home #recent-posts a.recent-accolade .date, .home #recent-accolades a.recent-post .date, .home #recent-accolades a.recent-accolade .date {
+    body.home #recent-posts a.recent-post .date, body.home #recent-posts a.recent-accolade .date, body.home #recent-accolades a.recent-post .date, body.home #recent-accolades a.recent-accolade .date {
       margin: 5px;
       text-align: right; }
-  .home #recent-posts a.recent-post:hover, .home #recent-posts a.recent-accolade:hover, .home #recent-accolades a.recent-post:hover, .home #recent-accolades a.recent-accolade:hover {
+  body.home #recent-posts a.recent-post:hover, body.home #recent-posts a.recent-accolade:hover, body.home #recent-accolades a.recent-post:hover, body.home #recent-accolades a.recent-accolade:hover {
     color: yellow; }
-    .home #recent-posts a.recent-post:hover .date, .home #recent-posts a.recent-accolade:hover .date, .home #recent-accolades a.recent-post:hover .date, .home #recent-accolades a.recent-accolade:hover .date {
+    body.home #recent-posts a.recent-post:hover .date, body.home #recent-posts a.recent-accolade:hover .date, body.home #recent-accolades a.recent-post:hover .date, body.home #recent-accolades a.recent-accolade:hover .date {
       color: #888888; }
 
 div.posts h3 {
@@ -232,6 +256,17 @@ div.pages .body {
         float: none; }
     .page .body li {
       text-align: justify; }
+
+body.pages-show blockquote {
+  background: url(/images/quote.png) no-repeat;
+  background-position: 0px 5px;
+  padding: 10px 0 0 10px;
+  margin: 1em 4em 1em 2em;
+  color: black;
+  font-size: 1em; }
+  body.pages-show blockquote .citation {
+    font-size: .8em;
+    font-family: Helvetica; }
 
 #comments .by-owner .owner-tag {
   display: block !important;

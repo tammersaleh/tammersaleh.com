@@ -48,14 +48,4 @@
       %li= link_to "Logout", logout_url, {:method => :delete }
     %a{ :href => "http://feeds.feedburner.com/TammerSaleh" }
       %img{ :src => "http://feeds.feedburner.com/~fc/TammerSaleh?bg=000000&fg=FFFFFF&anim=0&label=readers", :height => 26, :width => 88, :style => "border:0", :alt => "" }
-  - else
-    - form_tag user_session_path do
-      = text_field_tag 'user_session[email]'
-      = password_field_tag 'user_session[password]'
-      .clear
-        %label{ :for => "user_session_remember_me" }
-          remember me
-        = check_box_tag 'use_session[remember_me]', '1', true
-      %p.buttons
-        = submit_tag 'Log in'
      

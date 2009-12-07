@@ -13,22 +13,30 @@
     Soon, you'll be able to 
     = link_to("read my book", "http://my.safaribooksonline.com/9780321620293") + "."
 
-#recent-posts.column.span-24.last
-  %h3.column.span-18
-    = link_to "I also write, when I find the time...", posts_url
-  %h3.more.column.span-6.last
-    = link_to "...read more", posts_url
-  - @posts.in_groups_of(4) do |group|
-    - group.each do |post|
-      - klass = (post == group.last) ? "recent-post column span-6 last" : "recent-post column span-6"
+#recent-posts.column.span-24
+  -# %h3.column.span-24.last
+  -#   %a{ :href => posts_url }
+  -#     .column.span-18
+  -#       I also write, when I find the time&hellip;
+  -#     .more.column.span-6.last
+  -#       &hellip;read more
+  .column.span-12
+    - @posts.in_groups_of(2) do |group|
+      - group.each do |post|
+        - klass = (post == group.last) ? "recent-post column span-6 last" : "recent-post column span-6"
 
-      - link_to post, :class => klass do
-        %h2.title 
-          = post
-        .date 
-          - if post.published?
-            = post.published_at.to_s(:short_date)
-          - else
-            Unpublished
+        - link_to post, :class => klass do
+          %h2.title 
+            = post
+          .date 
+            - if post.published?
+              = post.published_at.to_s(:short_date)
+            - else
+              Unpublished
+  .column.span-12.last
+    #random-recommendation
+      = render :partial => Recommendation.random
+    #random-recommendation
+      = render :partial => Recommendation.random
 
 

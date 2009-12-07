@@ -13,7 +13,5 @@
             %div{ :id => "flash_#{key}", :class => key } 
               = value
         = yield
-      #footer.column.span-24.last
-        Copyright Tammer Saleh Consulting, Inc.
-        = Time.now.year
+      = render :partial => 'layouts/footer'
     = render :partial => 'layouts/javascript'

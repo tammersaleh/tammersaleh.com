@@ -1,25 +1,25 @@
 %div[recommendation]
-  %blockquote
-    = h recommendation.quote
+  %blockquote><
+    = recommendation.short_quote
 
     .citation
       %span.who
-        = link_to_if(recommendation.who_url?, h(recommendation.who), recommendation.who_url)
+        = link_to_if(recommendation.who_url?, recommendation.who, recommendation.who_url)
 
       - if recommendation.company?
         - if recommendation.position?
           %span.position
-            = h recommendation.position
+            = recommendation.position
           at
         - else
           of
         %span.company
-          = link_to_if(recommendation.company_url?, h(recommendation.company), recommendation.company_url)
+          = link_to_if(recommendation.company_url?, recommendation.company, recommendation.company_url)
       via
       %span.where
-        = link_to_if(recommendation.where_url?, h(recommendation.where), recommendation.where_url)
+        = link_to_if(recommendation.where_url?, recommendation.where, recommendation.where_url)
       - if logged_in?
-        .admin_links
+        %span.admin_links
           [
           = link_to 'edit', edit_recommendation_path(recommendation)
           ]

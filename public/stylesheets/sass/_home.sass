@@ -1,46 +1,81 @@
-.home
+body.home
   #goggles
-    background: url(/images/goggle-banner.jpg)
-    height: 268px
+    :background url(/images/goggle-banner.jpg)
+    :height 268px
     h2
-      font-size: 2.5em
-      margin: 20px 0px 20px 20px
+      :font-size 2.5em
+      :margin 20px 0px 20px 20px
     p
-      margin: 10px 
-      padding: 10px 
-      width: 50%
-      font-size: 1.2em
-      color: white
-      background: rgba(0, 0, 0, 0.5)
+      :margin 10px 
+      :padding 10px 
+      :width 50%
+      :font-size 1.2em
+      :color white
+      :background rgba(0, 0, 0, 0.5)
     a
-      color: inherit
-      border-bottom: 1px solid
+      :color inherit
+      :border-bottom 1px solid
     a:hover
-      color: yellow
+      :color yellow
+
+  #random-recommendation
+    :color black
+    :background #DFB946
+    :padding 0.5em
+    :margin-bottom 0.5em
+    :-moz-border-radius    15px
+    :-webkit-border-radius 15px
+    blockquote
+      :color black
+      :font-size 1.2em
+      :margin 0.5em
+      // :height 4em
+      :overflow hidden
+      :background inherit
+      :font-family ‘Palatino Linotype’, ‘Book Antiqua’, Palatino, serif
+    a
+      :color black
+      :text-decoration none
+      :border-bottom 1px solid black
+    .citation
+      :text-align right
+      :margin-right 0.5em
+      :font-size .6em
+      :font-family Helvetica
+    .more
+      :text-align right
+      a:hover
+        :background yellow
+      a
+        :border-bottom none
+        :color inherit
       
   #recent-posts, #recent-accolades
-    padding-bottom: 15px
+    :margin-top 40px
+    :padding-bottom 15px
     h3 
-      padding-top: 50px
+      :padding 5px 0px
+      &:hover
+        :background yellow
       a:hover
-        background: yellow
+        :background yellow
       a
-        color: inherit
+        :color inherit
     .more
-      text-align: right
+      :text-align right
     a.recent-post, a.recent-accolade
-      margin-bottom: 15px
-      color: white
-      background-color: black
+      :margin-bottom 15px
+      :color white
+      :background-color black
       .title
-        color: inherit
-        font-size: 1.2em
-        height: 70px
-        padding: 5px 15px
+        :color inherit
+        :font-size 1.2em
+        :height 70px
+        :padding 5px 15px
       .date
-        margin: 5px
-        text-align: right
+        :margin 5px
+        :text-align right
     a.recent-post:hover, a.recent-accolade:hover
-      color: yellow
+      :color yellow
       .date
-        color: #888888
+        :color #888888
