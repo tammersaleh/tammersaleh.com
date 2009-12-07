@@ -44,14 +44,6 @@ class RecommendationsControllerTest < ActionController::TestCase
         should_not_set_the_flash
       end
 
-      context "on GET to /recommendations/:id" do
-        setup { get :show, :id => @recommendation.to_param }
-
-        should_render_template :show
-        should_respond_with :success
-        should_not_set_the_flash
-      end
-
       context "on GET to /recommendations/:id/edit" do
         setup { get :edit, :id => @recommendation.to_param }
 

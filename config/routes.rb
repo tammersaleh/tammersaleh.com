@@ -15,7 +15,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :pages, :only => :show
   map.resources :images
   map.resources :assets
-  map.resources :recommendations
+  map.resources :recommendations, :except => :show
 
   map.root :controller => "home", :action => "show"
 end
