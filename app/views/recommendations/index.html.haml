@@ -6,19 +6,3 @@
   - @recommendations.each do |recommendation|
     %li[recommendation]
       = link_to recommendation, recommendation
-      %ul.recommendation_attributes
-        %li.quote
-          = h recommendation.quote 
-        %li.who
-          = h recommendation.who 
-        %li.where
-          = h recommendation.where 
-        %li.where_url
-          = h recommendation.where_url 
-        %li.position
-          = h recommendation.position 
-        %li.company
-          = h recommendation.company 
-        %li.company_url
-          = h recommendation.company_url 
-

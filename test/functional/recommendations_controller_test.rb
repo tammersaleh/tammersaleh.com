@@ -14,19 +14,23 @@ class RecommendationsControllerTest < ActionController::TestCase
       setup do
         post :create, 
              :recommendation => {
-               :quote => "Quote",
-               :who => "Who",
-               :where => "Where",
-               :where_url => "Where url",
-               :position => "Position",
-               :company => "Company",
-               :company_url => "Company url",
+               :quote       => "Quote",
+               :who         => "Who",
+               :where       => "Where",
+               :where_url   => "http://somewhere.com"
              }
       end
 
       should_redirect_to("recommendation page") { recommendation_path(assigns(:recommendation)) }
       should_set_the_flash_to /created/i
       should_create(:recommendation)
+    end
+
+    context "on POST to /recommendations/ with bad values" do
+      setup { post :create, :recommendation => { } }
+
+      should_render_template :new
+      should_not_set_the_flash
     end
 
     context "given a recommendation" do
@@ -58,21 +62,20 @@ class RecommendationsControllerTest < ActionController::TestCase
 
       context "on PUT to /recommendations/:id with good values" do
         setup do
-          put :update, 
-              :id => @recommendation.to_param, 
-              :recommendation => {
-                :quote => "Quote",
-                :who => "Who",
-                :where => "Where",
-                :where_url => "Where url",
-                :position => "Position",
-                :company => "Company",
-                :company_url => "Company url",
-              }
+          put :update, :id => @recommendation.to_param, :recommendation => { :quote => "New Quote" }
         end
 
         should_redirect_to("recommendations page") { recommendation_path(@recommendation) }
         should_set_the_flash_to /updated/i
+      end
+
+      context "on PUT to /recommendations/:id with bad values" do
+        setup do
+          put :update, :id => @recommendation.to_param, :recommendation => { :quote => "" }
+        end
+
+        should_render_template :edit
+        should_not_set_the_flash
       end
 
       context "on DELETE to /recommendations/:id" do

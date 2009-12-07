@@ -3,6 +3,7 @@ class CreateRecommendations < ActiveRecord::Migration
     create_table :recommendations do |t|
       t.text   :quote
       t.string :who
+      t.string :who_url
       t.string :where
       t.string :where_url
       t.string :position

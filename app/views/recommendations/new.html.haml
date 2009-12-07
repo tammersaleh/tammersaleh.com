@@ -1,16 +1,3 @@
 %h2 New recommendation
 
-- semantic_form_for(@recommendation) do |form|
-  = form.errors_on(:base)
-
-  = form.input :quote
-  = form.input :who
-  = form.input :where
-  = form.input :where_url
-  = form.input :position
-  = form.input :company
-  = form.input :company_url
-  - form.buttons do
-    = form.commit_button
-    or
-    = link_to 'Back', recommendations_path 
+= render :partial => 'form', :locals => {:recommendation => @recommendation}

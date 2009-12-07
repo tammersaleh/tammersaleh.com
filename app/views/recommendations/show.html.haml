@@ -1,37 +1,36 @@
-[@recommendation]
+%div[@recommendation]
+  %h2
+    = @recommendation
 
-%h2
-  = @recommendation
+  .quote
+    Quote:
+    = h @recommendation.quote
 
-.quote
-  Quote:
-  = h @recommendation.quote
+  .who
+    Who:
+    = h @recommendation.who
 
-.who
-  Who:
-  = h @recommendation.who
+  .where
+    Where:
+    = h @recommendation.where
 
-.where
-  Where:
-  = h @recommendation.where
+  .where_url
+    Where url:
+    = h @recommendation.where_url
 
-.where_url
-  Where url:
-  = h @recommendation.where_url
+  .position
+    Position:
+    = h @recommendation.position
 
-.position
-  Position:
-  = h @recommendation.position
+  .company
+    Company:
+    = h @recommendation.company
 
-.company
-  Company:
-  = h @recommendation.company
-
-.company_url
-  Company url:
-  = h @recommendation.company_url
+  .company_url
+    Company url:
+    = h @recommendation.company_url
 
 
-= link_to 'Edit', edit_recommendation_path(@recommendation) 
-|
-= link_to 'Back', recommendations_path 
+  = link_to 'Edit', edit_recommendation_path(@recommendation) 
+  |
+  = link_to 'Back', recommendations_path 
