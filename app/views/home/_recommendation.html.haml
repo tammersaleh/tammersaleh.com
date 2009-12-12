@@ -1,0 +1,20 @@
+%div[recommendation]
+  %blockquote><
+    = recommendation.short_quote
+
+    .citation
+      %span.who
+        = recommendation.who
+
+      - if recommendation.company?
+        - if recommendation.position?
+          %span.position
+            = recommendation.position
+          at
+        - else
+          of
+        %span.company
+          = recommendation.company
+      via
+      %span.where
+        = recommendation.where

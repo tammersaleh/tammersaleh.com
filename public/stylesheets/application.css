@@ -46,10 +46,12 @@ h4 {
   border: none; }
 
 #footer {
+  border-top: 3px solid gray;
+  color: gray;
   font-size: .8em;
   font-weight: bold; }
   #footer * {
-    color: gray; }
+    color: inherit; }
   #footer .citation {
     text-align: right; }
 
@@ -105,36 +107,28 @@ body.home #goggles {
     border-bottom: 1px solid; }
   body.home #goggles a:hover {
     color: yellow; }
-body.home #random-recommendation {
+body.home a#random-recommendation {
   color: black;
-  background: #DFB946;
-  padding: 0.5em;
-  margin-bottom: 0.5em;
-  -moz-border-radius: 15px;
-  -webkit-border-radius: 15px; }
-  body.home #random-recommendation blockquote {
+  color: black;
+  text-decoration: none; }
+  body.home a#random-recommendation blockquote {
     color: black;
     font-size: 1.2em;
     margin: 0.5em;
     overflow: hidden;
     background: inherit;
     font-family: ‘Palatino Linotype’, ‘Book Antiqua’, Palatino, serif; }
-  body.home #random-recommendation a {
-    color: black;
-    text-decoration: none;
-    border-bottom: 1px solid black; }
-  body.home #random-recommendation .citation {
+  body.home a#random-recommendation .citation {
+    color: gray;
     text-align: right;
     margin-right: 0.5em;
     font-size: .6em;
-    font-family: Helvetica; }
-  body.home #random-recommendation .more {
-    text-align: right; }
-    body.home #random-recommendation .more a:hover {
-      background: yellow; }
-    body.home #random-recommendation .more a {
-      border-bottom: none;
+    font-family: Helvetica;
+    font-weight: bold; }
+    body.home a#random-recommendation .citation * {
       color: inherit; }
+  body.home a#random-recommendation:hover {
+    background: yellow; }
 body.home #recent-posts, body.home #recent-accolades {
   margin-top: 40px;
   padding-bottom: 15px; }

@@ -14,14 +14,14 @@
     = link_to("read my book", "http://my.safaribooksonline.com/9780321620293") + "."
 
 #recent-posts.column.span-24
-  -# %h3.column.span-24.last
-  -#   %a{ :href => posts_url }
-  -#     .column.span-18
-  -#       I also write, when I find the time&hellip;
-  -#     .more.column.span-6.last
-  -#       &hellip;read more
-  .column.span-12
-    - @posts.in_groups_of(2) do |group|
+  %h3.column.span-24.last
+    %a{ :href => posts_url }
+      .column.span-18
+        I also write, when I find the time&hellip;
+      .more.column.span-6.last
+        &hellip;read more
+  .column.span-24
+    - @posts.in_groups_of(4) do |group|
       - group.each do |post|
         - klass = (post == group.last) ? "recent-post column span-6 last" : "recent-post column span-6"
 
@@ -33,10 +33,10 @@
               = post.published_at.to_s(:short_date)
             - else
               Unpublished
-  .column.span-12.last
-    #random-recommendation
-      = render :partial => Recommendation.random
-    #random-recommendation
-      = render :partial => Recommendation.random
+  .column.span-24.last
+    %a.column.span-12#random-recommendation{ :href => about_url( :anchor => :accolades )}
+      = render :partial => "home/recommendation", :object => Recommendation.random
+    %a.column.span-12.last#random-recommendation{ :href => about_url( :anchor => :accolades )}
+      = render :partial => "home/recommendation", :object => Recommendation.random
 
 
