@@ -221,36 +221,6 @@ div.posts .extended_leader_text {
   .post .body a:active, .post .body a:visited:active, .page .body a:active, .page .body a:visited:active {
     color: #64d6ff; }
 
-div.pages .body {
-  display: none; }
-
-.single_page .description {
-  display: none; }
-
-.page {
-  margin-bottom: 10px; }
-  .page .title {
-    border-bottom: 5px solid black;
-    margin-bottom: 5px;
-    padding: 5px 10px; }
-  .page .meta {
-    text-align: right;
-    font-size: 0.9em;
-    color: gray; }
-    .page .meta * {
-      display: inline; }
-    .page .meta .unpublished {
-      color: red;
-      font-weight: bold; }
-  .page .body {
-    margin-left: 30px; }
-    .page .body p {
-      text-align: justify; }
-      .page .body p img {
-        float: none; }
-    .page .body li {
-      text-align: justify; }
-
 body.pages-show blockquote {
   background: url(/images/quote.png) no-repeat;
   background-position: 0px 5px;
@@ -261,6 +231,9 @@ body.pages-show blockquote {
   body.pages-show blockquote .citation {
     font-size: .8em;
     font-family: Helvetica; }
+body.pages-show h2, body.pages-show h3, body.pages-show h4, body.pages-show h5, body.pages-show strong {
+  color: #444;
+  font-weight: bolder; }
 
 #comments .by-owner .owner-tag {
   display: block !important;
