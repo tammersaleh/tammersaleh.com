@@ -10,9 +10,7 @@
         - if recommendation.position?
           %span.position
             = recommendation.position
-          at
-        - else
-          of
+        of
         %span.company
           = link_to_if(recommendation.company_url?, recommendation.company, recommendation.company_url)
       via
