@@ -12,6 +12,9 @@
           - flash.each do |key, value|
             %div{ :id => "flash_#{key}", :class => key } 
               = value
+        #rss-advertisement
+          If you're a Ruby or Rails developer, you should
+          = link_to "subscribe to my RSS feed.", "http://feeds.feedburner.com/TammerSaleh"
         = yield
       = render :partial => 'layouts/footer'
     = render :partial => 'layouts/javascript'

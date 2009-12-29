@@ -89,6 +89,15 @@ p.footnote {
   p.footnote sup {
     font-size: 75%; }
 
+#rss-advertisement {
+  text-align: center;
+  background: yellow;
+  padding: .5em; }
+  #rss-advertisement a, #rss-advertisement a:visited {
+    font-weight: bold;
+    border-bottom: 1px solid black;
+    color: black; }
+
 body.home #goggles {
   background: url(/images/goggle-banner.jpg);
   height: 268px; }
