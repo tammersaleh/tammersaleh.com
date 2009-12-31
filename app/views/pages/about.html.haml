@@ -1,14 +1,12 @@
 - @page_title = "A bit about me."
 
-%h4
-  I'm an experienced developer living in San Francisco, and working as an
-  independent Agile and Ruby on Rails consultant.  
+%h2
+  An experienced Agile and Ruby on Rails consultant.
 
 %p
   I wrote the 
   %a{:href => "http://thoughtbot.com/projects/shoulda"} Shoulda
-  testing framework, which at last count was in use by about 15% of the Ruby
-  community.   I was also the primary developer and project manager for
+  testing framework, I was the primary developer and project manager for
   Thoughtbot's fantastic 
   %a{:href => "http://hoptoadapp.com"} Hoptoad service, 
   and am currently co-authoring Addison Wesley's 
@@ -24,19 +22,28 @@
 
 %p
   In previous lives I've done AI programming for the NCSA and the University of
-  Illinois, and systems administration  for Citysearch.com and Caltech’s
+  Illinois, as well as systems administration for Citysearch.com and Caltech’s
   Earthquake Detection Network.
+
+%p.highlighted-block
+  I'm 
+  = link_to "open to new projects.", hire_url
+  Feel free to
+  %a{:href => "mailto:tsaleh@gmail.com"} email 
+  %br
+  or call me at 
+  %strong
+    (626) 841-0708,
+  and we can discuss your needs.
 
 #accolades
 
-  %h2 Recommendations
+  -# %h2 Recommendations
 
-  = render :partial => Recommendation.all
-
-%h2 Contact
-
-%p
-  You can get in touch with me by 
-  %a{:href => "mailto:tsaleh@gmail.com"} emailing me, 
-  or by calling me at (626) 841-0708.
+  - Recommendation.all.in_groups_of(2) do |recommendations|
+    .column.span-24.last
+      .column.span-12.recommendation
+        = render :partial => recommendations.first
+      .column.span-12.last.recommendation
+        = render :partial => recommendations.last
 

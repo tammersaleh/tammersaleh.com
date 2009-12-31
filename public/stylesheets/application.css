@@ -97,6 +97,19 @@ p.footnote {
     border-bottom: 1px solid black;
     color: black; }
 
+.highlighted-block {
+  width: 50%;
+  margin: 1em auto;
+  text-align: center;
+  padding: 0 10px;
+  color: black !important;
+  background: yellow; }
+  .highlighted-block * {
+    color: black !important; }
+  .highlighted-block a, .highlighted-block a:visited {
+    font-weight: bold;
+    border-bottom: 1px solid black; }
+
 body.home #goggles {
   background: url(/images/goggle-banner.jpg);
   height: 268px; }
