@@ -2,7 +2,7 @@
 = javascript_include_tag "application.js", "code_highlighter/base.js", "code_highlighter/css.js", "code_highlighter/html.js", "code_highlighter/javascript.js", "code_highlighter/ruby.js"
 
 %a{:style => "display: none", :href => "http://getclicky.com/168321"}
-  = javascript_include_tag "http://static.getclicky.com/js"
+  %script{:src => "http://static.getclicky.com/js", :type => "text/javascript"}
   = javascript_tag "clicky.init(168321);"
   %noscript
     %p
