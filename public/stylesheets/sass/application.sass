@@ -10,6 +10,25 @@
 !attention_color = white
 !alert_color = red
 
+=rounded
+  :-moz-border-radius    10px
+  :-webkit-border-radius 10px
+  :border-radius         10px
+
+=small-rounded
+  :-moz-border-radius    5px
+  :-webkit-border-radius 5px
+  :border-radius         5px
+
+=highlight
+  :color black !important
+  :background yellow
+  *
+    :color black !important
+  a, a:visited
+    :font-weight bold
+    :border-bottom 1px solid black
+
 body, *
   :color #222 
   :font-family "Helvetica Neue", "Lucida Grande", Helvetica, Arial, Verdana, sans-serif
@@ -29,6 +48,8 @@ img
   :padding-bottom 19px
 
 h1, h2, h3, h4, h5, h6, #banner
+  :font-family "Helvetica Neue", "Lucida Grande", Helvetica, Arial, Verdana, sans-serif
+  :font-weight thin
   a
     :border none
     &:hover
@@ -36,17 +57,6 @@ h1, h2, h3, h4, h5, h6, #banner
       :border none
     &:visited
       :border none
-  :font-family "Helvetica Neue", "Lucida Grande", Helvetica, Arial, Verdana, sans-serif
-  :font-weight thin
-
-h1
-  :font-size 2.8em
-h2
-  :font-size 1.9em
-h3
-  :font-size 1.4em
-h4
-  :font-size 1.1em
 
 .clear
   :clear both
@@ -112,19 +122,29 @@ p.footnote
     :color black
 
 .highlighted-block
+  +highlight
   :width 50%
   :margin 1em auto
 
   :text-align center
   :padding 0 10px
-  :color black !important
-  :background yellow
-  *
-    :color black !important
 
-  a, a:visited
-    :font-weight bold
-    :border-bottom 1px solid black
+.highlight
+  +highlight
+
+.punch
+  :font-weight bold
+  :color black
+
+strong
+  :font-style italic
+
+.ampersand
+  :font-family Baskerville, Palatino, "Book Antiqua", serif
+  :font-style italic
+  :font-weight normal
+  
+  
 
 @import home.sass
 @import posts.sass

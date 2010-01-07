@@ -14,6 +14,13 @@ $(document).ready(
   } 
 );
 
+// Fancy Ampersands
+$(document).ready(function(){
+  $(":header:contains('&')").each(function(){
+    $(this).html($(this).html().replace(/&amp;/, "<span class='ampersand'>&amp;</span>"))
+  });
+});
+
 function toggle(link, target) {
   $(link).click(
     function (e) {

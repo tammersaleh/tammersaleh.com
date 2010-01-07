@@ -27,18 +27,6 @@ h1, h2, h3, h4, h5, h6, #banner {
     h1 a:visited, h2 a:visited, h3 a:visited, h4 a:visited, h5 a:visited, h6 a:visited, #banner a:visited {
       border: none; }
 
-h1 {
-  font-size: 2.8em; }
-
-h2 {
-  font-size: 1.9em; }
-
-h3 {
-  font-size: 1.4em; }
-
-h4 {
-  font-size: 1.1em; }
-
 .clear {
   clear: both; }
 
@@ -98,17 +86,38 @@ p.footnote {
     color: black; }
 
 .highlighted-block {
+  color: black !important;
+  background: yellow;
   width: 50%;
   margin: 1em auto;
   text-align: center;
-  padding: 0 10px;
-  color: black !important;
-  background: yellow; }
+  padding: 0 10px; }
   .highlighted-block * {
     color: black !important; }
   .highlighted-block a, .highlighted-block a:visited {
     font-weight: bold;
     border-bottom: 1px solid black; }
+
+.highlight {
+  color: black !important;
+  background: yellow; }
+  .highlight * {
+    color: black !important; }
+  .highlight a, .highlight a:visited {
+    font-weight: bold;
+    border-bottom: 1px solid black; }
+
+.punch {
+  font-weight: bold;
+  color: black; }
+
+strong {
+  font-style: italic; }
+
+.ampersand {
+  font-family: Baskerville, Palatino, "Book Antiqua", serif;
+  font-style: italic;
+  font-weight: normal; }
 
 body.home #goggles {
   background: url(/images/goggle-banner.jpg);
@@ -174,7 +183,8 @@ body.home #recent-posts, body.home #recent-accolades {
       padding: 5px 15px; }
     body.home #recent-posts a.recent-post .date, body.home #recent-posts a.recent-accolade .date, body.home #recent-accolades a.recent-post .date, body.home #recent-accolades a.recent-accolade .date {
       margin: 5px;
-      text-align: right; }
+      text-align: right;
+      font-weight: bold; }
   body.home #recent-posts a.recent-post:hover, body.home #recent-posts a.recent-accolade:hover, body.home #recent-accolades a.recent-post:hover, body.home #recent-accolades a.recent-accolade:hover {
     color: yellow; }
     body.home #recent-posts a.recent-post:hover .date, body.home #recent-posts a.recent-accolade:hover .date, body.home #recent-accolades a.recent-post:hover .date, body.home #recent-accolades a.recent-accolade:hover .date {
@@ -242,6 +252,9 @@ div.posts .extended_leader_text {
   .post .body a:active, .post .body a:visited:active, .page .body a:active, .page .body a:visited:active {
     color: #64d6ff; }
 
+body.pages-show .more-info {
+  padding: 5px;
+  margin-bottom: 30px; }
 body.pages-show blockquote {
   background: url(/images/quote.png) no-repeat;
   background-position: 0px 5px;
@@ -252,9 +265,34 @@ body.pages-show blockquote {
   body.pages-show blockquote .citation {
     font-size: .8em;
     font-family: Helvetica; }
-body.pages-show h2, body.pages-show h3, body.pages-show h4, body.pages-show h5, body.pages-show strong {
+body.pages-show strong {
+  color: #444; }
+body.pages-show h2, body.pages-show h3, body.pages-show h4, body.pages-show h5 {
   color: #444;
   font-weight: bolder; }
+  body.pages-show h2 *, body.pages-show h3 *, body.pages-show h4 *, body.pages-show h5 * {
+    color: #444; }
+body.pages-show .packages a {
+  color: inherit;
+  border-bottom: 1px solid black; }
+  body.pages-show .packages a:hover {
+    color: black !important;
+    background: yellow; }
+    body.pages-show .packages a:hover * {
+      color: black !important; }
+    body.pages-show .packages a:hover a, body.pages-show .packages a:hover a:visited {
+      font-weight: bold;
+      border-bottom: 1px solid black; }
+body.pages-show .packages .package {
+  width: 300px;
+  margin: 0 25px 0 0;
+  float: left; }
+  body.pages-show .packages .package h3 {
+    text-align: center;
+    border-bottom: 5px solid;
+    padding: 5px; }
+body.pages-show .packages .package.last {
+  margin-right: 0; }
 
 #comments .by-owner .owner-tag {
   display: block !important;
@@ -376,7 +414,7 @@ pre {
       color: yellow; }
   #banner h1 {
     font-variant: small-caps;
-    letter-spacing: 0.4em;
+    letter-spacing: 0.3em;
     margin-bottom: 0px;
     margin-left: 10px;
     padding: 10px; }

@@ -1,4 +1,7 @@
 body.pages-show
+  .more-info
+    :padding 5px
+    :margin-bottom 30px
   blockquote
     :background url(/images/quote.png) no-repeat
     :background-position 0px 5px
@@ -9,7 +12,28 @@ body.pages-show
     .citation
       :font-size .8em
       :font-family Helvetica
-  h2, h3, h4, h5, strong
+  strong
     :color #444
+  h2, h3, h4, h5
+    :color #444
+    *
+      :color #444
     :font-weight bolder
+  .packages
+    a
+      :color inherit
+      :border-bottom 1px solid black
+      &:hover
+        +highlight
+    .package
+      // total width is 950px
+      :width 300px
+      :margin 0 25px 0 0
+      :float left
+      h3
+        :text-align center
+        :border-bottom 5px solid
+        :padding 5px
+    .package.last
+      :margin-right 0
 
