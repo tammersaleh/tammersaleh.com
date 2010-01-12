@@ -12,4 +12,4 @@ config.action_controller.perform_caching             = true
 config.action_mailer.raise_delivery_errors = false
 
 
-HOST = 'tammer-saleh-staging.heroku.com'
+HOST = 'staging.tammersaleh.com'

@@ -7,6 +7,7 @@ ActionController::Routing::Routes.draw do |map|
   map.speaking "/speaking", :controller => :pages, :action => :show, :id => "speaking"
 
   map.resource :user_session
+  map.resource :sitemap
   map.resource :home, :controller => "home"
 
   map.resources :posts, :collection => {:dashboard => :get} do |post|
