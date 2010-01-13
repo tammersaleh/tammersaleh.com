@@ -124,4 +124,8 @@ module ApplicationHelper
   def post_format(txt)
     RedCloth.new(image_filter(code_filter(txt || ""))).to_html
   end
+
+  def rss_feed_link(&blk)
+    link_to "http://feeds.feedburner.com/TammerSaleh", :rel => "alternate", :type => "application/rss+xml", &blk
+  end
 end

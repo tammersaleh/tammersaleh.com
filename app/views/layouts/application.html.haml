@@ -13,7 +13,9 @@
               = value
         #rss-advertisement
           If you're a Ruby or Rails developer, you should
-          = link_to "subscribe to my RSS feed.", "http://feeds.feedburner.com/TammerSaleh"
+          - rss_feed_link do 
+            subscribe to my RSS feed.
+            = image_tag("rss_icon.png")
         = yield
       = render :partial => 'layouts/footer'
     = render :partial => 'layouts/javascript'

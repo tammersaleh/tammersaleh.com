@@ -13,9 +13,6 @@ a {
   a:hover {
     color: #004087; }
 
-img {
-  padding-bottom: 19px; }
-
 h1, h2, h3, h4, h5, h6, #banner {
   font-family: "Helvetica Neue", "Lucida Grande", Helvetica, Arial, Verdana, sans-serif;
   font-weight: thin; }
@@ -79,11 +76,14 @@ p.footnote {
 
 #rss-advertisement {
   text-align: center;
-  background: yellow; }
+  background: yellow;
+  padding-top: 5px;
+  padding-bottom: 5px; }
   #rss-advertisement a, #rss-advertisement a:visited {
     font-weight: bold;
-    border-bottom: 1px solid black;
     color: black; }
+  #rss-advertisement img {
+    padding-left: 5px; }
 
 .highlighted-block {
   color: black !important;

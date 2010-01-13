@@ -44,9 +44,6 @@ a
   &:hover
     :color = !link_color - 50
 
-img
-  :padding-bottom 19px
-
 h1, h2, h3, h4, h5, h6, #banner
   :font-family "Helvetica Neue", "Lucida Grande", Helvetica, Arial, Verdana, sans-serif
   :font-weight thin
@@ -115,11 +112,13 @@ p.footnote
 #rss-advertisement
   :text-align center
   :background yellow
-  // :padding .5em
+  :padding-top 5px
+  :padding-bottom 5px
   a, a:visited
     :font-weight bold
-    :border-bottom 1px solid black
     :color black
+  img
+    :padding-left 5px
 
 .highlighted-block
   +highlight
