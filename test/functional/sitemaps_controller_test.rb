@@ -9,7 +9,7 @@ class SitemapsControllerTest < ActionController::TestCase
       end
 
       context "on get to show" do
-        setup { get :show }
+        setup { get :show, :format => "xml" }
         should_render_template :show
         should_assign_to :posts
         should_assign_to :pages
