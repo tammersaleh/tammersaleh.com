@@ -8,7 +8,6 @@
   %ul.presentations.navigation
     %li.header
       Speaking
-    = link_to image_tag("alohaonrails.jpg", :width => 150), "http://www.eventbrite.com/event/324307011/attendees/656109843"
     %li= link_to "RailsConf 2007", "/pages/speaking#railsconf2007"
     %li= link_to "RubyConf 2008", "/pages/speaking#rubyconf2008"
     %li= link_to "Mountain West Ruby Conf 2008", "/pages/speaking#mwrc"
@@ -23,9 +22,9 @@
       = link_to "Shoulda Testing Framework", "http://thoughtbot.com/projects/shoulda"
     %li
       = link_to "LDAP/ActiveRecord Gateway", "http://thoughtbot.com/projects/ldap-ar-gateway"
-    /
-      %li
-        = link_to "Migration Data Dumper", page_path(:id => 'migration-data-dumper')
+    %li
+      %a{:href => "http://www.engineyard.com/partners"}
+        %img{:src => "http://assets.engineyard.com/images/ey_partner_associate.png", :alt => "Engine Yard"}
   %ul.promotions.navigation
     %li.header
       Socializing

@@ -293,6 +293,8 @@ body.pages-show .packages .package {
     padding: 5px; }
 body.pages-show .packages .package.last {
   margin-right: 0; }
+body.pages-show .badges a {
+  float: right; }
 
 #comments .by-owner .owner-tag {
   display: block !important;
