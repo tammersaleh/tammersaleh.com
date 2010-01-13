@@ -190,18 +190,6 @@ body.home #recent-posts, body.home #recent-accolades {
     body.home #recent-posts a.recent-post:hover .date, body.home #recent-posts a.recent-accolade:hover .date, body.home #recent-accolades a.recent-post:hover .date, body.home #recent-accolades a.recent-accolade:hover .date {
       color: #888888; }
 
-div.posts h3 {
-  clear: both;
-  color: #0072b9;
-  border-bottom: 5px solid black;
-  padding: 5px; }
-div.posts .extended {
-  display: none; }
-div.posts .extended_leader_text {
-  display: block;
-  font-size: 1.5em;
-  float: right; }
-
 .post {
   margin-bottom: 10px; }
   .post .title {

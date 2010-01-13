@@ -59,7 +59,7 @@ module ApplicationHelper
   end
 
   def image_filter(txt)
-    txt.gsub(/%([<>]?)([0-9a-zA-Z_.-]+)([^%]*)%/) do
+    txt.gsub(/^%([<>]?)([0-9a-zA-Z_.-]+)([^%]*)%/) do
       float    = $1
       image_id = $2
       size     = $3
