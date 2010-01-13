@@ -405,6 +405,8 @@ pre {
       color: #999999; }
     pre code .instance_variable {
       color: orange; }
+    pre code .selector, pre code .global, pre code .properties {
+      color: orange; }
 
 #banner {
   color: white;
