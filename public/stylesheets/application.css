@@ -382,7 +382,10 @@ pre {
   padding: 1em;
   margin-bottom: 1em;
   /* conflicts with the curvy corners thing */
-  overflow: auto; }
+  overflow: auto;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px; }
   pre code {
     color: white;
     margin: 0;
@@ -405,7 +408,7 @@ pre {
       color: #999999; }
     pre code .instance_variable {
       color: orange; }
-    pre code .selector, pre code .global, pre code .properties {
+    pre code .selectors, pre code .global, pre code .properties {
       color: orange; }
 
 #banner {
