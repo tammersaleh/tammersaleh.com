@@ -365,6 +365,7 @@ form input[type="checkbox"] {
   position: inherit; }
 
 pre {
+  clear: both;
   background: black;
   color: white;
   padding: 1em;

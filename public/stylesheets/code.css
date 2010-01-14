@@ -1,46 +1,46 @@
 /*
 Sass::SyntaxError: Undefined mixin 'rounded'.
-on line 8 of /Users/tsaleh/code/tsaleh-tammer-saleh/public/stylesheets/sass/code.sass
+on line 9 of /Users/tsaleh/code/tsaleh-tammer-saleh/public/stylesheets/sass/code.sass
 
-4:   :padding 1em
-5:   :margin-bottom 1em
-6:   /* conflicts with the curvy corners thing
-7:   :overflow auto 
-8:   +rounded
-9:   code
-10:     :color white
-11:     :margin 0
-12:     :padding 0
-13:     *
-14:       :border none
+5:   :padding 1em
+6:   :margin-bottom 1em
+7:   /* conflicts with the curvy corners thing
+8:   :overflow auto 
+9:   +rounded
+10:   code
+11:     :color white
+12:     :margin 0
+13:     :padding 0
+14:     *
+15:       :border none
 
 
 Backtrace:
-/Users/tsaleh/code/tsaleh-tammer-saleh/public/stylesheets/sass/code.sass:8
-/Library/Ruby/Gems/1.8/gems/haml-2.2.14/lib/sass/tree/mixin_node.rb:27:in `_perform'
-/Library/Ruby/Gems/1.8/gems/haml-2.2.14/lib/sass/tree/node.rb:158:in `perform'
-/Library/Ruby/Gems/1.8/gems/haml-2.2.14/lib/sass/tree/node.rb:202:in `perform_children'
-/Library/Ruby/Gems/1.8/gems/haml-2.2.14/lib/sass/tree/node.rb:202:in `map'
-/Library/Ruby/Gems/1.8/gems/haml-2.2.14/lib/sass/tree/node.rb:202:in `perform_children'
-/Library/Ruby/Gems/1.8/gems/haml-2.2.14/lib/sass/tree/node.rb:193:in `perform!'
-/Library/Ruby/Gems/1.8/gems/haml-2.2.14/lib/sass/tree/rule_node.rb:159:in `perform!'
-/Library/Ruby/Gems/1.8/gems/haml-2.2.14/lib/sass/tree/node.rb:181:in `_perform'
-/Library/Ruby/Gems/1.8/gems/haml-2.2.14/lib/sass/tree/node.rb:158:in `perform'
-/Library/Ruby/Gems/1.8/gems/haml-2.2.14/lib/sass/tree/node.rb:202:in `perform_children'
-/Library/Ruby/Gems/1.8/gems/haml-2.2.14/lib/sass/tree/node.rb:202:in `map'
-/Library/Ruby/Gems/1.8/gems/haml-2.2.14/lib/sass/tree/node.rb:202:in `perform_children'
-/Library/Ruby/Gems/1.8/gems/haml-2.2.14/lib/sass/tree/node.rb:193:in `perform!'
-/Library/Ruby/Gems/1.8/gems/haml-2.2.14/lib/sass/tree/node.rb:181:in `_perform'
-/Library/Ruby/Gems/1.8/gems/haml-2.2.14/lib/sass/tree/node.rb:158:in `perform'
-/Library/Ruby/Gems/1.8/gems/haml-2.2.14/lib/sass/tree/node.rb:103:in `render'
-/Library/Ruby/Gems/1.8/gems/haml-2.2.14/lib/sass/plugin.rb:96:in `update_stylesheet'
-/Library/Ruby/Gems/1.8/gems/haml-2.2.14/lib/sass/plugin.rb:82:in `update_stylesheets'
-/Library/Ruby/Gems/1.8/gems/haml-2.2.14/lib/sass/plugin.rb:77:in `each'
-/Library/Ruby/Gems/1.8/gems/haml-2.2.14/lib/sass/plugin.rb:77:in `update_stylesheets'
-/Library/Ruby/Gems/1.8/gems/haml-2.2.14/lib/sass/plugin.rb:75:in `each'
-/Library/Ruby/Gems/1.8/gems/haml-2.2.14/lib/sass/plugin.rb:75:in `update_stylesheets'
-/Library/Ruby/Gems/1.8/gems/haml-2.2.14/lib/sass/plugin.rb:62:in `check_for_updates'
-/Library/Ruby/Gems/1.8/gems/haml-2.2.14/lib/sass/plugin/rails.rb:18:in `process'
+/Users/tsaleh/code/tsaleh-tammer-saleh/public/stylesheets/sass/code.sass:9
+/Library/Ruby/Gems/1.8/gems/haml-2.2.17/lib/sass/tree/mixin_node.rb:27:in `_perform'
+/Library/Ruby/Gems/1.8/gems/haml-2.2.17/lib/sass/tree/node.rb:158:in `perform'
+/Library/Ruby/Gems/1.8/gems/haml-2.2.17/lib/sass/tree/node.rb:202:in `perform_children'
+/Library/Ruby/Gems/1.8/gems/haml-2.2.17/lib/sass/tree/node.rb:202:in `map'
+/Library/Ruby/Gems/1.8/gems/haml-2.2.17/lib/sass/tree/node.rb:202:in `perform_children'
+/Library/Ruby/Gems/1.8/gems/haml-2.2.17/lib/sass/tree/node.rb:193:in `perform!'
+/Library/Ruby/Gems/1.8/gems/haml-2.2.17/lib/sass/tree/rule_node.rb:159:in `perform!'
+/Library/Ruby/Gems/1.8/gems/haml-2.2.17/lib/sass/tree/node.rb:181:in `_perform'
+/Library/Ruby/Gems/1.8/gems/haml-2.2.17/lib/sass/tree/node.rb:158:in `perform'
+/Library/Ruby/Gems/1.8/gems/haml-2.2.17/lib/sass/tree/node.rb:202:in `perform_children'
+/Library/Ruby/Gems/1.8/gems/haml-2.2.17/lib/sass/tree/node.rb:202:in `map'
+/Library/Ruby/Gems/1.8/gems/haml-2.2.17/lib/sass/tree/node.rb:202:in `perform_children'
+/Library/Ruby/Gems/1.8/gems/haml-2.2.17/lib/sass/tree/node.rb:193:in `perform!'
+/Library/Ruby/Gems/1.8/gems/haml-2.2.17/lib/sass/tree/node.rb:181:in `_perform'
+/Library/Ruby/Gems/1.8/gems/haml-2.2.17/lib/sass/tree/node.rb:158:in `perform'
+/Library/Ruby/Gems/1.8/gems/haml-2.2.17/lib/sass/tree/node.rb:103:in `render'
+/Library/Ruby/Gems/1.8/gems/haml-2.2.17/lib/sass/plugin.rb:96:in `update_stylesheet'
+/Library/Ruby/Gems/1.8/gems/haml-2.2.17/lib/sass/plugin.rb:82:in `update_stylesheets'
+/Library/Ruby/Gems/1.8/gems/haml-2.2.17/lib/sass/plugin.rb:77:in `each'
+/Library/Ruby/Gems/1.8/gems/haml-2.2.17/lib/sass/plugin.rb:77:in `update_stylesheets'
+/Library/Ruby/Gems/1.8/gems/haml-2.2.17/lib/sass/plugin.rb:75:in `each'
+/Library/Ruby/Gems/1.8/gems/haml-2.2.17/lib/sass/plugin.rb:75:in `update_stylesheets'
+/Library/Ruby/Gems/1.8/gems/haml-2.2.17/lib/sass/plugin.rb:62:in `check_for_updates'
+/Library/Ruby/Gems/1.8/gems/haml-2.2.17/lib/sass/plugin/rails.rb:18:in `process'
 /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:391:in `process'
 /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:386:in `call'
 /Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/routing/route_set.rb:437:in `call'
@@ -91,4 +91,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Sass::SyntaxError: Undefined mixin 'rounded'.\A on line 8 of /Users/tsaleh/code/tsaleh-tammer-saleh/public/stylesheets/sass/code.sass\A \A 4:   :padding 1em\A 5:   :margin-bottom 1em\A 6:   /* conflicts with the curvy corners thing\A 7:   :overflow auto \A 8:   +rounded\A 9:   code\A 10:     :color white\A 11:     :margin 0\A 12:     :padding 0\A 13:     *\A 14:       :border none\A "; }
+  content: "Sass::SyntaxError: Undefined mixin 'rounded'.\A on line 9 of /Users/tsaleh/code/tsaleh-tammer-saleh/public/stylesheets/sass/code.sass\A \A 5:   :padding 1em\A 6:   :margin-bottom 1em\A 7:   /* conflicts with the curvy corners thing\A 8:   :overflow auto \A 9:   +rounded\A 10:   code\A 11:     :color white\A 12:     :margin 0\A 13:     :padding 0\A 14:     *\A 15:       :border none\A "; }
