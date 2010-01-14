@@ -212,12 +212,8 @@ body.home #recent-posts, body.home #recent-accolades {
       font-weight: bold; }
   .post .body {
     margin-left: 30px; }
-    .post .body p {
-      text-align: justify; }
-      .post .body p img {
-        float: none; }
-    .post .body li {
-      text-align: justify; }
+    .post .body p img {
+      float: none; }
   .post .extended_leader_text {
     display: none; }
   .post .extended {
