@@ -192,6 +192,10 @@ body.home #recent-posts, body.home #recent-accolades {
 
 .post {
   margin-bottom: 10px; }
+  .post .body {
+    margin-left: 30px; }
+    .post .body p img {
+      float: none; }
   .post .title {
     color: black;
     border-bottom: 5px solid black;
@@ -210,10 +214,6 @@ body.home #recent-posts, body.home #recent-accolades {
     .post .meta .unpublished {
       color: red;
       font-weight: bold; }
-  .post .body {
-    margin-left: 30px; }
-    .post .body p img {
-      float: none; }
   .post .extended_leader_text {
     display: none; }
   .post .extended {
@@ -255,6 +255,16 @@ body.pages-show h2, body.pages-show h3, body.pages-show h4, body.pages-show h5 {
   color: #444;
   font-weight: bolder; }
   body.pages-show h2 *, body.pages-show h3 *, body.pages-show h4 *, body.pages-show h5 * {
+    color: #444; }
+body.pages-show .engage strong {
+  text-align: center;
+  font-size: 1.5em;
+  font-style: normal;
+  display: block;
+  margin-top: 0;
+  padding: 0 5px;
+  background: yellow; }
+  body.pages-show .engage strong a {
     color: #444; }
 body.pages-show .packages a {
   color: inherit;
