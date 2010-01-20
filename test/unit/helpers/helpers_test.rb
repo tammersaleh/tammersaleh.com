@@ -39,6 +39,10 @@ class HelpersTest < ActionView::TestCase
     should_not_contain %r{<script>}
   end
 
+  comment_format('<a href="foo">blah</a>') do
+    should_contain %r{<a href="foo">}
+  end
+
   comment_format("@@@\nblah\n@@@") do
     should_contain '<code>blah</code>'
   end

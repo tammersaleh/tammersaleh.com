@@ -1,22 +1,22 @@
 /*
 Sass::SyntaxError: Undefined mixin 'rounded'.
-on line 9 of /Users/tsaleh/code/tsaleh-tammer-saleh/public/stylesheets/sass/code.sass
+on line 11 of /Users/tsaleh/code/tsaleh-tammer-saleh/public/stylesheets/sass/code.sass
 
-5:   :padding 1em
-6:   :margin-bottom 1em
-7:   /* conflicts with the curvy corners thing
-8:   :overflow auto 
-9:   +rounded
-10:   code
-11:     :color white
-12:     :margin 0
-13:     :padding 0
-14:     *
-15:       :border none
+7:   :padding 1em
+8:   :margin-bottom 1em
+9:   /* conflicts with the curvy corners thing
+10:   :overflow auto 
+11:   +rounded
+12:   code
+13:     :color white
+14:     :margin 0
+15:     :padding 0
+16:     *
+17:       :border none
 
 
 Backtrace:
-/Users/tsaleh/code/tsaleh-tammer-saleh/public/stylesheets/sass/code.sass:9
+/Users/tsaleh/code/tsaleh-tammer-saleh/public/stylesheets/sass/code.sass:11
 /Library/Ruby/Gems/1.8/gems/haml-2.2.17/lib/sass/tree/mixin_node.rb:27:in `_perform'
 /Library/Ruby/Gems/1.8/gems/haml-2.2.17/lib/sass/tree/node.rb:158:in `perform'
 /Library/Ruby/Gems/1.8/gems/haml-2.2.17/lib/sass/tree/node.rb:202:in `perform_children'
@@ -91,4 +91,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Sass::SyntaxError: Undefined mixin 'rounded'.\A on line 9 of /Users/tsaleh/code/tsaleh-tammer-saleh/public/stylesheets/sass/code.sass\A \A 5:   :padding 1em\A 6:   :margin-bottom 1em\A 7:   /* conflicts with the curvy corners thing\A 8:   :overflow auto \A 9:   +rounded\A 10:   code\A 11:     :color white\A 12:     :margin 0\A 13:     :padding 0\A 14:     *\A 15:       :border none\A "; }
+  content: "Sass::SyntaxError: Undefined mixin 'rounded'.\A on line 11 of /Users/tsaleh/code/tsaleh-tammer-saleh/public/stylesheets/sass/code.sass\A \A 7:   :padding 1em\A 8:   :margin-bottom 1em\A 9:   /* conflicts with the curvy corners thing\A 10:   :overflow auto \A 11:   +rounded\A 12:   code\A 13:     :color white\A 14:     :margin 0\A 15:     :padding 0\A 16:     *\A 17:       :border none\A "; }

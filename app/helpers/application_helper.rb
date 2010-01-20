@@ -114,7 +114,7 @@ module ApplicationHelper
   end
 
   def comment_format(txt)
-    auto_link(RedCloth.new(code_filter(strip_tags(txt || ""))).to_html)
+    auto_link(RedCloth.new(code_filter(sanitize(txt || ""))).to_html)
   end
 
   def page_format(txt)

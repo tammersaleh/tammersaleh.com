@@ -371,8 +371,10 @@ form input#post_title {
 form input[type="checkbox"] {
   position: inherit; }
 
+.post .body pre {
+  clear: both; }
+
 pre {
-  clear: both;
   background: black;
   color: white;
   padding: 1em;
@@ -404,7 +406,7 @@ pre {
       color: #999999; }
     pre code .instance_variable {
       color: orange; }
-    pre code .selectors, pre code .global, pre code .properties {
+    pre code .selectors, pre code .global, pre code .properties, pre code .tag, pre code .attribute {
       color: orange; }
 
 #banner {
