@@ -256,16 +256,17 @@ body.pages-show h2, body.pages-show h3, body.pages-show h4, body.pages-show h5 {
   font-weight: bolder; }
   body.pages-show h2 *, body.pages-show h3 *, body.pages-show h4 *, body.pages-show h5 * {
     color: #444; }
-body.pages-show .engage strong {
+body.pages-show .engage a {
+  margin: 5px 0;
+  padding: 0 5px;
   text-align: center;
   font-size: 1.5em;
-  font-style: normal;
+  font-weight: bold;
   display: block;
-  margin-top: 0;
-  padding: 0 5px;
-  background: yellow; }
-  body.pages-show .engage strong a {
-    color: #444; }
+  background: yellow;
+  color: #444; }
+  body.pages-show .engage a:hover {
+    color: black; }
 body.pages-show .packages a {
   color: inherit;
   border-bottom: 1px solid black; }
