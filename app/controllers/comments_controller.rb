@@ -7,7 +7,7 @@ class CommentsController < InheritedResources::Base
   def create
     @comment = build_resource
 
-    if verify_recaptcha(@comment) and @comment.save
+    if verify_recaptcha(:model => @comment) and @comment.save
       flash[:notice] = "Thanks for commenting, #{@comment.submitter_name}."
       redirect_to(post_url(:id => @comment.post, :anchor => dom_id(@comment)))
     else
