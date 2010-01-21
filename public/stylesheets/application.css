@@ -291,43 +291,27 @@ body.pages-show .packages .package.last {
 body.pages-show .badges a {
   float: right; }
 
-#comments .by-owner .owner-tag {
-  display: block !important;
-  background-color: yellow;
-  margin-top: 10px;
-  padding: 5px;
-  color: white; }
 #comments h3 {
   clear: both;
   color: #0072b9;
   border-bottom: 5px solid black;
   padding: 5px; }
+#comments .comment.by-owner {
+  background-color: #dddddd; }
 #comments .comment {
   clear: both;
   border-bottom: 1px solid gray; }
   #comments .comment:first-child {
     border-top: none; }
   #comments .comment .submitter {
-    display: block;
-    width: 150px;
-    float: left;
     font-weight: bold;
-    margin-right: 10px;
-    padding: 5px 5px 5px 0;
     font-size: 0.6em; }
-    #comments .comment .submitter .owner-tag {
-      display: none; }
     #comments .comment .submitter .name {
-      font-size: 1.8em; }
-  #comments .comment .body {
-    background: white;
-    padding: 5px;
-    margin-left: 165px; }
-    #comments .comment .body p {
-      text-align: justify; }
-  #comments .comment .gravatar img {
-    border: 1px solid grey;
-    background: grey; }
+      font-size: 1.5em; }
+    #comments .comment .submitter .gravatar {
+      float: left;
+      margin-right: 5px;
+      border: 1px solid grey; }
 
 .comment_form .help .text {
   float: left;

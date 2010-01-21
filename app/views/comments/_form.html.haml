@@ -21,7 +21,7 @@
   .body
     ~ f.text_area :body, :tabindex => 4
   .clear
-  = recaptcha_tags :display => { :theme => :clean, :tabindex => 5 }
+  ~ recaptcha_tags :display => { :theme => :clean, :tabindex => 5 }
   .buttons
     - if comment.new_record?
       = f.submit "Save"
