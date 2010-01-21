@@ -1,11 +1,10 @@
 - div_for(comment, :class => my_comment_class(comment)) do
   .submitter.column.span-5
-    %img.gravatar{:src => comment.gravatar_url(:size => 80)}
+    %img.gravatar{:src => comment.gravatar_url(:size => 60)}
     .meta
       .name
         = submitter_link(comment)
       .when
-        said about
         = time_ago_in_words(comment.created_at)
         ago
   .body.column.span-12.last
