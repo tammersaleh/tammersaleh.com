@@ -21,16 +21,16 @@ body.pages-show
     :font-weight bolder
   .engage
     a
-      margin: 5px 0
-      padding: 0 5px
-      text-align: center
-      font-size: 1.5em
-      font-weight: bold
-      display: block
-      background: yellow
-      color: #444
+      :margin 5px 0
+      :padding 0 5px
+      :text-align center
+      :font-size 1.5em
+      :font-weight bold
+      :display block
+      :background yellow
+      :color #444
       &:hover
-        color: black
+        :color black
   .packages
     a
       :color inherit
@@ -51,4 +51,33 @@ body.pages-show
 
   .badges
     a
-      float: right
+      :float right
+
+body.pages-show-zivity-contract
+  #banner, #footer
+    :display none
+  h2
+    :border-top 5px solid gray
+  h3
+    :margin-left 40px
+    :border-top 1px solid gray
+  h4
+    :margin-left 80px
+  p, table, ul, ol
+    :margin-left 100px
+  table
+    :border-left 10px solid gray
+    :width 700px
+    th,td
+      :vertical-align bottom
+    th
+      :width 20em
+  table.signature
+    th
+      :width 5em
+    tr:last-child td
+      :border-bottom 1px solid black
+  .address
+    :padding-left 120px
+
+

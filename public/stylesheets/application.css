@@ -291,6 +291,31 @@ body.pages-show .packages .package.last {
 body.pages-show .badges a {
   float: right; }
 
+body.pages-show-zivity-contract #banner, body.pages-show-zivity-contract #footer {
+  display: none; }
+body.pages-show-zivity-contract h2 {
+  border-top: 5px solid gray; }
+body.pages-show-zivity-contract h3 {
+  margin-left: 40px;
+  border-top: 1px solid gray; }
+body.pages-show-zivity-contract h4 {
+  margin-left: 80px; }
+body.pages-show-zivity-contract p, body.pages-show-zivity-contract table, body.pages-show-zivity-contract ul, body.pages-show-zivity-contract ol {
+  margin-left: 100px; }
+body.pages-show-zivity-contract table {
+  border-left: 10px solid gray;
+  width: 700px; }
+  body.pages-show-zivity-contract table th, body.pages-show-zivity-contract table td {
+    vertical-align: bottom; }
+  body.pages-show-zivity-contract table th {
+    width: 20em; }
+body.pages-show-zivity-contract table.signature th {
+  width: 5em; }
+body.pages-show-zivity-contract table.signature tr:last-child td {
+  border-bottom: 1px solid black; }
+body.pages-show-zivity-contract .address {
+  padding-left: 120px; }
+
 #comments h3 {
   clear: both;
   color: #0072b9;

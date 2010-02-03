@@ -2,7 +2,10 @@
 module ApplicationHelper
 
   def body_class
-    "#{controller.controller_name} #{controller.controller_name}-#{controller.action_name}"
+    classes = [controller.controller_name,
+               "#{controller.controller_name}-#{controller.action_name}" ]
+    classes << "#{controller.controller_name}-#{controller.action_name}-#{params[:id]}" if params[:id]
+    classes.join(" ")
   end
 
   def page_title(title = nil, &block)
