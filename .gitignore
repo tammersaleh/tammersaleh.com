@@ -8,6 +8,5 @@ coverage*
 *.swp
 tmp/restart.txt
 public/system
-config/heroku_env.rb
 
 !.keep

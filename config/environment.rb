@@ -6,9 +6,7 @@ RAILS_GEM_VERSION = '2.3.4' unless defined? RAILS_GEM_VERSION
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
 
-# Load heroku vars from local file
-heroku_env = File.join(RAILS_ROOT, 'config', 'heroku_env.rb')
-load(heroku_env) if File.exists?(heroku_env)
+load("#{RAILS_ROOT}/config/secrets.rb")
 
 Rails::Initializer.run do |config|
   config.gem 'ambethia-smtp-tls', :lib => 'smtp-tls', :source => 'http://gems.github.com', :version => '>= 1.1.2'
