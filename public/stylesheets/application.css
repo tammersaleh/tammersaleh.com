@@ -1,5 +1,5 @@
 body, * {
-  color: #222;
+  color: #222222;
   font-family: "Helvetica Neue", "Lucida Grande", Helvetica, Arial, Verdana, sans-serif;
   font-weight: light;
   font-size: 100%;
@@ -33,7 +33,7 @@ h1, h2, h3, h4, h5, h6, #banner {
 #footer {
   border-top: 3px solid gray;
   color: gray;
-  font-size: .8em;
+  font-size: 0.8em;
   font-weight: bold; }
   #footer * {
     color: inherit; }
@@ -152,7 +152,7 @@ body.home a#random-recommendation {
     color: gray;
     text-align: right;
     margin-right: 0.5em;
-    font-size: .6em;
+    font-size: 0.6em;
     font-family: Helvetica;
     font-weight: bold; }
     body.home a#random-recommendation .citation * {
@@ -247,15 +247,15 @@ body.pages-show blockquote {
   color: black;
   font-size: 1em; }
   body.pages-show blockquote .citation {
-    font-size: .8em;
+    font-size: 0.8em;
     font-family: Helvetica; }
 body.pages-show strong {
-  color: #444; }
+  color: #444444; }
 body.pages-show h2, body.pages-show h3, body.pages-show h4, body.pages-show h5 {
-  color: #444;
+  color: #444444;
   font-weight: bolder; }
   body.pages-show h2 *, body.pages-show h3 *, body.pages-show h4 *, body.pages-show h5 * {
-    color: #444; }
+    color: #444444; }
 body.pages-show .engage a {
   margin: 5px 0;
   padding: 0 5px;
@@ -264,7 +264,7 @@ body.pages-show .engage a {
   font-weight: bold;
   display: block;
   background: yellow;
-  color: #444; }
+  color: #444444; }
   body.pages-show .engage a:hover {
     color: black; }
 body.pages-show .packages a {
@@ -290,6 +290,17 @@ body.pages-show .packages .package.last {
   margin-right: 0; }
 body.pages-show .badges a {
   float: right; }
+body.pages-show .contact p {
+  font-size: 1.3em;
+  font-weight: bold;
+  padding: 10px;
+  background: yellow;
+  color: #444444; }
+body.pages-show .contact a {
+  color: black; }
+  body.pages-show .contact a:hover {
+    color: black;
+    border-bottom: 3px solid #666666; }
 
 body.pages-show-zivity-contract #banner, body.pages-show-zivity-contract #footer {
   display: none; }
@@ -410,7 +421,7 @@ pre {
       color: yellow; }
     pre code .string {
       font-style: italic;
-      color: #55FF55; }
+      color: #55ff55; }
     pre code .keywords {
       color: #999999; }
     pre code .instance_variable {
@@ -498,7 +509,6 @@ pre {
       border-bottom: 1px dotted gray; }
 
 /* flickr stuff is in separate file */
-
 .fieldWithErrors {
   padding: 1em;
   background-color: red;
@@ -516,10 +526,10 @@ pre {
     font-weight: bold;
     padding: 5px 5px 5px 15px;
     margin: -7px;
-    background-color: #c00;
-    color: #fff; }
+    background-color: #cc0000;
+    color: white; }
   #errorExplanation p {
-    color: #333;
+    color: #333333;
     margin-bottom: 0;
     padding: 5px; }
   #errorExplanation ul li {
@@ -560,12 +570,10 @@ pre {
   background: inherit !important;
   color: #3993ff; }
 
-
 #flickr_badge_source {
   padding: 0 !important;
   font: 11px Arial, Helvetica, Sans serif !important;
   color: #666666 !important; }
-
 
 .image {
   clear: both;
