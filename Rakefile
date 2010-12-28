@@ -11,3 +11,4 @@ require 'tasks/rails'
 
 desc "Run all tests"
 task :default => [:test, "test:javascripts"]
+
