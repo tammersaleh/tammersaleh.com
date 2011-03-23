@@ -26,10 +26,10 @@ Rails::Initializer.run do |config|
   config.gem "aws-s3", :lib => "aws/s3"
   config.gem 'inherited_resources', :version => '~> 0.9.0'
   config.gem 'formtastic',          :version => '~> 0.2.0'
-  config.gem 'gravtastic',          :version => '~> 3.0.0'
+  config.gem 'gravtastic',          :version => '~> 2.2.0'
   config.gem 'authlogic',           :version => '~> 2.1.0'
   config.gem 'RedCloth',            :version => '~> 4.2.0'
-  config.gem 'master_may_i',        :version => '~> 0.4.0'
+  config.gem 'master_may_i',        :version => '~> 0.6.0'
   config.gem 'haml',                :version => "~> 3.0"
   config.gem 'mysql',               :version => "~> 2.8.0"
   # Settings in config/environments/* take precedence over those specified here.
