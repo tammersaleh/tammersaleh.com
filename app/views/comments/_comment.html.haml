@@ -8,5 +8,8 @@
         = time_ago_in_words(comment.created_at)
         ago
   .body.column.span-12.last
+    - if logged_in?
+      .admin_links
+        = link_to 'Destroy', [comment.post, comment], :confirm => "Are you sure you want to remove this comment?", :method => :delete 
     ~ comment_format(comment.body)
   .clear
