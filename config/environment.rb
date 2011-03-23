@@ -6,20 +6,32 @@ RAILS_GEM_VERSION = '2.3.4' unless defined? RAILS_GEM_VERSION
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
 
+if Gem::VERSION >= "1.3.6" 
+  module Rails
+    class GemDependency
+      def requirement
+        r = super
+        (r == Gem::Requirement.default) ? nil : r
+      end
+    end
+  end
+end
+
 load("#{RAILS_ROOT}/config/secrets.rb")
 
 Rails::Initializer.run do |config|
-  config.gem 'ambethia-smtp-tls', :lib => 'smtp-tls', :source => 'http://gems.github.com', :version => '>= 1.1.2'
-  config.gem 'will_paginate',       :version => '>= 2.3.11'
-  config.gem 'paperclip',           :version => '>= 2.3.1'
+  config.gem 'ambethia-smtp-tls', :lib => 'smtp-tls', :source => 'http://gems.github.com', :version => '~> 1.1.2'
+  config.gem 'will_paginate',       :version => '~> 2.3.0'
+  config.gem 'paperclip',           :version => '~> 2.3.0'
+  config.gem "aws-s3", :lib => "aws/s3"
   config.gem 'inherited_resources', :version => '~> 0.9.0'
-  config.gem 'formtastic',          :version => '~> 0.2.2'
-  config.gem 'gravtastic',          :version => '>= 2.0.0'
-  config.gem 'authlogic',           :version => '>= 2.1.1'
-  config.gem 'RedCloth',            :version => '>= 4.0.0'
-  config.gem 'master_may_i',        :version => '>= 0.4.0'
-  config.gem 'haml'
-  config.gem 'mysql'
+  config.gem 'formtastic',          :version => '~> 0.2.0'
+  config.gem 'gravtastic',          :version => '~> 3.0.0'
+  config.gem 'authlogic',           :version => '~> 2.1.0'
+  config.gem 'RedCloth',            :version => '~> 4.2.0'
+  config.gem 'master_may_i',        :version => '~> 0.4.0'
+  config.gem 'haml',                :version => "~> 3.0"
+  config.gem 'mysql',               :version => "~> 2.8.0"
   # Settings in config/environments/* take precedence over those specified here.
   # Application configuration should go into files in config/initializers
   # -- all .rb files in that directory are automatically loaded.

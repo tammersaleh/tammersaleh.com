@@ -29,8 +29,8 @@ config.action_mailer.delivery_method = :test
 config.gem 'nokogiri', :lib => false
 config.gem 'webrat'
 config.gem 'fakeweb'
-config.gem 'thoughtbot-factory_girl', :lib => 'factory_girl', :source => 'http://gems.github.com'
-config.gem 'thoughtbot-shoulda', :lib => 'shoulda', :source => 'http://gems.github.com'
-config.gem 'mocha', :version => ">= 0.9.8"
+config.gem 'factory_girl', :version => "~> 1.3"
+config.gem 'shoulda', :version => "~> 2.10.0"
+config.gem 'mocha', :version => "~> 0.9.8"
 
 HOST = 'localhost'

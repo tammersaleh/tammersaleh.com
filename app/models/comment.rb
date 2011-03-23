@@ -1,4 +1,6 @@
 class Comment < ActiveRecord::Base
+  include Gravtastic
+
   attr_accessible :post, :body, :submitter_name, :submitter_url, :submitter_email
 
   is_gravtastic :submitter_email
