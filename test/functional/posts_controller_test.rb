@@ -114,8 +114,8 @@ class PostsControllerTest < ActionController::TestCase
         setup { get :show, :id => @post.to_param }
         should_render_template :show
         should_assign_to :post
-        should "render the comment form" do
-          assert_select "form[action$=?]", post_comments_path(@post)
+        should "not render the comment form since spammers make me sad" do
+          assert_select "form[action$=?]", post_comments_path(@post), :count => 0
         end
       end
     end

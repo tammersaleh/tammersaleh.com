@@ -8,5 +8,6 @@
     = render :partial => @post.comments
   .comment_form
     %h3
-      Leave a comment:
-    = render :partial => 'comments/form', :locals => { :comment => Comment.new(:post => @post) }
+      Comments disabled! (Oh noes!)
+    %p
+      Basically, spammers have made me sad, and I don't have time to fix the captcha :(

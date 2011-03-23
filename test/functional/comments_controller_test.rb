@@ -7,37 +7,17 @@ class CommentsControllerTest < ActionController::TestCase
     
     context "on POST to /post/:id/comments" do
       setup do
-        post :create, 
-             :post_id => @post.to_param, 
-             :comment => {:body => "Boo", :submitter_name => "bob", :submitter_email => "none@none.com" } 
-      end
-
-      should_change("the nubmer of comments for that post", :by => 1) { @post.comments(true).count }
-      should_set_the_flash_to /thanks/i
-      should "send the user to the post page, with the asset shown" do
-        assert_redirected_to post_url(:id => @post, :anchor => "comment_#{assigns(:comment).id}")
-      end
-    end
-
-    context "on POST to /post/:id/comments with bad data" do
-      setup { post :create, :post_id => @post.to_param, :comment => {} }
-
-      should_not_change("the nubmer of comments for that post") { @post.comments(true).count }
-      should_not_set_the_flash
-      should_render_template :new
-    end
-
-    context "on POST to /post/:id/comments with bad captcha" do
-      setup do
-        @controller.expects(:verify_recaptcha).returns(false)
-        post :create, 
-             :post_id => @post.to_param, 
-             :comment => {:body => "Boo", :submitter_name => "bob", :submitter_email => "none@none.com" } 
       end
 
       should_not_change("the nubmer of comments for that post") { @post.comments(true).count }
-      should_not_set_the_flash
-      should_render_template :new
+
+      should "raise an unknown action error" do
+        assert_raise(ActionController::UnknownAction) do
+          post :create, 
+               :post_id => @post.to_param, 
+               :comment => {:body => "Boo", :submitter_name => "bob", :submitter_email => "none@none.com" } 
+        end
+      end
     end
   end
 
