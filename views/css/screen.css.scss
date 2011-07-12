@@ -1,0 +1,6 @@
+@import 'bourbon/bourbon';
+
+.rounded {
+  @include border-radius(10px);
+}
+

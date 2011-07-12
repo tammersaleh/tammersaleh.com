@@ -1,5 +1,0 @@
-- page_title "Blog"
-
-.posts
-  = render :partial => @posts.to(5)
-  = render :partial => "posts/headline", :collection => (@posts.from(6) || [])

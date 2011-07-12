@@ -1,9 +1,0 @@
-ENV['HOPTOAD_KEY']           = 'a75f6ceddf3ccd1cb1bd488be8e99db9'
-ENV['GMAIL_USERNAME']        = 'tsaleh.notifier'
-ENV['GMAIL_PASSWORD']        = 'U8Fxwurf0IHzrE'
-ENV['SESSION_STORE_KEY']     = 'a3549a648b5c0bd4166e6236f24efcc4'
-ENV['S3_KEY']                = '0QNMF81GV2QJYJNJDY82'
-ENV['S3_SECRET']             = 'GrbWOtPDu+oNqlba2TUOCWOKyYLfPIvd+XvmmHI5'
-ENV['S3_BUCKET']             = 'tammer_saleh'
-ENV['RECAPTCHA_PUBLIC_KEY']  = "6LdjlQkAAAAAAIjUzR1qs-0Z2q6DBU9gDqgY29bc"
-ENV['RECAPTCHA_PRIVATE_KEY'] = "6LdjlQkAAAAAAM0aDsF_a8IQbi9zIVYlLpuGh8Oh"
