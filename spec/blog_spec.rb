@@ -7,7 +7,7 @@ describe "The blog" do
     create_template("layouts/application.html.haml", 
                     <<-EOF)
                       %head
-                        %title= page[:title]
+                        %title= data[:title]
                       %h1 Layout
                       = yield
                     EOF
@@ -33,7 +33,6 @@ describe "The blog" do
     end
 
     it "hands the frontmatter to the layout" do
-      # puts page.source
       page.should have_selector('title:contains("Title for this post.")')
     end
   end
