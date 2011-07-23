@@ -2,6 +2,29 @@
 
 require "spec_helper"
 
+describe "Given a file without front matter" do
+  before do
+    @path = "file"
+    create_template("#{@path}.html.haml", "This is a post.")
+  end
+
+  describe "Page.new(filename)" do
+    before { @page = Page.new(@path) }
+
+    describe "#front_matter" do
+      before { @out = @page.front_matter }
+
+      it "returns a HashWithIndifferentAccess" do
+        @out.should be_a(HashWithIndifferentAccess)
+      end
+
+      it "returns empty" do
+        @out.should be_empty
+      end
+    end
+  end
+end
+
 describe "Given a file with front matter commented by //" do
   before do
     @path = "file"
@@ -31,24 +54,3 @@ describe "Given a file with front matter commented by //" do
   end
 end
 
-# describe "Given a file without front matter" do
-#   include FrontMatter
-#   before do
-#     create_template("file", "This is a post.")
-#   end
-# 
-#   describe "front_matter_from_file(filename)" do
-#     before do
-#       @out = front_matter_from_file(File.join(TammerSaleh.settings.views, "file"))
-#     end
-# 
-#     it "returns a HashWithIndifferentAccess" do
-#       @out.should be_a(HashWithIndifferentAccess)
-#     end
-# 
-#     it "returns empty hash" do
-#       @out.should be_empty
-#     end
-#   end
-# end
-# 

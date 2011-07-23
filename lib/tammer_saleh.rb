@@ -5,6 +5,7 @@ $LOAD_PATH << File.join(File.dirname(__FILE__), "tammer_saleh")
 
 require 'padrino-core/application/rendering'
 require 'active_support/hash_with_indifferent_access'
+require 'active_support/core_ext/object/blank'
 
 Dir[File.join(File.dirname(__FILE__), "tammer_saleh/**/*.rb")].each do |f|
   require f
