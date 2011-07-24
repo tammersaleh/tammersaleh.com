@@ -2,40 +2,72 @@
 
 require "spec_helper"
 
-describe "The blog" do
+describe "Given some blog posts" do
   before do
     create_template("layouts/application.html.haml", 
                     <<-EOF)
-                      %head
-                        %title= data[:title]
                       %h1 Layout
                       = yield
+                    EOF
+
+     
+    create_template("posts.html.haml", 
+                    <<-EOF)
+                      This is the Blog!
+                      - posts.each do |post|
+                        %h2= post.meta[:title]
                     EOF
 
     create_template("posts/a_post.html.haml", 
                     <<-EOF)
                       // ---
-                      // title: Title for this post.
+                      // title: First post
+                      // date:  1997-07-01
                       // ---
-                      This is a post.
+                      This is the first post.
+                    EOF
+
+    create_template("posts/another_post.html.haml", 
+                    <<-EOF)
+                      // ---
+                      // title: Second post
+                      // date:  2011-01-10
+                      // ---
+                      This is the second post.
                     EOF
   end
 
-  context "GET /posts/a_post" do
-    before { visit "/posts/a_post" }
+  context "GET /posts" do
+    before { visit "/posts" }
 
-    it "renders the post" do
-      page.source.should =~ /This is a post/
+    it "renders the page" do
+      page.source.should =~ /This is the Blog/
     end
     
     it "renders the layout" do
       page.should have_selector('h1:contains("Layout")')
     end
 
-    it "hands the frontmatter to the layout" do
-      page.should have_selector('title:contains("Title for this post.")')
+    it "renders the first post title" do
+      page.should have_selector('h2:contains("First post")')
+    end
+
+    it "renders the second post title" do
+      page.should have_selector('h2:contains("Second post")')
     end
   end
+
+  # context "GET /posts/a_post" do
+  #   before { visit "/posts/a_post" }
+
+  #   it "renders the layout" do
+  #     page.should have_selector('h1:contains("Layout")')
+  #   end
+
+  #   it "renders the post title" do
+  #     page.should have_selector('h2:contains("First post")')
+  #   end
+  # end
 end
 
 

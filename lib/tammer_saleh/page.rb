@@ -1,22 +1,23 @@
 class Page
-  attr_accessor :request_path, :views_root
+  attr_accessor :request_path, :views_root, :meta
 
   def initialize(request_path)
     self.views_root    = TammerSaleh.settings.views
     self.request_path  = request_path
+    self.meta          = front_matter
   end
   
-  def front_matter
-    hash = {}
-    hash = hash_from_yaml(uncommented_front_matter) if commented_front_matter
-    HashWithIndifferentAccess.new(hash)
-  end
-
   def body
     File.read(template_path)
   end
 
   private
+
+  def front_matter
+    hash = {}
+    hash = hash_from_yaml(uncommented_front_matter) if commented_front_matter
+    HashWithIndifferentAccess.new(hash)
+  end
 
   def hash_from_yaml(yaml)
     begin
@@ -41,6 +42,7 @@ class Page
   def first_template_matching(name)
     pattern    = File.join(views_root, "#{name}.html.*")
     candidates = Dir[pattern]
+    raise "Could find no files matching #{pattern}" if candidates.empty?
     candidates.first
   end
 end

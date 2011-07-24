@@ -18,8 +18,8 @@ class TammerSaleh < Sinatra::Base
 
   def render_template_with_layout(name)
     page = Page.new(name)
-    set_data(page.front_matter)
-    render :"#{name}", :layout => :"application.html", :layout_engine => :haml
+    set_data(page.meta)
+    render :"#{name}", :layout => "application.html", :layout_engine => :haml
   end
 
   get %r{^/([^.]+)$} do |name|
@@ -41,6 +41,10 @@ class TammerSaleh < Sinatra::Base
   helpers do
     def data
       @data
+    end
+
+    def posts
+      PostCollection.new.posts
     end
   end
 end
