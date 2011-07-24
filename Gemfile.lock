@@ -110,6 +110,7 @@ GEM
       tilt (>= 1.2.2, < 2.0)
     sys-uname (0.8.5)
     term-ansicolor (1.0.5)
+    therubyracer-heroku (0.8.1.pre3)
     thin (1.2.11)
       daemons (>= 1.0.9)
       eventmachine (>= 0.12.6)
@@ -143,4 +144,5 @@ DEPENDENCIES
   sass
   shotgun
   sinatra
+  therubyracer-heroku (= 0.8.1.pre3)
   thin

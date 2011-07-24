@@ -1,20 +1,22 @@
 source :rubygems
 
-gem 'haml'
-gem 'sass'
+gem "heroku"
 gem "shotgun"
 gem 'thin'
 
-gem "heroku"
+gem 'sinatra'
+gem "padrino",        :require => false
+gem "active_support", :require => false
+
+gem 'haml'
+gem 'sass'
 gem "RedCloth"
+
+gem 'therubyracer-heroku', '0.8.1.pre3'
 gem "coffee-script-source"
 gem "coffee-script"
 
-gem 'sinatra'
 gem 'rack-google-analytics', :require => 'rack/google-analytics'
-
-gem "padrino",        :require => false
-gem "active_support", :require => false
 
 group :test do
   gem "rspec"
