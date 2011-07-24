@@ -3,6 +3,7 @@ source :rubygems
 gem 'haml'
 gem 'sass'
 gem "shotgun"
+gem 'thin'
 
 gem "heroku"
 gem "RedCloth"
