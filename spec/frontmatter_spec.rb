@@ -14,9 +14,9 @@ describe "Given a page with frontmatter" do
 
     create_template("page_with_frontmatter.html.haml", 
                     <<-EOF)
-                      // ---
-                      // title: Title for this post.
-                      // ---
+                      ---
+                      title: Title for this post.
+                      ---
                       This is a post.
                     EOF
   end

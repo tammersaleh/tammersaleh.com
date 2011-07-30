@@ -1,1 +1,4 @@
-Template!
+- posts.each do |post|
+  %h2= post.meta[:title]
+  = post.html
+

@@ -16,24 +16,35 @@ describe "Given some blog posts" do
                       This is the Blog!
                       - posts.each do |post|
                         %h2= post.meta[:title]
+                        = post.html
                     EOF
 
     create_template("posts/a_post.html.haml", 
                     <<-EOF)
-                      // ---
-                      // title: First post
-                      // date:  1997-07-01
-                      // ---
-                      This is the first post.
+                      ---
+                      title: First post
+                      date:  1997-07-01
+                      ---
+                      %blockquote This is the first post.
                     EOF
 
     create_template("posts/another_post.html.haml", 
                     <<-EOF)
-                      // ---
-                      // title: Second post
-                      // date:  2011-01-10
-                      // ---
+                      ---
+                      title: Second post
+                      date:  2011-01-10
+                      ---
                       This is the second post.
+                    EOF
+
+    create_template("posts/textile_post.html.textile", 
+                    <<-EOF)
+                      ---
+                      title: Textile post
+                      date:  2010-01-10
+                      ---
+
+                      bq. Textile post.
                     EOF
   end
 
@@ -54,6 +65,14 @@ describe "Given some blog posts" do
 
     it "renders the second post title" do
       page.should have_selector('h2:contains("Second post")')
+    end
+
+    it "renders the body of the haml post" do
+      page.should have_selector('blockquote:contains("first post")')
+    end
+
+    it "renders the body of the textile post" do
+      page.should have_selector('blockquote:contains("Textile post")')
     end
   end
 

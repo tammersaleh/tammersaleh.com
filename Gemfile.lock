@@ -51,6 +51,7 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.16)
     multi_json (1.0.3)
+    mysql (2.8.1)
     nokogiri (1.5.0)
     padrino (0.10.0)
       padrino-admin (= 0.10.0)
@@ -103,6 +104,7 @@ GEM
       ffi (>= 1.0.7)
       json_pure
       rubyzip
+    sequel (3.25.0)
     shotgun (0.9)
       rack (>= 1.0)
     sinatra (1.2.6)
@@ -138,10 +140,12 @@ DEPENDENCIES
   coffee-script-source
   haml
   heroku
+  mysql
   padrino
   rack-google-analytics
   rspec
   sass
+  sequel
   shotgun
   sinatra
   therubyracer-heroku (= 0.8.1.pre3)

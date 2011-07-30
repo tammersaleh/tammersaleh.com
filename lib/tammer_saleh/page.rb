@@ -1,22 +1,29 @@
 class Page
-  attr_accessor :request_path, :views_root, :meta
+  YAML_REGEXP = /^(---\s*\n.*?\n?)^(---\s*$\n?)/m
+
+  attr_reader :request_path, :views_root, :meta, :source
 
   def initialize(request_path)
-    self.views_root    = TammerSaleh.settings.views
-    self.request_path  = request_path
-    self.meta          = front_matter
+    @views_root    = TammerSaleh.settings.views
+    @request_path  = request_path
+    @entire_source = File.read(template_path)
+    @meta, @source = split_body
   end
   
-  def body
-    File.read(template_path)
+  def html
+    Tilt[template_path].new { @source }.render
   end
 
   private
 
-  def front_matter
-    hash = {}
-    hash = hash_from_yaml(uncommented_front_matter) if commented_front_matter
-    HashWithIndifferentAccess.new(hash)
+  def split_body
+    data = {}
+    if @entire_source =~ YAML_REGEXP
+      data = hash_from_yaml($1)
+      body = @entire_source.split(YAML_REGEXP).last
+    end
+
+    [HashWithIndifferentAccess.new(data), body]
   end
 
   def hash_from_yaml(yaml)
@@ -27,14 +34,6 @@ class Page
     end
   end
 
-  def uncommented_front_matter
-    commented_front_matter.uncomment
-  end
-
-  def commented_front_matter
-    body[%r{^(//\s*---.*^)//\s*---}m, 1]
-  end
-  
   def template_path 
     first_template_matching(request_path)
   end

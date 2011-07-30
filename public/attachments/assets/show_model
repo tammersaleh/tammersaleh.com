@@ -1,0 +1,130 @@
+#!/usr/bin/env ruby
+
+# Assume we're at the base of the rails project dir...
+
+require "config/environment.rb"
+require 'enumerator'
+
+class ClassTree < Hash
+	def add_class(obj) add_class_helper(direct_ancestors(obj)); end
+	
+	def add_class_helper(ancestor_list, hash = self, depth = 0)
+		return if ancestor_list.empty?		
+		eldest_parent = ancestor_list.shift
+		hash[eldest_parent] ||= ClassTree.new
+		add_class_helper(ancestor_list, hash[eldest_parent], depth + 1)
+	end
+
+	def pretty_print(depth = 0)
+		self.each do |klass, children_hash|
+			puts "#{"    " * depth}#{klass.name}"
+			children_hash.pretty_print(depth + 1)
+		end
+	end	
+end
+	
+def direct_ancestors(obj)
+	if [ActiveRecord::Base, Class, ActionMailer::Base].include? obj
+		[obj]
+	else
+		[direct_ancestors(obj.superclass), obj].flatten
+	end
+end
+
+def load_all_models
+	all_classes_before_load = []
+	ObjectSpace.each_object(Class) do |obj|
+		all_classes_before_load << obj
+	end
+
+	# load all of the models
+	Dir.glob("app/models/*.rb").each do |model_file|
+		require model_file rescue puts "Error loading #{model_file}"
+	end
+
+	all_classes_after_load = []
+	ObjectSpace.each_object(Class) do |obj|
+		all_classes_after_load << obj
+	end
+
+	return all_classes_after_load - all_classes_before_load
+end
+
+def pretty_print(klass)
+	associations = klass.reflections if klass.respond_to? :reflections
+	
+	ims = (klass.instance_methods  - klass.superclass.instance_methods).sort
+	cms = (klass.singleton_methods - klass.superclass.singleton_methods).sort
+	
+	associations.each do |name, ass|
+		%w{add_XXX
+           build_to_XXX
+           create_in_XXX
+           find_all_in_XXX
+           find_in_XXX
+           has_XXX?
+           XXX
+           XXX=
+           XXX_count
+           remove_XXX
+           validate_associated_records_for_XXX
+           build_XXX
+           create_XXX
+		   set_XXX_target
+           XXX? }.each do |var|
+			ims.delete var.gsub(/XXX/, name.to_s)
+		end
+		ims.delete "XXX_ids=".gsub(/XXX/, name.to_s.singularize)
+	end
+
+	puts direct_ancestors(klass).reverse.join(" < ")
+	puts "  Class Methods:" unless cms.empty?
+	cms.each { |m| puts "    #{m}" }
+	puts "  Instance Methods:" unless ims.empty?
+	ims.each { |m| puts "    #{m}" }
+	puts "  Associations:" unless associations.empty?
+	longest = associations.values.collect(&:macro).collect(&:to_s).collect(&:length).max
+	
+	associations.sort {|a,b| a[1].class_name <=> b[1].class_name}.each do |name, ass| 
+		class_name = ass.class_name
+		if [:has_many, :has_and_belongs_to_many].include? ass.macro
+			default_name = class_name.tableize
+			class_name = class_name.pluralize 
+		else
+			default_name = class_name.tableize.singularize
+		end
+		
+		as = ""
+		as = " as #{name}" if default_name.to_s != name.to_s
+		
+		puts "    #{ass.macro}#{" " * (longest - ass.macro.to_s.length)} #{class_name}#{as}" 
+	end
+	
+	if klass.respond_to? :columns
+		puts "  DB Columns:" unless klass.columns.empty?
+		longest = klass.columns.collect(&:name).collect(&:length).max
+		klass.columns.sort_by(&:name).each do |column|
+			puts "    #{column.name}#{" " * (longest - column.name.length)} (#{column.type})"
+		end
+	end
+end
+
+new_classes = load_all_models
+
+if ARGV.length == 0 # Show overview of all models
+	class_tree = ClassTree.new
+	
+	new_classes.each do |klass| 
+		# puts "Adding #{klass.name} to the class_tree..." 
+		class_tree.add_class klass
+	end
+	
+	class_tree.pretty_print
+else
+	# TODO:  create .dot file if args == ["--dot-file"]
+	ARGV.each do |klass_name|
+		puts "Can't find #{klass_name}" and next unless new_classes.collect(&:name).include? klass_name
+		
+		pretty_print(new_classes.find {|k| k.name == klass_name})
+	end
+end

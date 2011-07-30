@@ -2,10 +2,10 @@
 
 require "spec_helper"
 
-describe "Given a file without front matter" do
+describe "Given a haml file without front matter" do
   before do
     @path = "file"
-    create_template("#{@path}.html.haml", "This is a post.")
+    create_template("#{@path}.html.haml", "%h1 This is a post.")
   end
 
   describe "Page.new(filename)" do
@@ -25,21 +25,33 @@ describe "Given a file without front matter" do
   end
 end
 
-describe "Given a file with front matter commented by //" do
+describe "Given a file with front matter" do
   before do
     @path = "file"
     create_template("#{@path}.html.haml", 
                     <<-EOF)
-                      // ---
-                      // title: "Title for this post."
-                      // date:  2011-01-10
-                      // ---
-                      This is a post.
+                      ---
+                      title: "Title for this post."
+                      date:  2011-01-10
+                      ---
+                      %h1 This is a post.
                     EOF
   end
 
   describe "Page.new(filename)" do
     before { @page = Page.new(@path) }
+
+    describe "#html" do
+      before { @out = @page.html }
+
+      it "returns the rendered body" do
+        @out.should match("<h1>This is a post.</h1>")
+      end
+
+      it "does not render the frontmatter" do
+        @out.should_not match("Title for this post")
+      end
+    end
 
     describe "#meta" do
       before { @out = @page.meta }

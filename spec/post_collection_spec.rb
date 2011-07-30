@@ -12,19 +12,19 @@ describe "Given some posts" do
   before do
     create_template("posts/a_post.html.haml", 
                     <<-EOF)
-                      // ---
-                      // title: First post
-                      // date:  1997-07-01
-                      // ---
+                      ---
+                      title: First post
+                      date:  1997-07-01
+                      ---
                       This is the first post.
                     EOF
 
     create_template("posts/another_post.html.haml", 
                     <<-EOF)
-                      // ---
-                      // title: Second post
-                      // date:  2011-01-10
-                      // ---
+                      ---
+                      title: Second post
+                      date:  2011-01-10
+                      ---
                       This is the second post.
                     EOF
   end
