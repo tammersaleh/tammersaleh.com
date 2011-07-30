@@ -9,7 +9,12 @@ describe "Given some blog posts" do
                       %h1 Layout
                       = yield
                     EOF
-
+     
+    create_template("layouts/posts.html.haml", 
+                    <<-EOF)
+                      %h1 Post Layout
+                      = yield
+                    EOF
      
     create_template("posts.html.haml", 
                     <<-EOF)
@@ -75,12 +80,38 @@ describe "Given some blog posts" do
       page.should have_selector('blockquote:contains("Textile post")')
     end
   end
+end
 
-  context "GET /posts/a_post" do
+describe "Given a blog post" do
+  before do
+    create_template("layouts/application.html.haml", 
+                    <<-EOF)
+                      %h1 Layout
+                      = yield
+                    EOF
+     
+    create_template("layouts/posts.html.haml", 
+                    <<-EOF)
+                      %h1 Post Layout
+                      %h2= data[:title]
+                      = yield
+                    EOF
+     
+    create_template("posts/a_post.html.haml", 
+                    <<-EOF)
+                      ---
+                      title: First post
+                      date:  1997-07-01
+                      ---
+                      %blockquote This is the first post.
+                    EOF
+  end
+
+  context "navigating to that post" do
     before { visit "/posts/a_post" }
 
-    it "renders the layout" do
-      page.should have_selector('h1:contains("Layout")')
+    it "renders the post layout" do
+      page.should have_selector('h1:contains("Post Layout")')
     end
 
     it "renders the post title" do

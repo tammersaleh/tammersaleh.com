@@ -14,7 +14,17 @@ class Page
     Tilt[template_path].new { @source }.render
   end
 
+  def layout
+    path = File.join(views_root, "layouts", "#{potential_layout_name}.haml")
+    File.exists?(path) ? potential_layout_name : "application.html"
+  end
+
   private
+
+  def potential_layout_name
+    subdir = File.dirname(@request_path.to_s)
+    return "#{subdir}.html" unless %w(/ .).include?(subdir)
+  end
 
   def split_body
     data = {}

@@ -71,31 +71,31 @@ describe "Given a file with front matter" do
   end
 end
 
-# describe "Given a nested file" do
-#   before do
-#     @path = "directory/file"
-#     create_template("#{@path}.html.haml", "This is a post.")
-#   end
-# 
-#   describe "Page.new(filename)" do
-#     before { @page = Page.new(@path) }
-#     subject { @page }
-# 
-#     context "with a layout named application.html.haml" do
-#       before do
-#         create_template("layouts/application.html.haml", "%h1 Layout\\n= yield")
-#       end
-# 
-#       its(:layout) { should == "application.html" }
-# 
-#       context "and a layout named directory.html.haml" do
-#         before do
-#           create_template("layouts/directory.html.haml", "%h1 Layout\\n= yield")
-#         end
-# 
-#         its(:layout) { should == "directory.html" }
-#       end
-#     end
-#   end
-# end
+describe "Given a nested file" do
+  before do
+    @path = "directory/file"
+    create_template("#{@path}.html.haml", "This is a post.")
+  end
+
+  describe "Page.new(filename)" do
+    before { @page = Page.new(@path) }
+    subject { @page }
+
+    context "with a layout named application.html.haml" do
+      before do
+        create_template("layouts/application.html.haml", "%h1 Layout\n= yield")
+      end
+
+      its(:layout) { should == "application.html" }
+
+      context "and a layout named directory.html.haml" do
+        before do
+          create_template("layouts/directory.html.haml", "%h1 Directory\n= yield")
+        end
+
+        its(:layout) { should == "directory.html" }
+      end
+    end
+  end
+end
 

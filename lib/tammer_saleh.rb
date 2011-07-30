@@ -19,7 +19,7 @@ class TammerSaleh < Sinatra::Base
   def render_template_with_layout(name)
     page = Page.new(name)
     set_data(page.meta)
-    render :"#{name}", :layout => "application.html", :layout_engine => :haml
+    render :"#{name}", :layout => page.layout, :layout_engine => :haml
   end
 
   get %r{^/([^.]+)$} do |name|
