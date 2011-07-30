@@ -1,0 +1,47 @@
+---
+date: 2007-10-01
+title: Remember your MVCs
+---
+
+<i>Cross posted from "Giant Robots":http://giantrobots.thoughtbot.com/2007/10/1/remember-your-mvcs</i>
+
+From novice to expert, I'm sure every Rails developer believes in MVC.  But all to often I've seen programmers cut right through the Model/View/Controller boundaries when implementing new features - especially where precedent hasn't yet been set.  
+
+I can understand where the urge comes from, as there are times when the boundaries are fuzzy.  Rails has the @validates_confirmation_of@ for entering a password and a password confirmation, while a good argument could be made that this is logic that should never be in the model.  If the record was created by a 3rd party application, then it shouldn't have to specify the password twice in the XML just because the model is _usually_ used by humans.  And the writers of the macro acknowledge this by not having it kicking in if the field is nil.
+
+A friend of mine recently proposed the following solution for creating a "Combobox":http://en.wikipedia.org/wiki/Combobox (a dropdown with a customizable 'other' field).  He didn't like the complexity caused by using a before filter on the controller, couldn't rely upon javascript in the form, and wanted to keep his controllers virtually untouched.  Going on the "skinny controllers, fat models" school of thought, he added the following in his model:
+
+<pre><code class="ruby">
+attr_accessor :other_primary_source_of_funding
+attr_accessor :other_heard_through
+
+before_save :replace_with_others
+
+def replace_with_others
+  unless other_primary_source_of_funding.blank?
+    self.primary_source_of_funding = other_primary_source_of_funding
+  end
+  unless other_heard_through.blank?
+    self.heard_through = other_heard_through
+  end
+end
+</code></pre>
+
+This code wins points in being concise and understandable, but is also a big 'ol MVC violation.  The "Right" solution is to grab the value in the controller:
+
+<pre><code class="ruby">
+before_filter :convert_combobox_values, :only => [:create, :update]
+
+def convert_combobox_values
+  if params[:object][:primary_source_of_funding] == "Other"
+    params[:object][:primary_source_of_funding] = params[:object].delete(:other_primary_source_of_funding)
+  end
+
+  if params[:object][:heard_through] == "Other"
+    params[:object][:heard_through] = 
+      params[:object].delete(:other_heard_through)
+  end
+end
+</code></pre>
+
+Here's the question you should be asking yourself when you think you're treading the MVC line:  *"Would the model need this method if it wasn't being accessed through HTML?"*  If you were using this model in a desktop application, that question for the example above would be No.

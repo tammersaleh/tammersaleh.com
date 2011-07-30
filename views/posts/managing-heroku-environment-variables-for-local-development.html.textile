@@ -1,0 +1,105 @@
+---
+date: 2009-10-26
+title: Managing Heroku environment variables for local development
+---
+
+"Heroku":http://heroku.com is an amazing service, and I've been using it for most of my personal applications.  In doing so, I've been trying to follow the Heroku conventions wherever possible, including not vendoring anything, making use of "AWS":http://aws.amazon.com/, and *keeping all private or environment-specific data in environment variables*.
+
+h2. Heroku Config Variables
+
+Heroku has a great toolset for setting per-application environment variables:
+
+@@@ shell
+# heroku help | grep config
+config                       # display the app's config vars (environment)
+config:add key=val [...]     # add one or more config vars
+config:remove key [...]      # remove one or more config vars
+config:clear                 # clear user-set vars and reset to default
+@@@
+
+This is a great, UNIXy way of configuring your application, and can be much simpler than using one of the many "yaml config":http://github.com/lukeredpath/simpleconfig/ "file plugins":http://github.com/binarylogic/settingslogic/.  For example, my @config/initializers/hoptoad.rb@ file looks like this:
+
+@@@ ruby
+HoptoadNotifier.configure do |config|
+  config.api_key = ENV["HOPTOAD_KEY"]
+end
+@@@
+
+And my user model includes this paperclip configuration:
+
+@@@ ruby
+has_attached_file :photo, 
+                  #...
+                  :storage        => :s3, 
+                  :bucket         => ENV['S3_BUCKET'],
+                  :s3_credentials => { :access_key_id     => ENV['S3_KEY'], 
+                                       :secret_access_key => ENV['S3_SECRET'] }
+@@@
+
+I then configure the application through the @heroku@ commandline tool:
+
+@@@ shell
+heroku config:add HOPTOAD_KEY='s3krit'
+heroku config:add GMAIL_USERNAME='s3krit'
+heroku config:add GMAIL_PASSWORD='s3krit'
+heroku config:add SESSION_STORE_KEY='s3krit'
+heroku config:add S3_KEY='s3krit'
+heroku config:add S3_SECRET='s3krit'
+heroku config:add S3_BUCKET='s3krit'
+@@@
+
+h2. Local Development
+
+This is all fine and dandy on the server, but try running the app locally (or your tests), and you'll see nothing but a bunch of stack traces.  This is because you haven't set the ENV vars locally.  Now, you could set them in your @~/.bashrc@ file, but there are a bunch of problems with that:
+
+* That'll work for your tests, but not for passenger, who runs as a different user entirely.
+* That won't work when you're developing against multiple applications. 
+* It's a lot of per-developer configuration when working in a multi-person team.
+
+Heroku suggests "setting defaults inside your code":http://docs.heroku.com/config-vars, like this:
+
+@@@ ruby
+AWS::S3::Base.establish_connection!(
+  :access_key_id     => ENV['S3_KEY'] || 'thedefaultkey',
+  :secret_access_key => ENV['S3_SECRET'] || 'thedefaultsecret'
+)
+@@@
+
+This also has its issues:
+
+* There are many (most?) times when there isn't really a valid default value.  
+* This hides bugs on production, where the default value is being used when the config command wasn't run correctly.
+* Riddling your code with @|| default@ is just plain ugly.
+
+h2. I Did Things My Way!
+
+I've come up with what I think is a much better solution.  I simply load a local file called @heroku_env.rb@ before the @Rails.initialize@ call inside @environment.rb@:
+
+@@@ ruby
+require File.join(File.dirname(__FILE__), 'boot')
+
+# Load heroku vars from local file
+heroku_env = File.join(RAILS_ROOT, 'config', 'heroku_env.rb')
+load(heroku_env) if File.exists?(heroku_env)
+
+Rails::Initializer.run do |config|
+@@@
+
+Note that the file is only loaded if it exists.  The other components of this are an entry for @config/heroku_env.rb@ in the @.gitignore@ file, and the @config/heroku_env.rb@ file itself:
+
+@@@ ruby
+# This file contains the ENV vars necessary to run the app locally.  
+# Some of these values are sensitive, and some are developer specific.
+#
+# DO NOT CHECK THIS FILE INTO VERSION CONTROL
+
+ENV['HOPTOAD_KEY']       = 'seekrit'
+ENV['GMAIL_USERNAME']    = 'seekrit'
+ENV['GMAIL_PASSWORD']    = 'seekrit'
+ENV['SESSION_STORE_KEY'] = 'seekrit'
+ENV['S3_KEY']            = 'seekrit'
+ENV['S3_SECRET']         = 'seekrit'
+ENV['S3_BUCKET']         = 'seekrit'
+@@@
+
+Now, each application gets its own set of environment variables, and a template file can be handed out to each developer who needs it.

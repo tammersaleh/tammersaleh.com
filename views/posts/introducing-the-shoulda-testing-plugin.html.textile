@@ -1,0 +1,100 @@
+---
+date: 2007-08-15
+title: Introducing the Shoulda Testing Plugin
+---
+
+<i>Cross posted from "Giant Robots":http://giantrobots.thoughtbot.com</i>
+
+So we've been "hinting":http://giantrobots.thoughtbot.com/2007/3/9/specin-rspec-with-rails for "some time now":http://giantrobots.thoughtbot.com/2007/3/17/battle-royale-testing that we were going to tidy up the testing helpers we use here, and that's just what we've done.
+
+*Update*: Added the *Why?* section below to address @rSpec@ & @Test::Spec@
+
+h3.  Introducing Shoulda!
+
+We had a very hard time coming up with a name for this plugin, mostly because of its somewhat eclectic nature.  It does three main things:
+
+h3. Contexts
+
+Shoulda defines @context@ and @should@ blocks:
+
+<pre><code class="ruby">
+class UserTest < Test::Unit::TestCase
+  def setup
+    # Normal setup code
+  end
+
+  def test_can_have_normal_tests
+    # Normal test here
+  end
+
+  context "a User instance" do
+    setup do
+      @user = User.find(:first)
+    end
+
+    should "return its full name"
+      assert_equal 'John Doe', @user.full_name
+    end
+  end
+end
+</code></pre>
+
+This is very much like the rSpec way of doing things, but they can be used along-side normal test method definitions.  Also, these context blocks can be nested.
+
+h3. Macros
+
+Shoulda also attempts to collect common test patterns into test macros:
+
+<pre><code class="ruby">
+class UserTest < Test::Unit::TestCase
+  should_require_attributes :name, :phone_number
+  should_not_allow_values_for :phone_number, "abcd", "1234"
+  should_allow_values_for :phone_number, "(123) 456-7890"
+
+  should_protect_attributes :password
+
+  should_have_one :profile
+  should_have_many :dogs
+  should_have_many :messes, :through => :dogs
+  should_belong_to :lover
+end
+</code></pre>
+
+h3. Helpers
+
+Finally, Shoulda adds a few basic-but-useful utility methods and assertions:
+
+<pre><code class="ruby">
+assert_difference(User, :count, 1) { User.create }
+
+assert_difference(User.packages, :size, 3, true) do 
+  User.add_three_packages 
+end
+
+assert_contains(['a', '1'], /\d/)
+
+assert_same_elements([:a, :b, :c], [:c, :a, :b])
+</code></pre>
+
+h3. Why not rSpec or Test::Unit
+
+A lot of people are going to be wondering why we didn't just go with one of the many new BDD style testing frameworks that are out there, like "Simply BDD":http://svn.techno-weenie.net/projects/plugins/simply_bdd/README, "Test::Spec":http://chneukirchen.org/blog/archive/2006/10/announcing-test-spec-0-2-a-bdd-interface-for-test-unit.html, or the wildly popular "rSpec":http://rspec.rubyforge.org/.  I don't want to minimize the work that's been done on these very cool pieces of software - in fact, Shoulda would never have been written without their example to lead us.  But there were some parts of the rest of the plugins that we just didn't feel right about.  
+
+I wrote "another post":http://giantrobots.thoughtbot.com/2007/3/9/specin-rspec-with-rails, specifically about rSpec, but here are the major points (most of which apply to all of the plugins):
+
+* *@context@ defined on Kernel, and @should@ defined on Object* - This can make it very hard to extend the framework, and honestly just feels wrong.  I can imagine that there would be method definition conflicts between the testing framework and the code being tested.  I could be paranoid here, but I didn't want to find out for sure months down the line.
+* *Extendibility* - I think the real value of this testing plugin is in the focused testing macros, which can test large chunks of common code in a single line.  The issue above made these kinds of macros hard to write in the other testing frameworks.
+* *Mocking framework built-in* - "soon":http://blog.floehopper.org/articles/2007/04/04/rspec-mocha-compatibility rSpec won't suffer from this as much as it does now, but I still don't like the idea of the testing framework and mocking framework being so interlocked.
+* *@lambda {}.should.differ(Blog, :count, 1)@* - This is purely a matter of taste, but we really didn't see value in the 'x.should y' syntax over the 'assert' syntax.
+* *Compatibility* - This one is rSpec specific.  As much as I like the format of the rSpec output, it can cause problems with automated programs that are expecting Test::Unit output.  Also, having to run both 'rake spec; rake test' to see all of your tests pass seems like an unnecessary annoyance.
+
+h3. Docs & Installation
+
+Full RDocs are available "here":http://www.thoughtbot.com/downloads/shoulda-docs/, and the official Shoulda page is "here":http://thoughtbot.com/projects/shoulda.
+
+We're having some troubles with our plugin repository working with @script/plugin@ at the moment, so svn access will have to suffice:
+<pre><code class="bash">
+svn ls http://svn.thoughtbot.com/plugins/shoulda/tags/
+svn export http://svn.thoughtbot.com/plugins/shoulda/tags/rel-2.0.4 vendor/plugins/shoulda
+</code></pre>
+

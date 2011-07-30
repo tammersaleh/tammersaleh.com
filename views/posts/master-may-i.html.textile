@@ -1,0 +1,135 @@
+---
+date: 2009-12-04
+title: Master May I?
+---
+
+_This is an announcement for a new authorization gem I've released named *Master May I*.  There's extensive documentation on the "rdoc.info":http://rdoc.info/projects/tsaleh/master-may-i site, but here's the quick and dirty._
+
+h2.  The Lowdown
+
+"Master May I":http://gemcutter.org/gems/master_may_i is a simple authorization gem that works hand in hand with "Authlogic":http://gemcutter.org/gems/authlogic and "InheritedResources":http://gemcutter.org/gems/inherited_resources.
+
+I extracted and combined this code from a few of my existing projects.  All of the other authorization systems I've seen were either far too complex, poorly coded, or too inflexible for my needs.
+
+*Master May I* is *not* an Access Control List system.  In fact, it has absolutely no opinions about how you structure your underlying business rules.  *All it does is gives you a consistent and flexible pattern for accessing those rules.*  
+
+_By the by, in all of the applications I've worked on as a consultant, I've seen two that actually required the complexity of ACLs._
+
+There are two main components:
+
+h2.  The Model Layer
+
+*Master May I* hooks into @ActiveRecord@ in order to add a set of default authorization accessors to all of your models:
+
+* @@Model.creatable_by?(user)@ and @Model.creatable?@
+* @@model.readable_by?(user)@ and @@model.readable?@
+* @@model.editable_by?(user)@ and @@model.editable?@
+* @@model.destroyable_by?(user)@ and @@model.destroyable?@
+
+_The latter methods just delegate to the former, passing in the currently logged in user._
+
+This is just an application of the "Template Pattern":http://tammersaleh.com/posts/the-template-pattern-is-underused.   The authorization query methods are all hardcoded to just return @true@ by default, and can be easily overridden in your models to implement whatever business logic you need.
+
+@@@ ruby
+class Note < ActiveRecord::Base
+  def self.creatable_by?(user)
+    user and user.administrator?
+  end
+end
+@@@
+
+Now, instead of checking for @logged_in? && current_user.notes.include?(note)@ in your views and before filters, you just check @note.editable?@  Much simpler, and much more DRY.
+
+Because the concept of a "creating user" is so common, *Master May I* includes a class method for recording that user when the record is created:
+
+@@@ ruby
+class Note < ActiveRecord::Base
+  records_creating_user :as => :owner
+
+  def editable_by?(user)
+    return false unless user
+    user.administrator? or created_by?(user)
+  end
+end
+
+@note = Note.create               # Inside the controller
+@note.owner                       => User record set via Authlogic session
+@note.editable_by?(@note.owner)   => true
+@note.editable_by?(nil)           => false
+@note.editable_by?(other_user)    => false
+@@@
+
+h2.  The Controller Layer
+
+If you include the @MasterMayI::ControllerExtensions@ module in your @ApplicationController@, *Master May I* will also add some useful helpers:
+
+* @current_user@
+* @deny_access(opts = {})@
+* @logged_in?@
+* @redirect_back_or(url)@
+* @require_user@
+* ...and a few more.  See them all "in the documentation.":http://rdoc.info/projects/tsaleh/master-may-i
+
+*Master May I* will also include the @protects_restful_actions@ controller class method, which integrates with InheritedResources in order to automatically check with the model in a set of
+before filters.
+
+@@@ ruby
+class ApplicationController < ActionController::Base
+  include MasterMayI::ControllerExtensions
+  ...
+end
+
+class NotesController < InheritedResources::Base
+  protects_restful_actions
+end
+@@@
+
+h2.  Testing with Shoulda
+
+Master May I comes with a strong set of Shoulda macros:
+
+...for your unit tests...
+
+@@@ ruby
+class NoteTest < ActiveSupport::TestCase
+  setup :activate_authlogic
+
+  should_record_creating_user :as => "user"
+
+  should_be_creatable_by("boy named sue-create") { Factory(:user, :username => "sue-create")  }
+  should_not_be_creatable_by("everyone")         { nil }
+
+  context "a note" do
+    setup { @note = Factory(:note) }
+    subject { @note }
+
+    should_be_readable_by("boy named sue-read")       { Factory(:user, :username => "sue-read")    }
+    should_be_editable_by("boy named sue-edit")       { Factory(:user, :username => "sue-edit")    }
+    should_be_destroyable_by("boy named sue-destroy") { Factory(:user, :username => "sue-destroy") }
+
+    should_not_be_readable_by(   "everyone") { nil }
+    should_not_be_editable_by(   "everyone") { nil }
+    should_not_be_destroyable_by("everyone") { nil }
+  end
+end
+@@@
+
+...and for your functional tests...
+
+@@@ ruby
+class NotesControllerTest < ActionController::TestCase
+  setup :activate_authlogic
+
+  as_a_logged_in_user do
+    who_can_manage :notes do
+      context "on GET to /notes/new" do
+        setup { get :new }
+        should_not_set_the_flash
+        should_render_template :new
+      end
+      ...
+@@@
+
+h2.  Wait, the models can see the signed in user?
+
+Yep.  If enough people have issues with this, I'll pen up another post defending that decision.  Personally, I believe it makes complete sense within MVC.

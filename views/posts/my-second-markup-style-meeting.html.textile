@@ -1,0 +1,8 @@
+---
+date: 2007-09-27
+title: My Second Markup & Style Meeting
+---
+
+Spent last night at the local "Markup & Style":http://markupandstyle.org/ meeting at the "Boston Beer Works":http://www.beerworks.net/html/locations_canal.html.  I had a blast.  Got to catch up on some pool, and met some really cool people - including "John Resig":http://ejohn.org/ (writer of jQuery), and "Matthew Oliphant":http://usabilityworks.org/ (dude behind "Pink for October":http://pinkforoctober.org/).
+
+On that last point, I'll definitely be adding a link and some pink for the month of October. 

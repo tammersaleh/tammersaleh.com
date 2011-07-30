@@ -1,0 +1,42 @@
+---
+date: 2006-08-21
+title: Now, don't be hatin'
+---
+
+Now, I know I'm going to come off a little harsh on this one, but I think that it really points out (via contrast) exactly why I've been so happy with the Ruby community from the get go.
+
+From the "July 12th 2006":http://podcast.rubyonrails.org/transcripts/2006/adrian_holovaty/ Ruby on Rails podcast with Adrian Holovaty of Django/Python fame:
+<blockquote>
+
+*Geoffrey Grosenbach:* Well we have a colorful character named "why the lucky stiff" and he wrote an influential tutorial on how to learn Ruby.
+
+*Adrian Holovaty:* That thing was annoying.
+
+*Geoffrey Grosenbach:* Did you read that?
+
+*Adrian Holovaty:* I attempted to then I started sticking a pen in my eye because I was so annoyed.
+
+*Geoffrey Grosenbach:* I think a lot of people have. I know a lot of people who have read it but only the first one or two chapters. They haven't dug any further into it. So can I assume you haven't seen all of his animated cartoons where he makes fun of Python?
+
+*Adrian Holovaty:* I did see one thing I think maybe it was from OSCON. Where there was a discussion between Python and Ruby people. And Ruby people said indentation bad and Python people said...
+
+*Geoffrey Grosenbach:* So that might ruin my whole strategy for this interview, so I will have to keep it civil and friendly instead.
+</blockquote>
+
+...and it just kinda goes on like that.
+
+Here's what I want to know:   What's with all the highschool-esque anger?  I'll admit that "_why":http://whytheluckystiff.net/'s style of humor isn't up my alley (not to mention the mind-bending nature of his code), but that doesn't mean I'm gonna get all "my dad can beat up your dad" on his ass in front of the whole 'nets.
+
+I guess I'm just disappointed cause the whole thing reeks of one huge chip on the shoulder.  I believe Python is a great language, and Django a great framework, but Rails is getting a great deal of press right now.  Guess it makes some people all smergrudgeny.  I'd like to think that the Rails higherups that I've come to respect wouldn't cop the same attitude if the situations were reversed.
+
+And that, folks, is key.  djbdns and qmail are amazing products, but they're hindered by the juvinile attitudes of "D. J. Bernstein":http://en.wikipedia.org/wiki/D._J._Bernstein, himself.  Same thing with OpenBSD and "Theo de Raadt":http://en.wikipedia.org/wiki/Theo_de_Raadt.  
+
+Sure, these guys are genius' in their fields, but would you want to work with them?  Would you even want to use their software if you thought you'd ever have to deal with them? 
+
+I sure wouldn't.  And thanks to the incredibly friendly, pragmatic, and helpful people in the Ruby communit, I won't have to.
+
+<hr>
+
+PS: __why is an incredible resource to the rest of the Ruby community, and probably an all round hoopy frood.  I'd surely buy him a beer if I ever got a chance._
+
+PPS:  _Thank you, thank you, thank you to Geoffrey Grosenbach for his outstanding Ruby on Rails podcasts.  Seriously, dude.  Thanks._

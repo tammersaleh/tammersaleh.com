@@ -1,0 +1,35 @@
+---
+date: 2007-04-02
+title: ActiveResource from javascript
+---
+
+A friend of mine over at "thoughtbot":http://www.thoughtbot.com has just released what I think is one of the coolest things I've seen in ages.   Using "Jester":http://giantrobots.thoughtbot.com/2007/4/2/jester-javascriptian-rest, you can now access the models of a RESTful rails application through javascript.
+
+<pre><code class="javascript">
+>>> eric = User.find(1)
+GET http://localhost:3000/users/1.xml
+Object _name=User _singular=user _plural=users
+
+>>> eric.posts
+[Object _name=Post _singular=post _plural=posts, Object _name=Post _singular=post _plural=posts]
+
+>>> eric.posts.first().body
+"Today I passed the bar exam. Tomorrow, I make Nancy my wife."
+>>> eric.posts.first().body = "Today I *almost* passed the bar exam. The ring waits one more day."
+"Today I *almost* passed the bar exam. The ring waits one more day."
+
+>>> eric.posts.first().save()
+POST http://localhost:3000/posts/1.xml
+true
+
+>>> post = Post.find(1)
+GET http://localhost:3000/posts/1.xml
+Object _name=Post _singular=post _plural=posts
+
+>>> post.body
+"Today I *almost* passed the bar exam. The ring waits one more day."
+>>> post.user
+Object _name=User _singular=user _plural=users
+>>> post.user.name
+"Eric Mill"
+</code></pre>

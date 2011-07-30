@@ -1,0 +1,10 @@
+---
+date: 2007-10-01
+title: RubyEast '07
+---
+
+Just a quick writeup about the "RubyEast 2007":http://www.ruby-east.com/rubyeast/ conference.  The presentations were all really good -- the most informative for me being the "two by Obie Fernandez":http://www.jroller.com/obie/entry/obie_s_rubyeast_2007_presentations.  He saved the day when "Amy Hoy":http://slash7.com had to call in sick.
+
+Afterwards was a bit of drinking on the hotel patio.  If you get a chance to hang out with Ezra Zygmuntowicz or Toby DiPasquale, then jump on it.
+
+The next day was a BBQ at "the boss'":http://workingwithrails.com/person/5509-chad-pytel house, for which I made my infamous never-the-same-twice hotwings.  Good times.

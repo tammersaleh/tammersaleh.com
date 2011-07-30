@@ -1,0 +1,23 @@
+---
+date: 2010-03-02
+title: Upcoming Speaking Engagements
+---
+
+I'm booked to speak at two upcoming presentations.   If you're going to be coming to either the Scottish Ruby Conference or RailsConf 2010, then be sure to say hi!
+
+h2. Scottish Ruby Conference
+
+%>Scottish_Ruby_Conference_-_posts.jpg medium%
+
+At the "Scottish Ruby Conference":http://scottishrubyconference.com/sessions, I'll be presenting "You're Doing it Wrong," an overview of Rails AntiPatterns I've seen in the wild, and ways to avoid or fix them.  Here's an interview I did with "Seth Ladd":http://sethladd.com/ of "Aloha on Rails":http://www.alohaonrails.com/ where I presented the same material:
+
+<object width="560" height="340"><param name="movie" value="http://www.youtube.com/v/au-Sjg4pfZY&hl=en_US&fs=1&rel=0"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/au-Sjg4pfZY&hl=en_US&fs=1&rel=0" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="560" height="340"></embed></object>
+
+
+h2. RailsConf 2010
+
+<a href="http://www.railsconf.com"><img src="http://assets.en.oreilly.com/1/event/40/rails2010_attending_120x240.jpg"   width="120" height="240"  border="0" alt="RailsConf 2010" title="RailsConf 2010" class="float-left" /></a>
+
+Chad Pytel and I will be running a three hour tutorial on "Avoiding and Fixing Rails AntiPatterns":http://en.oreilly.com/rails2010/public/schedule/detail/14147 at "RailsConf 2010":http://en.oreilly.com/rails2010/public/schedule/detail/14147.  This is a greatly expanded version of the presentation above, and will go into greater depth on specific AntiPatterns.   We'll also be taking attendee submissions during the class for fixing.
+
+Both of these presentations are samples of the content from Chad and my upcoming "Rails AntiPatterns":http://my.safaribooksonline.com/9780321620293 book.

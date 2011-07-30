@@ -1,0 +1,40 @@
+---
+date: 2008-10-17
+title: Rockin' JAX with Hashrocket
+---
+
+<div style="clear:both"></div>
+
+<a href="http://www.hashrocket.com/products">
+
+!>/system/images/original/hr_guest_star_225x225.png!
+
+</a>
+
+"Hashrocket":http://hashrocket.com recently honored Joe Ferris ("no relation":http://www.jferris.com/) and I by an invitation to come down to Jacksonville Beach, Florida to work on one of their 321 Launch projects as guest star programmers.
+
+Chris O'Sullivan actually did an amazingly accurate job of describing the project from a technical point of view by doing an "impressively detailed analysis of our github commits and tweets":http://www.thechrisoshow.com/2008/10/2/a-peek-at-the-inner-workings-of-hashrocket.
+
+We had a lot of things going for us in this project:  The clients were a breeze to work with; Desi and Lark were both great developers, and a lot of fun to pair with; and the end product, "Spot.us":http://github.com/spot-us/spot-us/tree/master was going open-source - meaning there was no room for "cowboy antics" (Desi's words).
+
+<div style="clear:both"></div>
+
+<a href="http://www.flickr.com/photos/obie/2897533324/">
+
+!/system/images/original/2897533324_0eb1e6cff7.jpg!
+
+</a>
+
+The client was very impressed with the progress we had made, and with the overall polish of the site.  You can read more about the reaction "here":http://blog.spot.us/2008/09/26/first-look-at-spotus-in-action/, and the demo video is below.
+
+<script type='text/javascript' src='http://blip.tv/syndication/write_player?skin=js&#038;posts_id=1304232&#038;cross_post_destination=-1&#038;view=full_js'></script>
+
+Working at Hashrocket was a lot of fun, and in many ways was the perfect vacation.  You're surrounded by talented coders (which fends off the normal vacation boredom), and you get to wake up to beautiful beach views every morning.
+
+<a href="http://www.flickr.com/photos/tsaleh/sets/72157607823206763/">
+
+!/system/images/original/2921710942_ec9a246759.jpg!
+
+</a>
+
+

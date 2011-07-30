@@ -1,0 +1,21 @@
+---
+date: 2008-01-30
+title: A couple of small, but totally useful plugins
+---
+
+There are two plugins (well, one's a gem) that I've been using lately which are so small that it seems silly to post about them.
+
+...except for the fact that they're incredibly useful.
+
+
+*disclaimer*:  these were written by friends of mine.  In fact one of them was written by my boss, so this is nothing more than an obvious attempt to garner a raise.
+
+h3. "mile_marker":http://thoughtbot.com/projects/mile_marker
+
+!/system/images/original/Politiquotes.jpg!
+
+We use this at thoughtbot to manage client expectations, but I use it for my own sites to visually remind myself when I haven't completed part of a page.
+
+h3. "Quiet Backtrace":http://thoughtbot.com/projects/quietbacktrace
+
+Install this gem, configure it in your test_helper.rb, and watch as your failure backtraces shrink to just the information you need.  If you're following BDD, and trying to achieve 1 assertion per test, then this really helps unclutter your failures.

@@ -15,7 +15,7 @@ Sequel.connect(:adapter=>'mysql', :host=>'localhost', :database=>'tammer_saleh_d
     body     = post[:body]
     extended = post[:extended]
 
-    filename = "#{posts_root}/#{slug}.textile"
+    filename = "#{posts_root}/#{slug}.html.textile"
     puts filename
 
     meta = {

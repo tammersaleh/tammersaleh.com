@@ -1,0 +1,37 @@
+---
+date: 2009-11-10
+title: Using Tumblr gem with custom domains
+---
+
+_This is really just a note for google's benefit.   It took me way too long to figure this issue out._
+
+The "Tumblr gem":http://github.com/jeffkreeftmeijer/tumblr seems to barf when used with a "custom domain name":http://www.tumblr.com/docs/custom_domains.
+
+@@@ ruby
+Tumblr::Post.all(:num => 5)
+@@@
+
+Results in a whiny nill exception somewhat like this:
+
+@@@
+NoMethodError: You have a nil object when you didn't expect it!
+You might have expected an instance of ActiveRecord::Base.
+The error occurred while evaluating nil.[]
+	from .../vendor/gems/jeffkreeftmeijer-tumblr-0.1.3/lib/tumblr/post.rb:25:in `count'
+	from .../vendor/gems/jeffkreeftmeijer-tumblr-0.1.3/lib/tumblr/post.rb:47:in `find_every'
+	from .../vendor/gems/jeffkreeftmeijer-tumblr-0.1.3/lib/tumblr/post.rb:9:in `find'
+	from .../vendor/gems/jeffkreeftmeijer-tumblr-0.1.3/lib/tumblr/post.rb:75:in `all'
+	from (irb):2
+@@@
+
+Some debugging showed that "HTTParty":http://github.com/jnunemaker/httparty was returning the page text instead of a hash representing the XML.  The docs say that the format is parsed based on the content type:
+
+bq. Automatic parsing of JSON and XML into ruby hashes based on response content-type
+
+A quick chat with "jnunemaker":http://twitter.com/jnunemaker revealed the @:format@ option to @HTTParty.get@, and it looks like the Tumblr gem kindly passes all options down to that call.  So the fix is as simple as:
+
+@@@ ruby
+Tumblr::Post.all(:num => 5, :format => :xml)
+@@@
+
+Hope that helps out some other poor bastard trying to figure this out.

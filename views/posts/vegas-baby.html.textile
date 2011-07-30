@@ -1,0 +1,17 @@
+---
+date: 2009-04-22
+title: Vegas, Baby!
+---
+
+I'll be at "RailsConf":http://en.oreilly.com/rails2009/ for the week of May 4th, so "buy me a beer":http://en.oreilly.com/rails2009/profile/2714 if you're in town.  
+
+Here are some of the presentations I'm looking forward to in particular:
+
+* "Don't Mock Yourself Out":http://en.oreilly.com/rails2009/public/schedule/detail/8474 by "David Chelimsky":http://en.oreilly.com/rails2009/public/schedule/speaker/2864
+* "Discussion Panel: Women In Rails":http://en.oreilly.com/rails2009/public/schedule/detail/8772 which will include two of my friends from hashrocket, "Desi McAdam":http://en.oreilly.com/rails2009/public/schedule/speaker/5610 and "Jacqui Maher":http://en.oreilly.com/rails2009/public/schedule/speaker/24802
+* "iPhone On Rails":http://en.oreilly.com/rails2009/public/schedule/detail/8565 by "Mike Clark":http://en.oreilly.com/rails2009/public/schedule/speaker/24823 ('cause who's not on the iPhone bandwagon these days?)
+* "Blood, Sweat and Rails":http://en.oreilly.com/rails2009/public/schedule/detail/7721 by "Obie Fernandez":http://en.oreilly.com/rails2009/public/schedule/speaker/2747 - possibly the best business mind in our community.
+
+And a quick shout out to my friend "Eric Mill":http://mill-industries.com/, from "The Sunlight Foundation":http://sunlightfoundation.com/, who's hosting the "Open Government Hackathon":http://en.oreilly.com/rails2009/public/schedule/detail/9020.  (And I think they're still hiring, by the way.)
+
+

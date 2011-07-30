@@ -1,0 +1,11 @@
+---
+date: 2008-02-23
+title: Upcoming conferences
+---
+
+I'm totally psyched to say that I've been invited to speak at "Scotland on Rails":http://scotlandonrails.com.  I'll be in the company of some "truly amazing ruby developers":http://scotlandonrails.com/speakers, and I highly recommend that you reserve your ticket now.  Who can resist a conference in site of an "ancient scottish stronghold":http://en.wikipedia.org/wiki/Edinburgh_Castle?  Or, more to the point, who can resist the scotch?
+
+I've also been invited to speak at the "Mountain West Ruby conference":http://mtnwestrubyconf.org/ alongside speakers like "Philippe Hanrigou":http://ph7spot.com/ and "Jeremy McAnally (Mr. Neighborly)":http://www.jeremymcanally.com/.  There are a lot of talks at this one that I'm excited about seeing - especially the ones on Datamapper and CouchDB.
+
+So if you're at either of those conferences, then please drop by and say hi.  And, yes, I'm just as fuzzy as my picture in real life.
+

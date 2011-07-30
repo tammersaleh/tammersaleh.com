@@ -1,0 +1,67 @@
+---
+date: 2009-09-21
+title: Animation woes in jQuery unit tests
+---
+
+I've been really happy with the "Blue Ridge":http://github.com/relevance/blue-ridge testing plugin - a metaplugin that packages and interconnects the following tools:
+
+* "Rhino":http://www.mozilla.org/rhino/ - a Java-based JavaScript interpreter
+* "Screw.Unit":http://github.com/nkallen/screw-unit - a behaviour-driven development syntax for JavaScript similar to RSpec
+* "Smoke":http://github.com/andykent/smoke - a JavaScript mocking & stubbing library similar to Mocha
+* "env.js":http://ejohn.org/blog/bringing-the-browser-to-the-server/ - a DOM implementation written entirely in JavaScript
+
+It's a great package, and really gets you moving quickly in your JS unit tests.  
+
+Unfortunately, one issue I quickly hit was when I started using animations.   Take the following test snippet:
+
+@@@ javascript
+require("spec_helper.js");
+require("../../public/javascripts/application.js");
+
+Screw.Unit(function(){
+  describe("given a page of notes", function(){
+    after(function() { teardownFixtures(); });
+    before(function() {
+      fixture('<div id="note_1"> ... </div>');
+      note_1 = $('#note_1');
+      checkbox_1 = document.getElementById('company_1_checkbox');
+      expect($(checkbox_1).is(":checked")).to(equal, true);
+    });
+
+    describe("when showing a company's notes", function(){
+      before(function(){ 
+        hide_or_show_notes_by_company(checkbox_1); 
+      });
+
+      it("shows the matching note", function() {
+        expect(note_1.is(':visible')).to(equal, true);
+      });
+    });
+/* ... */
+@@@
+
+@hide_or_show_notes_by_company@ originally just toggled the visibility of the note div.  I added an animation effect there to ease the transition for the user, but my tests immediately broke.  Some googling revealed that "the animation was still happening in real time":http://www.markhneedham.com/blog/2009/01/24/jquery-approaches-to-testing/, meaning it wasn't finishing before the test did.
+
+While I could mock out the call to @animate@, I'd rather test the functionality directly.  I also didn't like the prospect of writing a sleep function, taking a stab at how long the tests should sleep, and watching as my test times soar.
+
+Luckily, jQuery gives us "stop()":http://docs.jquery.com/Effects/stop, which will force an animation to complete immediately.  Given that function, I was able to work around this particular little issue:
+
+@@@ javascript
+/* test/javascript/spec_helper.js */
+function finishAllAnimations() {  $("*").stop(false, true); }
+@@@
+
+I can use that function in my specs immediately after calling any other functions that would use animations, such as in the before block above:
+
+@@@ javascript
+describe("when showing a company's notes", function(){
+  before(function(){ 
+    hide_or_show_notes_by_company(checkbox_1); 
+    finishAllAnimations();
+  });
+
+  it("shows the matching note", function() {
+    expect(note_1.is(':visible')).to(equal, true);
+  });
+});
+@@@

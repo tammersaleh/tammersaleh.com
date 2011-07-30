@@ -1,0 +1,28 @@
+---
+date: 2008-04-15
+title: Getting back into the swing of things.
+---
+
+The past three weeks have been a total whirlwind of excitement, glamour, drinking, more glamour, sickness, boredom, and a bit more glamour.
+
+<a href="http://mtnwestrubyconf2008.confreaks.com/12saleh.html"><img src="/system/images/original/Confreaks__MountainWest_Ruby_Conference_2008_1.jpg"></a>
+
+I gave a presentation on "BDD with shoulda":/system/assets/bdd_with_shoulda.pdf for "Mountain West Ruby Conf":http://mtnwestrubyconf.org in Salt Lake City (video above).
+
+<span style="clear:both"/>
+
+!</system/images/original/slc_library.jpg!
+
+It must be nice to live in a city completely surrounded by gorgeous snow capped mountains.  And the library where the conference was held was an incredible example of architecture.  Lots of sweeping curves and generous amounts of glass.
+
+After that, it was off to present at Scotland on Rails.  I've never been to a city as thoroughly beautiful as Edinburgh.  It seemed like every street was lined with buildings older than my own country.  
+
+I'll be putting the shots I took for both of these trips up on my flickr account as soon as I have time to unload them.
+
+Unfortunately, I fell under the grips of a serious cold at the end of that trip, and just finished recovering last weekend.  So now it's time to get back up to speed.  
+
+I'll be in New York next weekend for "GoRuCo":http://2008.goruco.com/, Brisbane on the 9th for some personal time, San Diego on the 23rd for more of the same, Portland on the 29th for "RailsConf":http://en.oreilly.com/rails2008/, and Portland again in July for "OSCON":http://en.oreilly.com/oscon2008/public/content/home, where I'll be giving a 3 hour tutorial on advanced ruby metaprogramming. 
+
+In fact, I've got so many trips planned this season, that I've started using Dopplr to keep track of them.  Check out my profile and itinerary in the sidebar, stage left.
+
+And I promise to get back to more technical posts as soon as the dust settles.

@@ -1,0 +1,30 @@
+---
+date: 2008-03-04
+title: Shoulda 4.0.1 - the lean and mean release
+---
+
+<i>Crossposted from "GiantRobots":http://giantrobots.thoughtbot.com/2008/3/3/shoulda-the-lean-and-mean-release</i>
+
+<a href="http://flickr.com/photos/robillardfamily/119635448/">
+!</system/images/original/baby.jpg(look at that drool)!
+</a>
+
+Shoulda is a great tool for cleaning up your tests, but there was always some
+dirt under the hood that was keeping me up at night.  I don't want to just
+"move complexity around":http://www.klankboomklang.com/2007/10/26/class-methods-part-ii-annotations/ - I want to remove it entirely.
+
+A "recent change":http://tammer.lighthouseapp.com/projects/5807/tickets/12-rails-2-0-change-breaks-shoulda in edge rails forced me to get off my butt and do that.
+
+So everyone give a warm hello to the latest "Shoulda gem":http://rubyforge.org/projects/shoulda.  It now uses a Context class in the backend, prints out @should_eventually@ tests in a clear way, names the bare shouldas nicely, and fixes a few small bugs.
+
+I also took the opportunity to fix some of the outstanding issues in the "shoulda rails plugin":http://thoughtbot.com/projects/shoulda (with a lot of great help from the community).
+
+So grab the latest plugin and have some fun:  
+
+@@@ bash
+piston install https://svn.thoughtbot.com/plugins/shoulda/tags/rel-4.0.1 vendor/plugins/shoulda
+@@@
+
+Also, "please let me know":http://tammer.lighthouseapp.com/projects/5807-shoulda/tickets if you find any bugs or issues.
+
+

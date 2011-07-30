@@ -1,0 +1,14 @@
+---
+date: 2008-06-22
+title: Quick vim svn blame snippet
+---
+
+Just to prove the theory that every incredibly incomprehensible piece of code you come across is probably your own, I penned a quick @svn blame@ vim command.
+
+@@@ vim
+vmap gl :<C-U>!svn blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
+@@@
+
+Just "highlight":http://www.vim.org/htmldoc/visual.html the disgusting code in question, and bask in your own shame!
+
+!/system/images/original/post.rb____code_tammersaleh_trunk_app_models____VIM.jpg!

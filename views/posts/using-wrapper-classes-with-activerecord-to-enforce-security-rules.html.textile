@@ -1,0 +1,77 @@
+---
+date: 2006-11-04
+title: Using wrapper classes with ActiveRecord to enforce security rules
+---
+
+We have a project here at "thoughtbot":http://www.thoughtbot.com that required a sprinkling of access control.  We needed to make sure that there were certain conditions applied to all references to a model depending on which controller was using it.  Pretty common stuff.  There were a couple of ways to get this done, but the path we decided was cleanest involved writing wrapper classes for our AR model.
+
+Here's the model in question:
+
+<pre><code class="ruby">
+class Article < AR
+  def self.search(query)
+    ...
+  end
+
+  def title
+    ...
+  end
+
+  # Columns include submitted and accepted
+end
+</code></pre>
+
+Articles can be submitted by users, and accepted by editors.  We have controller namespaces for the public (when not logged in), users (when logged in), and editors (when logged in as an editor).  And there are some privacy considerations to go along with all that.  Namely:
+
+ * The public should only see accepted articles
+ * The editors should only see accepted and submitted articles
+ * Users should only see accepted articles or unsubmitted articles that they're still working on (owned by them).
+
+The super-naive (and seriously painful) approach would be to have separate Article methods for each security domain.  For example:
+
+<pre><code class="ruby">
+class Article < AR
+  def search_for_admin(query)
+    ...
+  end
+
+  def search_for_member(query)
+    ...
+  end
+
+  def search_for_guest(query)
+    ...
+  end
+end
+</code></pre>
+
+..and you'd have to do this for _all_ methods the controller may call.
+
+Another approach would be to use the before_filter/with_scope magic described on "HABTM":http://habtm.com/articles/2006/02/22/nested-with_scope.  But the fact that DHH condemned it (to the point of declaring that with_scope will soon be declared private), and the way you have to go under the hood a bit with the *@klass.scoped_methods* call effectively dissuaded us.
+
+Instead, we decided to go with a couple of wrapper classes.  We still use with_scope, but within the model, and in a much more opaque way.  We have three wrappers (one for each security context).  Here's the one for the administrator controllers:
+
+<pre><code class="ruby">
+  class AdminArticle
+    def self.method_missing(method, *args)
+      scope = { :find => { :conditions => ["submitted = ?", true] }}
+
+      Article.with_scope(scope) do
+        # we've limited the scope, so just pass the method call on...
+        Article.send(method, *args)
+      end
+    end
+
+    def self.new(*args)
+      # need to explicitly pass this on
+      self.method_missing(:new, *args)
+    end
+  end
+</code></pre>
+
+Then, we replace all calls to *Article* in the admin controllers to *AdminArticle*.  This ensures that any records returned to our admin controllers are submitted articles, and we added an incredibly small amount of code.  We did the same thing for MemberArticles and PublicArticles, and it's all worked fine.  There are two changes that I'm thinking about making:
+
+ # If we have AdminArticle inherit from Article (without adding a *type* column to the table), we should be able to set all methods on Article as *protected*, ensuring that no errant code is looking at the wrong class.
+ # We could conceivably combine these wrappers into one WrappedArticle class, but I'm not sure if it would remain readable.  It's right on the edge of what I'd consider obfuscated as it is.
+
+If you have any comments or suggestions on how to clean this up further, I'd love to hear them.

@@ -1,0 +1,20 @@
+---
+date: 2007-06-08
+title: Campfire API Where Art Thou?
+---
+
+So I'm not sure what happened at 37Signals:http://www.37signals.com with their "Campfire":http://www.campfirenow.com application, but both Courenay's "marshmallow":http://www.caboo.se/articles/2006/4/14/meet-marshmallow-the-campfire-bot and Brandon's "Tinder":http://opensoul.org/2006/12/8/tinder-campfire-api seem to be hosed.
+
+When using both of these tools, on pretty much any request, you get a redirect back:
+
+<pre><code>
+  Location: http://subdomain.campfirenow.com/
+  <html><body>You are being <a href="http://subdomain.campfirenow.com/">redirected</a>.</body></html>
+</code></pre>
+
+The campfire API was never set in stone, and that agile development requires the breaking of a few eggs.  That being said, we've got a few products (_cough_ CI _cough_) which really liked being able to integrate with our campfire rooms.
+
+37Signals, DHH, if you're listening:  Please drop us a hint about the new(?) campfire API.
+
+Much appreciated.
+

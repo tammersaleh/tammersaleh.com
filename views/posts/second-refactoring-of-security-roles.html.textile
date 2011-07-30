@@ -1,0 +1,162 @@
+---
+date: 2007-01-12
+title: Second refactoring of security roles
+---
+
+I've been able to work on some pretty wonderful projects over at "thoughtbot":http://www.thoughtbot.com A common issue we have in larger applications is ensuring that the right logged in users see the right resources (and don't see those they aren't supposed to).  We visited a solution to this in a "previous post":http://blog.tammersaleh.com/articles/2006/11/04/using-wrapper-classes-with-activerecord-to-enforce-security-rules, which worked fine at the time.  Our project has since grown, as projects are wont to do, and the wrapper class solution just wasn't scaling.  See below for our most excellent second solution...
+
+
+
+h3. A little refresher on what not to do...
+
+The wrapper class approach is just fine for a single resource that needs security applied to it.  For a refresher, here's the model...
+
+<pre><code class="ruby">
+class Article < ActiveRecord::Base
+  # Columns include submitted and accepted
+end
+</code></pre>
+
+And here's the wrapper that you would use in its place when in an Admin controller...
+
+<pre><code class="ruby">
+class AdminArticle
+  def self.method_missing(method, *args)
+    scope = { :find => { :conditions => ["submitted = ?", true] }}
+
+    Article.with_scope(scope) do
+      # we've limited the scope, so just pass the method call on...
+      Article.send(method, *args)
+    end
+  end
+
+  def self.new(*args)
+    # need to explicitly pass this on
+    self.method_missing(:new, *args)
+  end
+end
+</code></pre>
+
+And here's the wrapper that you would use in its place when in a Member controller...
+
+<pre><code class="ruby">
+class MemberArticle
+  def self.method_missing(method, *args)
+    # We get current_user through a class-level accessor that I've left out for sanity
+    scope = { :find => { :conditions => ["approved = ? or user_id = ?", true, current_user] }}
+
+    Article.with_scope(scope) do
+      # we've limited the scope, so just pass the method call on...
+      Article.send(method, *args)
+    end
+  end
+
+  def self.new(*args)
+    # need to explicitly pass this on
+    self.method_missing(:new, *args)
+  end
+end
+</code></pre>
+
+You can already see how this isn't gonna scale as you add more AR classes that need security?  Not to mention the fact that it violates the newly private nature of ActiveRecord.with_scope.  Finally, it's not nearly as purty as I'd like.  We all like purty, right?  Lemme see some hands!
+
+h3. That's much better!
+
+First, the library...
+
+<pre><code class="ruby">
+module Filterable
+  def self.included(clazz)
+    clazz.class_eval do
+      extend ClassMethods
+    end
+  end
+
+  module ClassMethods
+    def scope_to_role(role, user = nil)
+      case role
+      when :public
+        scope = { :find => { :conditions => ["approved = true"] } }
+      when :admin
+        scope = { :find => { :conditions => ["submitted = true"] } }
+      when :member
+        raise RuntimeError, "#{self.name}.scope_to_role(:member, nil) called, which doesn't make sense" unless user
+        scope = { :find => { :conditions => ["approved = true OR user_id = ?", user.id]} }
+      else
+        raise RuntimeError, "#{self.name}.scope_to_user called with unrecognized role #{role}"
+      end
+
+      with_scope(scope) do
+        yield
+      end
+    end
+  end
+end
+</code></pre>
+
+Then the models...
+
+<pre><code class="ruby">
+class Article < ActiveRecord::Base
+  include Filterable
+  # Columns include submitted and accepted
+end
+</code></pre>
+
+And using it in the controllers...
+
+<pre><code class="ruby">
+class ApplicationController < ActionController::Base
+  around_filter :filter_results_for_public
+
+  def filter_results_for_public
+    People.scope_to_role(:public) do
+      Article.scope_to_role(:public) do
+        Photo.scope_to_role(:public) do
+          yield
+        end
+      end
+    end
+  end
+
+  def filter_results_for_admin
+    People.scope_to_role(:admin) do
+      Article.scope_to_role(:admin) do
+        Photo.scope_to_role(:admin) do
+          yield
+        end
+      end
+    end
+  end
+
+  def filter_results_for_member
+    People.scope_to_role(:member, current_user) do
+      Article.scope_to_role(:member, current_user) do
+        Photo.scope_to_role(:member, current_user) do
+          yield
+        end
+      end
+    end
+  end
+end
+</code></pre>
+
+<pre><code class="ruby">
+class Admin::BaseController < ApplicationController
+  skip_filter :filter_results_for_public
+  around_filter :filter_results_for_admin
+end
+</code></pre>
+
+<pre><code class="ruby">
+class Member::BaseController < ApplicationController
+  skip_filter :filter_results_for_public
+  around_filter :filter_results_for_member
+end
+</code></pre>
+
+h3. There's a downside?
+
+The biggest downside is that you're yielding about six times for each and every request.  You could trim that down by excluding certain actions, but it's still not the most efficient design.
+
+Also, we could probably get all clever and combine those filter_results_for* methods into one which introspects on the url or current controller.  Do we want to do that?  I didn't think so.

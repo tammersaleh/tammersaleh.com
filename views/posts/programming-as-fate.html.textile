@@ -1,0 +1,8 @@
+---
+date: 2007-08-19
+title: Programming as fate
+---
+
+bq. Fate is like gravity. Its pull is weak relative to the other forces, but it acts over great distances.
+
+"How I became a programmer":http://www.atomicwang.org/motherfucker/Index/A9267832-5BD9-475F-98E6-A8C269E91C4B.html

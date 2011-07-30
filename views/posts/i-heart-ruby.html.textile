@@ -1,0 +1,41 @@
+---
+date: 2006-12-22
+title: I heart Ruby
+---
+
+A friend of mine pointed out an article on lj a while ago, "Why Python":http://www.linuxjournal.com/article/3882, and asked for a response...   so now you're all getting it.
+
+I'm pretty sure that I would have been (almost) as impressed with Python as I have been with Ruby...  I just happened to run into Ruby first.  Both these languages are so wonderful to use because of their "dynamic":http://en.wikipedia.org/wiki/Dynamic_language nature.
+
+Notice that "almost" up there?  Ruby does have a few really neat tricks that (if used correctly) can be really useful.  Granted, most of the time they aren't gonna be used correctly.  Here's a good example, though (found throughout the net):
+
+<pre>
+  $fib = Hash.new do |h,n|
+    if n <= 1
+      h[n] = n
+    else
+      h[n] = $fib[n-1] + $fib[n-2]
+    end
+  end
+
+  $fib[10] # returns Fibonacci of 10 (55)
+</pre>
+
+The Hash object can take a block of code during instantiation that it will execute if you reference a non-existent index.  So the code above computes the fibonacci sequence using caching (or "memoization":http://en.wikipedia.org/wiki/Memoization or "dynamic programming":http://en.wikipedia.org/wiki/Dynamic_programming, depending on what pretentious fuck you're talking to).  Meaning that the next time I ask for @$fib[10]@, it's already been computed.  That's the simplest way to do memoization that I've ever seen.
+
+Since Ruby is a "functional language":http://en.wikipedia.org/wiki/Functional_language, you can also do neat (but uselessly obscure) things like:
+
+<pre>
+  puts case
+         when x < 0;            "x < 0"
+         when 0 <= x && x < 1;  "x in interval [0,1)"
+         when 1 <= x && x < 2;  "x in interval [1,2)"
+         when 2 <= x;           "x >= 2"
+       end
+</pre>
+
+Which puts (like print) the results of the case statement.  Like all things geeky, this can be used for good or evil :)
+
+Ruby seems to take all the best parts of "LISP":http://en.wikipedia.org/wiki/Lisp_language, but bringing them into an easy to use and modern language.
+
+Finally, I agree whole heartedly with everything ESR said about perl.  It's amazing to me that "Citysearch":http://citysearch.com (and many other large sites) are built entirely out of perl code.  How do they manage to keep their sanity?

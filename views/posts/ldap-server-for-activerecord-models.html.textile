@@ -1,0 +1,59 @@
+---
+date: 2006-11-06
+title: LDAP Server for ActiveRecord Models
+---
+
+I almost titled this one "More Enterprisey Goodness for Rails."  
+
+What we've got here is an LDAP server that returns values from an ActiveRecord model.  It runs as a daemon next to your rails application, and is fairly configurable.  It's currently designed specifically for address book applications (tested with Thunderbird and the OS X address book), so point it at your Users model and enjoy all the tab-completability you can handle in your email client.  Patches, suggestions, and general accolades are more than welcome.
+
+This daemon came about as an addon to a CRM application that we are developing for a client here at Thoughtbot.
+
+I'm standing firmly on the shoulders of others for this one.  Specifically, the "Ruby LDAP Server":http://rubyforge.org/projects/ruby-ldapserver/, and "this post on daemonizing ruby code":http://www.bigbold.com/snippets/posts/show/2265.
+
+Grab the source from our SVN repository ("svn.thoughtbot.com/ldap-activerecord-gateway/":http://svn.thoughtbot.com/ldap-activerecord-gateway/).
+
+h3. Requirements
+
+The only requirement that the daemon imposes on the AR class is that it implement two methods:
+
+ * *@Class.search(query)@* - returns a collection of records that somehow match the string given by @query@
+ * *@record.to_ldap_entry@* - returns a hash representing the LDAP information returned to the client.  Here's an example hash:
+
+<pre><code class="ruby">
+  { "objectclass" =>  [ "top", "person", "organizationalPerson", "inetOrgPerson", "mozillaOrgPerson"],
+    "uid" => [123],
+    "sn" => ["Lastname"],
+    "givenname" => ["Firstname"],
+    "cn" => [ "Firstname Lastname" ],
+    "mail" => [ "email@address.com" ] }
+</code></pre>
+
+h3. Configuration
+
+The LDAP gateway is a separate process from your Rails application, and is not expected to live under the RAILS_DIR.  You can install it in any directory you please, and it can run as any user you need (see note about the port number below).
+
+To configure the gateway, copy the conf/ldap-server.example.yml file to conf/ldap-server.yml and edit that file.
+
+ * *rails_dir*: RAILS_DIR directory for your rails application.
+ * *active_record_mode*l: Name of the AR Model you'd like to serve.
+ * *basedn*: The LDAP basedn for your server.  This is installation specific, and is usually keyed to your domainname.  Whatever you put here has to be entered in the client configuration as well.
+ * *port*: The port your server will listen on.  _If you are not running the server as root, then this port needs to be greater than 1000_.  389 is the standard LDAP port.
+ * *tcp_nodelay*: Not sure.
+ * *preforked_threads*: How many threads to run.
+ * *bind_address*: The IP address on which the server will listen.  Unless you have security issues, 0.0.0.0 will work just fine.
+ * *debug*: Set this to true to get more verbose startup and logging messages.
+
+h3. Running the Server
+
+Once you've configured the server, you can run it with "bin/ldap-server.rb start".  It should immediately daemonize itself and start logging to log/ldap-server.log.  As one of the first log messages, it should state how many records it has access to.
+
+As a final test, you should connect to the server with an addressbook client (such as Thunderbird) and try querying for known records.
+
+h3. Final notes
+
+It looks like the ruby-ldapserver library that I'm using has support for dropping privileges after binding to a port, but I wasn't able to test that functionality.  Also, I believe that you should be able to run this as a different user than the one running your rails application, but that might not be true (you might get log file ownership conflicts).  Again, didn't have time to test that part.
+
+h3. Update
+
+I've copied this post to it's own page.  Head on over to "http://blog.tammersaleh.com/pages/ldap_activerecord_gateway":http://blog.tammersaleh.com/pages/ldap_activerecord_gateway for any future updates.

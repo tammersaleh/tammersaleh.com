@@ -1,0 +1,113 @@
+---
+date: 2007-02-13
+title: Mocking a network resource with camping
+---
+
+So we've been having a "good":http://giantrobots.thoughtbot.com/2007/1/15/camping-goes-camping "deal":http://giantrobots.thoughtbot.com/2007/2/12/rubedo-is-ruby-radio of fun with "Camping":http://redhanded.hobix.com/bits/campingAMicroframework.html over at "thoughtbot":http//thoughtbot.com.  Once again, it's shown its merit-badge-earning utility by getting me out of a testing jam.
+h3.  Names have been changed to protect the innocent
+
+One of our projects involves interacting with an internal credit card processing server.  We wrote a small middle-layer library that will be talking to the server, and which will be shared among other applications that do credit card processing for this client.  Basically, we post XML to the server (which contains the CC info), and get back XML holding the response code.
+
+With payment processing you usually test against the live server, using pre-determined credit card numbers like 4111111111111111 -- supplied by Visa or Master Card or what not.  Unfortunately, this server is hosted inside our client's well-protected network, and is unaccessible from our development machines.  I also don't like the idea of depending on some other dude's service for my tests to pass, and I'd like to have more control over what results the tests can expect.
+
+h3.  Camping to the rescue!
+
+We decided that best solution was to run a small webserver that mocks the real server's functionality.  The only issue was in figuring out how to write this server in as little time as possible (it _is_ only for testing, after all).  Camping was perfect for the job.  Here's the code:
+
+<pre><code class="ruby">
+#!/bin/env ruby
+
+require 'rubygems'
+$LOAD_PATH.unshift(".")
+require 'camping'
+require 'rexml/document'
+
+Camping.goes :PaymentProcessor
+
+silence_warnings do
+  Responses = {
+    "4111111111111111" => { :response_code => 101 },
+    "4111111111111112" => { :response_code => 102 },
+    "Missing"          => { :response_code => 103 },
+    "Malformed"        => { :response_code => 200 },
+  }
+  Responses.default = { :response_code => 100 }
+end
+
+module PaymentProcessor::Controllers
+  class Index < R '/'
+    def get
+      render :index
+    end
+  end
+
+  class Purchase < R '/purchase'
+    def get
+      render :index
+    end
+
+    def post
+      @headers['Content-Type'] = 'text/xml charset=utf8'
+      begin
+        $logger.info "\nPOST: \n#{@raw_post_data}"
+        xml = REXML::Document.new(@raw_post_data)
+        cc_number = xml.elements["//customer-cc-number"]
+        @payment = Responses[cc_number ? cc_number.text : "Missing"] 
+      rescue Exception => e
+        $logger.info e
+        @payment = Responses["Malformed"]
+      end
+      $logger.info "\nResponding with: \n#{@payment.to_xml}"
+      # $logger.info "@raw_post_data: #{@raw_post_data}"
+      render :purchase
+    end
+  end
+end
+
+module PaymentProcessor::Views
+  def index
+    html do
+      body do
+        h1  "Payment Gateway Mock"
+        div "This server is here to let thoughtbot's developers" +
+            " test their credit card processing in a controlled environment."
+        div "Point your payment library at /purchase, and use the following test data:"
+        pre Responses.to_yaml
+        div "All other values for the credit card number will return successful."
+      end
+    end
+  end
+
+  def purchase
+    @payment.to_xml(:root => "response")
+  end
+end
+
+if __FILE__ == $0
+  require 'mongrel'
+
+  $logger = Logger.new('loggylogger.log')
+
+  server = Mongrel::Camping::start("0.0.0.0", 2000, "/", PaymentProcessor)
+  puts "** PaymentProcessor is running at http://localhost:3000/"
+  server.run.join
+end
+</code></pre>
+
+All in under 80 lines!  Fantastic.  It's even self-documenting (of a sort) for anyone browsing to http://localhost:2000/.
+
+We now run this server on our central development box, and point our library at it when in development or testing mode.  Problem solved.
+
+h3.  There's always a gotcha
+
+So, I had to make the smallest of changes to the camping code in order to get to the XML in the post body...
+
+<pre><code class="diff">
+425c425,426
+<         qs.merge!(C.qsp(@in.read))
+---
+>         @raw_post_data = @in.read
+>         qs.merge!(C.qsp(@raw_post_data))
+</code></pre>
+
+I won't say that the camping code was easy to read, but at under 800 lines, it wasn't too hard to figure out the patch above.  And the folk over at #camping were all incredibly helpful.

@@ -1,0 +1,21 @@
+---
+date: 2009-08-10
+title: Send us your tired, your poor...
+---
+
+%>needs_refactoring.jpg%
+
+As part of "Chad and my upcoming Aloha on Rails presentation":/posts/speaking-at-aloha-on-rails, we'll be looking at the worst examples we can find of real world Rails code as submitted by our loyal fans (you), and showing our beautifully refactored versions.  So here's your chance to show the world just how terrible your code can get, while getting some free refactoring advice as well!
+
+h4. Think you're man enough?
+
+To submit your articles of regret, upload your code as "a gist":http://gist.github.com, and fill out the form below.
+
+We will be using any code submitted in a very public fashion, so be sure to obfuscate any proprietary or personally embarrassing bits.  
+
+While we won't discuss the applications the code comes from (unless you specifically give permission) we're most interested in examples that have been used in real-world products.
+
+_*The fine print:* Any code submitted is done so with implicit permission to use that code in the presentation (duh), our materials, or even the upcoming "Rails AntiPatterns":http://my.safaribooksonline.com/9780321620293 book._
+
+<iframe src="http://spreadsheets.google.com/embeddedform?key=tCnImUKF1UX6W8j2QqHJrLA" width="500" height="587" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+

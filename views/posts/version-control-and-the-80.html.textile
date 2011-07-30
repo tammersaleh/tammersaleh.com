@@ -1,0 +1,6 @@
+---
+date: 2007-11-27
+title: Version Control and “the 80%”
+---
+
+bq. "Shocking statement #3: No matter how cool DVCS is, anyone who tells you that DVCS is perfect for everyone is completely out of touch with reality.":http://blog.red-bean.com/sussman/?p=79

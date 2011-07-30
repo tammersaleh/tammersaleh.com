@@ -1,0 +1,6 @@
+---
+date: 2006-08-20
+title: migration data dumper on rubyforge
+---
+
+I've made an SVN repo for mdd on rubyforge.org.  An annoying thing about rubyforge is that "migration-data-dumper" is too long of a Unix name, so "mdd":http://mdd.rubyforge.org it is.

@@ -1,0 +1,60 @@
+---
+date: 2010-01-17
+title: Bushido
+---
+
+I'd like to introduce "Bushido":http://github.com/tsaleh/bushido, the template I use on all my new applications. It’s very specifically geared for the tools I use, and contains examples of some of my thoughts on best practices. While it's unlikely you'll want to use it for your own projects (who knows?), it serves well as an example.
+
+%>tsuba.jpg medium%
+
+When you create a new application with this template, it will attempt to take care of as much as it can of the repetitive steps you'd normally have to take.  This includes creating the new app, creating the new bucket in S3, creating the staging slice in Heroku, installing the required gems, creating and migrating the database, and finally running the test suite.
+
+*This template will create a new, free, heroku staging application automatically.  It will also create S3 buckets, and install the required gems.*
+
+h2. What have you done for me lately?
+
+The "gold directory":http://github.com/tsaleh/bushido/tree/master/gold is used to test changes to the template, and as such, serves as a perfect example of what the template will produce.
+
+Here's what Bushido gives you:
+
+* *Configured for Heroku*, including @.gems@ manifest and automatic staging application creation.
+* *Full user system*
+** Authentication via Authlogic,
+** Streamlined user registration initially requiring just email address
+** User confirmation/activation
+* *User avatars in Amazon S3* via Paperclip, including automatic bucket creation.
+* *Blueprint* based default style
+* *Plugins & Gems*: Inherited Resources, Authlogic, HAML, Blueprint CSS framework, Shoulda test suite and extra macros, Formtastic (with validation reflection plugin), Hoptoad, Blue Ridge JS testing framework, will_paginate, Paperclip, and
+RedCloth.
+
+h2. To use:
+
+%<sageo_no_sugata.jpg medium%
+
+It’s a good idea to have some info handy, including the hoptoad key for the new project, a gmail email address and password for configuring outgoing email, and the S3 key and secret for paperclip avatars.
+
+Once you’ve got that info, run:
+
+@@@
+rails myapp -m http://github.com/tsaleh/bushido/raw/master/template.rb
+@@@
+
+You can also supply the configuration values on the commandline:
+
+@@@
+rails myapp -m http://github.com/tsaleh/bushido/raw/master/template.rb -- --s3_key=foo
+@@@
+
+Note the extra ‘—’ in there, which must come before the rest of the options. The supported options are:
+
+@@@
+—hoptoad_key
+—gmail_username
+—gmail_password
+—s3_key
+—s3_secret
+@@@
+
+h2. Rails 3
+
+While bushido doesn't yet work with Rails 3, building the template has left me in eager anticipation of the upcoming "Thor":http://github.com/wycats/thor integration.  Thor will make templates such as this _much_ easier to write.

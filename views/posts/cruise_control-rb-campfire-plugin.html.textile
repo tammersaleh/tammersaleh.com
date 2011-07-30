@@ -1,0 +1,40 @@
+---
+date: 2007-08-15
+title: cruise_control.rb campfire plugin
+---
+
+<i>Cross posted from "Giant Robots":http://giantrobots.thoughtbot.com</i>
+
+We've been somewhat unhappy with our current "Cerberus":http://cerberus.rubyforge.org/ installation, so we've decided to jump on the "CC.rb":http://cruisecontrolrb.thoughtworks.com/ bandwagon.  Though there were a couple of problems when adding projects (I'll try to expand on that in another post), the overall experience was pretty good -- installation was a breeze, and the plugin system makes extending it dead simple.
+
+As proof... 
+
+h3. Campfire plugin for cruise_control.rb
+
+A builder plugin for "CruiseControl.rb":http://cruisecontrolrb.thoughtworks.com that sends build notices to "campfire":http://www.campfirenow.com/ chat rooms.
+
+h3. Download
+
+You can get the tarball "here":http://svn.thoughtbot.com/plugins/cruise_control.rb/campfire_notifier.tgz, or grab it from svn at http://svn.thoughtbot.com/plugins/cruise_control.rb/campfire_notifier.  You can even track it via externals:
+
+<code><pre>
+svn propset svn:externals 'campfire_notifier http://svn.thoughtbot.com/plugins/cruise_control.rb/campfire_notifier' builder_plugins/installed
+</pre></code>
+
+h3. Installation
+
+# Create a Campfire account that you will use for sending notifications.
+# Copy campfire_notifier_plugin folder to builder_plugins/installed (or use the externals method above)
+# Modify builds/your_project/cruise_config.rb by adding the following lines:
+    <pre><code>
+Project.configure do |project|
+  ...
+  project.campfire_notifier.domain   = 'thoughtbot'
+  project.campfire_notifier.room     = '38367'
+  project.campfire_notifier.ssl      = false
+  project.campfire_notifier.username = 'sender@gmail.org'
+  project.campfire_notifier.password = 'sender_password'
+  ...
+end
+    </code></pre>
+

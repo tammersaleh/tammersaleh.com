@@ -1,0 +1,93 @@
+---
+date: 2009-07-17
+title: Keeping vendor clean with GitHub conventions
+---
+
+I'm still seeing examples of this in the wild, so it bears repeating:
+
+_Never modify files directly under @/vendor@_
+
+h2. A brief history of dependency management.
+
+@RAILS_ROOT/vendor@ was designed to hold 3rd party code.  It's the go-to dropbox for plugins, rails, and later gems as well.  One of the reasons for this was to alleviate the issues of not having the exact version of rails installed locally when you develop - or on your production machine when you deploy (as early users of shared hosting "will remember":http://documentation.rubyonrails.org/2005/12/22/freezing-your-rails-when-you-deploy-shared).
+
+But another reason for vendoring your crap instead of just tossing the loose files into @RAILS_ROOT/lib@ is to differentiate between your code and third party code.
+
+Third party code is consistent - everyone knows what to expect when they see "vendor/plugins/hoptoad_notifier":http://hoptoadapp.com or "vendor/gems/haml-2.0.9":http://haml-lang.com/ under your @RAILS_ROOT@.
+
+Third party code should be upgradeable quickly and easily without too much hassle (within minor versions, at least).
+
+But the moment you make a "quick fix" to any file under @vendor@ directly and commit it, you've destroyed that consistency and maintainability.  Now, every time another developer (or yourself, 3 months from now) finds a strange bug in one of the plugins or gems you're using, they'll have to ask themselves whether or not this is a bug introduced by a local modification.  Every time a developer upgrades that gem or plugin, they'll have to remember to make the exact same changes you made to the new version.
+
+h2. The GitHub way.
+
+The traditional answer to this, in order to be a good OSS citizen, was to submit a patch to the author of the plugin and wait for it to get pulled into the next release.  If it's a bug you're fixing, then your chances were pretty high that would happen within a few months.  If it's a new feature, then it wasn't something you'd hold your breath on.
+
+Luckily, Ruby is a highly dynamic language.  This means you can duck-punch whatever modifications you need by re-opening the plugin indirectly via extensions under @RAILS_ROOT/lib@.  Highly organized coders even followed conventions there, such as @lib/extensions/add_slugs_to_active_record.rb@ to make it even more clear that funny business was afoot.
+
+While this is a perfectly acceptable solution, there's now a better way.  GitHub has changed the way code flows through the open source world - it's made each of us a first class maintainer of any package we choose to fork.  This means we can fork the plugin or gem we need to modify, make the modifications there.  The workflow that replaces local modifications to @vendor@ then becomes:
+
+# Fork the project on github (or add it under your account if it's not there yet)
+# Submit a pull request to the maintainer (thus paying our OSS dues) 
+# Immediately make use of _our_ version under @vendor@ (thus paying our bills)
+
+h2. A sprinkle of convention.
+
+The little sprinkle of convention that makes this a great solution is to prepend the author name to the gem or plugin name.  Here's what this looks like in my @vendor/plugins@ and @vendor/gems@ directories:
+
+@@@ text
+[tsaleh@K9:~/code/tsaleh-tammersaleh/vendor/plugins master] ls
+total 0
+...
+drwxr-xr-x  11 tsaleh  staff   374B Apr  1 11:58 ambethia-recaptcha/
+drwxr-xr-x  13 tsaleh  staff   442B Apr 18 16:24 thoughtbot-hoptoad_notifier/
+drwxr-xr-x   8 tsaleh  staff   272B Apr  1 11:58 thoughtbot-limerick_rake/
+drwxr-xr-x  12 tsaleh  staff   408B Apr 18 16:24 thoughtbot-paperclip/
+drwxr-xr-x   8 tsaleh  staff   272B Apr  1 11:58 thoughtbot-squirrel/
+...
+@@@
+
+@@@ text
+[tsaleh@K9:~/code/tsaleh-tammersaleh/vendor/gems master] ls
+total 0
+drwxr-xr-x   8 tsaleh  staff   272B May  5 17:18 chrislloyd-gravtastic-2.0.0/
+drwxr-xr-x  11 tsaleh  staff   374B May  5 17:18 mislav-will_paginate-2.3.8/
+drwxr-xr-x  15 tsaleh  staff   510B Apr  1 11:58 nex3-haml-2.0.9/
+drwxr-xr-x  12 tsaleh  staff   408B Apr  1 11:58 binarylogic-settingslogic-1.0.0/
+drwxr-xr-x  10 tsaleh  staff   340B Apr 18 16:24 thoughtbot-factory_girl-1.2.1/
+drwxr-xr-x  11 tsaleh  staff   374B Apr 18 16:24 thoughtbot-shoulda-2.10.1/
+@@@
+
+That way, it's clear to me exactly which gems or plugins are ones I've made modifications to - they're the ones with my GitHub username in front of them.  While rails is perfectly happy with renaming plugins like this, it takes a little finesse (via the @:lib@ and @:source@ options to @config.gem@) to get it to recognize the gems.
+
+@@@ ruby
+config.gem 'mislav-will_paginate', 
+           :lib => 'will_paginate', 
+           :source => 'http://gems.github.com', 
+           :version => '~> 2.3.8'
+@@@
+
+I even use this convention when cloning a project.  It really helps organize my @~/code@ directory, and makes it clear which project is the original, and which is my fork.
+
+@@@ text
+[tsaleh@tardis:~/code] ls
+...
+drwxr-xr-x  23 tsaleh  staff   782B Apr  9 12:23 bryanl-vimconfig/
+drwxr-xr-x  10 tsaleh  staff   340B Jun 10 14:52 rack-rack-contrib/
+drwxr-xr-x  17 tsaleh  staff   578B Jul  2 09:08 rails-rails/
+drwxr-xr-x  17 tsaleh  staff   578B Jun  1 07:36 runpaint-vim-recipes/
+drwxr-xr-x  22 tsaleh  staff   748B Apr 28 17:53 spot-us-spot-us/
+drwxr-xr-x  12 tsaleh  staff   408B Mar  1 13:20 thoughtbot-antipatterns/
+drwxr-xr-x  17 tsaleh  staff   578B Jul 15 08:23 thoughtbot-antipatterns-code/
+drwxr-xr-x  19 tsaleh  staff   646B Apr  9 12:24 tpope-vim-ruby/
+drwxr-xr-x  11 tsaleh  staff   374B Jan 18 21:29 tsaleh-active_presenter/
+drwxr-xr-x  13 tsaleh  staff   442B Feb 18 17:49 tsaleh-enum_field/
+drwxr-xr-x  19 tsaleh  staff   646B May 20 13:37 tsaleh-tammersaleh/
+drwxr-xr-x  17 tsaleh  staff   578B Nov 26  2008 tsaleh-ticketbitch/
+...
+@@@
+
+h2. Full disclosure.
+
+For some reason, this convention doesn't work with "mocha":http://mocha.rubyforge.org/.  Renaming @mocha-0.9.7@ to @floehopper-mocha-0.9.7@ causes ruby to complain with "uninitialized constant Mocha::Mockery::ImpersonatingName":http://whatdoesthiserrormean.com/errors/1776.  Feel free to let us know in the comments if you have any idea why this is happening.
+

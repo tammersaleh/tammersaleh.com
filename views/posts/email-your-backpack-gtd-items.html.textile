@@ -1,0 +1,24 @@
+---
+date: 2008-03-20
+title: Email your Backpack GTD items
+---
+
+Like most kids out there, I'm a follower of the "GTD system":http://en.wikipedia.org/wiki/GTD.  I've gone through a bunch of GTD software and have boiled it down to a combination of "Backpack":http://www.backpackit.com/ and a pad of paper in my hip pocket.
+
+I thought I'd share a script I wrote that emails me my list of todo items every morning.
+First off, my backpack GTD system is pretty straight forward:
+
+# A page for each context, the names of which start with '@' - so @work, @phone, @online, @zipcar, @home, @blog, etc.
+# Each context page includes a single list named "Tasks"
+
+That's about it.  I've also got a someday/maybe page, and a page for each major project, but those don't get emailed to me.
+
+Download "this script":/system/assets/email_todos.rb, change the constants at the top, and plop it on a server somewhere.  You should test it on the server it will live on by running @/usr/local/bin/ruby /home/tsaleh/bin/email_todos.rb@
+
+Then setup your crontab to run that sucker every morning.  My crontab looks like this:
+
+@@@ crontab
+@daily /usr/local/bin/ruby /home/tsaleh/bin/email_todos.rb 
+@@@
+
+That should be it.  The next morning you'll get a list of the tasks you have to complete for each context.

@@ -1,0 +1,11 @@
+---
+date: 2007-08-15
+title: And then there was...
+---
+
+<i>Cross posted from "Giant Robots":http://giantrobots.thoughtbot.com</i>
+
+"!/system/images/original/radar.png(RADAR)!":http://pragdave.pragprog.com/pragdave/2007/03/the_radar_archi.html
+
+"This":http://pragdave.pragprog.com/pragdave/2007/03/the_radar_archi.html has been feeling to me, lately, like the natural progression of things, especially with "this":http://weblog.techno-weenie.net/2006/12/12/taking-ares-out-for-a-test-drive sitting just around the corner...
+
