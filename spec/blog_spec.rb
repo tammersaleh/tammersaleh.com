@@ -76,17 +76,21 @@ describe "Given some blog posts" do
     end
   end
 
-  # context "GET /posts/a_post" do
-  #   before { visit "/posts/a_post" }
+  context "GET /posts/a_post" do
+    before { visit "/posts/a_post" }
 
-  #   it "renders the layout" do
-  #     page.should have_selector('h1:contains("Layout")')
-  #   end
+    it "renders the layout" do
+      page.should have_selector('h1:contains("Layout")')
+    end
 
-  #   it "renders the post title" do
-  #     page.should have_selector('h2:contains("First post")')
-  #   end
-  # end
+    it "renders the post title" do
+      page.should have_selector('h2:contains("First post")')
+    end
+
+    it "renders the post body" do
+      page.should have_selector('blockquote:contains("This is the first post.")')
+    end
+  end
 end
 
 
