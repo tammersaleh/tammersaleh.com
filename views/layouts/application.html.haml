@@ -8,7 +8,10 @@
   %script{:src=>"/js/code_highlighter/html.js"}
   %script{:src=>"/js/code_highlighter/javascript.js"}
   %script{:src=>"/js/code_highlighter/ruby.js"}
-  = stylesheet_link_tag 'blueprint/screen', 'screen'
+  = stylesheet_link_tag 'blueprint/screen'
+  %link{:href=>"/css/code.css", :media=>"screen", :rel=>"stylesheet", :type=>"text/css"}
+  %link{:href=>"/css/screen.css", :media=>"screen", :rel=>"stylesheet", :type=>"text/css"}
+
   -# %link{:href=>'http://fonts.googleapis.com/css?family=Oswald', :rel=>'stylesheet', :type=>'text/css'}
   -# %link{:href=>'http://fonts.googleapis.com/css?family=Allerta+Stencil', :rel=>'stylesheet', :type=>'text/css'}
   -# %link{:href=>'http://fonts.googleapis.com/css?family=Just+Another+Hand', :rel=>'stylesheet', :type=>'text/css'}
