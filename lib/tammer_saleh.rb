@@ -13,6 +13,8 @@ Dir[File.join(File.dirname(__FILE__), "tammer_saleh/**/*.rb")].each do |f|
   require f
 end
 
+Tilt.register MyRedClothTemplate, "textile"
+
 class TammerSaleh < Sinatra::Base
   register Padrino::Rendering
   register Padrino::Helpers

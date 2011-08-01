@@ -1,4 +1,4 @@
 - posts.each do |post|
   %h2= link_to(post.meta[:title], post.url)
-  = render_page(post)
+  ~ render_page(post)
 
