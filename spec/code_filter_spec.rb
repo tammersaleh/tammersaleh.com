@@ -7,24 +7,24 @@ describe "given a textile template with a code sample" do
                                                        .content
                                                          ~ yield
                                                      EOS
-    create_template("posts.html.haml", <<-EOF)
+    create_template("index.html.haml", <<-EOF)
                                          This is the Blog!
                                          - posts.each do |post|
                                            %h2= post.meta[:title]
                                            ~ render_page(post)
                                        EOF
-    create_template("bar.html.textile", <<-EOS) 
-                                          @@@ ruby
-                                          [branch "master"]
-                                            remote = origin
-                                            merge = refs/heads/master
-                                          @@@
-                                        EOS
+    create_template("posts/bar.html.textile", <<-EOS) 
+                                                @@@ ruby
+                                                [branch "master"]
+                                                  remote = origin
+                                                  merge = refs/heads/master
+                                                @@@
+                                              EOS
 
   end
 
   context "the rendered page" do
-    before { visit "/bar" }
+    before { visit "/posts/bar" }
     subject { page }
 
     it { should have_selector('pre code.ruby') }
@@ -34,7 +34,7 @@ describe "given a textile template with a code sample" do
   end
 
   context "the posts index" do
-    before { visit "/posts" }
+    before { visit "/" }
     subject { page }
 
     it { should have_selector('pre code.ruby') }
