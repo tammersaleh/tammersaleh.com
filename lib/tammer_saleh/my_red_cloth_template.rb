@@ -1,8 +1,4 @@
 class MyRedClothTemplate < Tilt::RedClothTemplate
-  # def evaluate(scope, locals, &block)
-  #   code_filter(super)
-  # end
-
   def prepare
     @engine = RedCloth.new(code_filter(data))
     @output = nil

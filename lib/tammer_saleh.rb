@@ -22,8 +22,7 @@ class TammerSaleh < Sinatra::Base
   set :root, File.expand_path(File.dirname(__FILE__) + '/../')
 
   def render_page_with_layout(page)
-    render_page(page, :layout => page.layout, 
-                      :layout_engine => :haml)
+    render_page(page, :layout => page.layout, :layout_engine => :haml)
   end
 
   get %r{^/([^.]+)$} do |name|
