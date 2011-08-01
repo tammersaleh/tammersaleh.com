@@ -2,27 +2,29 @@
 
 require "spec_helper"
 
-describe "Given a haml file without front matter" do
+describe "Given a haml file without frontmatter, Page" do
   before do
-    @path = "file"
+    @path = "/file"
     create_template("#{@path}.html.haml", "%h1 This is a post.")
+    @page = Page.new(@path)
   end
+  subject { @page }
 
-  describe "Page.new(filename)" do
-    before { @page = Page.new(@path) }
+  its(:engine) { should == :haml }
+  its(:meta)   { should be_a(HashWithIndifferentAccess) }
+  its(:meta)   { should be_empty }
+  its(:url)    { should == "/file" }
+end
 
-    describe "#meta" do
-      before { @out = @page.meta }
-
-      it "returns a HashWithIndifferentAccess" do
-        @out.should be_a(HashWithIndifferentAccess)
-      end
-
-      it "returns empty" do
-        @out.should be_empty
-      end
-    end
+describe "Given a textile file without frontmatter, Page" do
+  before do
+    @path = "/file"
+    create_template("#{@path}.html.textile", "h1. This is a post.")
+    @page = Page.new(@path)
   end
+  subject { @page }
+
+  its(:engine) { should == :textile }
 end
 
 describe "Given a file with front matter" do
@@ -40,25 +42,15 @@ describe "Given a file with front matter" do
 
   describe "Page.new(filename)" do
     before { @page = Page.new(@path) }
+    subject { @page }
 
-    describe "#html" do
-      before { @out = @page.html }
-
-      it "returns the rendered body" do
-        @out.should match("<h1>This is a post.</h1>")
-      end
-
-      it "does not render the frontmatter" do
-        @out.should_not match("Title for this post")
-      end
-    end
+    its(:meta)   { should be_a(HashWithIndifferentAccess) }
+    its(:url)    { should == "/file" }
+    its(:source) { should match("%h1 This is a post.") }
+    its(:source) { should_not match("Title for this post") }
 
     describe "#meta" do
       before { @out = @page.meta }
-
-      it "returns a HashWithIndifferentAccess" do
-        @out.should be_a(HashWithIndifferentAccess)
-      end
 
       it "returns the title in the hash" do
         @out[:title].should == "Title for this post."
@@ -71,30 +63,35 @@ describe "Given a file with front matter" do
   end
 end
 
-describe "Given a nested file" do
+describe "Page.new(directory/file)" do
   before do
     @path = "directory/file"
     create_template("#{@path}.html.haml", "This is a post.")
+    @page = Page.new(@path)
+  end
+  subject { @page }
+
+  context "with a layout named application.html.haml" do
+    before do
+      create_template("layouts/application.html.haml", "%h1 Layout\n= yield")
+    end
+
+    its(:layout) { should == "application.html" }
+
+    context "and a layout named directory.html.haml" do
+      before do
+        create_template("layouts/directory.html.haml", "%h1 Directory\n= yield")
+      end
+
+      its(:layout) { should == "directory.html" }
+    end
   end
 
-  describe "Page.new(filename)" do
-    before { @page = Page.new(@path) }
-    subject { @page }
+  describe "#url" do
+    before { @out = @page.url }
 
-    context "with a layout named application.html.haml" do
-      before do
-        create_template("layouts/application.html.haml", "%h1 Layout\n= yield")
-      end
-
-      its(:layout) { should == "application.html" }
-
-      context "and a layout named directory.html.haml" do
-        before do
-          create_template("layouts/directory.html.haml", "%h1 Directory\n= yield")
-        end
-
-        its(:layout) { should == "directory.html" }
-      end
+    it "returns the path of the page" do
+      @out.should == "/directory/file"
     end
   end
 end

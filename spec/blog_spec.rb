@@ -21,7 +21,7 @@ describe "Given some blog posts" do
                       This is the Blog!
                       - posts.each do |post|
                         %h2= post.meta[:title]
-                        = post.html
+                        = render_page(post)
                     EOF
 
     create_template("posts/a_post.html.haml", 
@@ -93,7 +93,7 @@ describe "Given a blog post" do
     create_template("layouts/posts.html.haml", 
                     <<-EOF)
                       %h1 Post Layout
-                      %h2= data[:title]
+                      %h2= meta[:title]
                       = yield
                     EOF
      
@@ -102,6 +102,7 @@ describe "Given a blog post" do
                       ---
                       title: First post
                       date:  1997-07-01
+                      foo:   bar
                       ---
                       %blockquote This is the first post.
                     EOF
@@ -120,6 +121,10 @@ describe "Given a blog post" do
 
     it "renders the post body" do
       page.should have_selector('blockquote:contains("This is the first post.")')
+    end
+
+    it "doesn't attempt to render the frontmatter" do
+      page.source.should_not match("foo")
     end
   end
 end

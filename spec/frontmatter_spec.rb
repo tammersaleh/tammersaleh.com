@@ -7,7 +7,7 @@ describe "Given a page with frontmatter" do
     create_template("layouts/application.html.haml", 
                     <<-EOF)
                       %head
-                        %title= data[:title]
+                        %title= meta[:title]
                       %h1 Layout
                       = yield
                     EOF

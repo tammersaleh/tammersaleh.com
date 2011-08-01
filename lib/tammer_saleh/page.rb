@@ -5,29 +5,40 @@ class Page
 
   def initialize(request_path)
     @views_root    = TammerSaleh.settings.views
-    @request_path  = request_path
+    @request_path  = normalize_path(request_path)
     @entire_source = File.read(template_path)
     @meta, @source = split_body
   end
   
-  def html
-    Tilt[template_path].new { @source }.render
-  end
-
   def layout
     path = File.join(views_root, "layouts", "#{potential_layout_name}.haml")
     File.exists?(path) ? potential_layout_name : "application.html"
   end
 
+  def url
+    @request_path
+  end
+
+  def engine
+    template_path.split(".").last.to_sym
+  end
+
   private
 
+  def normalize_path(path)
+    path = path.to_s
+    path.start_with?("/") ? path : "/#{path}"
+  end
+
   def potential_layout_name
-    subdir = File.dirname(@request_path.to_s)
-    return "#{subdir}.html" unless %w(/ .).include?(subdir)
+    subdir = File.dirname(@request_path)
+    subdir.sub!(%r{^[/.]}, "")
+    return "#{subdir}.html" unless subdir.blank?
   end
 
   def split_body
     data = {}
+    body = @entire_source
     if @entire_source =~ YAML_REGEXP
       data = hash_from_yaml($1)
       body = @entire_source.split(YAML_REGEXP).last
@@ -51,7 +62,7 @@ class Page
   def first_template_matching(name)
     pattern    = File.join(views_root, "#{name}.html.*")
     candidates = Dir[pattern]
-    raise "Could find no files matching #{pattern}" if candidates.empty?
+    raise Sinatra::NotFound, "Could find no files matching #{pattern}" if candidates.empty?
     candidates.first
   end
 end
