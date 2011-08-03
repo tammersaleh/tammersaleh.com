@@ -5,13 +5,11 @@ title: Getting back into the swing of things.
 
 The past three weeks have been a total whirlwind of excitement, glamour, drinking, more glamour, sickness, boredom, and a bit more glamour.
 
-<a href="http://mtnwestrubyconf2008.confreaks.com/12saleh.html"><img src="/system/images/original/Confreaks__MountainWest_Ruby_Conference_2008_1.jpg"></a>
+%Confreaks__MountainWest_Ruby_Conference_2008_1.jpg%
 
 I gave a presentation on "BDD with shoulda":/system/assets/bdd_with_shoulda.pdf for "Mountain West Ruby Conf":http://mtnwestrubyconf.org in Salt Lake City (video above).
 
-<span style="clear:both"/>
-
-!</system/images/original/slc_library.jpg!
+%<slc_library.jpg%
 
 It must be nice to live in a city completely surrounded by gorgeous snow capped mountains.  And the library where the conference was held was an incredible example of architecture.  Lots of sweeping curves and generous amounts of glass.
 

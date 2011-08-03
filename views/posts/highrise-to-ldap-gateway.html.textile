@@ -25,15 +25,11 @@ Now point your ldap server at localhost:1390 (or whatever host/port combination 
 
 Here's a screenshot of my OS X Addressbook configuration:
 
-<a href="/system/images/original/addressbook_screenshot.jpg">
-  <img src="/system/images/original/addressbook_screenshot.jpg" alt="Addressbook config" align="middle" width="350"/>
-</a>
+%addressbook_screenshot.jpg%
 
 ...And one of Addressbook doin' it's thang:
 
-<a href="/system/images/original/addressbook_screenshot2.jpg">
-  <img src="/system/images/original/addressbook_screenshot2.jpg" alt="Addressbook" align="middle" width="350"/>
-</a>
+%addressbook_screenshot2.jpg%
 
 Comments and patches are more than welcome, but please keep in mind that this was really just produced as a proof of concept.
 
