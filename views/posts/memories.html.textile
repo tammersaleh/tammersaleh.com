@@ -5,9 +5,6 @@ title: Memories...
 
 This reminds me of my sys-admin days...
 
-<div>
-<a href="http://thrillingwonder.blogspot.com/2007/03/really-bad-wiring-jobs_20.html">
-  <img src="/system/images/original/415863001_f630a20f24_m.jpg" alt="crazy wires"/>
-</a>
-</div>
+%415863001_f630a20f24_m.jpg%
+
 There's more fascinating horror if you click on the image.
