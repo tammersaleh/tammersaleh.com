@@ -4,7 +4,8 @@ title: ! 'Book Review: Troubleshooting Ruby Processes by Philippe Hanrigou'
 ---
 
 Addison-Wesley has been releasing a number of Ruby and Rails books under the editorship of Obie Fernandez.  I got my hands on ""Troubleshooting Ruby Processes":http://www.informit.com/store/product.aspx?isbn=0321544684&rl=1" by "Philippe Hanrigou":http://www.informit.com/authors/author_bio.aspx?ISBN=0321544684, and I have to say that I was very impressed with the material presented.
-<img src="/system/images/original/ShowCover.jpg" title="Cover" alt="Cover" width=300 style="float:left" />
+
+%<troubleshooting-ruby-processes.jpg%
 
 To put my views in perspective:  While I have only spent the last year as a professional Rails programmer, I spent around 6 years before that as a UNIX administrator.  I've worked with networks of between 40 and 400 machines - so my skills may be a bit rusty, but I still know the UNIX side of things pretty well.  That being said, I still had a few things to learn from this 56 page PDF.  
 
