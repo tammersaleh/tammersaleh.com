@@ -3,7 +3,7 @@ date: 2009-10-19
 title: Aloha On Rails recap
 ---
 
-<a href="http://www.flickr.com/photos/tsaleh/sets/72157622489655887/"><img src="http://farm3.static.flickr.com/2720/4024354556_a23a2c03e7.jpg" width="300" class="float-left"></a>
+%<beach.jpg%
 
 By far, the best conference I've been to (or expect to go to) this year was "Aloha on Rails":http://www.alohaonrails.com/.  Not only was the venue as stunning as you'd expect from a conference in Hawaii, but the presentations were equally impressive.  I'm sure it helped to be able to entice speakers like Chad Fowler, Yehuda Katz, Gregg Pollack, Scott Chacon, Corey Donohoe, Ezra Zygmuntowicz and Obie Fernandez by promises of a tropical paradise.
 
@@ -15,9 +15,7 @@ bq. "Really enjoyed @tsaleh and @cpytel's talk on You're Doing It Wrong. Lots of
 
 bq. "@cpytel had good advice for testing rake tasks. Puts complicated code in a Ruby class and test that. Yes!":http://twitter.com/jimweirich/status/4663897735
 
-<div class="clear"></div>
-
-<a href="http://www.flickr.com/photos/atmos/sets/72157622525725362/"><img src="http://farm4.static.flickr.com/3469/3985494493_ceb03d51fb.jpg" class="float-right" width="300"/></a>
+%<aloha-panel.jpg%
 
 I also had the honor of being on John Larkowski's "Is Agile too Slow?":http://www.alohaonrails.com/sessions/#is-agile-too-slow panel.
 
