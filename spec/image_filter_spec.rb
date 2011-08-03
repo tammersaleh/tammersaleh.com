@@ -5,7 +5,7 @@ describe "given a textile template with an image link " do
 
   describe "and an image link" do
     before do
-      create_asset("attachments/images/file/original.jpg", "image data") 
+      create_asset("images/file/original.jpg", "image data") 
       create_template("posts/bar.html.textile", "%file.jpg large%") 
     end
 
@@ -13,19 +13,19 @@ describe "given a textile template with an image link " do
       before { visit "/posts/bar" }
       subject { page }
 
-      it { should have_selector('img[src="/attachments/images/file/large.jpg"]') }
+      it { should have_selector('img[src="/images/file/large.jpg"]') }
     end
   end
 
   describe "and an image link with metadata" do
     before do
       create_template("posts/bar.html.textile", "%file.jpg%") 
-      create_asset("attachments/images/file/original.jpg", "image data") 
-      create_asset("attachments/images/file/meta.yml", <<-EOS) 
-                                                         --- 
-                                                         :description: Me Speaking
-                                                         :source_url: ""
-                                                       EOS
+      create_asset("images/file/original.jpg", "image data") 
+      create_asset("images/file/meta.yml", <<-EOS) 
+                                             --- 
+                                             :description: Me Speaking
+                                             :source_url: ""
+                                           EOS
     end
 
     context "the rendered page" do
@@ -40,8 +40,8 @@ describe "given a textile template with an image link " do
   describe "and an image link with metadata that includes a url" do
     before do
       create_template("posts/bar.html.textile", "%file.jpg%") 
-      create_asset("attachments/images/file/original.jpg", "image data") 
-      create_asset("attachments/images/file/meta.yml", <<-EOS) 
+      create_asset("images/file/original.jpg", "image data") 
+      create_asset("images/file/meta.yml", <<-EOS) 
                                                          --- 
                                                          :description: ""
                                                          :source_url: http://google.com

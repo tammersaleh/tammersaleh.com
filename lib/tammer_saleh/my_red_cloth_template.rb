@@ -1,5 +1,5 @@
 class MyRedClothTemplate < Tilt::RedClothTemplate
-  BASE_IMAGE_URL = "/attachments/images"
+  BASE_IMAGE_URL = "/images"
   include Padrino::Helpers::TagHelpers
 
   def prepare
