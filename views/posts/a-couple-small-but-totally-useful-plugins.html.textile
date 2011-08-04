@@ -12,7 +12,7 @@ There are two plugins (well, one's a gem) that I've been using lately which are 
 
 h3. "mile_marker":http://thoughtbot.com/projects/mile_marker
 
-!/system/images/original/Politiquotes.jpg!
+%Politiquotes.jpg%
 
 We use this at thoughtbot to manage client expectations, but I use it for my own sites to visually remind myself when I haven't completed part of a page.
 

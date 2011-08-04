@@ -7,11 +7,10 @@ title: Shoulda news
 
 Some shoulda news for all you fans out there (you know who you are):
 
-1.  We spent all day slaving over some tutorials for you guys/gals.  "Eat 'em up here":http://thoughtbot.com/projects/shoulda/tutorial.
+# We spent all day slaving over some tutorials for you guys/gals.  "Eat 'em up here":http://thoughtbot.com/projects/shoulda/tutorial.
+# Torrey whipped out his MS Paint skillz to create the new Shoulda logo.  Bask!
 
-2.  Torrey whipped out his MS Paint skillz to create the new Shoulda logo.  Bask!
-
-!/system/images/original/shoulda.jpg!
+%shoulda.jpg%
 
 Indeed!
 

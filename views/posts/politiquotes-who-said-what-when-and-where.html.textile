@@ -5,9 +5,7 @@ title: Politiquotes - Who said what, when, and where
 
 I'd like to announce the launching of a small side project of mine:
 
-<a href="http://politiquotes.org">
-!</system/images/original/politiquotes.jpg!
-</a>
+%politiquotes.jpg%
 
 h2.  "Politiquotes":http://politiquotes.org
 

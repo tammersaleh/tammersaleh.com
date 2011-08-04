@@ -16,7 +16,7 @@ We had a lot of things going for us in this project:  The clients were a breeze 
 
 The client was very impressed with the progress we had made, and with the overall polish of the site.  You can read more about the reaction "here":http://blog.spot.us/2008/09/26/first-look-at-spotus-in-action/, and the demo video is below.
 
-<script type='text/javascript' src='http://blip.tv/syndication/write_player?skin=js&#038;posts_id=1304232&#038;cross_post_destination=-1&#038;view=full_js'></script>
+<iframe src="http://player.vimeo.com/video/27265109?title=0&amp;byline=0&amp;portrait=0" width="400" height="330" frameborder="0"></iframe>
 
 Working at Hashrocket was a lot of fun, and in many ways was the perfect vacation.  You're surrounded by talented coders (which fends off the normal vacation boredom), and you get to wake up to beautiful beach views every morning.
 %2921710942_ec9a246759.jpg%

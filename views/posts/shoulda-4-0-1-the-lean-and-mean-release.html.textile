@@ -5,9 +5,7 @@ title: Shoulda 4.0.1 - the lean and mean release
 
 <i>Crossposted from "GiantRobots":http://giantrobots.thoughtbot.com/2008/3/3/shoulda-the-lean-and-mean-release</i>
 
-<a href="http://flickr.com/photos/robillardfamily/119635448/">
-!</system/images/original/baby.jpg(look at that drool)!
-</a>
+%<baby.jpg medium%
 
 Shoulda is a great tool for cleaning up your tests, but there was always some
 dirt under the hood that was keeping me up at night.  I don't want to just

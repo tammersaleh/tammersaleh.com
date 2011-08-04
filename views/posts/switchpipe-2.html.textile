@@ -1,8 +1,0 @@
----
-date: 2008-02-01
-title: Switchpipe
----
-
-bq. "SwitchPipe manages and forwards HTTP requests to Web application processes, automatically managing balancing, port numbers, monitoring and timeouts.":http://switchpipe.org/
-
-!/system/images/original/diagram.jpg!
