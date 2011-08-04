@@ -4,6 +4,8 @@ gem "heroku"
 gem "shotgun"
 gem 'thin'
 
+gem "compass"
+
 gem 'sinatra'
 gem "padrino",        :require => false
 gem "active_support", :require => false

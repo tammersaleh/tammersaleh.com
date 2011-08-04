@@ -19,6 +19,13 @@ class TammerSaleh < Sinatra::Base
   register Padrino::Rendering
   register Padrino::Helpers
   
+  Compass.configuration do |config|
+    config.project_path = File.dirname(__FILE__)
+    config.sass_dir = 'views/css'
+  end
+
+  set :haml, { :format => :html5 }
+  set :scss, Compass.sass_engine_options
   set :root, File.expand_path(File.dirname(__FILE__) + '/../')
 
   def render_page_with_layout(page)
