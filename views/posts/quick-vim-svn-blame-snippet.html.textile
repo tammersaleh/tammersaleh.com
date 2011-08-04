@@ -11,4 +11,4 @@ vmap gl :<C-U>!svn blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR
 
 Just "highlight":http://www.vim.org/htmldoc/visual.html the disgusting code in question, and bask in your own shame!
 
-!/system/images/original/post.rb____code_tammersaleh_trunk_app_models____VIM.jpg!
+%vim_blame.jpg%
