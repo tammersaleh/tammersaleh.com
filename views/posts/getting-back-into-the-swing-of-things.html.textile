@@ -7,7 +7,7 @@ The past three weeks have been a total whirlwind of excitement, glamour, drinkin
 
 %Confreaks__MountainWest_Ruby_Conference_2008_1.jpg%
 
-I gave a presentation on "BDD with shoulda":/system/assets/bdd_with_shoulda.pdf for "Mountain West Ruby Conf":http://mtnwestrubyconf.org in Salt Lake City (video above).
+I gave a presentation on "BDD with shoulda":/assets/bdd_with_shoulda.pdf for "Mountain West Ruby Conf":http://mtnwestrubyconf.org in Salt Lake City (video above).
 
 %<slc_library.jpg%
 

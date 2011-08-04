@@ -13,7 +13,7 @@ First off, my backpack GTD system is pretty straight forward:
 
 That's about it.  I've also got a someday/maybe page, and a page for each major project, but those don't get emailed to me.
 
-Download "this script":/system/assets/email_todos.rb, change the constants at the top, and plop it on a server somewhere.  You should test it on the server it will live on by running @/usr/local/bin/ruby /home/tsaleh/bin/email_todos.rb@
+Download "this script":/assets/email_todos.rb, change the constants at the top, and plop it on a server somewhere.  You should test it on the server it will live on by running @/usr/local/bin/ruby /home/tsaleh/bin/email_todos.rb@
 
 Then setup your crontab to run that sucker every morning.  My crontab looks like this:
 

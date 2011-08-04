@@ -7,4 +7,4 @@ Just a quick note to let everyone know that I've moved my blogging engine from T
 
 I still need to add a few items, like url redirects, project pages, my CV, and a contact page.
 
-You can grab the current version of the theme "here":/system/assets/theme.tgz.
+You can grab the current version of the theme "here":/assets/theme.tgz.
