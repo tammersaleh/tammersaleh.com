@@ -3,7 +3,7 @@ date: 2009-08-12
 title: The problem isn't your tests...
 ---
 
-h4. ...the problem is your scaffolding.
+h5. ...the problem is your scaffolding.
 
 _A rebuttle to "Unpopular Developer 5: Stop Unit Testing Your Scaffold Controllers":http://robots.thoughtbot.com/post/161331097/unpopular-developer-5-stop-unit-testing-your-scaffold_
 

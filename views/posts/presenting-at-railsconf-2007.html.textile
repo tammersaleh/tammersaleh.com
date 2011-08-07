@@ -5,7 +5,7 @@ title: Presenting at RailsConf 2007
 
 They've added a new track of sessions to RailsConf ('Oregon Ballroom 204' on the "schedule":http://conferences.oreillynet.com/pub/w/51/sessions.html), and mine has been chosen as one of them!
 
-h4. "Taking Care of Rails Support Tasks Through Custom Daemons":http://conferences.oreillynet.com/cs/rails2007/view/e_sess/11634
+h5. "Taking Care of Rails Support Tasks Through Custom Daemons":http://conferences.oreillynet.com/cs/rails2007/view/e_sess/11634
 
 *Saturday, 19th, at 10:45 - room 204*
 

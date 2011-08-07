@@ -5,11 +5,11 @@ title: The Modern Vim Config with Pathogen
 
 Unix gets a "whole lot right":http://en.wikipedia.org/wiki/Unix_philosophy#Eric_Raymond, but the way it dumps everything into the same filesystem isn't one of them.   Traditionally, every application you install will put files under @/etc@, @/usr/bin@, @/var@, @/lib@, and so on.  This makes it impossible to confidently extract an installed application, and lead to the development of "various":http://en.wikipedia.org/wiki/RPM_Package_Manager "package":http://en.wikipedia.org/wiki/Debian#APT.2C_installing_packages_from_online_repositories "management":http://mxcl.github.com/homebrew/ "tools":http://en.wikipedia.org/wiki/Encap_Package_Management_System.
 
-h3. Vim's legacy
+h4. Vim's legacy
 
 Unfortunately, Vim inherited that original philosophy.  "Terribly misguided attempts have been made in the past":http://www.installationwiki.org/Installing_Vim_Scripts to create a package management system for Vim plugins.  The Vimball format is particularly painful - non-standard file format, unusable from the commandline, and all files dropped under @~/.vim@ willy-nilly.
 
-h3. Pathogen
+h4. Pathogen
 
 Thankfully, our hero "Tim Pope":http://tpo.pe/ has penned "pathogen.vim":http://www.vim.org/scripts/script.php?script_id=2332 - a sane package manager for Vim plugins.  With pathogen, all of your plugins are stored in separate directories under @~/.vim/bundle@:
 
@@ -26,7 +26,7 @@ textile.vim       vim-markdown      vim-supertab
 
 This means removing a plugin is as simple as deleting that directory.  Just the way it should be. 
 
-h3. Installation
+h4. Installation
 
 To get started, I recommend moving your @~/.vim@ directory out of the way and starting fresh.  Then make the @~/.vim/autoload@ directory and download the "pathogen.vim":http://github.com/tpope/vim-pathogen/raw/master/autoload/pathogen.vim file there.
 
@@ -47,7 +47,7 @@ call pathogen#runtime_append_all_bundles()
 
 ...and that's it!  This is the only plugin you'll install directly into your @~/.vim@ directory.  After that, any plugin you install into the @~/.vim/bundle@ directory will be seen by vim.  At this point, you can start copying in the contents of your @.vimrc@ and @.gvimrc@ files, taking the time to clean them up as you go.
 
-h3. Automation
+h4. Automation
 
 To make management of the @bundle@ directory a little easier, I penned up a quick ruby script, which I saved as @~/.vim/update_bundles@.   Running this script will remove all plugins you've installed manually, and will update them to the latest versions.
 

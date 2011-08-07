@@ -7,7 +7,7 @@ Not knowing where you are while using "RVM":http://rvm.beginrescueend.com/ can b
 
 RVM ships with the "@rvm-prompt@":http://rvm.beginrescueend.com/workflow/prompt/ script, which you can use in your @$PS1@ setup, but it neglects gemsets, and doesn't skip default values.
 
-h3. Problem, meet Solution.
+h4. Problem, meet Solution.
 
 So, here's a new bash prompt function that prints the RVM ruby version and gemset, but only if they're different from the defaults.
 

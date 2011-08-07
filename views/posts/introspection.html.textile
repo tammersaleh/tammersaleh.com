@@ -7,7 +7,7 @@ We give "training classes":http://thoughtbot.com/services/training at "Thoughtbo
 
 To that end, I've released the "source to this blog":http://github.com/tsaleh/tammersaleh on github.
 
-h3. Here be Dragons
+h4. Here be Dragons
 
 I spent a little bit of time cleaning the code up, but here is the big disclaimer:
 

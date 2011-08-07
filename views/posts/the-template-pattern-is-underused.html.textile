@@ -7,7 +7,7 @@ title: The Template Pattern is underused
 
 While a large portion of the "Gang of Four software patterns":http://en.wikipedia.org/wiki/Design_Patterns_(book) are rendered useless by the dynamic nature of Ruby, one that stands the test of time is the "Template Pattern":http://en.wikipedia.org/wiki/Template_method_pattern.
 
-h2. Simplicity is king.
+h3. Simplicity is king.
 
 Simplicity is the stalwart of good software development.  In every case, a responsible developer will search for the simplest solution to a problem.
 
@@ -43,7 +43,7 @@ end
 
 Inheritance, method overriding...  This should look totally familiar and fairly boring.  But the outcome is perfect:  The @BolognaSandwich@ class can make its namesake without resorting to a DSL, blocks, meaeeaeaetaprogramming, or whatever.  It's just a bunch of methods.
 
-h2. We should totally do this shit!
+h3. We should totally do this shit!
 
 Let's look at another one of my favorite tools, "Inherited Resources":http://github.com/josevalim/inherited_resources.  Here's a snippet from one of my Inherited Resources controllers:
 
@@ -71,7 +71,7 @@ It's totally clear what that method does, there's zero magic going on, and the i
 
 _By the way: anyone who has an issue with a method name that long can go back to Perl._
 
-h2. Cautions
+h3. Cautions
 
 There are some issues to be aware of when using the Template Pattern.  
 

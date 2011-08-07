@@ -11,7 +11,7 @@ gem "padrino",        :require => false
 gem "active_support", :require => false
 
 gem 'haml'
-gem 'sass'
+gem 'sass', ">= 3.1.7"
 gem "RedCloth"
 
 gem 'therubyracer-heroku', '0.8.1.pre3'

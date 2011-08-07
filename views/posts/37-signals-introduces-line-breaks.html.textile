@@ -5,7 +5,7 @@ title: 37 Signals introduces line breaks
 
 <blockquote>  
 
-h4. Linebreaks!
+h5. Linebreaks!
 
 "Job postings uses to be single paragraphs but now you can enter multiple paragraphs. We’ve also relaxed the 1000 character limit so you can post longer job ads if you’d like (although we believe concise, to-the-point job ads are more effective).":http://www.37signals.com/svn/posts/824-new-job-board-features
 

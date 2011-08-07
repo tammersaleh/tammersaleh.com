@@ -5,7 +5,7 @@ title: Upcoming Speaking Engagements
 
 I'm booked to speak at two upcoming presentations.   If you're going to be coming to either the Scottish Ruby Conference or RailsConf 2010, then be sure to say hi!
 
-h2. Scottish Ruby Conference
+h3. Scottish Ruby Conference
 
 %>Scottish_Ruby_Conference_-_posts.jpg medium%
 
@@ -14,7 +14,7 @@ At the "Scottish Ruby Conference":http://scottishrubyconference.com/sessions, I'
 <iframe src="http://player.vimeo.com/video/26521809?title=0&amp;byline=0&amp;portrait=0" width="400" height="225" frameborder="0"></iframe>
 
 
-h2. RailsConf 2010
+h3. RailsConf 2010
 
 %<rails2010.jpg%
 

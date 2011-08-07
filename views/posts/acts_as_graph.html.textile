@@ -3,13 +3,13 @@ date: 2006-08-24
 title: acts_as_graph
 ---
 
-h3. acts_as_graph
+h4. acts_as_graph
 
 The acts_as_graph plugin extends ActiveRecord to implement a connected graph.
 
 *WARNING*: _This plugin hasn't been worked on in about a year, and hasn't been tested with Rails 1.2.  I plan on updating it some time in the future, but for now, use at your own risk.  Contributions/bug fixes welcome._
 
-h3. Overview
+h4. Overview
 
 Specify this act if you want to model a graph structure by providing an inbound association  and an outbound association. This act requires that you have an edge table (used in the HABTM relationship), which by default is called @CLASS_edges@, which has two columns (@child_id@ and @parent_id@ by default) where @CLASS@ is the name of your model.
 
@@ -61,7 +61,7 @@ The following options are supported, but some have yet to be implemented:
  |^. @allow_cycles@ | Determines whether or not the graph is cyclic.  Defaults to @false@. <i>Cyclic graphs are not yet implemented</i>.|
  |^. @directed@ | Determines whether or not the graph is directed.  Defaults to @true@. <i>Undirected graphs are not yet implemented</i>.|
 
-h3. Future directions
+h4. Future directions
 
 The following features are being worked on for this plugin:
 
@@ -69,7 +69,7 @@ The following features are being worked on for this plugin:
 * DFS/BFS choices for the recursive object.
 * Converting the recursive object to a proxy (such as the how the other association proxies are done).
 
-h3. Download
+h4. Download
 
 You can get acts_as_graph via cvs.  From the rails project directory, run:
 

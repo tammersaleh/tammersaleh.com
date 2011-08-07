@@ -133,7 +133,7 @@ Content-Type: application/xml; charset=utf-8
 ...
 @@@
 
-h2. Telling Google
+h3. Telling Google
 
 %<Webmaster_Tools_-_Sitemaps.jpg large%
 

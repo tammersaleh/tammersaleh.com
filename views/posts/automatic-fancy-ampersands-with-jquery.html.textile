@@ -24,7 +24,7 @@ span.ampersand {
 
 Fancy ampersands are one of those little details that adds a subtle aesthetic touch, and gives the page "an extra notch of professionalism":/hire.  Unfortunately, adding those spans by hand is both bothersome, and error-prone.  It also becomes difficult to make use of this technique for existing or automatically generated content.
 
-h3. Luckily, that's why "god":http://ejohn.org/ created "jQuery":http://jquery.com/!
+h4. Luckily, that's why "god":http://ejohn.org/ created "jQuery":http://jquery.com/!
 
 With a little addition to our @application.js@, we can have fancy ampersands inside all of our header tags (@h1@, @h2@, etc.):
 

@@ -4,13 +4,13 @@ title: Mocking a network resource with camping
 ---
 
 So we've been having a "good":http://giantrobots.thoughtbot.com/2007/1/15/camping-goes-camping "deal":http://giantrobots.thoughtbot.com/2007/2/12/rubedo-is-ruby-radio of fun with "Camping":http://redhanded.hobix.com/bits/campingAMicroframework.html over at "thoughtbot":http//thoughtbot.com.  Once again, it's shown its merit-badge-earning utility by getting me out of a testing jam.
-h3.  Names have been changed to protect the innocent
+h4.  Names have been changed to protect the innocent
 
 One of our projects involves interacting with an internal credit card processing server.  We wrote a small middle-layer library that will be talking to the server, and which will be shared among other applications that do credit card processing for this client.  Basically, we post XML to the server (which contains the CC info), and get back XML holding the response code.
 
 With payment processing you usually test against the live server, using pre-determined credit card numbers like 4111111111111111 -- supplied by Visa or Master Card or what not.  Unfortunately, this server is hosted inside our client's well-protected network, and is unaccessible from our development machines.  I also don't like the idea of depending on some other dude's service for my tests to pass, and I'd like to have more control over what results the tests can expect.
 
-h3.  Camping to the rescue!
+h4.  Camping to the rescue!
 
 We decided that best solution was to run a small webserver that mocks the real server's functionality.  The only issue was in figuring out how to write this server in as little time as possible (it _is_ only for testing, after all).  Camping was perfect for the job.  Here's the code:
 
@@ -98,7 +98,7 @@ All in under 80 lines!  Fantastic.  It's even self-documenting (of a sort) for a
 
 We now run this server on our central development box, and point our library at it when in development or testing mode.  Problem solved.
 
-h3.  There's always a gotcha
+h4.  There's always a gotcha
 
 So, I had to make the smallest of changes to the camping code in order to get to the XML in the post body...
 

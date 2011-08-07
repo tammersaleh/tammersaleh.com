@@ -12,7 +12,7 @@ of our projects, and we've just finished adding some super cool controller tests
 
 Check it out!
 
-h3. Controller Macros
+h4. Controller Macros
 
 Right off the bat, you get some pretty little test helpers:
 
@@ -39,7 +39,7 @@ That bit of code makes five functional tests, and is super easy to read.  To tak
 step further - if you've been a good boy and have kept to the latest restful standards 
 in your controllers, then you're in luck.  
 
-h3. should_be_restful
+h4. should_be_restful
 
 You can produce an entire set of tests (over 40) for both html and xml formats through 
 the <tt>should_be_restful</tt> helper.

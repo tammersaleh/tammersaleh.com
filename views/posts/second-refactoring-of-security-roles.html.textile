@@ -7,7 +7,7 @@ I've been able to work on some pretty wonderful projects over at "thoughtbot":ht
 
 
 
-h3. A little refresher on what not to do...
+h4. A little refresher on what not to do...
 
 The wrapper class approach is just fine for a single resource that needs security applied to it.  For a refresher, here's the model...
 
@@ -60,7 +60,7 @@ end
 
 You can already see how this isn't gonna scale as you add more AR classes that need security?  Not to mention the fact that it violates the newly private nature of ActiveRecord.with_scope.  Finally, it's not nearly as purty as I'd like.  We all like purty, right?  Lemme see some hands!
 
-h3. That's much better!
+h4. That's much better!
 
 First, the library...
 
@@ -155,7 +155,7 @@ class Member::BaseController < ApplicationController
 end
 </code></pre>
 
-h3. There's a downside?
+h4. There's a downside?
 
 The biggest downside is that you're yielding about six times for each and every request.  You could trim that down by excluding certain actions, but it's still not the most efficient design.
 

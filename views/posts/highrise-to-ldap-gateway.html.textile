@@ -9,7 +9,7 @@ title: Highrise to LDAP Gateway
 
 Adapted from the "ldap-activerecord-server":http://thoughtbot.com/projects/ldap-ar-gateway for its "RailsConf 2007 presentation":http://thoughtbot.com/assets/angels_and_daemons.pdf, this application will proxy your Highrise contacts as LDAP entries.  Once you have this installed and running on a local server, you can point OS X's Addressbook (or Outlook, Thunderbird, etc.) at it and get autocomplety goodness in your local mail client.
 
-h3. Quick instructions:
+h4. Quick instructions:
 
 # Download via svn at http://svn.thoughtbot.com/highrise-ldap-proxy
 # Figure out your highrise API url

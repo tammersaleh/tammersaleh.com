@@ -7,7 +7,7 @@ I've found a zen-like calm recently in my cyber workflow, which means I'm in for
 
 First, a note about my setup:  I have a Macbook Air and an iMac, both of which I use regularly for development work.  I use them both in an effort to minimize my downtime if one dies or has to go in for repairs.  Because of this, I tend toward online apps and syncing solutions fairly heavily.
 
-h2. Up top
+h3. Up top
 
 %finder-statusbar.jpg%
 
@@ -21,7 +21,7 @@ Some tools that _everyone_ already uses: *"Dropbox":https://www.getdropbox.com/*
 
 %>iPhone_Home_Screen.jpg%
 
-h2. In my pocket
+h3. In my pocket
 
 * *"Mint.com":http://mint.com*: Here's hoping Quicken doesn't ruin this great service. 
 * *"Ego":http://ego-app.com/*: Cause I've got one. 
@@ -30,7 +30,7 @@ h2. In my pocket
 * *"ToodleDo":http://www.toodledo.com*: Uuuuuuugly UI, but does exactly what I want. 
 * *"Shredder":http://www.shredderchess.com/*: I'm not a huge game player, but this is the only chess game I've been able to find that does puzzles.
 
-h2. Daily apps
+h3. Daily apps
 
 * *"MacVim":http://code.google.com/p/macvim/*: Hells, yes! 
 * *"PDFpen":http://www.smileonmymac.com/PDFpen/*: Paid for itself with the first couple of forms I didn't have to print, sign, scan and email. 

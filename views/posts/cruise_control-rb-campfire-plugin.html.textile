@@ -9,11 +9,11 @@ We've been somewhat unhappy with our current "Cerberus":http://cerberus.rubyforg
 
 As proof... 
 
-h3. Campfire plugin for cruise_control.rb
+h4. Campfire plugin for cruise_control.rb
 
 A builder plugin for "CruiseControl.rb":http://cruisecontrolrb.thoughtworks.com that sends build notices to "campfire":http://www.campfirenow.com/ chat rooms.
 
-h3. Download
+h4. Download
 
 You can get the tarball "here":http://svn.thoughtbot.com/plugins/cruise_control.rb/campfire_notifier.tgz, or grab it from svn at http://svn.thoughtbot.com/plugins/cruise_control.rb/campfire_notifier.  You can even track it via externals:
 
@@ -21,7 +21,7 @@ You can get the tarball "here":http://svn.thoughtbot.com/plugins/cruise_control.
 svn propset svn:externals 'campfire_notifier http://svn.thoughtbot.com/plugins/cruise_control.rb/campfire_notifier' builder_plugins/installed
 </pre></code>
 
-h3. Installation
+h4. Installation
 
 # Create a Campfire account that you will use for sending notifications.
 # Copy campfire_notifier_plugin folder to builder_plugins/installed (or use the externals method above)

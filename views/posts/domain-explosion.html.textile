@@ -28,23 +28,23 @@ end
 
 Even the @Photo@ model can be reimplemented this way, if you use the fantastic "Paperclip":http://github.com/thoughtbot/paperclip plugin.
 
-h2. Developers, not coders.
+h3. Developers, not coders.
 
 It sounds absurd and even self defeating, but our job as developers isn't to write code.  Our job is to produce value for the client, and more often than not that means removing code.
 
 That requires a whole lot of judgment, which translates to a whole lot of experience.
 
-h2. Behavior, not nouns.
+h3. Behavior, not nouns.
 
 The idea of removing classes in favor of values doesn't fly in the face of good Object Oriented practices.  The important distinction is that the classes above have essentially no behavior.  A class without behavior is just a glorified value wrapped in maintenance costs.
 
 _Behavior, not vocabulary, dictates normalization._  The moment you add a @shipping_rate@ method to the @Product@ model, you know you should migrate to a @ShippingType@ class.  The moment you have to be able to modify that price at runtime, you move to a model.
 
-h2. Simplest thing possible.
+h3. Simplest thing possible.
 
 That's the beauty of the "BDD":http://behaviour-driven.org/ way.  BDD teaches you to write your specs first, and produce the _simplest thing possible_ in order to get them to pass.  It also keeps you focused on producing business value for your client - something a domain explosion definitely doesn't do.
 
-h2. The Plug
+h3. The Plug
 
 "Chad Pytel":http://thoughtbot.com/about/people#cpytel and I delve into issues just like this in our upcoming Addison Wesley book, "Rails AntiPatterns":http://my.safaribooksonline.com/9780321620293.  "Stay tuned":http://feeds.feedburner.com/TammerSaleh for more information on the book, or for more posts like this.
 

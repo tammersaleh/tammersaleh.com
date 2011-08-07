@@ -23,7 +23,7 @@ This plugin adds two functions for use in migrations that will save and restore 
 
 The fixtures are kept under @#{RAILS_ROOT}/db/data/#{RAILS_ENV}/@, and can then be version controlled (via svn, cvs, etc).
 
-h3. Example
+h4. Example
 
 Let’s say we create a posts table…
 
@@ -47,7 +47,7 @@ Let’s say we create a posts table…
 
 When you migrate down (via rake migrate VERSION=0), the data for the posts table is saved in db/data/development/posts.yml, and that data is pushed back into the table when you migrate back up (via rake migrate).
 
-h3. Rake Tasks
+h4. Rake Tasks
 
 <i>(Thanks to "Richard Livsey":http://livsey.org/articles/2006/08/15/populating-the-database-with-migrations for this addition)</i>
 
@@ -60,7 +60,7 @@ rake db:restore_table_from_fixture             # Restores a database table from 
 rake db:save_table_to_fixture                  # Saves a database table to a yaml fixture
 </code></pre>
 
-h3. Cause there's always gotta be a gotcha...
+h4. Cause there's always gotta be a gotcha...
 
 This works great until you have to edit an existing table. Consider adding a column to the posts table:
 
@@ -87,7 +87,7 @@ With these two migrations, if you run rake migrate VERSION=0, the following thin
 
 This is an error, but doesn’t cause any real problems just yet. The problem arrises when you attempt to migrate back up (via rake migrate). The 001 migration attempts to restore the yaml file, but cannot, since the specified draft column doesn’t exist in the table.
 
-h3. Version to the rescue
+h4. Version to the rescue
 
 If we add the version parameter to the calls to @save_table_to_fixture@ and @restore_table_from_fixture@ in the 002 migration like such:
 
@@ -109,15 +109,15 @@ If we add the version parameter to the calls to @save_table_to_fixture@ and @res
 
 Then the latter fixture is named @db/data/development/posts.draftcol.yml@, avoiding the whole issue.
 
-h3. Update
+h4. Update
 
 Thanks to "Richard Livsey":http://livsey.org/articles/2006/08/15/populating-the-database-with-migrations for adding the rake tasks.
 
-h3. Caveats
+h4. Caveats
 
 This is in use in my personal projects, but not highly tested. It is almost definitely MySQL and UNIX dependent, since I’m too lazy to change those things. Enhancements and bug fixes are very welcome.
 
-h3. Download
+h4. Download
 
 You can grab this plugin from the RubyForge account:  
 

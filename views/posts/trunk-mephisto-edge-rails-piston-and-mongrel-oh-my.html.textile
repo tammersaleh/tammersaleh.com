@@ -9,7 +9,7 @@ Here are some notes from my latest endeavor, which was to switch my main site ov
 
 A lot of the steps below are overkill if you don't need to keep mephisto in your own SVN repo, or if you don't want to manage your themes in your repo.  But this outlines what I think is a solid way of maintaining mephisto in a production environment.
 
-h3. Prerequisites
+h4. Prerequisites
 
 Make sure you've got the TZinfo gem installed on your production server.  It's a binary gem, so it really shouldn't be frozen into the repository.
 
@@ -17,9 +17,9 @@ Make sure you've got the TZinfo gem installed on your production server.  It's a
 gem list tzinfo
 </pre></code>
 
-h3. Back on Your Development Machine...
+h4. Back on Your Development Machine...
 
-h3. Piston
+h4. Piston
 
 Piston absolutely rocks for things like this.  By using piston, you can make local changes, save them in SVN, and upgrade around them without blinking.  Much like butter.  I'm using edge mephisto here, because a) I want those plugins, and b) that's just how I roll.
 
@@ -35,7 +35,7 @@ Everything after this happens under trunk, so...
 cd trunk
 </pre></code>
 
-h3. Rails
+h4. Rails
 
 We're also going to use piston to grab rails.  Since we're using edge Mephisto, we've got to stick with edge Rails.
 
@@ -59,7 +59,7 @@ svn commit -m 'downgraded rails to 7420'
 svn up # I pretty much do this all the time
 </pre></code>
 
-h3. TZinfo plugin
+h4. TZinfo plugin
 
 Gotta grab the latest version of that...
 
@@ -69,7 +69,7 @@ svn commit -m 'added tzinfo plugin'
 svn up 
 </pre></code>
 
-h3. Database
+h4. Database
 
 Create a config/database.yml file, and configure it with a production db.  It's just the standard rails database.yml, but the contents are completely installation specific.  Once you've created that file:
 
@@ -79,7 +79,7 @@ svn commit -m 'configured database'
 svn up 
 </pre></code>
 
-h3. Default Theme in SVN
+h4. Default Theme in SVN
 
 We'd like to be able to make changes to our theme from the command line and keep the changes in svn.  So let's do this part of the bootstrap by hand.
 
@@ -90,7 +90,7 @@ svn commit -m 'installed default theme'
 svn up
 </pre></code>
 
-h3. Tweak the svn repository
+h4. Tweak the svn repository
 
 Make some missing dirs and set ignores.  These probably don't matter if you don't plan on running a development version or running the tests.
 
@@ -117,7 +117,7 @@ svn commit -m 'created assets symlink'
 svn up
 </pre></code>
 
-h3. Capistrano
+h4. Capistrano
 
 Your capistrano setup is going to be environment specific, but otherwise just like any other application you'd deploy.  There's nothing Mephisto-specific here.
 
@@ -127,7 +127,7 @@ svn commit -m 'configured capistrano'
 svn up # why not?
 </pre></code>
 
-h3. Mongrel
+h4. Mongrel
 
 This is also going to be site-specific, but here's an example @config/mongrel_cluster.yml@ file:
 
@@ -147,7 +147,7 @@ svn add config/mongrel_cluster.yml
 svn commit -m 'added mongrel cluster config'
 </pre></code>
 
-h3. Fixes
+h4. Fixes
 
 If you make the log dir like I did, you'll need to remove the line that tries to create it on the server in the bootstrap task.  Just comment out line 5 in @lib/tasks/bootstrap.rake@ which reads @mkdir_p File.join(RAILS_ROOT, 'log')@.
 
@@ -157,7 +157,7 @@ You'll also have to tell mephisto to load the ActionWebServices.  Edit the envir
 config.load_paths += %W(#{RAILS_ROOT}/vendor/rails/actionwebservice/lib)
 </pre></code>
 
-h3. Deploy
+h4. Deploy
 
 We need to run that db:bootstrap task before we run migrations.
 

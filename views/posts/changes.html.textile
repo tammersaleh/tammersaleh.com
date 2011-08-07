@@ -9,7 +9,7 @@ I've worked in a few different types of environments in my career ("academia":ht
 
 Thoughtbot understands the Ruby on Rails culture in a way that I've always respected.  As a company, they focus on producing good work for both the clients and for the community.  As a team, they foster an incredible amount of camaraderie and team spirit, without needing to stifle differences of opinion.
 
-h2. Setting out
+h3. Setting out
 
 All of this has made my recent decision to leave the company incredibly difficult.  While Thoughtbot has been the best environment I could have hoped for, the need to set out on my own and build something for myself was just too strong.
 

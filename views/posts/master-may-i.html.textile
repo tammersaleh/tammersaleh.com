@@ -5,7 +5,7 @@ title: Master May I?
 
 _This is an announcement for a new authorization gem I've released named *Master May I*.  There's extensive documentation on the "rdoc.info":http://rdoc.info/projects/tsaleh/master-may-i site, but here's the quick and dirty._
 
-h2.  The Lowdown
+h3.  The Lowdown
 
 "Master May I":http://gemcutter.org/gems/master_may_i is a simple authorization gem that works hand in hand with "Authlogic":http://gemcutter.org/gems/authlogic and "InheritedResources":http://gemcutter.org/gems/inherited_resources.
 
@@ -17,7 +17,7 @@ _By the by, in all of the applications I've worked on as a consultant, I've seen
 
 There are two main components:
 
-h2.  The Model Layer
+h3.  The Model Layer
 
 *Master May I* hooks into @ActiveRecord@ in order to add a set of default authorization accessors to all of your models:
 
@@ -59,7 +59,7 @@ end
 @note.editable_by?(other_user)    => false
 @@@
 
-h2.  The Controller Layer
+h3.  The Controller Layer
 
 If you include the @MasterMayI::ControllerExtensions@ module in your @ApplicationController@, *Master May I* will also add some useful helpers:
 
@@ -84,7 +84,7 @@ class NotesController < InheritedResources::Base
 end
 @@@
 
-h2.  Testing with Shoulda
+h3.  Testing with Shoulda
 
 Master May I comes with a strong set of Shoulda macros:
 
@@ -130,6 +130,6 @@ class NotesControllerTest < ActionController::TestCase
       ...
 @@@
 
-h2.  Wait, the models can see the signed in user?
+h3.  Wait, the models can see the signed in user?
 
 Yep.  If enough people have issues with this, I'll pen up another post defending that decision.  Personally, I believe it makes complete sense within MVC.

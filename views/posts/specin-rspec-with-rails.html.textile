@@ -5,7 +5,7 @@ title: Specin rSpec with Rails
 
 <i>Cross posted from "Giant Robots":http://giantrobots.thoughtbot.com</i>
 
-h3. Using rSpec / Spec::Rails
+h4. Using rSpec / Spec::Rails
 
 Installation is pretty simple, and is fully covered "here":http://rspec.rubyforge.org/documentation/rails/install.html.
 
@@ -43,7 +43,7 @@ This is just one context from the file.  Here's a screenshot of the output from 
 
 Note the delicate curves of colorization.  Note the simplicity of the context/specification structure.  Wonderful stuff, here.
 
-h3. Extending rSpec
+h4. Extending rSpec
 
 Any good testing library needs to be easily extendable -- adding assertions, custom test methods, and all kinds of helpers really eases the developer's fingers.  To that end, I ported some of my model test helpers to rSpec.  Here's how they're used:
 
@@ -70,9 +70,9 @@ Unfortunately, getting this to work with rSpec is way more difficult than it sho
 
 I finally got my plugin working while using the @spec@ command, only to see it break everything horribly with the @rake spec@ command (which seems to use a completely different Spec::Runner class).  Not good, and giving up.
 
-h3. Final Opinions
+h4. Final Opinions
 
-h3. Pros:
+h4. Pros:
 
 * I agree with the general philosophy of thinking in terms of behavior or specifications instead of thinking in terms of tests.  This isn't something intrinsic to rSpec, but it's certainly encouraged by the syntax and output.
 * Real sentences as your test names instead of @super_crappy_underscore_filled_ones@.  This is as it should be.
@@ -82,7 +82,7 @@ h3. Pros:
 * Built-in mocking/stubbing system _(but see below)_
 * *Ubiquity matters*: if you're going to bank on a new testing framework becoming the Rails standard, rSpec is probably it. _(but see below)_
 
-h3. Cons:
+h4. Cons:
 
 * As I said above, extending rSpec was a serious pain.  It's been my experience that the ability to write test libraries, encompassing paragraphs of code in a single sentence is the real key in improving test coverage and speeding up development time.  This is easily my main gripe with rSpec, and I have high hopes that it will be eliminated as the library matures.
 * I actually don't like the @should/should_not@ syntax.  "@3.should_not == 4@" is pretty clear, but more complex assertions like "@lambda { do something }.should_raise_error(Exception)@" feel cumbersome compared to their Test::Unit counterparts: "@assert_raises(Exception) { do something }@".  This is a very personal and minor complaint.

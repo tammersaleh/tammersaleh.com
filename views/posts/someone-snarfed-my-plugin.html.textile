@@ -7,6 +7,6 @@ Strangest thing...  looks like someone removed my migration_data_dumper plugin f
 
 I'm going to do the only reasonable thing and assume that I now have an arch nemesis.  
 
-h3. Arch Nemesis, you've met your match!
+h4. Arch Nemesis, you've met your match!
 
 Actually, I've been meaning to finally send it over to "RubyForge's":http://www.rubyforge.org svn server anyway ("Site5":http://www.site5.com is decidedly against webDav), so I'll repost it then.  Also got another plugin coming shortly, so drool away.  Maybe I'll do the Omni thing and release hints for about 3 months...

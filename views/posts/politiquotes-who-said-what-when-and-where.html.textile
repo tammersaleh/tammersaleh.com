@@ -7,7 +7,7 @@ I'd like to announce the launching of a small side project of mine:
 
 %politiquotes.jpg%
 
-h2.  "Politiquotes":http://politiquotes.org
+h3.  "Politiquotes":http://politiquotes.org
 
 A political awareness app where you can post, vote on, and discuss quotes from your favorite candidates.
 

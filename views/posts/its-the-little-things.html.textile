@@ -54,7 +54,7 @@ Candidates!
 But it still smells a little fishy.  I don't think anyone here at Thoughtbot likes seeing a case statement.  
 Let's get just a _little_ more clever...
 
-h3. Abandon hope, all ye who enter here
+h4. Abandon hope, all ye who enter here
 
 <pre><code class="ruby">
 def link(item, msg = nil)

@@ -9,7 +9,7 @@ Some sites, when viewed through an iPhone, have clickable phone numbers, which c
 
 Some sites, on the other hand, require the user to copy the phone number and paste it into the dialer manually.   
 
-h2. Which ones do you think get more phone calls?
+h3. Which ones do you think get more phone calls?
 
 The secret to the clickable phone numbers lies in "RFC 3966":http://www.ietf.org/rfc/rfc3966.txt, which defines the @tel:@ link format.  Here's a quick helper that makes @tel:@ links a breeze.
 

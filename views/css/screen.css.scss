@@ -1,50 +1,117 @@
-// This import applies a global reset to any page that imports this stylesheet.
-@import "blueprint/reset";
-
-// To configure blueprint, edit the partials/base.sass file.
-@import "base";
-
-// Import all the default blueprint modules so that we can access their mixins.
+// @import "blueprint/reset";
 @import "blueprint";
-
-// Import the non-default scaffolding module.
+@import "blueprint/fancy-type";
 @import "blueprint/scaffolding";
+@import "compass/reset";
 
-// To generate css equivalent to the blueprint css but with your
-// configuration applied, uncomment:
 @include blueprint;
+@include blueprint-typography;
 
-// But Compass recommends that you scope your blueprint styles
-// So that you can better control what pages use blueprint
-// when stylesheets are concatenated together.
-// @include blueprint-scaffolding("body.bp");
+$blueprint-grid-columns: 12;
+$blueprint-container-size: 950px;
+$blueprint-grid-margin: ceil($blueprint-container-size / $blueprint-grid-columns / 4);
+$blueprint-grid-width: ($blueprint-container-size + $blueprint-grid-margin) / $blueprint-grid-columns - $blueprint-grid-margin;
+
+$blueprint-font-family: 'Delius';
+// $blueprint-fixed-font-family: 'Delius';
+$blueprint-font-size: 18px;
+$sidebar-columns: 4; 
+$content-columns: $blueprint-grid-columns - $sidebar-columns;
+$last: true;
 
 form { @include blueprint-form; }
 
-// Page layout can be done using mixins applied to your semantic classes and IDs:
+#{headers(all)} {
+  font-family: 'Cabin Sketch';
+  a { 
+    text-decoration: none !important; 
+    color: #555555 !important;
+    &:hover {
+      color: black !important;
+    }
+  }
+}
+
+p code {
+  font-family: 'Delius' !important;
+  margin: 0 0.2em;
+  padding: 0 0.2em;
+  color: rgb(128, 0, 0);
+}
+
+pre {
+  font-size: 70% !important;
+  padding-left: 20px;
+  margin-left: 10px !important;
+  border-left: 3px dotted gray;
+}
+
+// blockquote {
+//   font-family: , serif;
+// }
+
 body {
   @include blueprint-typography(true);
   @include blueprint-utilities;
-  @include blueprint-debug;
   @include blueprint-interaction;
+}
 
-  // Remove the scaffolding when you're ready to start doing visual design.
-  // Or leave it in if you're happy with how blueprint looks out-of-the-box
-  #container { 
-    @include container; 
-    @include showgrid;
+hr { @include colruler; };
+hr.space { @include colspacer; };
+
+#container { 
+  @include container; 
+  // @include showgrid;
+}
+
+#header, #footer { 
+  @include column($blueprint-grid-columns); 
+}
+
+.float-left {
+  float: left;
+  padding: 0 10px 0 0;
+}
+
+.float-right {
+  float: right;
+  padding-left: 0 0 0 10px;
+}
+
+#sidebar {
+  @include column($sidebar-columns, $last); 
+  .book {
+    .image { 
+      @include column($sidebar-columns - 2); 
+      img { width: 100% }
+    }
+    .summary {
+      @include column(2, $last); 
+      .title { 
+        .main { font-weight: bold; }
+      }
+    }
   }
-  #header, #footer { @include column($blueprint-grid-columns); }
-  #sidebar {
-    // One third of the grid columns, rounding down. With 24 cols, this is 8.
-    $sidebar-columns: floor($blueprint-grid-columns / 3);
-    @include column($sidebar-columns); 
+}
+
+#content {
+  // true means it's the last column in the row
+  @include column($content-columns); 
+  @include border;
+} 
+
+#footer {
+  ul.social_links {
+    margin: 0;
+    padding: 0;
+    li { display: inline; }
+    li:after { content: " | "; }
+    li:last:after { content: ""; }
   }
-  #content {
-    // Two thirds of the grid columns, rounding up.
-    // With 24 cols, this is 16.
-    $content-columns: ceil(2 * $blueprint-grid-columns / 3);
-    // true means it's the last column in the row
-    @include column($content-columns, true); 
-  } 
+}
+
+.post {
+  #{headers(all)} {
+    clear:both;
+  }
 }

@@ -10,12 +10,12 @@ There are two plugins (well, one's a gem) that I've been using lately which are 
 
 *disclaimer*:  these were written by friends of mine.  In fact one of them was written by my boss, so this is nothing more than an obvious attempt to garner a raise.
 
-h3. "mile_marker":http://thoughtbot.com/projects/mile_marker
+h4. "mile_marker":http://thoughtbot.com/projects/mile_marker
 
 %Politiquotes.jpg%
 
 We use this at thoughtbot to manage client expectations, but I use it for my own sites to visually remind myself when I haven't completed part of a page.
 
-h3. "Quiet Backtrace":http://thoughtbot.com/projects/quietbacktrace
+h4. "Quiet Backtrace":http://thoughtbot.com/projects/quietbacktrace
 
 Install this gem, configure it in your test_helper.rb, and watch as your failure backtraces shrink to just the information you need.  If you're following BDD, and trying to achieve 1 assertion per test, then this really helps unclutter your failures.

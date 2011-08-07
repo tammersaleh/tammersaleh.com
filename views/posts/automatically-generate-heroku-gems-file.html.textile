@@ -14,11 +14,11 @@ justinfrench-formtastic --version '>= 0.2.2' --source http://gems.github.com
 authlogic --version '>= 2.1.1'
 @@@
 
-h2. The problem.
+h3. The problem.
 
 This can become a bit of a pain, in terms of keeping your @.gems@ file in sync with the @config.gems@ declarations in your @environment.rb@ file.  Luckily, "Mark Dodwell":http://www.mkdynamic.co.uk/ posted a "little rake task":http://blog.madeofcode.com/post/194902314/generate-gem-yml-and-gems-for-rails to produce your @.gems@ file automatically.
 
-h2. The improved solution.
+h3. The improved solution.
 
 I've gone ahead and added a small improvement to that task.  The version below will ping "http://installed-gems.heroku.com":http://installed-gems.heroku.com and only write out the gems you need that aren't already installed there.  Just put this snippet into @lib/tasks/heroku_gems.rake@:
 

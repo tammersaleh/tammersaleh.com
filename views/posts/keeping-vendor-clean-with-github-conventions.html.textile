@@ -7,7 +7,7 @@ I'm still seeing examples of this in the wild, so it bears repeating:
 
 _Never modify files directly under @/vendor@_
 
-h2. A brief history of dependency management.
+h3. A brief history of dependency management.
 
 @RAILS_ROOT/vendor@ was designed to hold 3rd party code.  It's the go-to dropbox for plugins, rails, and later gems as well.  One of the reasons for this was to alleviate the issues of not having the exact version of rails installed locally when you develop - or on your production machine when you deploy (as early users of shared hosting "will remember":http://documentation.rubyonrails.org/2005/12/22/freezing-your-rails-when-you-deploy-shared).
 
@@ -19,7 +19,7 @@ Third party code should be upgradeable quickly and easily without too much hassl
 
 But the moment you make a "quick fix" to any file under @vendor@ directly and commit it, you've destroyed that consistency and maintainability.  Now, every time another developer (or yourself, 3 months from now) finds a strange bug in one of the plugins or gems you're using, they'll have to ask themselves whether or not this is a bug introduced by a local modification.  Every time a developer upgrades that gem or plugin, they'll have to remember to make the exact same changes you made to the new version.
 
-h2. The GitHub way.
+h3. The GitHub way.
 
 The traditional answer to this, in order to be a good OSS citizen, was to submit a patch to the author of the plugin and wait for it to get pulled into the next release.  If it's a bug you're fixing, then your chances were pretty high that would happen within a few months.  If it's a new feature, then it wasn't something you'd hold your breath on.
 
@@ -31,7 +31,7 @@ While this is a perfectly acceptable solution, there's now a better way.  GitHub
 # Submit a pull request to the maintainer (thus paying our OSS dues) 
 # Immediately make use of _our_ version under @vendor@ (thus paying our bills)
 
-h2. A sprinkle of convention.
+h3. A sprinkle of convention.
 
 The little sprinkle of convention that makes this a great solution is to prepend the author name to the gem or plugin name.  Here's what this looks like in my @vendor/plugins@ and @vendor/gems@ directories:
 
@@ -87,7 +87,7 @@ drwxr-xr-x  17 tsaleh  staff   578B Nov 26  2008 tsaleh-ticketbitch/
 ...
 @@@
 
-h2. Full disclosure.
+h3. Full disclosure.
 
 For some reason, this convention doesn't work with "mocha":http://mocha.rubyforge.org/.  Renaming @mocha-0.9.7@ to @floehopper-mocha-0.9.7@ causes ruby to complain with "uninitialized constant Mocha::Mockery::ImpersonatingName":http://whatdoesthiserrormean.com/errors/1776.  Feel free to let us know in the comments if you have any idea why this is happening.
 
