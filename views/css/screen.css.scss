@@ -43,7 +43,7 @@ $link-active-color:  lighten(adjust-hue($link-color, 75deg), 10%);
 $link-visited-color: $link-color;
 
 $sidebar-columns: 4; 
-$content-columns: $blueprint-grid-columns - $sidebar-columns - 1; 
+$content-columns: $blueprint-grid-columns - $sidebar-columns; 
 $last: true;
 
 body {
@@ -132,8 +132,7 @@ hr.space { @include colspacer; };
 
 #content {
   @include column($content-columns); 
-  @include colborder;
-  text-align: justify;
+  @include border;
 } 
 
 #footer {

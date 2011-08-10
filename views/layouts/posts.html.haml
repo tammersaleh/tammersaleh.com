@@ -7,9 +7,11 @@
     #header
       = render_partial :header
     #content
+      %h2= meta[:title]
       ~ yield
     #sidebar
       = render_partial :sidebar
     #footer
       = render_partial :footer
+
 

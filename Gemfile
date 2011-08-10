@@ -24,7 +24,7 @@ gem 'rack-google-analytics', :require => 'rack/google-analytics'
 
 group :test do
   gem "rspec"
-  gem "ZenTest"
+  gem "ZenTest", "4.5.0"
   gem "autotest-fsevent"
   gem "autotest-growl"
   gem "capybara", :require => "capybara/rspec"

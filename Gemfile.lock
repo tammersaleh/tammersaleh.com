@@ -2,7 +2,7 @@ GEM
   remote: http://rubygems.org/
   specs:
     RedCloth (4.2.7)
-    ZenTest (4.6.0)
+    ZenTest (4.5.0)
     active_support (3.0.0)
       activesupport (= 3.0.0)
     activesupport (3.0.0)
@@ -136,7 +136,7 @@ PLATFORMS
 
 DEPENDENCIES
   RedCloth
-  ZenTest
+  ZenTest (= 4.5.0)
   active_support
   autotest-fsevent
   autotest-growl
