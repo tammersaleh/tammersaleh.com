@@ -3,60 +3,84 @@
 @import "blueprint/fancy-type";
 @import "blueprint/scaffolding";
 @import "compass/reset";
+@import "compass/utilities/lists/inline-list";
 
 @include blueprint;
 @include blueprint-typography;
+
+@import "bourbon/bourbon";
+
+// http://kuler.adobe.com/#themeID/1440313
+$color_1: rgb(0, 88, 95);
+$color_2: rgb(0, 147, 147);
+$color_3: rgb(255, 252, 196);
+$color_4: rgb(240, 237, 187);
+$color_5: rgb(255, 56, 0);
+
+$serif-fonts: Baskerville, Rokkitt, serif;
+$sans-serif-fonts: "Open Sans";
 
 $blueprint-grid-columns: 12;
 $blueprint-container-size: 950px;
 $blueprint-grid-margin: ceil($blueprint-container-size / $blueprint-grid-columns / 4);
 $blueprint-grid-width: ($blueprint-container-size + $blueprint-grid-margin) / $blueprint-grid-columns - $blueprint-grid-margin;
+$blueprint-font-family: $sans-serif-fonts;
+// $blueprint-font-family: 'Rokkitt';
+$blueprint-font-size: 14px;
 
-$blueprint-font-family: 'Delius';
-// $blueprint-fixed-font-family: 'Delius';
-$blueprint-font-size: 18px;
+$font-color: #333333;
+$quiet-color: lighten($font-color, 20%);
+$loud-color: darken($font-color, 13.33%);
+$header-color: darken($font-color, 6.67%);
+$alt-text-color: #666666;
+$blueprint-background-color: $color_3;
+$blueprint-border-color: $font-color;
+
+$link-color:         $color_1;
+$link-hover-color:   #09f;
+$link-focus-color:   $link-hover-color;
+$link-active-color:  lighten(adjust-hue($link-color, 75deg), 10%);
+$link-visited-color: $link-color;
+
 $sidebar-columns: 4; 
-$content-columns: $blueprint-grid-columns - $sidebar-columns;
+$content-columns: $blueprint-grid-columns - $sidebar-columns - 1; 
 $last: true;
-
-form { @include blueprint-form; }
-
-#{headers(all)} {
-  font-family: 'Cabin Sketch';
-  a { 
-    text-decoration: none !important; 
-    color: #555555 !important;
-    &:hover {
-      color: black !important;
-    }
-  }
-}
-
-p code {
-  font-family: 'Delius' !important;
-  margin: 0 0.2em;
-  padding: 0 0.2em;
-  color: rgb(128, 0, 0);
-}
-
-pre {
-  font-size: 70% !important;
-  padding-left: 20px;
-  margin-left: 10px !important;
-  border-left: 3px dotted gray;
-}
-
-// blockquote {
-//   font-family: , serif;
-// }
 
 body {
   @include blueprint-typography(true);
   @include blueprint-utilities;
   @include blueprint-interaction;
+  background-color: $blueprint-background-color;
 }
 
-hr { @include colruler; };
+#{headers(all)} {
+  font-family: $serif-fonts;
+  text-shadow: 0px 1px 0px lighten($font-color, 50%);
+}
+
+blockquote {
+  font-size: 1.2em;
+  background: $color_4;
+  font-family: $serif-fonts;
+  text-shadow: 0px 1px 0px lighten($font-color, 50%);
+  padding-left: 10px;
+  margin-left: 20px !important;
+  color: $font-color;
+}
+
+form { @include blueprint-form; }
+
+a { text-decoration: none !important; }
+
+p code { }
+
+pre {
+  background: $color_4;
+  padding-left: 10px;
+  margin-left: 20px !important;
+}
+
+hr { @include colruler($blueprint-border-color); };
 hr.space { @include colspacer; };
 
 #container { 
@@ -65,53 +89,58 @@ hr.space { @include colspacer; };
 }
 
 #header, #footer { 
+  font-size: 150%;
   @include column($blueprint-grid-columns); 
+}
+
+#header {
+  #{headers(all)} { display: inline; }
 }
 
 .float-left {
   float: left;
-  padding: 0 10px 0 0;
+  padding-right: 20px;
 }
 
 .float-right {
   float: right;
-  padding-left: 0 0 0 10px;
+  padding-left: 20px;
 }
 
 #sidebar {
+  img { width: 40%; }
+
+  .about_me {
+    .avatar {
+      float: left;
+      padding-right: 10px;
+    }
+  }
+
   @include column($sidebar-columns, $last); 
   .book {
-    .image { 
-      @include column($sidebar-columns - 2); 
-      img { width: 100% }
+    img {
+      float: right;
+      padding-left: 10px;
     }
-    .summary {
-      @include column(2, $last); 
-      .title { 
-        .main { font-weight: bold; }
-      }
+    .title { 
+      * { display: inline; }
+      .main { font-weight: bold; }
     }
   }
 }
 
 #content {
-  // true means it's the last column in the row
   @include column($content-columns); 
-  @include border;
+  @include colborder;
+  text-align: justify;
 } 
 
 #footer {
+  font-size: 0.7em;
   ul.social_links {
-    margin: 0;
-    padding: 0;
-    li { display: inline; }
-    li:after { content: " | "; }
-    li:last:after { content: ""; }
+    @include inline-list;
   }
 }
 
-.post {
-  #{headers(all)} {
-    clear:both;
-  }
-}
+h1 { clear:both}

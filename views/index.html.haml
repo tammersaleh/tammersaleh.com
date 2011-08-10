@@ -1,6 +1,10 @@
-- posts.each do |post|
+- posts.first(2).each do |post|
   .post
     %h2= link_to(post.meta[:title], post.url)
     ~ render_page(post)
   %hr
+%ul
+  - posts[2..-1].each do |post|
+    %li.short_post
+      %h3= link_to(post.meta[:title], post.url)
 
