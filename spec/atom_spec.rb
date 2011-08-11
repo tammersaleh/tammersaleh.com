@@ -44,10 +44,12 @@ describe "Given some blog posts" do
     
     it "renders xml for the first post" do
       page.should have_selector('rss channel item title:contains("First post")')
+      page.source.should include("http://www.example.com/posts/a_post")
     end
 
     it "renders xml for the second post" do
       page.should have_selector('rss channel item title:contains("Second post")')
+      page.source.should include("http://www.example.com/posts/another_post")
     end
   end
 end

@@ -39,15 +39,15 @@ class TammerSaleh < Sinatra::Base
       xml.rss :version => "2.0" do
         xml.channel do
           xml.title "Tammer Saleh"
-          xml.link "http://tammersaleh.com"
+          xml.link "http://#{request.host}"
 
           posts.each do |post|
             xml.item do
               xml.title post.meta[:title]
-              xml.link "http://tammersaleh.com#{post.url}"
+              xml.link "http://#{request.host}#{post.url}"
               xml.description render_page(post)
               xml.pubDate post.meta[:date].rfc822
-              xml.guid "http://tammersaleh.com#{post.url}"
+              xml.guid "http://#{request.host}#{post.url}"
             end
           end
         end
