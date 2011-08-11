@@ -3,7 +3,7 @@ date: 2007-01-12
 title: Second refactoring of security roles
 ---
 
-I've been able to work on some pretty wonderful projects over at "thoughtbot":http://www.thoughtbot.com A common issue we have in larger applications is ensuring that the right logged in users see the right resources (and don't see those they aren't supposed to).  We visited a solution to this in a "previous post":http://blog.tammersaleh.com/articles/2006/11/04/using-wrapper-classes-with-activerecord-to-enforce-security-rules, which worked fine at the time.  Our project has since grown, as projects are wont to do, and the wrapper class solution just wasn't scaling.  See below for our most excellent second solution...
+I've been able to work on some pretty wonderful projects over at "thoughtbot":http://www.thoughtbot.com A common issue we have in larger applications is ensuring that the right logged in users see the right resources (and don't see those they aren't supposed to).  We visited a solution to this in a "previous post":http://tammersaleh.com/posts/using-wrapper-classes-with-activerecord-to-enforce-security-rules, which worked fine at the time.  Our project has since grown, as projects are wont to do, and the wrapper class solution just wasn't scaling.  See below for our most excellent second solution...
 
 
 

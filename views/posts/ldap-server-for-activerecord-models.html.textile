@@ -54,6 +54,3 @@ h4. Final notes
 
 It looks like the ruby-ldapserver library that I'm using has support for dropping privileges after binding to a port, but I wasn't able to test that functionality.  Also, I believe that you should be able to run this as a different user than the one running your rails application, but that might not be true (you might get log file ownership conflicts).  Again, didn't have time to test that part.
 
-h4. Update
-
-I've copied this post to it's own page.  Head on over to "http://blog.tammersaleh.com/pages/ldap_activerecord_gateway":http://blog.tammersaleh.com/pages/ldap_activerecord_gateway for any future updates.
