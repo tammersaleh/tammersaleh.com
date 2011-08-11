@@ -10,6 +10,7 @@ gem 'sinatra'
 gem "padrino",        :require => false
 gem "active_support", :require => false
 
+gem "builder"
 gem 'haml'
 gem 'sass', ">= 3.1.7"
 gem "RedCloth"

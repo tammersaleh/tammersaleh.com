@@ -32,6 +32,29 @@ class TammerSaleh < Sinatra::Base
     render_page(page, :layout => page.layout, :layout_engine => :haml)
   end
 
+  get "/posts.atom" do
+    content_type :rss
+    builder do |xml|
+      xml.instruct! :xml, :version => '1.0'
+      xml.rss :version => "2.0" do
+        xml.channel do
+          xml.title "Tammer Saleh"
+          xml.link "http://tammersaleh.com"
+
+          posts.each do |post|
+            xml.item do
+              xml.title post.meta[:title]
+              xml.link "http://tammersaleh.com#{post.url}"
+              xml.description render_page(post)
+              xml.pubDate post.meta[:date].rfc822
+              xml.guid "http://tammersaleh.com#{post.url}"
+            end
+          end
+        end
+      end
+    end
+  end
+
   get %r{^/([^.]+)$} do |name|
     render_page_with_layout(Page.new(name))
   end
