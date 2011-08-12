@@ -9,6 +9,8 @@ require 'padrino-helpers'
 require 'active_support/hash_with_indifferent_access'
 require 'active_support/core_ext/object/blank'
 
+require 'json'
+
 Dir[File.join(File.dirname(__FILE__), "tammer_saleh/**/*.rb")].each do |f|
   require f
 end
@@ -24,9 +26,10 @@ class TammerSaleh < Sinatra::Base
     config.sass_dir = 'views/css'
   end
 
-  set :haml, { :format => :html5 }
-  set :scss, Compass.sass_engine_options
-  set :root, File.expand_path(File.dirname(__FILE__) + '/../')
+  set :haml,   { :format => :html5 }
+  set :scss,   Compass.sass_engine_options
+  set :root,   File.expand_path(File.dirname(__FILE__) + '/../')
+  set :config, File.expand_path(root + '/config/')
 
   def render_page_with_layout(page)
     render_page(page, :layout => page.layout, :layout_engine => :haml)

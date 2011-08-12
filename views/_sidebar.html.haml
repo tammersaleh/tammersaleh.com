@@ -14,18 +14,28 @@
 
 .book
   %hr.space
-  %a.image{:href => "http://railsantipatterns.com"} 
+  %a.image{:href => "http://www.amazon.com/Rails-AntiPatterns-Refactoring-Addison-Wesley-Professional/dp/0321604814"} 
     %img{:src => "/static_images/rails_antipatterns.jpg"}
   %h6 
-    %a.title{:href => "http://railsantipatterns.com"} 
+    %a.title{:href => "http://www.amazon.com/Rails-AntiPatterns-Refactoring-Addison-Wesley-Professional/dp/0321604814"} 
       .main Rails AntiPatterns:  
       .sub Best Practice Ruby on Rails Refactoring
   .summary
-    5 stars on
-    %a{:href => "http://www.amazon.com/Rails-AntiPatterns-Refactoring-Addison-Wesley-Professional/dp/0321604814"} 
-      Amazon!
-    Read the
-    = link_to("phenomenal feedback from the community", "http://railsantipatterns.com") + "!"
+    .amazon
+      5 stars on Amazon!
+    .reviews
+      Read the
+      = link_to("phenomenal feedback from the community", "http://railsantipatterns.com") + "!"
 
-.recommendations
+.recommendation
+  %hr.space
+  - recommendation = Recommendation.random
+  .who
+    = link_to(recommendation.who, recommendation.who_url)
+    - if recommendation.company.present?
+      of 
+      = link_to(recommendation.company, recommendation.company_url)
+    says:
+  %blockquote
+    = recommendation.quote
 

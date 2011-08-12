@@ -3,7 +3,7 @@
 @import "blueprint/fancy-type";
 @import "blueprint/scaffolding";
 @import "compass/reset";
-@import "compass/utilities/lists/inline-list";
+@import "compass/typography/lists/inline-list";
 
 @include blueprint;
 @include blueprint-typography;
@@ -20,12 +20,14 @@ $color_5: rgb(255, 56, 0);
 $serif-fonts: Baskerville, Rokkitt, serif;
 $sans-serif-fonts: "Open Sans";
 
+$radius: 5px;
+$last: true;
+
 $blueprint-grid-columns: 12;
 $blueprint-container-size: 950px;
 $blueprint-grid-margin: ceil($blueprint-container-size / $blueprint-grid-columns / 4);
 $blueprint-grid-width: ($blueprint-container-size + $blueprint-grid-margin) / $blueprint-grid-columns - $blueprint-grid-margin;
 $blueprint-font-family: $sans-serif-fonts;
-// $blueprint-font-family: 'Rokkitt';
 $blueprint-font-size: 14px;
 
 $font-color: #333333;
@@ -34,7 +36,7 @@ $loud-color: darken($font-color, 13.33%);
 $header-color: darken($font-color, 6.67%);
 $alt-text-color: #666666;
 $blueprint-background-color: $color_3;
-$blueprint-border-color: $font-color;
+$blueprint-border-color: $color_4;
 
 $link-color:         $color_1;
 $link-hover-color:   #09f;
@@ -44,102 +46,148 @@ $link-visited-color: $link-color;
 
 $sidebar-columns: 4; 
 $content-columns: $blueprint-grid-columns - $sidebar-columns; 
-$last: true;
 
 body {
   @include blueprint-typography(true);
   @include blueprint-utilities;
   @include blueprint-interaction;
   background-color: $blueprint-background-color;
-}
 
-#{headers(all)} {
-  font-family: $serif-fonts;
-  text-shadow: 0px 1px 0px lighten($font-color, 50%);
-}
+  iframe {
+    width: 100%;
+    margin: 0 auto;
+  }
 
-blockquote {
-  font-size: 1.2em;
-  background: $color_4;
-  font-family: $serif-fonts;
-  text-shadow: 0px 1px 0px lighten($font-color, 50%);
-  padding-left: 10px;
-  margin-left: 20px !important;
-  color: $font-color;
-}
+  #{headers(all)} {
+    font-family: $serif-fonts;
+    color: $color_5;
+    text-shadow: 0px 1px 0px lighten($color_5, 50%);
+  }
 
-form { @include blueprint-form; }
+  img {
+    @include border-radius($radius);
+  }
 
-a { text-decoration: none !important; }
+  blockquote {
+    @include border-radius($radius);
+    font-size: 1.2em;
+    background: $color_4;
+    font-family: $serif-fonts;
+    text-shadow: 0px 1px 0px lighten($font-color, 50%);
+    padding-left: 10px;
+    margin-left: 20px !important;
+    color: $font-color;
+  }
 
-p code { }
+  form { @include blueprint-form; }
 
-pre {
-  background: $color_4;
-  padding-left: 10px;
-  margin-left: 20px !important;
-}
-
-hr { @include colruler($blueprint-border-color); };
-hr.space { @include colspacer; };
-
-#container { 
-  @include container; 
-  // @include showgrid;
-}
-
-#header, #footer { 
-  font-size: 150%;
-  @include column($blueprint-grid-columns); 
-}
-
-#header {
-  #{headers(all)} { display: inline; }
-}
-
-.float-left {
-  float: left;
-  padding-right: 20px;
-}
-
-.float-right {
-  float: right;
-  padding-left: 20px;
-}
-
-#sidebar {
-  img { width: 40%; }
-
-  .about_me {
-    .avatar {
-      float: left;
-      padding-right: 10px;
+  a, a:visited { 
+    text-decoration: none !important; 
+    border-bottom: 1px dotted;
+    color: inherit !important;
+    &:hover {
+      background: rgba(0, 0, 0, 0.15);
+      @include box-shadow(0 0 5px 5px rgba(0, 0, 0, 0.15));
     }
   }
 
-  @include column($sidebar-columns, $last); 
-  .book {
-    img {
-      float: right;
-      padding-left: 10px;
+  pre {
+    overflow: hidden;
+    @include border-radius($radius);
+    background: $color_4;
+    padding-left: 10px;
+    margin-left: 20px !important;
+    &:hover {
+      overflow: visible;
     }
-    .title { 
-      * { display: inline; }
-      .main { font-weight: bold; }
+  }
+
+  hr { @include colruler($blueprint-border-color); };
+  hr.space { @include colspacer; };
+
+  #container { 
+    @include container; 
+    // @include showgrid;
+  }
+
+  #header, #footer { 
+    font-size: 150%;
+    @include column($blueprint-grid-columns); 
+  }
+
+  #header {
+    * { color: $color_1; }
+
+    #{headers(all)} { display: inline; }
+
+    a, a:visited { border: none; }
+  }
+
+  .fork_me {
+    @include border-radius($radius);
+    clear: both;
+    text-align: center;
+    background: $color_1;
+    color: $color_3;
+    padding: 5px;
+    margin: 10px 0;
+    a, a:visited, a:hover, a:active {
+      color: $color_4;
+    }
+  }
+
+  .float-left {
+    float: left;
+    margin-right: 20px;
+  }
+
+  .float-right {
+    float: right;
+    margin-left: 20px;
+  }
+
+  #sidebar {
+    img { width: 40%; }
+
+    .about_me {
+      .avatar {
+        float: left;
+        margin-right: 10px;
+      }
+    }
+
+    @include column($sidebar-columns, $last); 
+    .book {
+      img {
+        @include border-radius(0);
+        float: right;
+        margin-left: 10px;
+      }
+      .title { 
+        * { display: inline; }
+        .main { font-weight: bold; }
+      }
+      .amazon {font-weight: bold; }
+    }
+
+    .recommendation {
+      blockquote {
+        margin: 5px;
+        padding: 5px;
+      }
+    }
+  }
+
+  #content {
+    @include column($content-columns); 
+    @include border;
+  } 
+
+  #footer {
+    font-size: 0.7em;
+    ul.social_links {
+      @include inline-list;
     }
   }
 }
 
-#content {
-  @include column($content-columns); 
-  @include border;
-} 
-
-#footer {
-  font-size: 0.7em;
-  ul.social_links {
-    @include inline-list;
-  }
-}
-
-h1 { clear:both}
