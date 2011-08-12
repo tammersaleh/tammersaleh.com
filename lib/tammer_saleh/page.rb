@@ -23,6 +23,11 @@ class Page
     template_path.split(".").last.to_sym
   end
 
+  def github_edit_url
+    relative_template_path = template_path.sub(views_root, "views")
+    "https://github.com/tsaleh/tammer-saleh/edit/master/#{relative_template_path}"
+  end
+
   private
 
   def normalize_path(path)

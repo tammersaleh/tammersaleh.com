@@ -71,6 +71,7 @@ class TammerSaleh < Sinatra::Base
     def render_page(page, opts = {})
       opts[:locals] ||= {}
       opts[:locals][:meta] = page.meta
+      opts[:locals][:page] = page
       send(page.engine, page.source, opts)
     end
  

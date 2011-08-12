@@ -25,6 +25,7 @@ describe "Given a textile file without frontmatter, Page" do
   subject { @page }
 
   its(:engine) { should == :textile }
+  its(:github_edit_url) { should == "https://github.com/tsaleh/tammer-saleh/edit/master/views/file.html.textile" }
 end
 
 describe "Given a file with front matter" do
@@ -48,6 +49,7 @@ describe "Given a file with front matter" do
     its(:url)    { should == "/file" }
     its(:source) { should match("%h1 This is a post.") }
     its(:source) { should_not match("Title for this post") }
+    its(:github_edit_url) { should == "https://github.com/tsaleh/tammer-saleh/edit/master/views/file.html.haml" }
 
     describe "#meta" do
       before { @out = @page.meta }

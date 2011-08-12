@@ -9,6 +9,9 @@
     #content
       %h2= meta[:title]
       ~ yield
+      .fork
+        If you have something to add, 
+        = link_to("make a fork and submit a pull request via github", page.github_edit_url) + "."
     #sidebar
       = render_partial :sidebar
     #footer
