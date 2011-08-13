@@ -2,12 +2,6 @@
 
 require "spec_helper"
 
-describe "when there are no posts" do
-  describe PostCollection do
-    it { should be_empty }
-  end
-end
-
 describe "Given some posts" do
   before do
     create_template("posts/a_post.html.haml", 
@@ -30,8 +24,6 @@ describe "Given some posts" do
   end
 
   describe PostCollection do
-    it { should_not be_empty }
-
     its("posts") { should_not be_empty }
 
     it "should return the newest post first" do

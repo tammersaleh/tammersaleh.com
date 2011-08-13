@@ -1,8 +1,4 @@
 class PostCollection
-  def empty?
-    post_files.empty?
-  end
-
   def posts
     unsorted_posts.sort_by do |post|
       post.meta[:date]
