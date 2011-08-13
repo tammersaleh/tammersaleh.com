@@ -12,7 +12,7 @@ require "fileutils"
 drafts_root = File.join(File.dirname(__FILE__), "../views/drafts")
 
 title    = $*.join(' ')
-slug     = title.gsub(%r{\W}, "-")
+slug     = title.gsub(%r{\W}, "-").downcase.gsub(%r{-+}, "-").sub(%r{-$}, "")
 filename = File.join(drafts_root, slug + ".html.textile")
 
 meta = { "date" => Date.today, "title" => title }

@@ -112,11 +112,11 @@ body {
   }
 
   #header, #footer { 
-    font-size: 150%;
     @include column($blueprint-grid-columns); 
   }
 
   #header {
+    font-size: 150%;
     margin-top: 30px;
     * { color: $lightest_color; }
 
@@ -190,7 +190,7 @@ body {
   } 
 
   #footer {
-    font-size: 0.7em;
+    // font-size: 0.7em;
     ul.social_links {
       @include inline-list;
     }
