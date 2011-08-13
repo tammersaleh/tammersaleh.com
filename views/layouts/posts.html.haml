@@ -10,9 +10,8 @@
       %h2= meta[:title]
       ~ yield
       %hr.space
-      .fork_me
-        If you have something to add to this post, please
-        = link_to("fork and change it", page.github_edit_url) + "!"
+      %a.fork_me{:href => page.github_edit_url}
+        Fork and edit this post.
     #sidebar
       = render_partial :sidebar
     #footer

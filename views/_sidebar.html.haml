@@ -1,22 +1,23 @@
 .about_me
   %img.avatar{:src => "/static_images/me.jpg"}
 
-  %h6 
+  %h5 
     I run the 
     %a{:href=>"http://engineyard.com"} Engine Yard
     cloud platform.
 
-  I also teach teams about building successful Ruby on Rails
-  applications, and I was the original author of 
-  %a{:href=>"https://github.com/thoughtbot/shoulda"} Shoulda
+  I help teams build successful Ruby on Rails
+  applications.  I was the original author of 
+  = link_to("Should", "") 
   and Hoptoad (now 
-  = link_to("Airbrake", "http://airbrakeapp.com") + ")."
+  = link_to("Airbrake", "http://airbrakeapp.com") + "),"
+  among other projects
 
 .book
   %hr.space
   %a.image{:href => "http://www.amazon.com/Rails-AntiPatterns-Refactoring-Addison-Wesley-Professional/dp/0321604814"} 
     %img{:src => "/static_images/rails_antipatterns.jpg"}
-  %h6 
+  %h5 
     %a.title{:href => "http://www.amazon.com/Rails-AntiPatterns-Refactoring-Addison-Wesley-Professional/dp/0321604814"} 
       .main Rails AntiPatterns:  
       .sub Best Practice Ruby on Rails Refactoring
@@ -31,10 +32,16 @@
   %hr.space
   - recommendation = Recommendation.random
   .who
-    = link_to(recommendation.who, recommendation.who_url)
+    - if recommendation.who_url.present?
+      = link_to(recommendation.who, recommendation.who_url)
+    - else
+      = recommendation.who
     - if recommendation.company.present?
       of 
-      = link_to(recommendation.company, recommendation.company_url)
+      - if recommendation.company_url.present?
+        = link_to(recommendation.company, recommendation.company_url)
+      - else
+        = recommendation.company
     says:
   %blockquote
     = recommendation.quote
