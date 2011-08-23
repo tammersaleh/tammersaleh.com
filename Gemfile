@@ -21,8 +21,6 @@ gem "coffee-script"
 gem "sequel"
 gem "mysql"
 
-gem 'rack-google-analytics', :require => 'rack/google-analytics'
-
 group :test do
   gem "rspec"
   gem "ZenTest", "4.5.0"
