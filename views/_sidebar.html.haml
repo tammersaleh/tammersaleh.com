@@ -1,26 +1,28 @@
 .about_me
   %img.avatar{:src => "/static_images/me.jpg"}
 
-  %h5 
+  %strong 
     VP of Engineering at
     = link_to("Engine Yard", "http://engineyard.com") + "."
 
   I help teams build successful Ruby on Rails
   applications.  I was the original author of 
   = link_to("Should", "https://github.com/thoughtbot/shoulda") 
-  and Hoptoad (now 
-  = link_to("Airbrake", "http://airbrakeapp.com") + "),"
+  and 
+  = link_to("Airbrake", "http://airbrakeapp.com") + ","
   among other projects
 
 .book
   %hr.space
+  %h5 My book:
   %a.image{:href => "http://www.amazon.com/Rails-AntiPatterns-Refactoring-Addison-Wesley-Professional/dp/0321604814"} 
     %img{:src => "/static_images/rails_antipatterns.jpg"}
-  %h5 
-    %a.title{:href => "http://www.amazon.com/Rails-AntiPatterns-Refactoring-Addison-Wesley-Professional/dp/0321604814"} 
-      .main Rails AntiPatterns:  
-      .sub Best Practice Ruby on Rails Refactoring
-  .summary
+  %strong 
+    %p
+      %a.title{:href => "http://www.amazon.com/Rails-AntiPatterns-Refactoring-Addison-Wesley-Professional/dp/0321604814"} 
+        .main Rails AntiPatterns:  
+        .sub Best Practice Ruby on Rails Refactoring
+  %p.summary
     .amazon
       5 stars on Amazon!
     .reviews
@@ -29,6 +31,7 @@
 
 .recommendation
   %hr.space
+  %h5 Accolades:
   - recommendation = Recommendation.random
   .who
     - if recommendation.who_url.present?
@@ -44,4 +47,9 @@
     says:
   %blockquote
     = recommendation.quote
-
+.meta
+  %hr.space
+  %h5 Follow the development:
+  %ul 
+    %li= link_to("Pivotal Tracker project", "https://www.pivotaltracker.com/projects/336827")
+    %li= link_to("Source on github", "https://github.com/tsaleh/tammer-saleh")
