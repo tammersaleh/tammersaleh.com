@@ -63,6 +63,16 @@ describe "Given a file with front matter" do
       end
     end
   end
+
+  describe "Page.new(filename/)" do
+    before { @page = Page.new("file/") }
+    subject { @page }
+
+    its(:url)    { should == "/file" }
+    its(:source) { should match("%h1 This is a post.") }
+    its(:source) { should_not match("Title for this post") }
+    its(:github_edit_url) { should == "https://github.com/tsaleh/tammer-saleh/edit/master/views/file.html.haml" }
+  end
 end
 
 describe "Page.new(directory/file)" do

@@ -32,6 +32,7 @@ class Page
 
   def normalize_path(path)
     path = path.to_s
+    path.sub!(%r{/$}, "")
     path.start_with?("/") ? path : "/#{path}"
   end
 

@@ -127,6 +127,14 @@ describe "Given a blog post" do
       page.source.should_not match("foo")
     end
   end
+
+  context "navigating to that post with a trailing /" do
+    before { visit "/posts/a_post/" }
+
+    it "renders the post body" do
+      page.should have_selector('blockquote:contains("This is the first post.")')
+    end
+  end
 end
 
 
