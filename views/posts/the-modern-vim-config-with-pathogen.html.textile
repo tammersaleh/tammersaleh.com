@@ -38,11 +38,8 @@ pathogen.vim
 Now call pathogen from your @.vimrc@ like such:
 
 @@@
-" Needed on some linux distros.
-" see http://www.adamlowe.me/2009/12/vim-destroys-all-other-rails-editors.html
-filetype off 
+call pathogen#infect()
 call pathogen#helptags()
-call pathogen#runtime_append_all_bundles()
 @@@
 
 ...and that's it!  This is the only plugin you'll install directly into your @~/.vim@ directory.  After that, any plugin you install into the @~/.vim/bundle@ directory will be seen by vim.  At this point, you can start copying in the contents of your @.vimrc@ and @.gvimrc@ files, taking the time to clean them up as you go.
