@@ -18,8 +18,6 @@ gem "RedCloth"
 gem 'therubyracer-heroku', '0.8.1.pre3'
 gem "coffee-script-source"
 gem "coffee-script"
-gem "sequel"
-gem "mysql"
 
 group :test do
   gem "rspec"
