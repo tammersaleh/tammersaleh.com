@@ -14,7 +14,7 @@
 
 .book
   %hr.space
-  %h5 My book:
+  %h4 My book:
   %a.image{:href => "http://www.amazon.com/Rails-AntiPatterns-Refactoring-Addison-Wesley-Professional/dp/0321604814"} 
     %img{:src => "/static_images/rails_antipatterns.jpg"}
   %strong 
@@ -31,25 +31,25 @@
 
 .recommendation
   %hr.space
-  %h5 Accolades:
+  %h4 Accolades:
   - recommendation = Recommendation.random
-  .who
-    - if recommendation.who_url.present?
-      = link_to(recommendation.who, recommendation.who_url)
-    - else
-      = recommendation.who
-    - if recommendation.company.present?
-      of 
-      - if recommendation.company_url.present?
-        = link_to(recommendation.company, recommendation.company_url)
-      - else
-        = recommendation.company
-    says:
   %blockquote
     = recommendation.quote
+    &mdash;
+    .who
+      - if recommendation.who_url.present?
+        = link_to(recommendation.who, recommendation.who_url)
+      - else
+        = recommendation.who
+      - if recommendation.company.present?
+        of 
+        - if recommendation.company_url.present?
+          = link_to(recommendation.company, recommendation.company_url)
+        - else
+          = recommendation.company
 .meta
   %hr.space
-  %h5 Follow the development:
+  %h4 Follow the development:
   %ul 
     %li= link_to("Pivotal Tracker project", "https://www.pivotaltracker.com/projects/336827")
     %li= link_to("Source on github", "https://github.com/tsaleh/tammer-saleh")

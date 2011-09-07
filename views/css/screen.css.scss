@@ -39,7 +39,7 @@ $blueprint-background-color: $darkest_color;
 $blueprint-border-color: $dark_color;
 
 $link-color:         $attention_color;
-$link-hover-color:   #09f;
+$link-hover-color:   lighten($font-color, 10%);
 $link-focus-color:   $link-hover-color;
 $link-active-color:  lighten(adjust-hue($link-color, 75deg), 10%);
 $link-visited-color: $link-color;
@@ -69,14 +69,12 @@ body {
   }
 
   blockquote {
-    @include border-radius($radius);
-    font-size: 1.5em;
-    background: $dark_color;
-    font-family: $serif-fonts;
-    // text-shadow: 0px 1px 0px lighten($font-color, 50%);
-    padding: 5px 10px 0 10px;
-    margin: 1em 0;
-    color: $font-color;
+    color: lighten($font-color, 10%);
+    padding-right: 0;
+    padding-left: 20px;
+    font-style: none;
+    font-weight: bold;
+    .who { display: inline }
   }
 
   form { @include blueprint-form; }
@@ -86,6 +84,7 @@ body {
     border-bottom: 1px dotted;
     color: inherit !important;
     &:hover {
+      color: $link-hover-color !important;
       background: rgba(0, 0, 0, 0.15);
       @include box-shadow(0 0 5px 5px rgba(0, 0, 0, 0.15));
     }

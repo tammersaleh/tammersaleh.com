@@ -1,0 +1,6 @@
+---
+date: 2011-09-02
+title: A novel way of dealing with comments
+---
+
+*Write.*
