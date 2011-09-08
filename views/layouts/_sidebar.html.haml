@@ -47,6 +47,13 @@
           = link_to(recommendation.company, recommendation.company_url)
         - else
           = recommendation.company
+.popular
+  %hr.space
+  %h4 Popular posts:
+  %ul
+    %li= link_to("The Modern Vim Config with Pathogen", "/posts/the-modern-vim-config-with-pathogen/")
+    %li= link_to("Rescuing Net::HTTP exceptions", "/posts/rescuing-net-http-exceptions/")
+    %li= link_to("A Better RVM Bash Prompt", "/posts/a-better-rvm-bash-prompt/")
 .meta
   %hr.space
   %h4 Follow the development:
