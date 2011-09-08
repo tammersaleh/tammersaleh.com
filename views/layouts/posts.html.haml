@@ -1,5 +1,7 @@
 %head
-  %title Tammer Saleh
+  %title 
+    Tammer Saleh: 
+    = meta[:title]
   = render_partial :meta
 
 %body
@@ -7,7 +9,7 @@
     #header
       = render_partial :header
     #content
-      %h2= meta[:title]
+      %h2.post_title= meta[:title]
       ~ yield
       %hr.space
       %a.fork_me{:href => page.github_edit_url}

@@ -11,10 +11,10 @@
 @import "bourbon/bourbon";
 
 // http://kuler.adobe.com/#themeID/1440313
-$darkest_color:   rgb(0, 88, 95);
 $dark_color:      rgb(0, 147, 147);
-$lightest_color:  #e7e5c9;
+$darkest_color:   rgb(0, 88, 95);
 $light_color:     rgb(240, 237, 187);
+$lightest_color:  lighten($light_color, 7%);
 $attention_color: rgb(255, 56, 0);
 
 $serif-fonts: Baskerville, Rokkitt, serif;
@@ -28,9 +28,9 @@ $blueprint-container-size: 950px;
 $blueprint-grid-margin: ceil($blueprint-container-size / $blueprint-grid-columns / 4);
 $blueprint-grid-width: ($blueprint-container-size + $blueprint-grid-margin) / $blueprint-grid-columns - $blueprint-grid-margin;
 $blueprint-font-family: $sans-serif-fonts;
-$blueprint-font-size: 14px;
+$blueprint-font-size: 16px;
 
-$font-color: $light_color;
+$font-color: $lightest_color;
 $quiet-color: lighten($font-color, 20%);
 $loud-color: darken($font-color, 13.33%);
 $header-color: darken($font-color, 6.67%);
@@ -38,10 +38,10 @@ $alt-text-color: #666666;
 $blueprint-background-color: $darkest_color;
 $blueprint-border-color: $dark_color;
 
-$link-color:         $attention_color;
-$link-hover-color:   lighten($font-color, 10%);
+$link-color:         $light_color;
+$link-hover-color:   white;
 $link-focus-color:   $link-hover-color;
-$link-active-color:  lighten(adjust-hue($link-color, 75deg), 10%);
+$link-active-color:  $light_color;
 $link-visited-color: $link-color;
 
 $sidebar-columns: 4; 
@@ -58,19 +58,13 @@ body {
     margin: 0 auto;
   }
 
-  h1, h2, h3 {
-    font-family: $serif-fonts;
-    color: $lightest_color;
-    // text-shadow: 0px 1px 0px lighten($attention_color, 50%);
-  }
-
   img {
     @include border-radius($radius);
+    @include box-shadow(0 0 5px 5px rgba(0, 0, 0, 0.25));
   }
 
   blockquote {
-    color: lighten($font-color, 10%);
-    // padding-right: 0;
+    color: $light_color;
     margin-left: 30px;
     margin-right: 0;
     font-style: none;
@@ -81,30 +75,26 @@ body {
   form { @include blueprint-form; }
 
   a, a:visited { 
-    text-decoration: none !important; 
-    border-bottom: 1px dotted;
-    color: inherit !important;
-    &:hover {
-      color: $link-hover-color !important;
-      background: rgba(0, 0, 0, 0.15);
-      @include box-shadow(0 0 5px 5px rgba(0, 0, 0, 0.15));
-    }
+    // color: inherit !important;
+    color: $link-color;
+    &:hover { color: $link-hover-color !important; }
   }
 
   pre {
     overflow: hidden;
-    // @include border-radius($radius);
     @include box-shadow(inset 0 0 5px 5px $darkest_color);
     background: white;
     padding: 10px;
-    // margin-left: 20px !important;
-    &:hover {
-      overflow: visible;
-    }
+    &:hover { overflow: visible; }
   }
 
   hr { @include colruler($blueprint-border-color); };
   hr.space { @include colspacer; };
+
+  h1, h2, h3, h4, h5, h6 { 
+    color: $light_color; 
+    a { text-decoration: none; }
+  }
 
   #container { 
     @include container; 
@@ -118,7 +108,7 @@ body {
   #header {
     font-size: 150%;
     margin-top: 30px;
-    * { color: $lightest_color; }
+    // * { color: $lightest_color; }
 
     #{headers(all)} { display: inline; }
 
@@ -190,7 +180,6 @@ body {
   } 
 
   #footer {
-    // font-size: 0.7em;
     ul.social_links {
       @include inline-list;
     }

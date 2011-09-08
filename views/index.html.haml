@@ -1,8 +1,7 @@
 - full_posts = 5
 - posts.first(full_posts).each do |post|
-  .post
-    %h2= link_to(post.meta[:title], post.url)
-    ~ render_page(post)
+  %h2.post_title= link_to(post.meta[:title], post.url)
+  ~ render_page(post)
   %hr
 %ul
   - posts[full_posts..-1].each do |post|
