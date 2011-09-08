@@ -2,12 +2,12 @@
   %title 
     Tammer Saleh: 
     = meta[:title]
-  = render_partial :meta
+  = render_partial "layouts/meta"
 
 %body
   #container
     #header
-      = render_partial :header
+      = render_partial "layouts/header"
     #content
       %h2.post_title= meta[:title]
       ~ yield
@@ -15,9 +15,9 @@
       %a.fork_me{:href => page.github_edit_url}
         Fork and edit this post.
     #sidebar
-      = render_partial :sidebar
+      = render_partial "layouts/sidebar"
     #footer
-      = render_partial :footer
-  = render_partial :tracking
+      = render_partial "layouts/footer"
+  = render_partial "layouts/tracking"
 
 
