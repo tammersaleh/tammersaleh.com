@@ -81,11 +81,15 @@ body {
   }
 
   pre {
-    overflow: hidden;
+    overflow: auto;
     @include box-shadow(inset 0 0 5px 5px $darkest_color);
     background: white;
     padding: 10px;
-    &:hover { overflow: visible; }
+    &:hover { 
+      z-index: 100;
+      position: relative;
+      width: $blueprint-container-size - 20px;
+    }
   }
 
   hr { @include colruler($blueprint-border-color); };
