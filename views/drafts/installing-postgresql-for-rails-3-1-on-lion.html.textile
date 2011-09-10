@@ -1,0 +1,73 @@
+---
+date: 2011-09-10
+title: Installing PostgreSQL for Rails 3.1 on Lion
+---
+
+*Instructions for installing and configuring PostgreSQL on a fresh Lion installation for use in Rails 3.1*
+
+I recently tried to generate a new Rails 3.1 application based on PostgreSQL on a fresh installation of Lion, and ran into a nasty permission denied issue.  After piecing together the full solution, I thought a blog post might be helpful for anyone else attempting the same task.  The overview of the problem is that Lion actually ships with a PostgreSQL server, so you have to jump through a couple of hoops if you want to use the one provided by "Homebrew":http://mxcl.github.com/homebrew/.
+
+h3. Problem!
+
+I started by installing PostgreSQL through Homebrew:
+
+@@@
+# brew install postgresql@
+# initdb /usr/local/var/postgres
+# mkdir -p ~/Library/LaunchAgents
+# cp /usr/local/Cellar/postgresql/9.0.4/org.postgresql.postgres.plist ~/Library/LaunchAgents/
+# launchctl load -w ~/Library/LaunchAgents/org.postgresql.postgres.plist
+@@@
+
+And then creating a new Rails 3.1 application, configured to use the PostgreSQL adapter:
+
+@@@
+# rails new myapp -D postgresql
+  ...bunch of stuff...
+  run bundle install (which installs the pg gem)
+@@@
+
+I started to see signs of woe when @createuser@ failed:
+
+@@@
+createuser myapp -s
+createuser: could not connect to database postgres: could not connect to server: Permission denied
+    Is the server running locally and accepting
+    connections on Unix domain socket "/var/pgsql_socket/.s.PGSQL.5432"?
+@@@
+
+And, when seeing this in the logs after starting the rails server:
+
+@@@
+PGError (could not connect to server: Permission denied
+	Is the server running locally and accepting
+	connections on Unix domain socket "/var/pgsql_socket/.s.PGSQL.5432"?
+):
+@@@
+
+h3. Solution!
+
+Well, I figured out the problem after a bunch of googling.  Turns out I had two PostgreSQL servers stomping on each other.  The solution is two simple steps, but *the order is important*!
+
+Step one: update the path to give preference to the Homebrew PostgreSQL installation.  My @$PATH@ statement in my @.bashrc@ looked like this:
+
+@@@
+PATH=$PATH:/usr/local/bin
+@@@
+
+But @/usr/local/bin@ needs to be first:
+
+@@@
+PATH=/usr/local/bin:$PATH
+@@@
+
+Now @createuser@ works (since we're calling the right one), but that won't fix the rails server connection issue. Turns out @pg@ saw the system server when we installed it.  So the second step is simply to reinstall @pg@:
+
+@@@
+gem uninstall pg
+gem install pg
+@@@
+
+And life was again happy.
+
+Much love to "the Stack Overflow conversation":http://stackoverflow.com/questions/6770649/repairing-postgresql-after-upgrading-to-osx-10-7-lion that suggested most of this solution. 
