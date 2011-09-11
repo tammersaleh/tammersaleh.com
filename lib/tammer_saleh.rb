@@ -44,7 +44,7 @@ class TammerSaleh < Sinatra::Base
           xml.title "Tammer Saleh"
           xml.link "http://#{request.host}"
 
-          posts.each do |post|
+          collection("posts").each do |post|
             xml.item do
               xml.title post.meta[:title]
               xml.link "http://#{request.host}#{post.url}"
@@ -78,8 +78,8 @@ class TammerSaleh < Sinatra::Base
       send(page.engine, page.source, opts)
     end
  
-    def posts
-      PostCollection.new.posts
+    def collection(dir)
+      PageCollection.new(dir)
     end
   end
 end

@@ -9,7 +9,7 @@ describe "given a textile template with a code sample" do
                                                      EOS
     create_template("index.html.haml", <<-EOF)
                                          This is the Blog!
-                                         - posts.each do |post|
+                                         - collection("posts").each do |post|
                                            %h2= post.meta[:title]
                                            ~ render_page(post)
                                        EOF

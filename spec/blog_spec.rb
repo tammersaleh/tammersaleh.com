@@ -19,7 +19,7 @@ describe "Given some blog posts" do
     create_template("posts.html.haml", 
                     <<-EOF)
                       This is the Blog!
-                      - posts.each do |post|
+                      - collection("posts").each do |post|
                         %h2= post.meta[:title]
                         = render_page(post)
                     EOF

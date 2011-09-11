@@ -1,4 +1,5 @@
 - full_posts = 5
+- posts = collection("posts")
 - posts.first(full_posts).each do |post|
   %h2.post_title= link_to(post.meta[:title], post.url)
   ~ render_page(post)
