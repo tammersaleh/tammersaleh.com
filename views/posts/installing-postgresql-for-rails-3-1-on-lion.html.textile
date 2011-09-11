@@ -5,21 +5,21 @@ title: Installing PostgreSQL for Rails 3.1 on Lion
 
 *Instructions for installing and configuring PostgreSQL on a fresh Lion installation for use in Rails 3.1*
 
-I recently tried to generate a new Rails 3.1 application based on PostgreSQL on a fresh installation of Lion, and ran into a nasty permission denied issue.  After piecing together the full solution, I thought a blog post might be helpful for anyone else attempting the same task.  The overview of the problem is that Lion actually ships with a PostgreSQL server, so you have to jump through a couple of hoops if you want to use the one provided by "Homebrew":http://mxcl.github.com/homebrew/.
+I recently tried to generate a new Rails 3.1 application based on PostgreSQL on a fresh installation of Lion, and ran into a nasty permission denied issue.  After piecing together the full solution, I thought a blog post might be helpful for anyone else attempting the same task.  The overview of the problem is that Lion now ships with a PostgreSQL server, so you have to jump through a couple of hoops if you want to use the one provided by "Homebrew":http://mxcl.github.com/homebrew/.
 
 h3. Problem!
 
 I started by installing PostgreSQL through Homebrew:
 
 @@@
-# brew install postgresql@
+# brew install postgresql
 # initdb /usr/local/var/postgres
 # mkdir -p ~/Library/LaunchAgents
 # cp /usr/local/Cellar/postgresql/9.0.4/org.postgresql.postgres.plist ~/Library/LaunchAgents/
 # launchctl load -w ~/Library/LaunchAgents/org.postgresql.postgres.plist
 @@@
 
-And then creating a new Rails 3.1 application, configured to use the PostgreSQL adapter:
+And then I generated a new Rails 3.1 application, configured to use the PostgreSQL adapter:
 
 @@@
 # rails new myapp -D postgresql
@@ -27,7 +27,7 @@ And then creating a new Rails 3.1 application, configured to use the PostgreSQL 
   run bundle install (which installs the pg gem)
 @@@
 
-I started to see signs of woe when @createuser@ failed:
+I started to see signs of woe when the PostgreSQL commandline tools failed:
 
 @@@
 createuser myapp -s
@@ -36,7 +36,7 @@ createuser: could not connect to database postgres: could not connect to server:
     connections on Unix domain socket "/var/pgsql_socket/.s.PGSQL.5432"?
 @@@
 
-And, when seeing this in the logs after starting the rails server:
+...and, when seeing this in the logs after starting the rails server:
 
 @@@
 PGError (could not connect to server: Permission denied
@@ -47,7 +47,7 @@ PGError (could not connect to server: Permission denied
 
 h3. Solution!
 
-Well, I figured out the problem after a bunch of googling.  Turns out I had two PostgreSQL servers stomping on each other.  The solution is two simple steps, but *the order is important*!
+Well, I figured out the problem after a bunch of googling.  Turns out I had two PostgreSQL servers stomping on each other.  The solution is two simple steps, *but the order is important*!
 
 Step one: update the path to give preference to the Homebrew PostgreSQL installation.  My @$PATH@ statement in my @.bashrc@ looked like this:
 
