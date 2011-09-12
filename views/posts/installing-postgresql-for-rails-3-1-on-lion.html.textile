@@ -5,7 +5,9 @@ title: Installing PostgreSQL for Rails 3.1 on Lion
 
 *Instructions for installing and configuring PostgreSQL on a fresh Lion installation for use in Rails 3.1*
 
-I recently tried to generate a new Rails 3.1 application based on PostgreSQL on a fresh installation of Lion, and ran into a nasty permission denied issue.  After piecing together the full solution, I thought a blog post might be helpful for anyone else attempting the same task.  The overview of the problem is that Lion now ships with a PostgreSQL server, so you have to jump through a couple of hoops if you want to use the one provided by "Homebrew":http://mxcl.github.com/homebrew/.
+I recently tried to generate a new Rails 3.1 application based on PostgreSQL on a fresh installation of Lion, and ran into a nasty permission denied issue.  
+
+After piecing together the full solution, I thought a blog post might be helpful for anyone else attempting the same task.  The overview of the problem is that Lion now ships with a PostgreSQL server, so you have to jump through a couple of hoops if you want to use the one provided by "Homebrew":http://mxcl.github.com/homebrew/.
 
 h3. Problem!
 
