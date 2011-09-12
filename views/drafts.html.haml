@@ -1,0 +1,4 @@
+- collection("drafts").each do |page|
+  %h2.post_title= link_to(page.meta[:title], page.url)
+  ~ render_page(page)
+  %hr
