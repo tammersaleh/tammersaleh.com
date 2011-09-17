@@ -32,7 +32,7 @@ class TammerSaleh < Sinatra::Base
   set :config, File.expand_path(root + '/config/')
 
   def render_page_with_layout(page)
-    render_page(page, :layout => page.layout, :layout_engine => :haml)
+    render_page(page, :layout => "layouts/#{page.layout}", :layout_engine => :haml)
   end
 
   get "/posts.atom" do
