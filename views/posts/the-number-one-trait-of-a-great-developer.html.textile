@@ -9,7 +9,7 @@ When I look around at other companies hiring Ruby on Rails developers, I see the
 
 h3. A story about Jack and Dianne
 
-Jack is a Rockstar.  Jack talks about all the latest trends at all the coolest conferences around the world.  Jack makes a point of starting each project with at least three new technologies.  When asked to produce an internet-based backend for letting kitchen devices synchronize their list of recipes, Jack went to town.  The result was a combination of Google Protocol Buffers, node.js, and Casandra.  Elegant, scalable, and totally unmaintainable.  
+Jack is a Rockstar.  Jack talks about all the latest trends at all the coolest conferences around the world.  Jack makes a point of starting each project with at least three new technologies.  When asked to produce an internet-based backend for letting kitchen devices synchronize their list of recipes, Jack went to town.  The result was a combination of Google Protocol Buffers, node.js, and Cassandra.  Elegant, scalable, and totally unmaintainable.  
 
 Dianne is a good developer.  Dianne started as a Unix Admin, and moved into Ruby two years ago.  When asked to produce the same system, she immediately started asking questions:  
 
