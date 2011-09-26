@@ -20,13 +20,28 @@ I have this saved as "v":https://github.com/tsaleh/dotfiles/blob/master/bin/v in
 
 @@@
 ~/code/tsaleh/tammer-saleh$ v Gemfile
-# opens Gemfile in a new macvim window
-~/code/tsaleh/tammer-saleh$ v config.ru 
-# opens config.ru in a tab in that same window
-~/code/tsaleh/tammer-saleh$ cd ~/bin
-~/bin$ v somefile
-# opens somefile in a NEW macvim window
 @@@
 
-The magic is in the @pwd@ call, which names the main window the same as your current directory.  The result is a natural flow of tabs being grouped by the project you're working on, and it works really nicely.
+...opens Gemfile in a new macvim window:
+
+%vim_gemfile.jpg%
+
+@@@
+~/code/tsaleh/tammer-saleh$ v config.ru 
+@@@
+
+...opens config.ru in a tab in that same window:
+
+%vim_config_ru.jpg%
+
+@@@
+~/code/tsaleh/tammer-saleh$ cd ~/bin
+~/bin$ v git-fml
+@@@
+
+...opens git-fml in a NEW macvim window:
+
+%vim_git_fml.jpg%
+
+The magic is in the @pwd@ call, which names the main window the same as your current directory.  The result is a natural flow of tabs being grouped by the project you're working on, and it works quite nicely.
 
