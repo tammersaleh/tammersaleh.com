@@ -3,14 +3,21 @@ date: 2011-09-07
 title: Entering the Zone
 ---
 
-When I was a kid in high school, I used to do my math homework in the back room while listening to Led Zeppelin I and II on repeat.  At first it was just that I loved those albums, but eventually a Pavlovian thing happened...  They put me in the Math Zone.
+[shot of snooker table from funconf]
 
-[pool-to-whiskey-graph]
+Pool is an impossible game. I don't mean to say that it's hard.  I mean to say that the ability to whack a warped three foot stick into a set of 20 year old marble balls on a surface as flat as the Sahara, getting them to collide with great force, gracefully curving and banking around obstacles, and finally making the target ball into the target pocket is *absolutely ludicrous*.  
 
-I suck at pool.  Well, my sober self sucks at pool.  In fact, I have a specific range of sobriety during which I am Pretty Damn Good at pool.  That range is between two to five whiskies.  I could be a pool shark if I could get that second number higher.  Give me three whiskies and play Bad to the Bone, and I'll kick your ass.
+It's one of the great miracles of human dexterity that we can play the game at all.
 
-When I play drums, I have to take my shoes off.  Burt Bacharach needs to be on the radio when I make love.  Can't run a mile without my music.  Can't   [more examples]
+[<pool-to-whiskey-graph]
 
-A coder is only good when he's entered the zone.  Rands has spent 10's of thousands of dollars on his Geek Cave *XXX*, just to help him get into that always elusive zone.  
+I suck at pool.  Well, to be fair, my _sober self_ sucks at pool.  In fact, I have a specific range of sobriety during which I am Pretty Damn Good at pool.  That range is between two to five whiskies.  I could be a pool shark if I could get that second number higher.  Give me three whiskies and play Bad to the Bone, and I'll kick your ass.
 
+When I was a kid in high school, I used to do my math homework in the back room while listening to Led Zeppelin I and II on repeat.  I love those albums, and still think they contain some of the best Blues around.  But eventually a Pavlovian thing happened. They put me in The Math Zone.  I almost couldn't do math without them.  Great for homework, but terrible for the big tests.
+
+When I play drums, I have to take my shoes off.  Burt Bacharach needs to be on the stereo when I make love.  Can't run that last stretch of mile without Pantera's Domination.  Can't   [more examples]
+
+A coder is only truely effective when he's in The Zone.  Rands has spent 10's of thousands of dollars on his Geek Cave *XXX*, just to help him get into The Zone, and he hasn't regretted a cent.
+
+*I want to know:  What do _you_ do to get yourself into The Zone?  Fork this post and let us know.*
 
