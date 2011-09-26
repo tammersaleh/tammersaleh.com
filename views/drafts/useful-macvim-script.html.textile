@@ -22,7 +22,7 @@ I have this saved as "v":https://github.com/tsaleh/dotfiles/blob/master/bin/v in
 ~/code/tsaleh/tammer-saleh$ v Gemfile
 @@@
 
-...opens Gemfile in a new macvim window:
+Opens Gemfile in a new macvim window:
 
 %vim_gemfile.jpg%
 
@@ -30,7 +30,7 @@ I have this saved as "v":https://github.com/tsaleh/dotfiles/blob/master/bin/v in
 ~/code/tsaleh/tammer-saleh$ v config.ru 
 @@@
 
-...opens config.ru in a tab in that same window:
+Opens config.ru in a tab in that same window, since we're still in the @tammer_saleh@ directory:
 
 %vim_config_ru.jpg%
 
@@ -39,7 +39,7 @@ I have this saved as "v":https://github.com/tsaleh/dotfiles/blob/master/bin/v in
 ~/bin$ v git-fml
 @@@
 
-...opens git-fml in a NEW macvim window:
+Opens git-fml in a *new* macvim window, since we're in the @~/bin@ directory:
 
 %vim_git_fml.jpg%
 
