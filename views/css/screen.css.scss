@@ -10,15 +10,8 @@
 
 @import "bourbon/bourbon";
 
-// http://kuler.adobe.com/#themeID/1440313
-$dark_color:      rgb(0, 147, 147);
-$darkest_color:   rgb(0, 88, 95);
-$light_color:     rgb(240, 237, 187);
-$lightest_color:  lighten($light_color, 7%);
-$attention_color: rgb(255, 56, 0);
-
-$serif-fonts: Baskerville, Rokkitt, serif;
-$sans-serif-fonts: "Open Sans";
+$serif-fonts: Baskerville;
+$sans-serif-fonts: Helvetica;
 
 $radius: 5px;
 $last: true;
@@ -30,116 +23,78 @@ $blueprint-grid-width: ($blueprint-container-size + $blueprint-grid-margin) / $b
 $blueprint-font-family: $sans-serif-fonts;
 $blueprint-font-size: 16px;
 
-$font-color: $lightest_color;
-$quiet-color: lighten($font-color, 20%);
-$loud-color: darken($font-color, 13.33%);
-$header-color: darken($font-color, 6.67%);
-$alt-text-color: #666666;
-$blueprint-background-color: $darkest_color;
-$blueprint-border-color: $dark_color;
+$font-color:             #444444;
+$quiet-color:            lighten($font-color, 20%);
+$loud-color:             black;
+$header-color:           $quiet-color;
+$alt-text-color:         $quiet-color;
+$blueprint-border-color: $quiet-color;
 
-$link-color:         $light_color;
-$link-hover-color:   white;
-$link-focus-color:   $link-hover-color;
-$link-active-color:  $light_color;
+$link-color:         #400080;
+$link-hover-color:   darken($link-color, 20%);
+$link-focus-color:   darken($link-color, 20%);
+$link-active-color:  lighten($link-color, 20%);
 $link-visited-color: $link-color;
 
 $sidebar-columns: 4; 
-$content-columns: $blueprint-grid-columns - $sidebar-columns; 
+$content-columns: $blueprint-grid-columns - $sidebar-columns - 1;  
 
 body {
   @include blueprint-typography(true);
   @include blueprint-utilities;
   @include blueprint-interaction;
-  background-color: $blueprint-background-color;
+  background: url(/static_images/tan.jpg);
 
+  // For youtube videos
   iframe {
     width: 100%;
     margin: 0 auto;
   }
 
   img {
-    @include border-radius($radius);
-    @include box-shadow(0 0 5px 5px rgba(0, 0, 0, 0.25));
+    padding: 3px;
+    background: white;
+    border: $quiet-color 1px solid;
+    // @include box-shadow(0 5px 5px 5px rgba(0, 0, 0, 0.15));
   }
 
   blockquote {
-    color: $light_color;
     margin-left: 30px;
     margin-right: 0;
-    font-style: none;
     font-weight: bold;
     .who { display: inline }
   }
 
   form { @include blueprint-form; }
 
-  a, a:visited { 
-    // color: inherit !important;
+  a { 
     color: $link-color;
-    &:hover { color: $link-hover-color !important; }
+    text-decoration: none;
+    &:hover   { color: $link-hover-color !important; }
+    &:visited { color: $link-visited-color !important; }
   }
 
   pre {
     overflow: auto;
-    @include box-shadow(inset 0 0 5px 5px $darkest_color);
     background: white;
     padding: 10px;
-    &:hover { 
-      z-index: 100;
-      position: relative;
-      width: $blueprint-container-size - 20px;
-    }
+    // &:hover { 
+    //   z-index: 100;
+    //   position: relative;
+    //   width: 600px;
+    //   // @include animation-basic(ease-in);
+    // }
   }
 
-  hr { @include colruler($blueprint-border-color); };
+  hr       { @include colruler($blueprint-border-color); };
   hr.space { @include colspacer; };
 
   h1, h2, h3, h4, h5, h6 { 
-    color: $light_color; 
-    a { text-decoration: none; }
-  }
-
-  #container { 
-    @include container; 
-    // @include showgrid;
-  }
-
-  #header, #footer { 
-    @include column($blueprint-grid-columns); 
-  }
-
-  #header {
-    font-size: 150%;
-    margin-top: 30px;
-    // * { color: $lightest_color; }
-
-    #{headers(all)} { display: inline; }
-
-    a, a:visited { border: none; }
-
-    .tagline {
-      margin-left: 0.5em;
-    }
-  }
-
-  a.fork_me {
-    display: block;
-    font-size: 1.3em;
-    width: 300px;
-    @include border-radius($radius);
-    clear: both;
-    text-align: center;
-    background: $light_color;
-    color: $darkest_color;
-    padding: 5px;
-    margin: 10px auto;
-    color: $dark_color !important;
-    border: none;
-    &:hover {
-      background: $light_color;
-      color: $darkest_color !important;
-      @include box-shadow(0 0 5px 5px rgba(0, 0, 0, 0.15));
+    font-family: $serif-fonts;
+    color: $header-color; 
+    a { 
+      text-decoration: none; 
+      color: $header-color !important;
     }
   }
 
@@ -153,7 +108,31 @@ body {
     margin-left: 20px;
   }
 
+  .fork_me {
+    font-size: 1.3em;
+    display: block;
+    clear: both;
+    text-align: center;
+  }
+
+  #container { 
+    @include container; 
+  }
+
+  #footer { 
+    @include column($blueprint-grid-columns); 
+  }
+
   #sidebar {
+    @include column($sidebar-columns); 
+
+    margin-top: 30px;
+
+    #header {
+      // @include column($blueprint-grid-columns); 
+      font-size: 150%;
+    }
+
     img { width: 40%; }
 
     .about_me {
@@ -163,10 +142,8 @@ body {
       }
     }
 
-    @include column($sidebar-columns, $last); 
     .book {
       img {
-        @include border-radius(0);
         float: right;
         margin-left: 10px;
       }
@@ -178,9 +155,15 @@ body {
     }
   }
 
+  #spacercol {
+    @include column(1); 
+  }
+
   #content {
-    @include column($content-columns - 1); 
-    @include colborder;
+    @include column($content-columns, $last); 
+    // @include column($content-columns - 1); 
+    // @include colborder;
+    margin-top: 30px;
   } 
 
   #footer {
