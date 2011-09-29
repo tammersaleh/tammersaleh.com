@@ -45,130 +45,130 @@ body {
   @include blueprint-interaction;
   background: url(/static_images/tan.jpg);
 
-  // For youtube videos
-  iframe {
-    width: 100%;
-    margin: 0 auto;
-  }
-
-  img {
-    padding: 3px;
-    background: white;
-    border: $quiet-color 1px solid;
-    // @include box-shadow(0 5px 5px 5px rgba(0, 0, 0, 0.15));
-  }
-
-  blockquote {
-    margin-left: 30px;
-    margin-right: 0;
-    font-weight: bold;
-    .who { display: inline }
-  }
-
-  form { @include blueprint-form; }
-
-  a { 
-    color: $link-color;
-    text-decoration: none;
-    &:hover   { color: $link-hover-color !important; }
-    &:visited { color: $link-visited-color !important; }
-  }
-
-  pre {
-    overflow: auto;
-    background: white;
-    padding: 10px;
-    // &:hover { 
-    //   z-index: 100;
-    //   position: relative;
-    //   width: 600px;
-    //   // @include animation-basic(ease-in);
-    // }
-  }
-
-  hr       { @include colruler($blueprint-border-color); };
-  hr.space { @include colspacer; };
-
-  h1, h2, h3, h4, h5, h6 { 
-    font-family: $serif-fonts;
-    color: $header-color; 
-    a { 
-      text-decoration: none; 
-      color: $header-color !important;
-    }
-  }
-
-  .float-left {
-    float: left;
-    margin-right: 20px;
-  }
-
-  .float-right {
-    float: right;
-    margin-left: 20px;
-  }
-
-  .fork_me {
-    font-size: 1.3em;
-    display: block;
-    clear: both;
-    text-align: center;
-  }
-
   #container { 
     @include container; 
-  }
 
-  #footer { 
-    @include column($blueprint-grid-columns); 
-  }
+    // For youtube videos
+    iframe {
+      width: 100%;
+      margin: 0 auto;
+    }
 
-  #sidebar {
-    @include column($sidebar-columns); 
+    img {
+      padding: 3px;
+      background: white;
+      border: $quiet-color 1px solid;
+      // @include box-shadow(0 5px 5px 5px rgba(0, 0, 0, 0.15));
+    }
 
-    margin-top: 30px;
+    blockquote {
+      margin-left: 30px;
+      margin-right: 0;
+      font-weight: bold;
+      .who { display: inline }
+    }
+
+    form { @include blueprint-form; }
+
+    a { 
+      color: $link-color;
+      text-decoration: none;
+      &:hover   { color: $link-hover-color; }
+      &:visited { color: $link-visited-color; }
+    }
+
+    pre {
+      overflow: auto;
+      background: white;
+      padding: 10px;
+      // &:hover { 
+      //   z-index: 100;
+      //   position: relative;
+      //   width: 600px;
+      //   // @include animation-basic(ease-in);
+      // }
+    }
+
+    hr       { @include colruler($blueprint-border-color); };
+    hr.space { @include colspacer; };
+
+    h1, h2, h3, h4, h5, h6 { 
+      font-family: $serif-fonts;
+      color: $header-color; 
+      a { 
+        text-decoration: none; 
+        color: $header-color;
+        &:visited { color: $header-color; }
+        &:hover   { color: $loud-color; }
+
+      }
+    }
+
+    .float-left {
+      float: left;
+      margin-right: 20px;
+    }
+
+    .float-right {
+      float: right;
+      margin-left: 20px;
+    }
+
+    .fork_me {
+      font-size: 1.3em;
+      display: block;
+      clear: both;
+      text-align: center;
+    }
+
+    #footer { 
+      @include column($blueprint-grid-columns); 
+    }
 
     #header {
-      // @include column($blueprint-grid-columns); 
-      font-size: 150%;
+      @include column($blueprint-grid-columns); 
+      font-size: 200%;
     }
 
-    img { width: 40%; }
+    #sidebar {
+      @include column($sidebar-columns); 
 
-    .about_me {
-      .avatar {
-        float: left;
-        margin-right: 10px;
+      img { width: 40%; }
+
+      .about_me {
+        .avatar {
+          float: left;
+          margin-right: 10px;
+        }
+      }
+
+      .book {
+        img {
+          float: right;
+          margin-left: 10px;
+        }
+        .title { 
+          * { display: inline; }
+          .main { font-weight: bold; }
+        }
+        .amazon {font-weight: bold; }
       }
     }
 
-    .book {
-      img {
-        float: right;
-        margin-left: 10px;
-      }
-      .title { 
-        * { display: inline; }
-        .main { font-weight: bold; }
-      }
-      .amazon {font-weight: bold; }
+    #spacercol {
+      @include column(1); 
     }
-  }
 
-  #spacercol {
-    @include column(1); 
-  }
+    #content {
+      @include column($content-columns, $last); 
+      // @include column($content-columns - 1); 
+      // @include colborder;
+    } 
 
-  #content {
-    @include column($content-columns, $last); 
-    // @include column($content-columns - 1); 
-    // @include colborder;
-    margin-top: 30px;
-  } 
-
-  #footer {
-    ul.social_links {
-      @include inline-list;
+    #footer {
+      ul.social_links {
+        @include inline-list;
+      }
     }
   }
 }

@@ -8,16 +8,16 @@
   #container
     #header
       = render_partial "layouts/header"
+    #sidebar
+      = render_partial "layouts/sidebar"
+    #spacercol
+      &nbsp;
     #content
       %h2.post_title= meta[:title]
       ~ yield
       %hr.space
       %a.fork_me{:href => page.github_edit_url}
         Fork and edit this post.
-    #sidebar
-      = render_partial "layouts/sidebar"
     #footer
       = render_partial "layouts/footer"
   = render_partial "layouts/tracking"
-
-

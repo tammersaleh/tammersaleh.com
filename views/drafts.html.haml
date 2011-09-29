@@ -1,4 +1,4 @@
-- collection("drafts").each do |page|
-  %h2.post_title= link_to(page.meta[:title], page.url)
-  ~ render_page(page)
-  %hr
+%ul.posts
+  - collection("drafts").each do |post|
+    %li.short_post
+      %h3= link_to(post.meta[:title], post.url)
