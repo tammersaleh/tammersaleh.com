@@ -14,7 +14,6 @@
 $serif-fonts: Baskerville;
 $sans-serif-fonts: Helvetica;
 
-$radius: 5px;
 $last: true;
 
 $blueprint-grid-columns: 12;
@@ -116,13 +115,6 @@ body {
       margin-left: 20px;
     }
 
-    .fork_me {
-      font-size: 1.3em;
-      display: block;
-      clear: both;
-      text-align: center;
-    }
-
     #footer { 
       @include column($blueprint-grid-columns); 
     }
@@ -168,7 +160,18 @@ body {
         @include no-bullets; 
         padding: 0;
         margin: 0;
+        font-size: 1.3em;
       }
+
+      .fork_me {
+        font-family: $serif-fonts;
+        font-size: 1.5em;
+        font-style: italic;
+        display: block;
+        clear: both;
+        text-align: center;
+      }
+
     } 
 
     #footer {
