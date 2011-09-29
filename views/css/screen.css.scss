@@ -4,6 +4,7 @@
 @import "blueprint/scaffolding";
 @import "compass/reset";
 @import "compass/typography/lists/inline-list";
+@import "compass/typography/lists/bullets";
 
 @include blueprint;
 @include blueprint-typography;
@@ -95,6 +96,7 @@ body {
     h1, h2, h3, h4, h5, h6 { 
       font-family: $serif-fonts;
       color: $header-color; 
+      text-shadow: 0px 1px 0px white;
       a { 
         text-decoration: none; 
         color: $header-color;
@@ -161,8 +163,12 @@ body {
 
     #content {
       @include column($content-columns, $last); 
-      // @include column($content-columns - 1); 
-      // @include colborder;
+
+      ul.posts { 
+        @include no-bullets; 
+        padding: 0;
+        margin: 0;
+      }
     } 
 
     #footer {
