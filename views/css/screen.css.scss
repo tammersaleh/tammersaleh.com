@@ -4,6 +4,7 @@
 @import "blueprint/scaffolding";
 @import "compass/reset";
 @import "compass/typography/lists/inline-list";
+@import "compass/typography/lists/horizontal-list";
 @import "compass/typography/lists/bullets";
 
 @include blueprint;
@@ -121,13 +122,10 @@ body {
       margin-left: 20px;
     }
 
-    #footer { 
-      @include column($blueprint-grid-columns); 
-    }
-
     #header {
       @include column($blueprint-grid-columns); 
-      font-size: 200%;
+      font-size: 250%;
+
     }
 
     #sidebar {
@@ -181,8 +179,9 @@ body {
     } 
 
     #footer {
+      @include column($blueprint-grid-columns); 
       ul.social_links {
-        @include inline-list;
+        @include horizontal-list;
       }
     }
   }

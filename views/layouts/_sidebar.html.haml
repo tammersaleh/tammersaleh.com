@@ -26,6 +26,14 @@
       Read the
       = link_to("phenomenal feedback from the community", "http://railsantipatterns.com") + "!"
 
+.popular
+  %hr.space
+  %h4 Popular posts:
+  %ul
+    %li= link_to("The Modern Vim Config with Pathogen", "/posts/the-modern-vim-config-with-pathogen/")
+    %li= link_to("Rescuing Net::HTTP exceptions", "/posts/rescuing-net-http-exceptions/")
+    %li= link_to("A Better RVM Bash Prompt", "/posts/a-better-rvm-bash-prompt/")
+
 .recommendation
   %hr.space
   %h4 Accolades:
@@ -44,17 +52,3 @@
           = link_to(recommendation.company, recommendation.company_url)
         - else
           = recommendation.company
-.popular
-  %hr.space
-  %h4 Popular posts:
-  %ul
-    %li= link_to("The Modern Vim Config with Pathogen", "/posts/the-modern-vim-config-with-pathogen/")
-    %li= link_to("Rescuing Net::HTTP exceptions", "/posts/rescuing-net-http-exceptions/")
-    %li= link_to("A Better RVM Bash Prompt", "/posts/a-better-rvm-bash-prompt/")
-    %li= link_to("Tools that make my life easier", "/posts/tools-that-make-my-life-easier")
-.meta
-  %hr.space
-  %h4 Follow the development:
-  %ul 
-    %li= link_to("Pivotal Tracker project", "https://www.pivotaltracker.com/projects/336827")
-    %li= link_to("Source on github", "https://github.com/tsaleh/tammer-saleh")
