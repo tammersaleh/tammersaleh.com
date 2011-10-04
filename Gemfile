@@ -19,6 +19,10 @@ gem 'therubyracer-heroku', '0.8.1.pre3'
 gem "coffee-script-source"
 gem "coffee-script"
 
+group :development do
+  gem "mini_magick"
+end
+
 group :test do
   gem "rspec"
   gem "ZenTest", "4.5.0"

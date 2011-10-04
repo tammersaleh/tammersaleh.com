@@ -56,6 +56,8 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.16)
+    mini_magick (3.3)
+      subexec (~> 0.1.0)
     multi_json (1.0.3)
     nokogiri (1.5.0)
     padrino (0.10.1)
@@ -112,6 +114,7 @@ GEM
     sinatra (1.2.6)
       rack (~> 1.1)
       tilt (>= 1.2.2, < 2.0)
+    subexec (0.1.0)
     sys-uname (0.8.5)
     term-ansicolor (1.0.6)
     therubyracer-heroku (0.8.1.pre3)
@@ -145,6 +148,7 @@ DEPENDENCIES
   compass
   haml
   heroku
+  mini_magick
   padrino
   rspec
   sass (>= 3.1.7)
