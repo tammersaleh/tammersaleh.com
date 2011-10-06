@@ -1,0 +1,77 @@
+#!/usr/bin/env bundle exec ruby 
+Bundler.require(:images)
+require "fileutils"
+
+IMAGES_ROOT = "#{File.dirname(__FILE__)}/../public/images"
+FILE_SIZES = [
+  [:large,  "600x600"],
+  [:medium, "300x300"],
+  [:thumb,  "64x64"],
+]
+
+class File
+  def self.write(name, string)
+    File.open(name, "w") do |file|
+      file << string
+    end
+  end
+end
+
+def process(list)
+  list.each do |original_file_name|
+    unique_name = File.basename(File.dirname(original_file_name))
+    print "Converting #{unique_name}:"
+    FILE_SIZES.each do |name, dimensions|
+      print " #{dimensions}"
+      original_image = MiniMagick::Image.open(original_file_name)
+      original_image.resize(dimensions)
+
+      new_file_name = original_file_name.gsub(%r{/original\.}, "/#{name}.")
+      original_image.write(new_file_name)
+    end
+    puts
+  end
+end
+
+def grab(list)
+  curl = Curl::Easy.new
+  list.map do |url|
+    dirname = File.basename(url, ".*")
+    ext = url.split('.').last
+    filename = File.join(IMAGES_ROOT, dirname, "original.#{ext}")
+    puts "grabbing #{url}"
+    curl.url = url
+    curl.perform
+    FileUtils.mkdir_p(File.dirname(filename))
+    File.write(filename, curl.body_str)
+    filename
+  end
+end
+
+def all_original_files
+  Dir[File.join(IMAGES_ROOT, "*/original.*")]
+end
+
+def all_if_empty(list)
+  return all_original_files if list.empty?
+  return list
+end
+
+def usage
+  me = File.basename(__FILE__)
+  puts "Usage: "
+  puts "  #{me} process"
+  puts "  #{me} process public/images/path/to/original.jpg"
+  puts "  #{me} grab http://url/to/file"
+  exit 5
+end
+
+case ARGV.shift
+when "process"
+  process(all_if_empty(ARGV))
+when "grab"
+  process(grab(ARGV))
+else
+  usage
+end
+
