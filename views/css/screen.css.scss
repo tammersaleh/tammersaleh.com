@@ -60,6 +60,7 @@ body {
       padding: 3px;
       background: $almost-white-color;
       border: $quiet-color 1px solid;
+      max-width: 545px - 6px - 2px;
       // @include box-shadow(0 5px 5px 5px rgba(0, 0, 0, 0.15));
     }
 
