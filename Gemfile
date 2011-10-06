@@ -19,7 +19,8 @@ gem 'therubyracer-heroku', '0.8.1.pre3'
 gem "coffee-script-source"
 gem "coffee-script"
 
-group :development do
+group :images do
+  gem "curb"
   gem "mini_magick"
 end
 
