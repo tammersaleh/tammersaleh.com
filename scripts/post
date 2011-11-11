@@ -1,0 +1,61 @@
+#!/usr/bin/env bundle exec ruby 
+
+def usage(wat = nil)
+  puts wat if wat
+  puts "Usage: #{File.basename(__FILE__)} new 'title of post'"
+  puts "       #{File.basename(__FILE__)} publish path/to/draft.textile"
+  exit 1
+end
+
+usage if $*.empty?
+
+require "fileutils"
+
+posts_root = File.join(File.dirname(__FILE__), "../views/posts")
+drafts_root = File.join(File.dirname(__FILE__), "../views/drafts")
+
+command = ARGV.shift
+
+case command
+when "new"
+  title    = $*.join(' ')
+
+  usage("No post title given") if title == ""
+
+  slug     = title.gsub(%r{\W}, "-").downcase.gsub(%r{-+}, "-").sub(%r{-$}, "")
+  filename = File.join(drafts_root, slug + ".html.textile")
+
+  meta = { "date" => Date.today, "title" => title }
+
+  puts "New post: #{title}"
+
+  FileUtils.mkdir_p File.dirname(filename)
+
+  File.open(filename, "w+") do |f|
+    f.puts YAML.dump(meta)
+    f.puts "---"
+    f.puts
+    f << "*Write.*"
+  end
+
+  system("open http://tammersaleh.dev/drafts/#{slug}")
+  sleep 1
+  system("v #{filename}")
+when "publish"
+  path = ARGV.shift
+  usage("Need path") unless path
+
+  file = File.basename(path)
+
+  puts "Publishing #{file}..."
+  puts "Creating bitly url..."
+  puts "Opening twitter..."
+  puts "Changing publication date..."
+  puts "Adding to git..."
+  puts "Pushing to git..."
+else
+  usage("Don't know that command")
+end
+
+# vim:ft=ruby
+

@@ -34,3 +34,4 @@ Sequel.connect(:adapter=>'mysql', :host=>'localhost', :database=>'tammer_saleh_d
   end
 end
 
+# vim:ft=ruby
