@@ -19,9 +19,13 @@ gem 'therubyracer-heroku', '0.8.1.pre3'
 gem "coffee-script-source"
 gem "coffee-script"
 
-group :images do
+group :script_image do
   gem "curb"
   gem "mini_magick"
+end
+
+group :script_post do
+  gem "bitly"
 end
 
 group :test do
@@ -31,3 +35,4 @@ group :test do
   gem "autotest-growl"
   gem "capybara", :require => "capybara/rspec"
 end
+
