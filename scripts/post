@@ -43,7 +43,7 @@ def bitly(url)
 end
 
 def run(cmd)
-  puts cmd
+  system cmd
 end
 
 def publish(path)
