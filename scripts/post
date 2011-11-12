@@ -24,6 +24,7 @@ def new_post(title)
   slug     = title.gsub(%r{\W}, "-").downcase.gsub(%r{-+}, "-").sub(%r{-$}, "")
   filename = File.join(DRAFTS_ROOT, slug + ".html.textile")
   meta = { "date" => Date.today, "title" => title.titleize }
+  meta["bitly_url"] = bitly("http://tammersaleh.com/posts/#{slug}")
   FileUtils.mkdir_p File.dirname(filename)
   File.open(filename, "w+") do |f|
     f.puts YAML.dump(meta)
@@ -38,14 +39,7 @@ def new_post(title)
 end
 
 def bitly(url)
-  username = ENV["BITLY_USERNAME"] 
-  api_key  = ENV["BITLY_API_KEY"]
-  usage("$BITLY_USERNAME not set") unless username
-  usage("$BITLY_API_KEY not set")  unless api_key
-  Bitly.use_api_version_3
-  b = Bitly.new(username, api_key)
-  u = b.shorten(url)
-  u.short_url
+  system("./script/bitly #{url}")
 end
 
 def run(cmd)
@@ -58,7 +52,7 @@ def publish(path)
   _, yaml, body = contents.split("---")
   meta = YAML.load(yaml) or raise "Invalid yaml! #{yaml.inspect}"
   meta["date"] = Date.today
-  meta["bitly_url"] = bitly("http://tammersaleh.com/posts/#{File.basename(file_name)}".sub(%r{.html.*$}, ""))
+  meta["bitly_url"] ||= bitly("http://tammersaleh.com/posts/#{File.basename(file_name)}".sub(%r{.html.*$}, ""))
 
   new_path = "#{POSTS_ROOT}/#{file_name}"
 

@@ -25,6 +25,9 @@ group :script_image do
 end
 
 group :script_post do
+end
+
+group :script_bitly do
   gem "bitly"
 end
 
