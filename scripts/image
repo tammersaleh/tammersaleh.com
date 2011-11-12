@@ -1,5 +1,5 @@
 #!/usr/bin/env bundle exec ruby 
-Bundler.require(:images)
+Bundler.require(:script_image)
 require "fileutils"
 
 IMAGES_ROOT = "#{File.dirname(__FILE__)}/../public/images"

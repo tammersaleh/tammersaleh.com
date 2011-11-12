@@ -1,5 +1,11 @@
 #!/usr/bin/env bundle exec ruby 
 
+Bundler.require(:script_post)
+
+require "fileutils"
+require "active_support/inflector"
+require 'active_support/core_ext/object/blank'
+
 def usage(wat = nil)
   puts wat if wat
   puts "Usage: #{File.basename(__FILE__)} new 'title of post'"
@@ -9,28 +15,16 @@ end
 
 usage if $*.empty?
 
-require "fileutils"
-
-posts_root = File.join(File.dirname(__FILE__), "../views/posts")
-drafts_root = File.join(File.dirname(__FILE__), "../views/drafts")
+POSTS_ROOT  = File.join(File.dirname(__FILE__), "../views/posts")
+DRAFTS_ROOT = File.join(File.dirname(__FILE__), "../views/drafts")
 
 command = ARGV.shift
 
-case command
-when "new"
-  title    = $*.join(' ')
-
-  usage("No post title given") if title == ""
-
+def new_post(title)
   slug     = title.gsub(%r{\W}, "-").downcase.gsub(%r{-+}, "-").sub(%r{-$}, "")
-  filename = File.join(drafts_root, slug + ".html.textile")
-
-  meta = { "date" => Date.today, "title" => title }
-
-  puts "New post: #{title}"
-
+  filename = File.join(DRAFTS_ROOT, slug + ".html.textile")
+  meta = { "date" => Date.today, "title" => title.titleize }
   FileUtils.mkdir_p File.dirname(filename)
-
   File.open(filename, "w+") do |f|
     f.puts YAML.dump(meta)
     f.puts "---"
@@ -38,21 +32,63 @@ when "new"
     f << "*Write.*"
   end
 
-  system("open http://tammersaleh.dev/drafts/#{slug}")
+  run("open http://tammersaleh.dev/drafts/#{slug}")
   sleep 1
-  system("v #{filename}")
+  run("v #{filename}")
+end
+
+def bitly(url)
+  username = ENV["BITLY_USERNAME"] 
+  api_key  = ENV["BITLY_API_KEY"]
+  usage("$BITLY_USERNAME not set") unless username
+  usage("$BITLY_API_KEY not set")  unless api_key
+  Bitly.use_api_version_3
+  b = Bitly.new(username, api_key)
+  u = b.shorten(url)
+  u.short_url
+end
+
+def run(cmd)
+  puts cmd
+end
+
+def publish(path)
+  file_name = File.basename(path)
+  contents = File.read(path)
+  _, yaml, body = contents.split("---")
+  meta = YAML.load(yaml) or raise "Invalid yaml! #{yaml.inspect}"
+  meta["date"] = Date.today
+  meta["bitly_url"] = bitly("http://tammersaleh.com/posts/#{File.basename(file_name)}".sub(%r{.html.*$}, ""))
+
+  new_path = "#{POSTS_ROOT}/#{file_name}"
+
+  FileUtils.rm(path)
+  File.open(new_path, "w+") do |f|
+    f.puts YAML.dump(meta)
+    f.puts "---"
+    f << body
+  end
+
+  run("git rm #{path}")
+  run("git add #{new_path}")
+  run("git commit -m 'Publishing \"#{meta['title']}\"'")
+  run("git push")
+
+  twitter_url = "https://twitter.com/share?text=#{meta['title']} #{meta['bitly_url']}"
+  run("open \"#{twitter_url}\"")
+  run("git push production")
+end
+
+case command
+when "new"
+  title    = $*.join(' ')
+  usage("No post title given") if title.blank?
+  puts "New post: #{title}"
+  new_post(title)
 when "publish"
   path = ARGV.shift
   usage("Need path") unless path
-
-  file = File.basename(path)
-
-  puts "Publishing #{file}..."
-  puts "Creating bitly url..."
-  puts "Opening twitter..."
-  puts "Changing publication date..."
-  puts "Adding to git..."
-  puts "Pushing to git..."
+  publish(path)
 else
   usage("Don't know that command")
 end
