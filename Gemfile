@@ -4,9 +4,9 @@ gem "heroku"
 gem "shotgun"
 gem 'thin'
 
-gem "compass"
-
 gem 'sinatra'
+gem "rake"
+gem "compass"
 gem "padrino",        :require => false
 gem "active_support", :require => false
 
@@ -31,7 +31,7 @@ group :script_bitly do
   gem "bitly"
 end
 
-group :test do
+group :test, :development do
   gem "rspec"
   gem "ZenTest", "4.5.0"
   gem "autotest-fsevent"
