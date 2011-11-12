@@ -1,6 +1,7 @@
 ---
 date: 2011-09-07
 title: Entering the Zone
+bitly_url: http://bit.ly/sK1B0R
 ---
 
 %pool_is_hard.jpg large%
