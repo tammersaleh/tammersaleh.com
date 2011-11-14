@@ -28,7 +28,7 @@ h3. It's all about trust
 
 When given what has the oportunity to be a "fun problem," developers without judgement tend to run to "their cave":http://www.randsinrepose.com/archives/2006/07/10/a_nerd_in_a_cave.html to craft the most elegant solution possible.  They have a natural desire to "over design the solution":http://www.google.com/search?client=safari&rls=en&q=architecture+astronaut+site:joelonsoftware.com&ie=UTF-8&oe=UTF-8 either in terms of flexibility, speed, feature scope, or simply to get a chance to play with their new pet technology.  They need to be constantly checked on to make sure they aren't half way down a rabbit hole.
 
-What's worse is that they won't know when they're out of their depth, so they'll leave code bombs littered throughout your project.  Clever little bits of code just waiting for the unweary teammate to trip over.
+What's worse is that they won't know when they're out of their depth, so they'll leave code bombs littered throughout your project.  Clever little bits of code just waiting for the unwary teammate to trip over.
 
 h3. Hire for Judgement
 

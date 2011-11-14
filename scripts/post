@@ -35,7 +35,7 @@ def new_post(title)
 
   run("open http://tammersaleh.dev/drafts/#{slug}")
   sleep 1
-  run("v #{filename}")
+  run("$VISUAL #{filename}")
 end
 
 def bitly(url)
