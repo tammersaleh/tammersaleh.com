@@ -1,2 +1,2 @@
-web: bundle exec thin start -p $PORT
+web: bundle exec thin start -e $RACK_ENV -p $PORT
 
