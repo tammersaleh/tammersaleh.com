@@ -78,7 +78,7 @@ I've come up with what I think is a much better solution.  I simply load a local
 @@@ ruby
 require File.join(File.dirname(__FILE__), 'boot')
 
-# Load heroku vars from local file
+# Load heroku vars from local file(Rails.root for Rails 3.2+)
 heroku_env = File.join(RAILS_ROOT, 'config', 'heroku_env.rb')
 load(heroku_env) if File.exists?(heroku_env)
 
