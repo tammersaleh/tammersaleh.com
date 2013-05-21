@@ -5,7 +5,7 @@ gem "engine_of_war", "~> 1.3.0"
 gem "clogger"
 gem "heroku"
 gem 'thin'
-gem "foreman"
+gem "foreman", "~> 0.63"
 
 group :production do
   gem 'newrelic_rpm'
@@ -25,5 +25,4 @@ end
 
 group :development do
   gem "shotgun"
-  gem "foreman"
 end
