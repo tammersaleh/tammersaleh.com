@@ -1,10 +1,21 @@
-require 'bundler/setup'
-
+require 'bundler'
 Bundler.require
 
-require 'rspec/core/rake_task'
+desc "Build the website from source"
+task :build do
+  system("middleman build") or puts "FAILED"
+  system("touch build/done")
+end
 
-RSpec::Core::RakeTask.new(:spec)
+desc "Open the site in your browser (assumes pow)"
+task :open do
+  system("open http://tammersaleh.dev") or puts "FAILED"
+end
 
-task :default => :spec
+desc "Smush images"
+task :smush do
+  system("smusher #{File.dirname(__FILE__)}/source/images") or puts "FAILED"
+end
+
+task default: [:build, :open]
 

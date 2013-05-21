@@ -1,16 +1,20 @@
-Encoding.default_external = Encoding::UTF_8
-Encoding.default_internal = Encoding::UTF_8
+# require 'rubygems'
+# require 'middleman/rack'
+# 
+# run Middleman.server
 
-require 'engine_of_war'
-require 'newrelic_rpm'
-require "clogger"
+require 'rubygems'
+require 'middleman/rack'
+require 'rack/contrib/try_static'
+require 'rack/contrib/not_found'
+require 'rack/timeout'
+# require "./lib/rack/custom_error_pages.rb"
 
-YAML::ENGINE.yamler = 'syck' # Heroku doesn't support 'psych'
+use Rack::Timeout
+Rack::Timeout.timeout = 10
 
-use Clogger, logger: $stdout, reentrant: true
-
-EngineOfWar::App.set :root,        File.dirname(__FILE__)
-EngineOfWar::App.set :github_info, "tsaleh/tammer-saleh"
-EngineOfWar::App.set :site_title,  "Tammer Saleh"
-run EngineOfWar::App
+# use Rack::CustomErrorPages, "build/500.html"
+use Rack::TryStatic, :root => "build", :urls => %w[/], :try => ['.html', "index.html", "/index.html"]
+run Middleman.server
+#run Rack::NotFound.new("build/404.html")
 

@@ -1,28 +1,25 @@
-source :rubygems
+source "https://rubygems.org"
 
-gem "engine_of_war", "~> 1.3.0"
+ruby "2.0.0"
 
-gem "clogger"
-gem "heroku"
-gem 'thin'
-gem "foreman", "~> 0.63"
+gem "middleman", "~> 3.1.0.rc.1"
+gem "middleman-blog", "~> 3.2.0"
 
-group :production do
-  gem 'newrelic_rpm'
-end
+gem 'rack-contrib'
+gem 'rack-timeout'
 
-group :script_image do
-  gem "curb"
-  gem "mini_magick"
-end
-
-group :script_post do
-end
-
-group :script_bitly do
-  gem "bitly"
-end
+# For feed.xml.builder
+gem "builder", "~> 3.0.0"
+gem "kramdown"
 
 group :development do
-  gem "shotgun"
+  gem 'heroku'
+  # gem 'guard-process', github: "socialreferral/guard-process"
+  gem 'guard-process', github: "tsaleh/guard-process"
+  gem 'guard-bundler'
+  gem 'guard-pow'
+  gem 'guard-livereload'
+  gem "rb-fsevent"
+  gem "rake"
 end
+
