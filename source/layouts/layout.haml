@@ -32,7 +32,7 @@
         %h1= "Tammer Saleh #{current_page.data.title}"
       #main-content{:role => "main"}
 
-        = yield
+        ~ yield
 
       %footer
         %p &copy; #{copyright_years(2011)} AmicusUser

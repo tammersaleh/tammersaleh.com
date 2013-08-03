@@ -1,0 +1,70 @@
+---
+date: 2007-08-15 12:00 PDT
+title: Shoulda gets busy with your controllers
+---
+
+[A while back](http://giantrobots.thoughtbot.com/2007/4/6/shoulda-coulda-woulda) we 
+released the [Shoulda Plugin](http://thoughtbot.com/projects/shoulda) to 
+help with testing your ActiveRecord models.  Well, we've been using it in more and more 
+of our projects, and we've just finished adding some super cool controller tests.  
+
+Check it out!
+
+#### Controller Macros
+
+Right off the bat, you get some pretty little test helpers:
+
+~~~ ruby
+class UsersControllerTest < Test::Unit::TestCase
+  context "on GET to :show for first record" do
+    setup do
+      get :show, :id => 1
+    end
+
+    should_assign_to :user
+    should_respond_with :success
+    should_render_template :show
+    should_not_set_the_flash
+
+    should "do something else really cool" do
+      assert_equal 1, assigns(:user).id
+    end
+  end
+end
+~~~
+
+That bit of code makes five functional tests, and is super easy to read.  To take it a 
+step further - if you've been a good boy and have kept to the latest restful standards 
+in your controllers, then you're in luck.  
+
+#### `should_be_restful`
+
+You can produce an entire set of tests (over 40) for both html and xml formats through 
+the `should_be_restful` helper.
+
+~~~ ruby
+class UsersControllerTest < Test::Unit::TestCase
+  load_all_fixtures
+
+  def setup
+    @controller = UsersController.new
+    @request    = ActionController::TestRequest.new
+    @response   = ActionController::TestResponse.new
+    @user       = User.find(:first)
+  end
+
+  should_be_restful do |resource|
+    resource.parent = :country
+    resource.create.params = { :name => "bob", :email => 'bob@bob.com', :age => 13}
+    resource.update.params = { :name => "sue" }
+  end
+end
+~~~
+
+`should_be_restful` is very configurable, but as the name states, it's only 
+intended for testing restful controllers.  We've finished tests for the HTML and XML 
+formats, and RSS, YAML, and JSON will soon be on their way.  
+
+Check out the [project page](http://thoughtbot.com/projects/shoulda) and the 
+[documentation](http://dev.thoughtbot.com/shoulda/) for more information and
+examples.

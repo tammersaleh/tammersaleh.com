@@ -1,0 +1,86 @@
+---
+date: 2010-04-01 12:00 PDT
+title: A Better RVM Bash Prompt
+---
+
+Not knowing where you are while using [RVM](http://rvm.beginrescueend.com/) can be a frustrating experience.  Which version of ruby am I using?  Which gemset?  And using [per-project .rvmrc files](http://lindsaar.net/2010/3/31/bundle_me_some_sanity), while super-cool, makes the situation even worse.
+
+RVM ships with the [`rvm-prompt`](http://rvm.beginrescueend.com/workflow/prompt/) script, which you can use in your `$PS1` setup, but it neglects gemsets, and doesn't skip default values.
+
+#### Problem, meet Solution.
+
+So, here's a new bash prompt function that prints the RVM ruby version and gemset, but only if they're different from the defaults.
+
+~~~ bash
+function __git_dirty {
+  git diff --quiet HEAD &>/dev/null 
+  [ $? == 1 ] && echo "!"
+}
+
+function __git_branch {
+  __git_ps1 " %s"
+}
+
+function __my_rvm_ruby_version {
+  local gemset=$(echo $GEM_HOME | awk -F'@' '{print $2}')
+  [ "$gemset" != "" ] && gemset="@$gemset"
+  local version=$(echo $MY_RUBY_HOME | awk -F'-' '{print $2}')
+  [ "$version" == "1.8.7" ] && version=""
+  local full="$version$gemset"
+  [ "$full" != "" ] && echo "$full "
+}
+
+bash_prompt() {
+  local NONE="\[\033[0m\]"    # unsets color to term's fg color
+
+  # regular colors
+  local K="\[\033[0;30m\]"    # black
+  local R="\[\033[0;31m\]"    # red
+  local G="\[\033[0;32m\]"    # green
+  local Y="\[\033[0;33m\]"    # yellow
+  local B="\[\033[0;34m\]"    # blue
+  local M="\[\033[0;35m\]"    # magenta
+  local C="\[\033[0;36m\]"    # cyan
+  local W="\[\033[0;37m\]"    # white
+
+  # emphasized (bolded) colors
+  local EMK="\[\033[1;30m\]"
+  local EMR="\[\033[1;31m\]"
+  local EMG="\[\033[1;32m\]"
+  local EMY="\[\033[1;33m\]"
+  local EMB="\[\033[1;34m\]"
+  local EMM="\[\033[1;35m\]"
+  local EMC="\[\033[1;36m\]"
+  local EMW="\[\033[1;37m\]"
+
+  # background colors
+  local BGK="\[\033[40m\]"
+  local BGR="\[\033[41m\]"
+  local BGG="\[\033[42m\]"
+  local BGY="\[\033[43m\]"
+  local BGB="\[\033[44m\]"
+  local BGM="\[\033[45m\]"
+  local BGC="\[\033[46m\]"
+  local BGW="\[\033[47m\]"
+
+  local UC=$W                 # user's color
+  [ $UID -eq "0" ] && UC=$R   # root's color
+
+  PS1="$B\$(__my_rvm_ruby_version)$Y\h$W:$EMY\w$EMW\$(__git_branch)$EMY\$(__git_dirty)${NONE} $ "
+}
+
+bash_prompt
+unset bash_prompt
+~~~
+
+And here's the result (minus my color codes):
+
+~~~ bash
+tardis:~ $ rvm 1.9.1
+1.9.1 tardis:~ $ rvm gemset use rail3
+Now using gemset 'rail3'
+1.9.1%rail3 tardis:~ $ rvm  default
+tardis:~ $ 
+~~~
+
+**Update:  Looks like I was [a version behind](http://twitter.com/wayneeseguin/status/11439618936) on RVM, but the new `rvm-prompt` still doesn't handle defaults.  I've also updated the code to account for the change from `%` to @@@.**

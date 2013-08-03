@@ -4,21 +4,15 @@ bodyclass: newproject
 ---
 
 .posts
-  - blog.articles[0...5].each do |article|
-    %article
-      %pre
-        %code
-          = escape_html article.class
-      %h1
-        %a{:href => article.url}
-          = article.title
-        %time
-          = article.date.strftime('%b %e %Y')
-
-      = article.summary
-
-      %a{ :href => article.url}
-        Read more
+  %ul
+    - blog.articles.each do |article|
+      %li.article
+        %h3
+          %a{:href => article.url}
+            = article.title
+          %small
+            %time
+              = article.date.strftime('%b %e %Y')
 
 .moreinfo
   :markdown
