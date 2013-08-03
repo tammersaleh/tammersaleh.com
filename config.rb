@@ -110,3 +110,12 @@ configure :build do
   # set :http_path, "/Content/images/"
 end
 
+Time.zone = "Pacific Time (US & Canada)"
+
+activate :blog do |blog|
+  blog.prefix = "posts"
+  blog.permalink = ":title"
+end
+
+activate :directory_indexes
+
