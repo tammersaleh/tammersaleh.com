@@ -1,6 +1,0 @@
----
-date: 2011-09-10
-title: Animated Expanding Code Blocks Without Javascript
----
-
-*Write.*

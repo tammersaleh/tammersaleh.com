@@ -1,8 +1,0 @@
----
-date: 2007-09-27
-title: Serving 138 Emails a Second
----
-
-"Mailinator just hit 12 million emails a day.":http://mailinator.blogspot.com/2007/09/and-then-there-were-12-million-emails.html
-
-Unbelievable.

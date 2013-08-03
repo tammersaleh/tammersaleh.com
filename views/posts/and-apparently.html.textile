@@ -1,6 +1,0 @@
----
-date: 2007-04-02
-title: And apparently...
----
-
-"people":http://prototypejs.org/2007/4/2/jester-activeresource-for-prototype "agree":http://weblog.rubyonrails.com/2007/4/2/javascriptian-rest.

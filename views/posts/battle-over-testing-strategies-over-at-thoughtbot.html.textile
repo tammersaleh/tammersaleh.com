@@ -1,8 +1,0 @@
----
-date: 2007-03-18
-title: Battle over testing strategies over at thoughtbot
----
-
-I think I'm gonna stop cross-posting between "Giant Robots":http://giantrobots.thoughtbot.com and my personal blog.  Instead, I'll just point you guys over there.
-
-Such as now:  We're having a "brawl":http://giantrobots.thoughtbot.com/2007/3/17/battle-royale-testing over at thoughtbot about the _right_ way to test your rails apps.

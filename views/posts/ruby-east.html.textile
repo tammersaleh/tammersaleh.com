@@ -1,8 +1,0 @@
----
-date: 2007-09-26
-title: Ruby East
----
-
-"Chad Pytel":http://thoughtbot.com/about/people#cpytel, "Dan Croak":http://thoughtbot.com/about/people#dcroak and "myself":http://thoughtbot.com/about/people#tsaleh are gonna be down at  "Ruby East":http://www.ruby-east.com/rubyeast/ over the weekend.  If you're attending, then just keep an eye out for the super-fly swaggering dudes.  We'll be standing behind and slightly to the left of them.
-
-See you there!

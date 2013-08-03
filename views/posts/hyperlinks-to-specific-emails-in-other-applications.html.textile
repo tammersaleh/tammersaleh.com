@@ -1,6 +1,0 @@
----
-date: 2006-11-07
-title: Hyperlinks to specific emails in other applications.
----
-
-I've wanted "this":http://www.hawkwings.net/2006/11/07/mailtags-hyperlink-to-emails-in-other-apps/ for so long it's incredible.  Thank you, "MailTags":http://www.indev.ca/MT2Beta.html.
