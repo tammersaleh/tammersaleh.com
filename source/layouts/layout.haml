@@ -1,0 +1,55 @@
+!!! 5
+/[if lt IE 7] <html class="no-js lt-ie9 lt-ie8 lt-ie7">
+/[if IE 7]    <html class="no-js lt-ie9 lt-ie8">
+/[if IE 8]    <html class="no-js lt-ie9">
+<!--[if gt IE 8]><!-->
+%html{:class => "no-js"}
+  <!--<![endif]-->
+  %head
+    %meta{:charset => "utf-8"}
+    %meta{'http-equiv' => "X-UA-Compatible", :content =>"IE=edge,chrome=1"}
+
+    -# Pull in the page title
+    %title= current_page.data.title
+
+    %meta{:name => "description", :content => ""}
+    %meta{:name => "author", :content => ""}
+    -# You may wish to remove the 'initial scale=1.0' for non-responsive layouts
+    %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
+
+    -# Place favicon.ico and apple-touch-icon.png in the root directory
+
+    = stylesheet_link_tag "screen"
+    = javascript_include_tag "libs/modernizr-2.6.1.min"
+
+  %body{:class => current_page.data.bodyclass}
+    /[if lt IE 7]
+      %p.chromeframe
+        You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.
+    .container
+      %header
+        %h1= current_page.data.title
+      #main-content{:role => "main"}
+
+        -# Page content gets rendered here
+        = yield
+
+      %footer
+        %p &copy; #{copyright_years(2011)} AmicusUser
+
+    = javascript_include_tag "//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"
+    :javascript
+      window.jQuery || document.write('<script src="/javascripts/libs/jquery-1.9.0.min.js"><\/script>')
+
+    -# Holder.js - canvas-generated placeholder images for prototyping
+    = javascript_include_tag "libs/holder"
+
+    = javascript_include_tag "plugins", "script"
+
+    -# Google Analytics: change UA-XXXXX-X to be your site's ID.
+    -# uncomment when deploying
+    / :javascript
+    /   var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+    /   (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+    /   g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+    /   s.parentNode.insertBefore(g,s)}(document,'script'));

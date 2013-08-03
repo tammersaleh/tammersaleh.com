@@ -1,12 +1,5 @@
-log/*
-tmp/**/*
-db/schema.rb
-db/*.sqlite3
-public/system
-*.DS_Store
-coverage*
-*.swp
-tmp/restart.txt
-public/system
+build/
+.sass-cache
+tmp/*
 
 !.keep

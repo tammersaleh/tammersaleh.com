@@ -1,0 +1,45 @@
+//
+// Main Stylesheet
+//
+
+@import "compass"
+@import "h5bp"
+
+// HTML5 Boilerplate Styles
+@include h5bp-normalize
+@include h5bp-base-styles
+
+// HTML5 Boilerplate styling for Chrome Frame
+@include h5bp-chromeframe
+
+// Susy Grid Systems - choose one to customize
+// @import "grid/fixed"
+@import "grid/magic"
+
+// Your own styles go here.
+h1
+  color: #999
+  text-transform: uppercase
+  line-height: 1em
+h2
+  line-height: 1.3em
+kbd
+  background-color: #f5f5f5
+  border: 1px solid #dedede
+  padding: 0px 3px 2px
+footer
+  margin-top: 3em
+  text-align: right
+
+.container
+  // Force images to scale down to their container widths.
+  img
+    max-width: 100%
+    height: auto
+
+
+// H5BP helper classes & mixins.
+// @include h5bp-helpers
+
+// Print styles.
+@include h5bp-media
