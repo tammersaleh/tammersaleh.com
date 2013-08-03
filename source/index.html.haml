@@ -6,6 +6,9 @@ bodyclass: newproject
 .posts
   - blog.articles[0...5].each do |article|
     %article
+      %pre
+        %code
+          = escape_html article.class
       %h1
         %a{:href => article.url}
           = article.title

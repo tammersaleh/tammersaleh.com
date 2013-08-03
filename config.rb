@@ -119,3 +119,13 @@ end
 
 activate :directory_indexes
 
+module URLWithoutTrailingSlash
+  def url
+    super.sub(%r{/$}, "")
+  end
+end
+
+class Middleman::Sitemap::Resource
+  prepend(URLWithoutTrailingSlash)
+end
+
