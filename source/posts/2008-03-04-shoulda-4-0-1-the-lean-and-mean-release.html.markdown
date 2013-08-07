@@ -3,8 +3,8 @@ date: 2008-03-04 12:00 PDT
 title: Shoulda 4.0.1 - the lean and mean release
 ---
 
-![Image](baby.jpg medium)
-{.img_left}
+![Image](baby/medium.jpg)
+{:.img_left}
 
 Shoulda is a great tool for cleaning up your tests, but there was always some dirt under the hood that was keeping me up at night.  I don't want to just [move complexity around](http://www.klankboomklang.com/2007/10/26/class-methods-part-ii-annotations/) - I want to remove it entirely.
 

@@ -37,7 +37,7 @@ end
 
 This is just one context from the file.  Here's a screenshot of the output from the whole specification:
 
-![Image](rspec_output_1.jpg)
+![Image](rspec_output_1/original.jpg)
 
 Note the delicate curves of colorization.  Note the simplicity of the context/specification structure.  Wonderful stuff, here.
 

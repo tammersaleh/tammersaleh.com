@@ -24,7 +24,7 @@ I have this saved as [v](https://github.com/tsaleh/dotfiles/blob/master/bin/v) i
 
 Opens Gemfile in a new macvim window:
 
-![Image](vim_gemfile.jpg)
+![Image](vim_gemfile/original.jpg)
 
 ~~~
 ~/code/tsaleh/tammer-saleh$ v config.ru 
@@ -32,7 +32,7 @@ Opens Gemfile in a new macvim window:
 
 Opens config.ru in a tab in that same window, since we're still in the `tammer_saleh` directory:
 
-![Image](vim_config_ru.jpg)
+![Image](vim_config_ru/original.jpg)
 
 ~~~
 ~/code/tsaleh/tammer-saleh$ cd ~/bin
@@ -41,6 +41,6 @@ Opens config.ru in a tab in that same window, since we're still in the `tammer_s
 
 Opens git-fml in a *new* macvim window, since we're in the `~/bin` directory:
 
-![Image](vim_git_fml.jpg)
+![Image](vim_git_fml/original.jpg)
 
 The magic is in the `pwd` call, which names the main window the same as your current directory.  The result is a natural flow of tabs being grouped by the project you're working on, and it works quite nicely.

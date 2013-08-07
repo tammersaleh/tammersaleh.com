@@ -3,8 +3,8 @@ date: 2009-04-30 12:00 PDT
 title: Changes
 ---
 
-![Image](thoughtbot-2007.jpg large)
-{.img_right}
+![Image](thoughtbot-2007/large.jpg)
+{:.img_right}
 
 I've worked in a few different types of environments in my career ([academia](http://www.seismolab.caltech.edu/earthquakes.html), [start-ups](http://citysearch.com), [Japan](http://www.jetprogramme.org/), [doing good](http://www.ladhs.org/wps/portal/), [working for the man](http://www.ncsa.uiuc.edu/), etc), but I can honestly say that I've never enjoyed my work, or my coworkers, as much as I have while I've been working with the team at [Thoughtbot](http://thoughtbot.com).
 

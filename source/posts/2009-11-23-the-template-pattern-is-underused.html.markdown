@@ -3,8 +3,8 @@ date: 2009-11-23 12:00 PDT
 title: The Template Pattern is underused
 ---
 
-![Image](muji-jigsaw-cookie-cutter.jpg)
-{.img_right}
+![Image](muji-jigsaw-cookie-cutter/original.jpg)
+{:.img_right}
 
 While a large portion of the [Gang of Four software patterns](http://en.wikipedia.org/wiki/Design_Patterns_(book)) are rendered useless by the dynamic nature of Ruby, one that stands the test of time is the [Template Pattern](http://en.wikipedia.org/wiki/Template_method_pattern).
 

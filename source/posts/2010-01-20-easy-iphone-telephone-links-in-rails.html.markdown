@@ -5,7 +5,7 @@ title: Easy iPhone telephone links in Rails
 
 Some sites, when viewed through an iPhone, have clickable phone numbers, which can be dialed immediately.  
 
-![Image](iphone-tel-link.jpg)
+![Image](iphone-tel-link/original.jpg)
 
 Some sites, on the other hand, require the user to copy the phone number and paste it into the dialer manually.   
 

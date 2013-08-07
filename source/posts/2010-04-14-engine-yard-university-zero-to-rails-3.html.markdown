@@ -3,8 +3,8 @@ date: 2010-04-14 12:00 PDT
 title: ! 'Engine Yard University: Zero to Rails 3'
 ---
 
-![Image](randall_speaking.jpg medium)
-{.img_left}
+![Image](randall_speaking/medium.jpg)
+{:.img_left}
 
 For the past few months, I've been working on something pretty exciting: [Engine Yard University](http://www.engineyard.com/blog/2010/announcing-engine-yard-university-zero-to-rails-3).
 
@@ -12,8 +12,8 @@ Engine Yard came to me to produce their training curriculum, and their first cou
 
 With technical help and direction from Yehuda Katz, Ezra Zygmuntowicz, and others, it covers everything you need to get your team started developing successful Rails 3 applications.
 
-![Image](tammer_speaking.jpg medium)
-{.img_right}
+![Image](tammer_speaking/medium.jpg)
+{:.img_right}
 
 > Engine Yard University courses are designed to get enterprise development teams up to speed quickly on Rails, JRuby, Agile development, and other technologies.
 

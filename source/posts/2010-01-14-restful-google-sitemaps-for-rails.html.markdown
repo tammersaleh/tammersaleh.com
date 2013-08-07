@@ -3,8 +3,8 @@ date: 2010-01-14 12:00 PDT
 title: RESTful Google Sitemaps for Rails
 ---
 
-![Image](old-world-map.jpg large)
-{.img_right}
+![Image](old-world-map/large.jpg)
+{:.img_right}
 
 I recently added a google sitemap to [tammersaleh.com](http://tammersaleh.com).  I followed [Ilya Grigorik's great instructions](http://www.igvita.com/2006/11/24/google-yahoo-sitemaps-in-rails/), and while they worked peachily, they were a tad bit outdated (2006).  
 
@@ -134,7 +134,7 @@ Content-Type: application/xml; charset=utf-8
 
 ### Telling Google
 
-![Image](Webmaster_Tools_-_Sitemaps.jpg large)
-{.img_left}
+![Image](Webmaster_Tools_-_Sitemaps/large.jpg)
+{:.img_left}
 
 The final step is to register your sitemap with the [google webmaster tools](https://www.google.com/webmasters/tools) site.  Create a new site, and follow the **Sitemaps** link under the **Site configuration** menu item.  The sitemap path is `/sitemap.xml`.

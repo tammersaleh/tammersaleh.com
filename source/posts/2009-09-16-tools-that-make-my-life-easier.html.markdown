@@ -9,7 +9,7 @@ First, a note about my setup:  I have a Macbook Air and an iMac, both of which I
 
 ### Up top
 
-![Image](finder-statusbar.jpg)
+![Image](finder-statusbar/original.jpg)
 
 - **[SizeUp](http://www.irradiatedsoftware.com/sizeup/)**: Rearrange windows like it was 1997 (...back when I ran linux and did this all the time). 
 - **[Spirited Away](http://drikin.com/spiritedaway/)**: Great for removing distractions while I Make Money, Yo? 
@@ -19,8 +19,8 @@ First, a note about my setup:  I have a Macbook Air and an iMac, both of which I
 
 Some tools that *everyone* already uses: **[Dropbox](https://www.getdropbox.com/)**: The ubiquitous syncing solution.  Some performance problems, but all in all well worth the money.  **[Quicksilver](http://www.blacktree.com/)**: Srsly...  Who doesn't have this?  **[MobileMe](http://www.apple.com/mobileme/)**: Even with all its foibles, and with Dropbox replacing iDisk, this is a must-have service for me.  **[Time Machine](http://www.apple.com/timecapsule/)**: Because a backup solution is only as good as the restore.
 
-![Image](iPhone_Home_Screen.jpg)
-{.img_right}
+![Image](iPhone_Home_Screen/original.jpg)
+{:.img_right}
 
 ### In my pocket
 
