@@ -83,4 +83,4 @@ Now using gemset 'rail3'
 tardis:~ $ 
 ~~~
 
-**Update:  Looks like I was [a version behind](http://twitter.com/wayneeseguin/status/11439618936) on RVM, but the new `rvm-prompt` still doesn't handle defaults.  I've also updated the code to account for the change from `%` to @@@.**
+**Update:  Looks like I was [a version behind](http://twitter.com/wayneeseguin/status/11439618936) on RVM, but the new `rvm-prompt` still doesn't handle defaults.  I've also updated the code to account for the change from `%` to `@`.**
