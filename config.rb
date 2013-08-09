@@ -41,18 +41,18 @@ Time.zone = "Pacific Time (US & Canada)"
 
 activate :blog do |blog|
   blog.prefix = "posts"
-  blog.permalink = ":title"
+  blog.permalink = ":title.html"
 end
 
 activate :directory_indexes
 
-module URLWithoutTrailingSlash
-  def url
-    super.sub(%r{/$}, "")
-  end
-end
-
-class Middleman::Sitemap::Resource
-  prepend(URLWithoutTrailingSlash)
-end
+# module URLWithoutTrailingSlash
+#   def url
+#     super.sub(%r{/$}, "")
+#   end
+# end
+# 
+# class Middleman::Sitemap::Resource
+#   prepend(URLWithoutTrailingSlash)
+# end
 
