@@ -46,13 +46,20 @@ end
 
 activate :directory_indexes
 
-# module URLWithoutTrailingSlash
-#   def url
-#     super.sub(%r{/$}, "")
-#   end
-# end
-# 
-# class Middleman::Sitemap::Resource
-#   prepend(URLWithoutTrailingSlash)
-# end
+# The file s3.yml should be in the project root, and contain something like this:
+#
+#   access_key: 'iam access key'
+#   secret:     'iam secret'
+
+s3_config = YAML::load_file('s3.yml')
+
+activate :s3_sync do |s3_sync|
+  s3_sync.bucket                = 'tammersaleh.com'
+  s3_sync.region                = 'us-west-1'
+  s3_sync.aws_access_key_id     = s3_config['access_key']
+  s3_sync.aws_secret_access_key = s3_config['secret']
+  s3_sync.delete                = true
+  s3_sync.after_build           = false # We chain after the build step by default. This may not be your desired behavior...
+  s3_sync.prefer_gzip           = true
+end
 

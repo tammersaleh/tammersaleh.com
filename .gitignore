@@ -1,5 +1,6 @@
 build/
 .sass-cache
 tmp/*
+s3.yml
 
 !.keep
