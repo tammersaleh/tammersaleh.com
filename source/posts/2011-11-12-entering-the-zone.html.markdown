@@ -5,6 +5,7 @@ title: Entering the Zone
 
 
 ![Image](pool_is_hard/large.jpg)
+{: .img_right}
 
 Pool is an impossible game. I'm not saying that it's hard.  I'm saying that the ability to whack a warped three foot stick into a set of 20 year old marble balls on a surface as flat as the Sahara, getting them to collide with great force, gracefully curving and banking around obstacles, and finally making the target ball into the target pocket is **absolutely ludicrous**.  
 
@@ -13,6 +14,7 @@ It's one of the great miracles of human dexterity that we can play the game of p
 I suck at pool.  Well, to be fair, my *sober self* sucks at pool.  In fact, I have a specific range of sobriety during which I am Pretty Damn Good at pool.  That range is between two to five whiskies.  I could be a pool shark if I could get that second number higher.  Give me three whiskies and play [Bad to the Bone](http://www.youtube.com/watch?v=_7VsoxT_FUY), and I'll kick your ass.
 
 ![Image](whisky_pool_graph/large.jpg)
+{: .img_left}
 
 When I was a kid in high school, I used to do my math homework in the back room while listening to Led Zeppelin I and II on repeat.  I love those albums, and still think they contain some of the best Blues around.  But eventually a Pavlovian thing happened. They put me in The Math Zone.  I almost couldn't do math without them.  Great for homework, but terrible for the big tests.
 

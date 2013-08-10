@@ -3,9 +3,6 @@ date: 2010-04-14 12:00 PDT
 title: ! 'Engine Yard University: Zero to Rails 3'
 ---
 
-![Image](randall_speaking/medium.jpg)
-{:.img_left}
-
 For the past few months, I've been working on something pretty exciting: [Engine Yard University](http://www.engineyard.com/blog/2010/announcing-engine-yard-university-zero-to-rails-3).
 
 Engine Yard came to me to produce their training curriculum, and their first course, [Zero to Rails 3](http://www.engineyard.com/services/university) is now live.  *Zero to Rails 3* is a three day, hands on workshop in San Francisco taught by [Randall Thomas](http://www.evilmartini.com) and myself.  

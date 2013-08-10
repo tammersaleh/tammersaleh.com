@@ -8,6 +8,7 @@ There's an AntiPattern that I still see in the wild far too often: the overly no
 A simple example is the following domain snippet, showing a Product model with all the trappings that surround it.
 
 ![Image](Untitled/original.jpg)
+{: .img_left}
 
 Each of `Condition`, `Color`, `ProductState` and `ShippingType` are separate models, with separate tables, separate factory definitions, unit tests, RESTful controllers, migrations, etc.
 
