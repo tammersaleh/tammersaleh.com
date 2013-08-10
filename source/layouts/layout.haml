@@ -8,15 +8,14 @@
   %head
     %meta{:charset => "utf-8"}
     %meta{'http-equiv' => "X-UA-Compatible", :content =>"IE=edge,chrome=1"}
+    %title= ["Tammer Saleh", current_page.data.title].compact.join(" : ")
 
-    -# Pull in the page title
-    %title= "Tammer Saleh #{current_page.data.title}"
-
-    %meta{:name => "description", :content => ""}
-    %meta{:name => "author", :content => ""}
+    %meta{:name => "description", :content => "Tammer's home online."}
+    %meta{:name => "author", :content => "Tammer Saleh"}
+    %meta{:name => "keywords", :content => "Tammer Saleh, tsaleh, ruby, rails, ruby training, rails training, agile training, test driven development, cloud foundry, engineyard, thunderbolt labs, thoughtbot"}
 
     -# You may wish to remove the 'initial scale=1.0' for non-responsive layouts
-    %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
+    -# %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
 
     -# Place favicon.ico and apple-touch-icon.png in the root directory
 
@@ -26,16 +25,20 @@
   %body{:class => current_page.data.bodyclass}
     /[if lt IE 7]
       %p.chromeframe
-        You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.
+        You are using an outdated browser. 
+        <a href="http://browsehappy.com/">Upgrade your browser today</a> 
+        or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> 
+        to better experience this site.
     .container
       %header
-        %h1= "Tammer Saleh #{current_page.data.title}"
+        %h1 Tammer Saleh 
+        %h2= current_page.data.title
       #main-content{:role => "main"}
 
         ~ yield
 
       %footer
-        %p &copy; #{copyright_years(2011)} AmicusUser
+        %p &copy; #{copyright_years(2001)} Tammer Saleh
 
     = javascript_include_tag "//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"
     :javascript
