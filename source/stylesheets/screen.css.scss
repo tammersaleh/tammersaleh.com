@@ -20,6 +20,24 @@ h1 {
   font-size: 4em;
 }
 
+.img_left {
+  clear: both;
+  float: left;
+  padding-right: $grid-gutter-width;
+  max-width: percentage((6 / $grid-columns));
+}
+
+.img_right {
+  clear: both;
+  float: right;
+  padding-left: $grid-gutter-width;
+  max-width: percentage((6 / $grid-columns));
+}
+
+blockquote {
+  clear: left;
+}
+
 footer {
   margin-top: 3em;
   text-align: right;

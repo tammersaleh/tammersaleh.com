@@ -11,10 +11,10 @@ By far, the best conference I've been to (or expect to go to) this year was [Alo
 [Chad Pytel](http://www.thoughtbot.com/about/people#cpytel) and I had a great time presenting material from our [upcoming book](http://my.safaribooksonline.com/9780321620293) on Rails Antipatterns, and we were grateful for the audience praise following the talk.
 
 ![Image](alohaonrails-slides/medium.jpg)
-{:.img_left}
+{:.img_right}
 
 > [Really enjoyed @tsaleh and @cpytel's talk on You're Doing It Wrong. Lots of nuggets of wisdom](http://twitter.com/jimweirich/status/4664594177)
-
+>
 > [@cpytel had good advice for testing rake tasks. Puts complicated code in a Ruby class and test that. Yes!](http://twitter.com/jimweirich/status/4663897735)
 
 ![Image](aloha-panel/original.jpg)
