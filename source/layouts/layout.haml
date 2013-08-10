@@ -20,6 +20,7 @@
     -# Place favicon.ico and apple-touch-icon.png in the root directory
 
     = stylesheet_link_tag "screen"
+    %link{href:"/fonts/ostrich-sans.css", media:"screen", rel:"stylesheet", type:"text/css"}
     = javascript_include_tag "libs/modernizr-2.6.1.min"
 
   %body{:class => current_page.data.bodyclass}
@@ -35,7 +36,7 @@
       -#     %h1 Tammer Saleh
       .row
         #sidebar
-          %a{href: "/"}
+          %a#tammersaleh{href: "/"}
             %h2 
               Tammer 
             %h1

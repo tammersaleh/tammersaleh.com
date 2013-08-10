@@ -3,10 +3,6 @@
 //
 
 @import "compass";
-
-// https://github.com/jlong/sass-twitter-bootstrap/blob/3.0.0-wip/lib/_variables.scss
-// $body-bg: black;
-
 @import "variables";
 
 // https://github.com/thomas-mcdonald/bootstrap-sass
@@ -19,6 +15,8 @@
 h1 {
   font-size: 4em;
 }
+
+#page-content { @extend .col-lg-10; }
 
 .img_left {
   clear: both;

@@ -16,24 +16,3 @@
 //  require bootstrap-typeahead.js
 //  require bootstrap.js
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
