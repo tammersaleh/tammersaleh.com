@@ -32,7 +32,7 @@ What's worse is that they won't know when they're out of their depth, so they'll
 
 ### Hire for Judgement
 
-I leave the team to decide if a candidate is smart and fits our culture, but I take responsibility for figuring out if he has good judgement.  To do so, I take him out for a beer, and I ask a couple of leading questions:
+I leave the team to decide if a candidate is smart and fits our culture, but I take responsibility for figuring out if they have good judgement.  To do so, I take them out for a beer, and I ask a couple of leading questions:
 
 - What's your least favorite part of Ruby and the Ruby on Rails framework, and why?
 - Tell me about the last time you used an interesting bit of technology, and what you learned from it.
