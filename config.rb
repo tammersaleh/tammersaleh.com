@@ -51,15 +51,25 @@ activate :directory_indexes
 #   access_key: 'iam access key'
 #   secret:     'iam secret'
 
-s3_config = YAML::load_file('s3.yml')
+aws_config = YAML::load_file('s3.yml')
 
-activate :s3_sync do |s3_sync|
-  s3_sync.bucket                = 'tammersaleh.com'
-  s3_sync.region                = 'us-west-1'
-  s3_sync.aws_access_key_id     = s3_config['access_key']
-  s3_sync.aws_secret_access_key = s3_config['secret']
-  s3_sync.delete                = true
-  s3_sync.after_build           = false # We chain after the build step by default. This may not be your desired behavior...
-  s3_sync.prefer_gzip           = true
+# http://tammersaleh.com.s3-website-us-west-1.amazonaws.com
+activate :s3_sync do |opts|
+  opts.bucket                = 'tammersaleh.com'
+  opts.region                = 'us-west-1'
+  opts.aws_access_key_id     = aws_config['access_key']
+  opts.aws_secret_access_key = aws_config['secret']
+  opts.delete                = true
+  opts.after_build           = false # We chain after the build step by default. This may not be your desired behavior...
+  opts.prefer_gzip           = true
+end
+
+# http://d2x1ickoeyyexb.cloudfront.net
+activate :cloudfront do |opts|
+  opts.access_key_id     = aws_config['access_key']
+  opts.secret_access_key = aws_config['secret']
+  opts.distribution_id   = aws_config["distribution_id"]
+  opts.filter            = /.html/
+  opts.after_build       = false
 end
 
