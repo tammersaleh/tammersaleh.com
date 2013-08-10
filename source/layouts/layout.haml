@@ -27,20 +27,27 @@
       %p.chromeframe
         You are using an outdated browser. 
         <a href="http://browsehappy.com/">Upgrade your browser today</a> 
-        or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> 
-        to better experience this site.
+        or <a href="http://www.google.com/chromeframe/?redirect=true">
+        install Google Chrome Frame</a> to better experience this site.
     .container
-      #page-content
-        .page-header
-          %h1 Tammer Saleh 
+      .page-header
+        %a{href: "/"}
+          %h1 Tammer Saleh
+      .row
+        #sidebar
+          %p
+            = img_holder 200, 200, text: "Headshot"
+          %p
+            Rubyist, author, and leader. I was the Co-Founder of Thunderbolt
+            Labs, VP of Engineering at Engine Yard, and the original author of
+            Shoulda and Airbrake. I also coauthored 
+            %em Rails AntiPatterns: Best Practice Ruby on Rails Refactoring
+        #page-content
           %h2= current_page.data.title
-        #main-content{:role => "main"}
-
           ~ yield
 
       %footer
-        .container
-          %p.text-muted.credit &copy; #{copyright_years(2001)} Tammer Saleh
+        %p.text-muted.credit &copy; #{copyright_years(2001)} Tammer Saleh
 
     = javascript_include_tag "//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"
     :javascript

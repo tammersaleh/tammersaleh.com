@@ -2,23 +2,11 @@
 bodyclass: newproject
 ---
 
-.posts
-  %ul
-    - blog.articles.each do |article|
-      %li.article
-        %h3
-          %a{:href => article.url}
-            = article.title
-          %small
-            %time
-              = article.date.strftime('%b %e %Y')
-
-.moreinfo
-  :markdown
-    ### For More Info…
-
-    * on the Susy grid system, check out [the official site](http://susy.oddbird.net/).
-
-  =img_holder(:width => 300, :height => 200, :bgcolor => "#0c0", :fgcolor => "#fff", :text => "I'm an image placeholder!")
-
+- blog.articles.each do |article|
+  %h4
+    %a{:href => article.url}
+      = article.title
+    %small
+      %time
+        = article.date.strftime('%b %e %Y')
 
