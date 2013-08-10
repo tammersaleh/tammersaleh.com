@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/thomas-mcdonald/bootstrap-sass.git
+  revision: 1685fb137e2b858a6387eb669d32dae104b58929
+  branch: 3
+  specs:
+    bootstrap-sass (3.0.0.0)
+      sass (~> 3.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -128,6 +136,7 @@ PLATFORMS
 
 DEPENDENCIES
   RedCloth
+  bootstrap-sass!
   compass-h5bp (~> 0.1.1)
   middleman (~> 3.1.3)
   middleman-blog

@@ -1,3 +1,5 @@
+require 'bootstrap-sass'
+
 # compass_config do |config|
 #   config.output_style = :compact
 # end

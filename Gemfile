@@ -10,3 +10,4 @@ gem "RedCloth"
 
 # Compass plugins
 gem 'compass-h5bp', "~> 0.1.1" # HTML5 Boilerplate styles
+gem 'bootstrap-sass', :git => 'git://github.com/thomas-mcdonald/bootstrap-sass.git', :branch => '3'
