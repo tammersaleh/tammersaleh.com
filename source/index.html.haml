@@ -2,9 +2,13 @@
 bodyclass: newproject
 ---
 
-- blog.articles.in_groups_of(3).each do |article_group|
-  - article_group.each do |article|
-    %h3
-      %a{:href => article.url}
-        = article.title
+.article_index
+  - blog.articles.in_groups_of(4).each do |article_group|
+    .row
+      - article_group.each do |article|
+        - if article
+          %a.article{:href => article.url}
+            .inner
+              %h3
+                = article.title
 

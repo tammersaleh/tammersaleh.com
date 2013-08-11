@@ -1,4 +1,5 @@
 require 'bootstrap-sass'
+require "active_support/core_ext/array"
 
 # compass_config do |config|
 #   config.output_style = :compact
