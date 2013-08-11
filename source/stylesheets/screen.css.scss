@@ -9,12 +9,38 @@
 // https://github.com/thomas-mcdonald/bootstrap-sass/tree/3
 @import "bootstrap";
 
-#sidebar      { @extend .col-lg-2; }
-#page-content { @extend .col-lg-10; }
-
-h1 {
-  font-size: 4em;
+#sidebar { 
+  @extend .col-lg-2; 
+  #tammersaleh * { 
+    font-weight: 700;
+    // text-align: center;
+  }
+  h2 { 
+    font-size: 2.6em;
+  }
+  h1 { 
+    margin: -0.35em 0 0 0;
+    font-size: 3.7em;
+  }
+  p {
+    @extend .text-muted;
+    @extend small;
+    img {
+      border-top: 1px solid $gray-light;
+      border-bottom: 1px solid $gray-light;
+    }
+  }
 }
+
+h1, h2, h3, h4, h5, h6 {
+  text-transform: uppercase;
+  font-family: "tablet-gothic-narrow",sans-serif;
+  font-style: normal;
+  code { text-transform: none; }
+}
+
+h1, h2, h3 { font-weight: 300; }
+h4, h5, h6 { font-weight: 700; }
 
 #page-content { @extend .col-lg-10; }
 
