@@ -2,11 +2,9 @@
 bodyclass: newproject
 ---
 
-- blog.articles.each do |article|
-  %h3
-    %a{:href => article.url}
-      = article.title
-    %small
-      %time
-        = article.date.strftime('%b %e %Y')
+- blog.articles.in_groups_of(3).each do |article_group|
+  - article_group.each do |article|
+    %h3
+      %a{:href => article.url}
+        = article.title
 
