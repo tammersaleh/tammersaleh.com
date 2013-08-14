@@ -22,9 +22,8 @@
       text-transform: uppercase;
       font-weight: 200;
       width: 100%;
-      #saleh {
-        margin-top: -0.5em;
-      }
+      div:first-child { margin-top: 0em; }
+      div { margin-top: -0.5em; }
     }
     p {
       @extend .text-muted;
