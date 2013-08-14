@@ -24,6 +24,9 @@
       width: 100%;
       div:first-child { margin-top: 0em; }
       div { margin-top: -0.5em; }
+      .skill {
+        color: $text-muted;
+      }
     }
     p {
       @extend .text-muted;
