@@ -15,4 +15,10 @@
 //  require bootstrap-transition.js
 //  require bootstrap-typeahead.js
 //  require bootstrap.js
+//
+//= require libs/bigtext.js
+
+jQuery(window).load(function () {
+  $('#tammersaleh').bigtext();
+});
 
