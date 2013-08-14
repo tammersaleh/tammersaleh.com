@@ -10,15 +10,20 @@
 @import "bootstrap";
 
 .container {
-  #page-content { @extend .col-lg-9; }
+  #page-content { 
+    @extend .col-lg-9; 
+  }
 
   #sidebar {
     @extend .col-lg-3;
     #tammersaleh {
+      font-family: "tablet-gothic-narrow",sans-serif;
       display: block;
       text-transform: uppercase;
-      * {
-        font-weight: 700;
+      font-weight: 200;
+      width: 100%;
+      #saleh {
+        margin-top: -0.5em;
       }
     }
     p {
@@ -44,11 +49,23 @@ h1, h2, h3 { font-weight: 300; }
 h4, h5, h6 { font-weight: 700; }
 
 .article_index {
+  .article_row {
+    @extend .row;
+    &:first-child .article {
+      margin-top: 0;
+      padding-top: 0;
+    }
+  }
   .article {
+    padding-top: $padding-large-vertical;
     @extend .col-lg-3;
-    .inner {
+    a {
+      display: block;
       height: 250px;
       background: $gray-lighter;
+      h3 {
+        margin-top: 0;
+      }
     }
   }
 }

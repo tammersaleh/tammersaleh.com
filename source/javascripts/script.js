@@ -17,6 +17,7 @@
 //  require bootstrap.js
 //
 //= require libs/bigtext.js
+//  require libs/jquery.fittext.js
 
 jQuery(window).load(function () {
   $('#tammersaleh').bigtext();

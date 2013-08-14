@@ -3,12 +3,11 @@ bodyclass: newproject
 ---
 
 .article_index
-  - blog.articles.in_groups_of(4).each do |article_group|
-    .row
+  - blog.articles.in_groups_of(4).each_with_index do |article_group|
+    .article_row
       - article_group.each do |article|
         - if article
-          %a.article{:href => article.url}
-            .inner
-              %h3
-                = article.title
+          .article
+            %a{href: article.url}
+              %h3= article.title
 
