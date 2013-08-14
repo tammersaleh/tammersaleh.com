@@ -29,6 +29,9 @@ helpers do
     img
   end
 
+  def index_article_background(article)
+    "background-image: url(\"#{article.url}cover.png\")" 
+  end
 end
 
 # Build-specific configuration

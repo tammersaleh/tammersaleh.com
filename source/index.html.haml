@@ -8,6 +8,8 @@ bodyclass: newproject
       - article_group.each do |article|
         - if article
           .article
-            %a{href: article.url}
+            -# %pre
+            -#   %code= (article.methods - Object.new.methods).inspect
+            %a{href: article.url, style: index_article_background(article)}
               %h3= article.title
 

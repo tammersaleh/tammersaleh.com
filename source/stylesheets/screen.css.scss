@@ -62,11 +62,16 @@ h4, h5, h6 { font-weight: 700; }
     padding-top: $padding-large-vertical;
     @extend .col-lg-3;
     a {
+      background-position: center center;
+      background-size: cover;
+      background-repeat: no-repeat;
       display: block;
       height: 250px;
-      background: $gray-lighter;
       h3 {
+        background: rgba(255, 255, 255, 0.5);
         margin-top: 0;
+        position: absolute;
+        bottom: 0;
       }
     }
   }
