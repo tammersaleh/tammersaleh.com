@@ -13,7 +13,7 @@
 .container {
   #sidebar               { @extend .col-lg-3; }
   #page-content          { @extend .col-lg-9; }
-  #page-content .article { @extend .col-lg-4; }
+  #page-content .article { @extend .col-lg-3; }
 
   #sidebar               { @extend .col-sm-4; }
   #page-content          { @extend .col-sm-8; }
@@ -27,7 +27,7 @@
   #page-content          { @extend .col-6; }
   #page-content .article { @extend .col-12; }
 
-  #page-content .article { border: 1px solid gray; }
+  // #page-content .article { border: 1px solid gray; }
 }
 
 // style
@@ -63,8 +63,10 @@
       background-position: center center;
       background-size: cover;
       background-repeat: no-repeat;
+
       display: block;
       height: 250px;
+      position: relative;
       h3 {
         background: rgba(255, 255, 255, 0.6);
         margin-top: 0;
