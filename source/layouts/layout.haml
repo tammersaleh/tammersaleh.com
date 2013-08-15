@@ -33,45 +33,17 @@
         or <a href="http://www.google.com/chromeframe/?redirect=true">
         install Google Chrome Frame</a> to better experience this site.
     .container
-      .row
-        #sidebar
-          %a#tammersaleh{href: "/"}
-            .name Tammer 
-            .name Saleh
-            .skill Developer
-            .skill Speaker
-            .skill Trainer
-            .skill Author
-          %p
-            = image_tag "tammersaleh.jpg"
-          %p
-            Developer, speaker, trainer and author. I've worked with Cloud Foundry, 
-            Founded Thunderbolt Labs, acted
-            as VP of Engineering at Engine Yard, and was the original author of
-            Shoulda and Airbrake. I also co-authored 
-            %em Rails AntiPatterns: Best Practice Ruby on Rails Refactoring
-          %p
-            I'm currently seeking positions in the European Union.
-        #page-content
-          %h2= current_page.data.title
-          ~ yield
+      #sidebar
+        = partial "layouts/sidebar_content"
+      #page-content
+        ~ yield
 
       %footer
-        %p.text-muted.credit &copy; #{copyright_years(2001)} Tammer Saleh
+        %h5 &copy; #{copyright_years(2001)} Tammer Saleh
 
     = javascript_include_tag "//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"
     :javascript
       window.jQuery || document.write('<script src="/javascripts/libs/jquery-1.9.0.min.js"><\/script>')
 
-    -# Holder.js - canvas-generated placeholder images for prototyping
-    = javascript_include_tag "libs/holder"
-
     = javascript_include_tag "plugins", "script"
 
-    -# Google Analytics: change UA-XXXXX-X to be your site's ID.
-    -# uncomment when deploying
-    / :javascript
-    /   var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-    /   (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-    /   g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-    /   s.parentNode.insertBefore(g,s)}(document,'script'));

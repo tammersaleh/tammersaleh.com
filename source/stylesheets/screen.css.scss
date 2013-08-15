@@ -9,24 +9,40 @@
 // https://github.com/thomas-mcdonald/bootstrap-sass/tree/3
 @import "bootstrap";
 
+// layout
 .container {
-  #page-content { 
-    @extend .col-lg-9; 
-  }
+  #sidebar               { @extend .col-lg-3; }
+  #page-content          { @extend .col-lg-9; }
+  #page-content .article { @extend .col-lg-4; }
 
+  #sidebar               { @extend .col-sm-4; }
+  #page-content          { @extend .col-sm-8; }
+  #page-content .article { @extend .col-sm-6; }
+
+  #sidebar               { @extend .col-xs-1; }
+  #page-content          { @extend .col-xs-1; }
+  #page-content .article { @extend .col-xs-1; }
+
+  #sidebar               { @extend .col-6; }
+  #page-content          { @extend .col-6; }
+  #page-content .article { @extend .col-12; }
+
+  #page-content .article { border: 1px solid gray; }
+}
+
+// style
+.container {
+  padding-top: 20px;
   #sidebar {
-    @extend .col-lg-3;
     #tammersaleh {
       font-family: "tablet-gothic-narrow",sans-serif;
       display: block;
       text-transform: uppercase;
       font-weight: 200;
       width: 100%;
-      div:first-child { margin-top: 0em; }
+      div:first-child { margin-top: -0.3em; }
       div { margin-top: -0.5em; }
-      .skill {
-        color: $text-muted;
-      }
+      .skill { color: $text-muted; }
     }
     p {
       @extend .text-muted;
@@ -40,27 +56,9 @@
   }
 }
 
-h1, h2, h3, h4, h5, h6 {
-  text-transform: uppercase;
-  font-family: "tablet-gothic-narrow",sans-serif;
-  font-style: normal;
-  code { text-transform: none; }
-}
-
-h1, h2, h3 { font-weight: 300; }
-h4, h5, h6 { font-weight: 700; }
-
 .article_index {
-  .article_row {
-    @extend .row;
-    &:first-child .article {
-      margin-top: 0;
-      padding-top: 0;
-    }
-  }
   .article {
-    padding-top: $padding-large-vertical;
-    @extend .col-lg-3;
+    margin-bottom: 20px;
     a {
       background-position: center center;
       background-size: cover;
@@ -68,8 +66,9 @@ h4, h5, h6 { font-weight: 700; }
       display: block;
       height: 250px;
       h3 {
-        background: rgba(255, 255, 255, 0.8);
+        background: rgba(255, 255, 255, 0.6);
         margin-top: 0;
+        margin-bottom: 0;
         position: absolute;
         bottom: 0;
       }
@@ -96,6 +95,9 @@ blockquote {
 }
 
 footer {
+  @extend .text-muted;
+  @extend .credit;
+  clear: both;
   margin-top: 3em;
   text-align: right;
 }
@@ -104,4 +106,14 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+h1, h2, h3, h4, h5, h6 {
+  text-transform: uppercase;
+  font-family: "tablet-gothic-narrow",sans-serif;
+  font-style: normal;
+  code { text-transform: none; }
+}
+
+h1, h2, h3 { font-weight: 300; }
+h4, h5, h6 { font-weight: 700; }
 
