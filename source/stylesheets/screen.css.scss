@@ -60,6 +60,13 @@
   .article {
     margin-bottom: 20px;
     a {
+      @include border-radius(5px);
+      @include filter(grayscale(80%));
+      @include opacity(0.8);
+      &:hover {  
+        @include filter(grayscale(0%));
+        @include opacity(1.0);
+      }
       background-position: center center;
       background-size: cover;
       background-repeat: no-repeat;
@@ -67,7 +74,7 @@
       display: block;
       height: 250px;
       position: relative;
-      h3 {
+      h4 {
         background: rgba(255, 255, 255, 0.6);
         margin-top: 0;
         margin-bottom: 0;
