@@ -11,23 +11,25 @@
 
 // layout
 .container {
+  // large screen >1200px
   #sidebar               { @extend .col-lg-3; }
   #page-content          { @extend .col-lg-9; }
   #page-content .article { @extend .col-lg-3; }
 
+  // Medium screen 992px - 1200px
+  #sidebar               { @extend .col-md-3; }
+  #page-content          { @extend .col-md-9; }
+  #page-content .article { @extend .col-md-4; }
+
+  // Small screen 768px - 991px
   #sidebar               { @extend .col-sm-4; }
   #page-content          { @extend .col-sm-8; }
   #page-content .article { @extend .col-sm-6; }
 
-  #sidebar               { @extend .col-xs-1; }
-  #page-content          { @extend .col-xs-1; }
-  #page-content .article { @extend .col-xs-1; }
-
-  #sidebar               { @extend .col-6; }
-  #page-content          { @extend .col-6; }
-  #page-content .article { @extend .col-12; }
-
-  // #page-content .article { border: 1px solid gray; }
+  // Extra Small screen < 768px
+  // #sidebar               { @extend .col-xs-1; }
+  // #page-content          { @extend .col-xs-1; }
+  // #page-content .article { @extend .col-xs-1; }
 }
 
 // style
@@ -105,7 +107,6 @@ blockquote {
 
 footer {
   @extend .text-muted;
-  @extend .credit;
   clear: both;
   margin-top: 3em;
   text-align: right;
