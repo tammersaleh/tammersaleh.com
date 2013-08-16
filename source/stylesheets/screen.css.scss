@@ -36,7 +36,7 @@
 .container {
   padding-top: 20px;
   #sidebar {
-    #tammersaleh {
+    #tammersaleh, #about_me {
       font-family: "tablet-gothic-narrow",sans-serif;
       display: block;
       text-transform: uppercase;
@@ -62,21 +62,30 @@
   .article {
     margin-bottom: 20px;
     a {
-      @include border-radius(5px);
-      @include filter(grayscale(80%));
-      @include opacity(0.8);
-      &:hover {  
-        @include filter(grayscale(0%));
-        @include opacity(1.0);
-      }
-      background-position: center center;
-      background-size: cover;
-      background-repeat: no-repeat;
-
       display: block;
       height: 250px;
       position: relative;
+
+      &:hover .background {  
+        @include filter(grayscale(0%));
+        @include opacity(1.0);
+      }
+      .background {
+        position: absolute;
+        z-index: 0;
+        height: 100%;
+        width: 100%;
+
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+
+        @include filter(grayscale(100%) brightness(120%));
+        @include opacity(0.8);
+      }
       h4 {
+        color: black;
+        z-index: 10;
         background: rgba(255, 255, 255, 0.6);
         margin-top: 0;
         margin-bottom: 0;

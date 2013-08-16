@@ -21,5 +21,6 @@
 
 jQuery(window).load(function () {
   $('#tammersaleh').bigtext();
+  $('#about_me').bigtext();
 });
 

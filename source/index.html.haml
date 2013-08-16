@@ -5,6 +5,7 @@ bodyclass: newproject
 .article_index
   - blog.articles.each do |article|
     .article
-      %a{href: article.url, style: index_article_background(article)}
+      %a{href: article.url}
+        .background{style: index_article_background(article)}
         %h4= article.title
 
