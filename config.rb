@@ -70,7 +70,7 @@ activate :cloudfront do |opts|
   opts.access_key_id     = aws_config['access_key']
   opts.secret_access_key = aws_config['secret']
   opts.distribution_id   = aws_config["distribution_id"]
-  opts.filter            = /.html/
+  # opts.filter            = /.html/
   opts.after_build       = false
 end
 
