@@ -51,6 +51,8 @@ activate :blog do |blog|
   blog.layout = "post"
 end
 
+page "/posts.atom", layout: false
+
 activate :directory_indexes
 activate :cache_buster
 
