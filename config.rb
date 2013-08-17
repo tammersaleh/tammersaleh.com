@@ -31,7 +31,7 @@ helpers do
 
   def github_edit_url(article)
     repo = "https://github.com/tsaleh/tammersaleh.com"
-    branch = "mm"
+    branch = "master"
     ext = "html.markdown"
     date = [article.date.year, article.date.month, article.date.day].join("-")
     "#{repo}/edit/#{branch}/source/posts/#{date}-#{article.slug}.#{ext}"
