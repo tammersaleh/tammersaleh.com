@@ -29,12 +29,16 @@ helpers do
     img
   end
 
-  def github_edit_url(slug)
-    "https://github.com/tsaleh/tammersaleh.com/edit/master/posts/#{slug}.html.markdown"
+  def github_edit_url(article)
+    repo = "https://github.com/tsaleh/tammersaleh.com"
+    branch = "mm"
+    ext = "html.markdown"
+    date = [article.date.year, article.date.month, article.date.day].join("-")
+    "#{repo}/edit/#{branch}/source/posts/#{date}-#{article.slug}.#{ext}"
   end
 
-  def github_edit_link(text, slug)
-    link_to(text, github_edit_url(slug))
+  def github_edit_link(text, article)
+    link_to(text, github_edit_url(article))
   end
 
   def index_article_background(article)

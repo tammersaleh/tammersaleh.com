@@ -100,8 +100,8 @@
 
 article {
   .title { margin-top: 0; }
-  .metadata { 
-    @extend .text-muted; 
+  .metadata {
+    @extend .text-muted;
     // text-transform: none;
     // font-variant: small-caps;
   }
