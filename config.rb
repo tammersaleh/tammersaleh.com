@@ -29,18 +29,11 @@ helpers do
     img
   end
 
-  def github_edit_url(article)
-    repo = "https://github.com/tsaleh/tammersaleh.com"
-    branch = "master"
-    ext = "html.markdown"
-    date = [article.date.year, article.date.month, article.date.day].join("-")
-    "#{repo}/edit/#{branch}/source/posts/#{date}-#{article.slug}.#{ext}"
+  def github_edit_url
+    p = Pathname(current_page.source_file).relative_path_from(Pathname(root))
+    "https://github.com/tsaleh/tammersaleh.com/edit/master/#{p}"
   end
-
-  def github_edit_link(text, article)
-    link_to(text, github_edit_url(article))
-  end
-
+  
   def index_article_background(article)
     "background-image: url(\"#{article.url}cover.png\")" 
   end
@@ -59,6 +52,7 @@ activate :blog do |blog|
 end
 
 activate :directory_indexes
+activate :cache_buster
 
 # The file s3.yml should be in the project root, and contain something like this:
 #
