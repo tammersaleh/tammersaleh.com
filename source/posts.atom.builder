@@ -4,7 +4,7 @@ xml.feed "xmlns" => "http://www.w3.org/2005/Atom" do
   xml.title "Tammer Saleh"
   # xml.subtitle "Blog subtitle"
   xml.id URI.join(site_url, blog.options.prefix.to_s)
-  xml.link href: URI.join(site_url, blog.options.prefix.to_s)
+  xml.link href: site_url
   xml.link href: URI.join(site_url, current_page.path), rel: "self"
   xml.updated blog.articles.first.date.to_time.iso8601
   xml.author { xml.name "Tammer Saleh" }
