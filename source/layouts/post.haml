@@ -1,0 +1,12 @@
+= wrap_layout :layout do
+  %article
+    %h2.title
+      = current_page.data.title
+    ~ yield
+    %hr
+    %h4.metadata
+      %small
+        This post was written
+        = time_ago_in_words(current_page.data.date)
+        ago, which makes it almost certainly out of date.
+        = github_edit_link("Feel free to submit corrections via github.", current_page.slug)

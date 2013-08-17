@@ -80,7 +80,9 @@
         background-size: cover;
         background-repeat: no-repeat;
 
-        @include filter(grayscale(100%) brightness(120%));
+        @include single_transition(all, 1s, ease);
+        @include filter(grayscale(100%));
+        @include filter(brightness(120%));
         @include opacity(0.8);
       }
       h4 {
@@ -93,6 +95,15 @@
         bottom: 0;
       }
     }
+  }
+}
+
+article {
+  .title { margin-top: 0; }
+  .metadata { 
+    @extend .text-muted; 
+    // text-transform: none;
+    // font-variant: small-caps;
   }
 }
 

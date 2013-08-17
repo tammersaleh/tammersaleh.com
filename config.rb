@@ -29,6 +29,14 @@ helpers do
     img
   end
 
+  def github_edit_url(slug)
+    "https://github.com/tsaleh/tammersaleh.com/edit/master/posts/#{slug}.html.markdown"
+  end
+
+  def github_edit_link(text, slug)
+    link_to(text, github_edit_url(slug))
+  end
+
   def index_article_background(article)
     "background-image: url(\"#{article.url}cover.png\")" 
   end
@@ -43,6 +51,7 @@ Time.zone = "Pacific Time (US & Canada)"
 activate :blog do |blog|
   blog.prefix = "posts"
   blog.permalink = ":title.html"
+  blog.layout = "post"
 end
 
 activate :directory_indexes
