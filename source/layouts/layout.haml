@@ -6,32 +6,9 @@
 %html{:class => "no-js"}
   <!--<![endif]-->
   %head
-    %meta{:charset => "utf-8"}
-    %meta{'http-equiv' => "X-UA-Compatible", :content =>"IE=edge,chrome=1"}
-    %title= ["Tammer Saleh", current_page.data.title].compact.join(" : ")
-
-    %meta{:name => "description", :content => "Tammer's home online."}
-    %meta{:name => "author", :content => "Tammer Saleh"}
-    %meta{:name => "keywords", :content => "Tammer Saleh, tsaleh, ruby, rails, ruby training, rails training, agile training, test driven development, cloud foundry, engineyard, thunderbolt labs, thoughtbot"}
-
-    -# You may wish to remove the 'initial scale=1.0' for non-responsive layouts
-    %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
-
-    -# Place favicon.ico and apple-touch-icon.png in the root directory
-
-    = javascript_include_tag "libs/modernizr-2.6.1.min"
-    = stylesheet_link_tag "screen"
-    -# %link{href:"/fonts/ostrich-sans.css", media:"screen", rel:"stylesheet", type:"text/css"}
-    %script{type: "text/javascript", src: "//use.typekit.net/ilx3ybb.js"}
-    %script{type: "text/javascript"} try{Typekit.load();}catch(e){}
-
+    = partial "layouts/head_content"
   %body{:class => current_page.data.bodyclass}
-    /[if lt IE 7]
-      %p.chromeframe
-        You are using an outdated browser. 
-        <a href="http://browsehappy.com/">Upgrade your browser today</a> 
-        or <a href="http://www.google.com/chromeframe/?redirect=true">
-        install Google Chrome Frame</a> to better experience this site.
+    = partial "layouts/chromeframe"
     .container
       #sidebar
         = partial "layouts/sidebar_content"
