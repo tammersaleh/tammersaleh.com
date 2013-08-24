@@ -58,6 +58,18 @@
   }
 }
 
+.wf-loading {
+  h1, h2, h3, h4, h5, h6 {
+    visibility: hidden;
+  }
+}
+.wf-active {
+  h1, h2, h3, h4, h5, h6 {
+    visibility: visible;
+  }
+}
+
+
 .article_index {
   .article {
     margin-bottom: 20px;
