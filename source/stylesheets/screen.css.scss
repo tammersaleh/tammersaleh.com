@@ -30,13 +30,14 @@
   // #sidebar               { @extend .col-xs-1; }
   // #page-content          { @extend .col-xs-1; }
   // #page-content .article { @extend .col-xs-1; }
+  #sidebar #about_me { @extend .hidden-xs; }
 }
 
 // style
 .container {
   padding-top: 20px;
   #sidebar {
-    #tammersaleh, #about_me {
+    #tammersaleh, .skills {
       font-family: "tablet-gothic-narrow",sans-serif;
       display: block;
       text-transform: uppercase;
