@@ -70,7 +70,7 @@ activate :s3_sync do |opts|
   opts.aws_access_key_id     = aws_config['access_key']
   opts.aws_secret_access_key = aws_config['secret']
   opts.delete                = true
-  opts.after_build           = false # We chain after the build step by default. This may not be your desired behavior...
+  opts.after_build           = false
   opts.prefer_gzip           = true
 end
 
