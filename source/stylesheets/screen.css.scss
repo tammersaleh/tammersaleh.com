@@ -1,7 +1,3 @@
-//
-// Main Stylesheet
-//
-
 @import "compass";
 @import "variables";
 
@@ -76,7 +72,7 @@
     margin-bottom: 20px;
     a {
       display: block;
-      height: 250px;
+      height: 15em;
       position: relative;
 
       &:hover .background {  
@@ -113,25 +109,28 @@
 
 article {
   .title { margin-top: 0; }
-  .metadata {
-    @extend .text-muted;
-    // text-transform: none;
-    // font-variant: small-caps;
+  .metadata { @extend .text-muted; }
+}
+
+.img_left, .img_right {
+  clear: both;
+  max-width: percentage((6 / $grid-columns));
+  @media (max-width: $screen-sm-max) {
+    width: 100%;
+    max-width: 100%;
+    padding-right: 0 !important;
+    padding-left: 0 !important;
   }
 }
 
 .img_left {
-  clear: both;
   float: left;
   padding-right: $grid-gutter-width;
-  max-width: percentage((6 / $grid-columns));
 }
 
 .img_right {
-  clear: both;
   float: right;
   padding-left: $grid-gutter-width;
-  max-width: percentage((6 / $grid-columns));
 }
 
 blockquote {

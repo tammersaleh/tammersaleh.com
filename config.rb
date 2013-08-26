@@ -1,9 +1,9 @@
 require 'bootstrap-sass'
 require "active_support/core_ext/array"
 
-# compass_config do |config|
-#   config.output_style = :compact
-# end
+compass_config do |config|
+  config.output_style = :compact
+end
 
 # Automatic image dimensions on image_tag helper
 # activate :automatic_image_sizes
@@ -34,8 +34,8 @@ helpers do
     "https://github.com/tsaleh/tammersaleh.com/edit/master/#{p}"
   end
   
-  def index_article_background(article)
-    "background-image: url(\"#{article.url}cover.png\")" 
+  def index_article_background_url(article)
+    "#{article.url}cover.png"
   end
 end
 

@@ -6,6 +6,6 @@ bodyclass: newproject
   - blog.articles.each do |article|
     .article
       %a{href: article.url}
-        .background{style: index_article_background(article)}
+        .background{"data-original" => index_article_background_url(article)}
         %h4= article.title
 
