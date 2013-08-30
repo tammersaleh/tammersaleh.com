@@ -3,6 +3,9 @@ rvm:
 - 2.0.0
 script: bundle exec middleman build --clean --verbose
 install: bundle install
+after_success: 
+  - bundle exec middleman s3_sync --force 
+  - curl -X POST https://api.fastly.com/service/$FASTLY_SITE_ID/purge_all
 env:
   global:
   - secure: wRRtfLr+xMLK8+T8hz4zlfW6wNYGiUDM/dh6zZkwAQCIJ1Cfs6Frf9cRwCNZgUNWIBxAgLUQkyx+hLa1vBq2+C7qt7TVjsIWwKxlkg5bNFmp+kMji8PBhX11a8YvHdAduixqhCN5Pop8PxVFNja8ne7ZDmnEM2+/YO6wwRXaYH0=
