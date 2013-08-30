@@ -1,0 +1,6 @@
+language: ruby
+rvm:
+  - 2.0.0
+script: bundle exec middleman build --clean --verbose
+install: bundle install
+
