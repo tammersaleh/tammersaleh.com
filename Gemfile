@@ -8,6 +8,7 @@ gem 'middleman-livereload'
 gem 'middleman-cloudfront'
 gem "nokogiri"
 gem "RedCloth"
+gem "travis"
 
 # Compass plugins
 gem 'bootstrap-sass', :git => 'git://github.com/thomas-mcdonald/bootstrap-sass.git', :branch => '3'
