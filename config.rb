@@ -1,5 +1,7 @@
 require 'bootstrap-sass'
 require "active_support/core_ext/array"
+require 'dotenv'
+Dotenv.load
 
 compass_config do |config|
   config.output_style = :compact
@@ -61,25 +63,14 @@ activate :cache_buster
 #   access_key: 'iam access key'
 #   secret:     'iam secret'
 
-aws_config = YAML::load_file('s3.yml')
-
 # http://tammersaleh.com.s3-website-us-west-1.amazonaws.com
 activate :s3_sync do |opts|
   opts.bucket                = 'tammersaleh.com'
   opts.region                = 'us-west-1'
-  opts.aws_access_key_id     = aws_config['access_key']
-  opts.aws_secret_access_key = aws_config['secret']
+  opts.aws_access_key_id     = ENV['AWS_ACCESS_KEY']
+  opts.aws_secret_access_key = ENV['AWS_SECRET']
   opts.delete                = true
   opts.after_build           = false
   opts.prefer_gzip           = true
-end
-
-# http://d2x1ickoeyyexb.cloudfront.net
-activate :cloudfront do |opts|
-  opts.access_key_id     = aws_config['access_key']
-  opts.secret_access_key = aws_config['secret']
-  opts.distribution_id   = aws_config["distribution_id"]
-  # opts.filter            = /.html/
-  opts.after_build       = false
 end
 

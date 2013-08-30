@@ -1,6 +1,9 @@
 language: ruby
 rvm:
-  - 2.0.0
+- 2.0.0
 script: bundle exec middleman build --clean --verbose
 install: bundle install
-
+env:
+  global:
+  - secure: wRRtfLr+xMLK8+T8hz4zlfW6wNYGiUDM/dh6zZkwAQCIJ1Cfs6Frf9cRwCNZgUNWIBxAgLUQkyx+hLa1vBq2+C7qt7TVjsIWwKxlkg5bNFmp+kMji8PBhX11a8YvHdAduixqhCN5Pop8PxVFNja8ne7ZDmnEM2+/YO6wwRXaYH0=
+  - secure: EQhSokIkvfLzJqgm66+G5GSozj7dwhHkxhpjCQc3G6zth2oPOp2rlzk+KrWw8P2gjppSXAK9wODiv1DeEAysyfQDVfSrddfckVzD+tOX/6fcK0AJBCRPxNZpYPC5iio1Czehf3ALUdVYOaOu+S7wuUOjakEQNuZyujaF2yitSSI=
