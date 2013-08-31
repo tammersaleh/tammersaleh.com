@@ -11,19 +11,19 @@
 
   // large screen >1200px
   #sidebar               { @extend .col-lg-3; }
-  #sidebar .social a     { @extend .col-lg-4; }
+  #sidebar .social>*     { @extend .col-lg-3; }
   #page-content          { @extend .col-lg-9; }
   #page-content .article { @extend .col-lg-3; }
 
   // Medium screen 992px - 1200px
   #sidebar               { @extend .col-md-3; }
-  #sidebar .social a     { @extend .col-md-4; }
+  #sidebar .social>*     { @extend .col-md-3; }
   #page-content          { @extend .col-md-9; }
   #page-content .article { @extend .col-md-4; }
 
   // Small screen 768px - 991px
   #sidebar               { @extend .col-sm-4; }
-  #sidebar .social a     { @extend .col-sm-4; }
+  #sidebar .social>*     { @extend .col-sm-3; }
   #page-content          { @extend .col-sm-8; }
   #page-content .article { @extend .col-sm-6; }
 
@@ -48,6 +48,7 @@
       div { margin-top: -0.5em; }
       .skill { color: $text-muted; }
     }
+    .social>* { @extend small }
     p {
       @extend .text-muted;
       @extend small;
