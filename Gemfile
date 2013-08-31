@@ -8,6 +8,7 @@ gem "nokogiri"
 gem "RedCloth"
 gem "travis"
 gem "dotenv"
+gem "rake"
 
 # Compass plugins
 gem 'bootstrap-sass', :git => 'git://github.com/thomas-mcdonald/bootstrap-sass.git', :branch => '3'
