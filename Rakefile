@@ -4,7 +4,7 @@ task :build do
 end
 
 task :s3 do
-  system "middleman s3_sync"
+  system "s3_website push --site=.build --headless"
 end
 
 task :purge do

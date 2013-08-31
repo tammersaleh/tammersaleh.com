@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem "middleman", "~> 3.1.3"
 gem "middleman-blog"
-gem 'middleman-s3_sync'
+gem "s3_website"
 gem 'middleman-livereload'
 gem "nokogiri"
 gem "RedCloth"

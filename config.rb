@@ -3,6 +3,8 @@ require "active_support/core_ext/array"
 require 'dotenv'
 Dotenv.load
 
+set :build_dir, ".build"
+
 compass_config do |config|
   config.output_style = :compact
 end
@@ -64,13 +66,13 @@ activate :cache_buster
 #   secret:     'iam secret'
 
 # http://tammersaleh.com.s3-website-us-west-1.amazonaws.com
-activate :s3_sync do |opts|
-  opts.bucket                = 'tammersaleh.com'
-  opts.region                = 'us-west-1'
-  opts.aws_access_key_id     = ENV['AWS_ACCESS_KEY']
-  opts.aws_secret_access_key = ENV['AWS_SECRET']
-  opts.delete                = true
-  opts.after_build           = false
-  opts.prefer_gzip           = true
-end
+# activate :s3_sync do |opts|
+#   opts.bucket                = 'tammersaleh.com'
+#   opts.region                = 'us-west-1'
+#   opts.aws_access_key_id     = ENV['AWS_ACCESS_KEY']
+#   opts.aws_secret_access_key = ENV['AWS_SECRET']
+#   opts.delete                = true
+#   opts.after_build           = false
+#   opts.prefer_gzip           = true
+# end
 
