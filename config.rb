@@ -60,19 +60,8 @@ page "/posts.atom", layout: false
 activate :directory_indexes
 activate :cache_buster
 
-# The file s3.yml should be in the project root, and contain something like this:
-#
-#   access_key: 'iam access key'
-#   secret:     'iam secret'
-
-# http://tammersaleh.com.s3-website-us-west-1.amazonaws.com
-# activate :s3_sync do |opts|
-#   opts.bucket                = 'tammersaleh.com'
-#   opts.region                = 'us-west-1'
-#   opts.aws_access_key_id     = ENV['AWS_ACCESS_KEY']
-#   opts.aws_secret_access_key = ENV['AWS_SECRET']
-#   opts.delete                = true
-#   opts.after_build           = false
-#   opts.prefer_gzip           = true
-# end
-
+module Middleman::Blog::BlogArticle
+  def body_with_absolute_img_tags
+    body.gsub(%r{src="([^/])}, 'src="' + url + '\1')
+  end
+end
