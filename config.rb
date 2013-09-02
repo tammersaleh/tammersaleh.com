@@ -12,6 +12,8 @@ end
 
 # Automatic image dimensions on image_tag helper
 # activate :automatic_image_sizes
+activate :minify_css
+activate :minify_js
 
 helpers do
   # Calculate the years for a copyright
