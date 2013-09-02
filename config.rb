@@ -4,6 +4,7 @@ require 'dotenv'
 Dotenv.load
 
 set :build_dir, ".build"
+set :markdown, enable_coderay: false
 
 compass_config do |config|
   config.output_style = :compact
