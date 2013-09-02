@@ -13,7 +13,8 @@ end
 # Automatic image dimensions on image_tag helper
 # activate :automatic_image_sizes
 activate :minify_css
-activate :minify_js
+# This breaks the site.
+# activate :minify_javascript
 
 helpers do
   # Calculate the years for a copyright
