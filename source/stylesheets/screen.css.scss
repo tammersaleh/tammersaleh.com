@@ -39,6 +39,10 @@
   padding-top: 20px;
   #sidebar {
     #tammersaleh, .skills {
+      color: black;
+      &:hover {
+        color: black;
+      }
       font-family: "tablet-gothic-narrow",sans-serif;
       display: block;
       text-transform: uppercase;
