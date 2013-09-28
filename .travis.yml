@@ -1,7 +1,7 @@
 language: ruby
 rvm:
 - 2.0.0
-install: bundle install
+install: bundle install --local
 script: bundle exec rake build
 after_success:
 - if [[ "$TRAVIS_PULL_REQUEST" == "true" ]]; then echo "Not deploying a PR."; exit 0; fi
