@@ -1,4 +1,3 @@
-
 task :build do
   system "middleman build --verbose"
 end
@@ -14,3 +13,8 @@ task :purge do
   puts
 end
 
+task :open do
+  system("open http://tammersaleh.com")
+end
+
+task publish: [:build, :s3, :purge, :open]
