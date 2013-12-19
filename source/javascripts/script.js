@@ -31,8 +31,14 @@
 })();
 
 $(function() {
-    $(".background").lazyload({
-        effect: "fadeIn",
-        effectspeed: 900
-    });
+  $(".background").lazyload({
+    effect: "fadeIn",
+    effectspeed: 900
+  });
+
+  $.get("/recommendations.json", function(recommendations) {
+    entry = recommendations[Math.floor(Math.random() * recommendations.length)]
+    $("#kind_words .quote").html( entry.quote );
+    $("#kind_words cite"  ).html( "&mdash; " + entry.who );
+  });
 });
