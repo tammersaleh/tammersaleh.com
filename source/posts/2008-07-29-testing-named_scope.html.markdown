@@ -1,6 +1,7 @@
 ---
 date: 2008-07-29 12:00 PDT
 title: Testing named_scope
+description: An announcement that Shoulda now has support for testing your named_scopes.
 ---
 
 We're huge fans of `NamedScope` here at Thoughtbot.  It does wonders for finder reuse and clarity.  Unfortunately, it also creates a large number of finders that all must be tested, where the old method may have only created one.

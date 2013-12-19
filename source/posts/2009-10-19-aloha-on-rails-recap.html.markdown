@@ -1,6 +1,7 @@
 ---
 date: 2009-10-19 12:00 PDT
 title: Aloha On Rails recap
+description: A recap of the Aloha on Rails conference.
 ---
 
 ![Image](beach/original.jpg)

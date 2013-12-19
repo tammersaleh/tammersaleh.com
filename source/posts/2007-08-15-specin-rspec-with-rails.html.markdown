@@ -1,6 +1,7 @@
 ---
 date: 2007-08-15 12:00 PDT
 title: Specin rSpec with Rails
+description: A discussion of the merits and issues with the new rSpec Ruby testing system.
 ---
 
 #### Using rSpec / Spec::Rails

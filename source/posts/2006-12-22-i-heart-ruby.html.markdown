@@ -1,6 +1,7 @@
 ---
 date: 2006-12-22 12:00 PDT
 title: I heart Ruby
+description: A man falls in love with a language.
 ---
 
 A friend of mine pointed out an article on lj a while ago, [Why Python](http://www.linuxjournal.com/article/3882), and asked for a response...   so now you're all getting it.

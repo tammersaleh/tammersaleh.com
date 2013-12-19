@@ -1,6 +1,7 @@
 ---
 date: 2011-11-12 12:00 PDT
 title: Entering the Zone
+description: A discussion on the importance of finding out what triggers your developer mindset.
 ---
 
 

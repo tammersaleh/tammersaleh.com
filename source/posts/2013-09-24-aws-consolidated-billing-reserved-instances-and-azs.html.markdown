@@ -1,6 +1,7 @@
 ---
 date: 2013-09-24 12:00 PDT
 title: "AWS: Consolidated Billing, Reserved Instances and Availability Zones"
+description: An explanation of how AWS consolidated billing, reserved instances, and availability zones work together.
 ---
 
 If you're tasked with managing a large installation on AWS, and you expect to use consolidated billing, then your life will be getting more complicated than you might expect.  In fact, if you're already managing such an installation, then your life might already be more complicated than you previously thought it was.  Confused?  So was I.

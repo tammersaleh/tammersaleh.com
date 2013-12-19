@@ -1,6 +1,7 @@
 ---
 date: 2010-01-13 12:00 PDT
 title: ! 'Automatic Fancy Ampersands with jQuery '
+description: A technique for automatically replacing ampersands with fancy versions using jQuery.
 ---
 
 Back in 2008, Dan Cederholm posted a great design tip on [CSS-based fancy ampersands](http://simplebits.com/notebook/2008/08/14/ampersands-2/). The basics of this technique is that you surround every &amp; in your headers with a `<span class="ampersand">` tag.  Then, in CSS, you define `.ampersand` as something like the following:

@@ -1,6 +1,7 @@
 ---
 date: 2010-01-14 12:00 PDT
 title: RESTful Google Sitemaps for Rails
+description: A technique for automatically building RESTful sitemaps in Ruby on Rails applications.
 ---
 
 ![Image](old-world-map/large.jpg)

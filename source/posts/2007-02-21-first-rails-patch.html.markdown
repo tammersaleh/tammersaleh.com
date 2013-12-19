@@ -1,6 +1,7 @@
 ---
 date: 2007-02-21 12:00 PDT
 title: First rails patch!
+description: A man rejoices over someone accepting his first Ruby on Rails patch.
 ---
 
 A [co-worker](http://workingwithrails.com/person/1556-jon-yurek) and I over at [thoughtbot](http://www.thoughtbot.com) are working on an application that makes heavy use of the newish REST resources.  While `map.resources` is hella beautiful and a serious code-saver, we found that a small addition would make it even more so.

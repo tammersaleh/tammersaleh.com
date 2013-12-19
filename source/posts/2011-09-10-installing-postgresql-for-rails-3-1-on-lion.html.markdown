@@ -1,6 +1,7 @@
 ---
 date: 2011-09-10 12:00 PDT
 title: Installing PostgreSQL for Rails 3.1 on Lion
+description: An example of how to install PostgreSQL and Rails 3.1 on OS X Lion.
 ---
 
 **Instructions for installing and configuring PostgreSQL on a fresh Lion installation for use in Rails 3.1**

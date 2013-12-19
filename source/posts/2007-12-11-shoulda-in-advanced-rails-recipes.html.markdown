@@ -1,6 +1,7 @@
 ---
 date: 2007-12-11 12:00 PDT
 title: Shoulda in Advanced Rails Recipes
+description: A note to let my faithful readers know that Shoulda was mentioned in the Advanced Rails Recipes book.
 ---
 
 Mike Clark and the Pragmatic Programmers just released the beta version of their latest offering:  [Advanced Rails Recipes: 72 New Ways to Build Stunning Rails Apps](http://pragprog.com/titles/fr_arr).  This is one of the few rails books I've been eagerly waiting for, so you can imagine how honored I was when Mike Clark asked me to review his section on Shoulda.  

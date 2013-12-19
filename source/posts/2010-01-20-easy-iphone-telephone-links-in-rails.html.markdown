@@ -1,6 +1,7 @@
 ---
 date: 2010-01-20 12:00 PDT
 title: Easy iPhone telephone links in Rails
+description: A technique for making telephone links in your Ruby on Rails applications that can dial an iPhone.
 ---
 
 Some sites, when viewed through an iPhone, have clickable phone numbers, which can be dialed immediately.  

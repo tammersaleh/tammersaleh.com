@@ -1,6 +1,7 @@
 ---
 date: 2007-10-01 12:00 PDT
 title: Remember your MVCs
+description: A simple example of how to avoid MVC violations in your Ruby on Rails application.
 ---
 
 From novice to expert, I'm sure every Rails developer believes in MVC.  But all to often I've seen programmers cut right through the Model/View/Controller boundaries when implementing new features -- especially where precedent hasn't yet been set.  

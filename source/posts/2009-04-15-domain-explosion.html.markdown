@@ -1,6 +1,7 @@
 ---
 date: 2009-04-15 12:00 PDT
 title: Domain Explosion
+description: A discourse on the explosion of classes that can result from applying Java techniques to your Ruby on Rails codebase.
 ---
 
 There's an AntiPattern that I still see in the wild far too often: the overly normalized domain.  It's easy to spot - you find over 50 files staring you down after opening the `app/models` directory in what should have been a basic Rails application.

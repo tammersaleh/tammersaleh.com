@@ -1,6 +1,7 @@
 ---
 date: 2010-04-04 12:00 PDT
 title: The Modern Vim Config with Pathogen
+description: An explanation of how to manage your vim plugins using pathogen.
 ---
 
 Unix gets a [whole lot right](http://en.wikipedia.org/wiki/Unix_philosophy#Eric_Raymond), but the way it dumps everything into the same filesystem isn't one of them.   Traditionally, every application you install will put files under `/etc`, `/usr/bin`, `/var`, `/lib`, and so on.  This makes it impossible to confidently extract an installed application, and lead to the development of [various](http://en.wikipedia.org/wiki/RPM_Package_Manager) [package](http://en.wikipedia.org/wiki/Debian#APT.2C_installing_packages_from_online_repositories) [management](http://mxcl.github.com/homebrew/) [tools](http://en.wikipedia.org/wiki/Encap_Package_Management_System).

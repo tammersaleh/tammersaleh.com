@@ -1,6 +1,7 @@
 ---
 date: 2010-04-14 12:00 PDT
 title: ! 'Engine Yard University: Zero to Rails 3'
+description: An announcement on the Engine Yard University training program.
 ---
 
 For the past few months, I've been working on something pretty exciting: [Engine Yard University](http://www.engineyard.com/blog/2010/announcing-engine-yard-university-zero-to-rails-3).

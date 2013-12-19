@@ -1,6 +1,7 @@
 ---
 date: 2009-11-23 12:00 PDT
 title: The Template Pattern is underused
+description: A description of the Template Pattern, and how you can make use of it to write better Ruby code.
 ---
 
 ![Image](muji-jigsaw-cookie-cutter/original.jpg)
