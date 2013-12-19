@@ -1,6 +1,7 @@
 ---
 date: 2011-08-13 12:00 PDT
 title: Jobs are temporary. Teams are for life.
+description:  A sappy post about a team.
 ---
 
 Working here at Engine Yard has been really incredibly rewarding, and it's given me a chance to really reflect on what I feel is most important in fostering a team.  It boils down to the realization that **jobs are temporary, but teams are life long relationships**.

@@ -1,6 +1,7 @@
 ---
 date: 2009-04-30 12:00 PDT
 title: Changes
+description: An announcement that I have begun consulting independently.
 ---
 
 ![Image](thoughtbot-2007/large.jpg)

@@ -1,6 +1,7 @@
 ---
 date: 2009-09-16 12:00 PDT
 title: Tools that make my life easier.
+description: A list of the tools I use on a daily basis that make my life easier.
 ---
 
 I've found a zen-like calm recently in my cyber workflow, which means I'm in for a good month of tinkering and futzing around as retribution.  Before that hits, I thought I'd document what I've been using here so I can look back on this post with fond nostalgia.

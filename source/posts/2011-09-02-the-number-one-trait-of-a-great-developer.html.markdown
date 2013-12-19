@@ -1,6 +1,7 @@
 ---
 date: 2011-09-02 12:00 PDT
 title: The Number One Trait of a Great Developer
+description: A controversial post about the importance of judgement in engineering.
 ---
 
 > Maybe the best programmers aren't those who spectacularly solve crazy problems, but those who don't create them, which is much more silent. - [Lena Herrmann](https://twitter.com/#!/kilaulena/status/111476233220530176)

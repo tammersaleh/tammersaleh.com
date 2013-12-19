@@ -1,6 +1,7 @@
 ---
 date: 2008-03-04 12:00 PDT
 title: Shoulda 4.0.1 - the lean and mean release
+description: An announcement of the latest Shoulda release.
 ---
 
 ![Image](baby/medium.jpg)

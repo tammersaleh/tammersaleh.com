@@ -1,6 +1,7 @@
 ---
 date: 2007-08-15 12:00 PDT
 title: Introducing the Shoulda Testing Plugin
+description: A new testing plugin for Ruby on Rails enters the world.
 ---
 
 So we've been [hinting](http://giantrobots.thoughtbot.com/2007/3/9/specin-rspec-with-rails) for [some time now](http://giantrobots.thoughtbot.com/2007/3/17/battle-royale-testing) that we were going to tidy up the testing helpers we use here, and that's just what we've done.

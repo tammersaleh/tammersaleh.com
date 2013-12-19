@@ -1,6 +1,7 @@
 ---
 date: 2010-06-02 12:00 PDT
 title: Global git config for tracking master against origin
+description: A git configuration change that ensures your master branches are all configured to track origin.
 ---
 
 Tired of doing a `git push origin master` when `git push` should be enough?  Google tells you to add the following to your project's `.git/config` file:

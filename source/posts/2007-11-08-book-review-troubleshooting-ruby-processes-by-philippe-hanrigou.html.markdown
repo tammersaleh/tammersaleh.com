@@ -1,6 +1,7 @@
 ---
 date: 2007-11-08 12:00 PDT
 title: ! 'Book Review: Trouble-shooting Ruby Processes by Philippe Hanrigou'
+description: A favorable review of the Trouble-shooting Ruby Processes book by Philippe Hanrigou
 ---
 
 Addison-Wesley has been releasing a number of Ruby and Rails books under the editorship of Obie Fernandez.  I got my hands on "[Troubleshooting Ruby Processes](http://www.informit.com/store/product.aspx?isbn=0321544684&rl=1)" by [Philippe Hanrigou](http://www.informit.com/authors/author_bio.aspx?ISBN=0321544684), and I have to say that I was very impressed with the material presented.

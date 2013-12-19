@@ -1,6 +1,7 @@
 ---
 date: 2007-09-20 12:00 PDT
 title: Time may be money, but so is morale
+description: Thoughts on where a developer should draw the line between enjoyable development and business requirements.
 ---
 
 We've all been there:  One of our clients is asking for some feature that makes absolutely no sense, takes forever to produce, and leaves your code in a state of shambles.

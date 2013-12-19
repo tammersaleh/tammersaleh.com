@@ -1,6 +1,7 @@
 ---
 date: 2008-01-29 12:00 PDT
 title: Rescuing Net::HTTP exceptions
+description: A description of a much better way of rescuing exceptions in your Ruby on Rails application.
 ---
 
 Working with [`Net::HTTP`](http://www.ruby-doc.org/stdlib/libdoc/net/http/rdoc/index.html) can be a pain.  It's got about 40 different ways to do any one task, and about 50 exceptions it can throw.

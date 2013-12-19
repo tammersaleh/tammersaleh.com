@@ -1,6 +1,7 @@
 ---
 date: 2009-10-26 12:00 PDT
 title: Managing Heroku environment variables for local development
+description: A technique for managing Heroku environment variables for local development.
 ---
 
 [Heroku](http://heroku.com) is an amazing service, and I've been using it for most of my personal applications.  In doing so, I've been trying to follow the Heroku conventions wherever possible, including not vendoring anything, making use of [AWS](http://aws.amazon.com/), and **keeping all private or environment-specific data in environment variables**.

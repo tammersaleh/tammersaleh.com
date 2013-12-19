@@ -1,6 +1,7 @@
 ---
 date: 2011-09-28 12:00 PDT
 title: Useful MacVim Script
+description: A script that will edit files as tabs in your existing macvim window.
 ---
 
 A wonderful little script I use on a daily basis is the MacVim shortcut below.

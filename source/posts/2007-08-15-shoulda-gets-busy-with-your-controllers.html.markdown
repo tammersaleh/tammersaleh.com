@@ -1,6 +1,7 @@
 ---
 date: 2007-08-15 12:00 PDT
 title: Shoulda gets busy with your controllers
+description: An update to the Shoulda testing plugin for Ruby on Rails that adds new ways of testing your controllers.
 ---
 
 [A while back](http://giantrobots.thoughtbot.com/2007/4/6/shoulda-coulda-woulda) we 

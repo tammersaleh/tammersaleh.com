@@ -1,6 +1,7 @@
 ---
 date: 2007-08-15 12:00 PDT
 title: It's the little things...
+description: An example of making your Ruby on Rails development more efficient through better view helpers.
 ---
 
 Sometimes it's the little things that really make coding fun.

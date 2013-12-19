@@ -1,11 +1,12 @@
 ---
 date: 2009-08-12 12:00 PDT
 title: The problem isn't your tests...
+description: A rebuttal to a post about testing scaffold controllers in your Ruby on Rails application.
 ---
 
 ##### ...the problem is your scaffolding.
 
-*A rebuttle to [Unpopular Developer 5: Stop Unit Testing Your Scaffold Controllers](http://robots.thoughtbot.com/post/161331097/unpopular-developer-5-stop-unit-testing-your-scaffold)*
+*A rebuttal to [Unpopular Developer 5: Stop Unit Testing Your Scaffold Controllers](http://robots.thoughtbot.com/post/161331097/unpopular-developer-5-stop-unit-testing-your-scaffold)*
 
 [Mike Burns](http://mike-burns.com/work/) of [Thoughtbot](http://thoughtbot.com) argues that we should no longer be writing unit tests for the default scaffolding for our RESTful controllers.
 

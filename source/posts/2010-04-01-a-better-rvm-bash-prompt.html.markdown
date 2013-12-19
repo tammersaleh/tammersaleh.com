@@ -1,6 +1,7 @@
 ---
 date: 2010-04-01 12:00 PDT
 title: A Better RVM Bash Prompt
+description: A technique for adding RVM information to your Bash prompt.
 ---
 
 Not knowing where you are while using [RVM](http://rvm.beginrescueend.com/) can be a frustrating experience.  Which version of ruby am I using?  Which gemset?  And using [per-project .rvmrc files](http://lindsaar.net/2010/3/31/bundle_me_some_sanity), while super-cool, makes the situation even worse.

@@ -1,6 +1,7 @@
 ---
 date: 2007-10-23 12:00 PDT
 title: Almost Painless Nested Resources
+description: An attempt to DRY up nested resources in your RESTful Ruby on Rails application.
 ---
 
 It's often the case that you have a restful resource that needs to be accessible nested, and at root.  For example, let's say we have a storefront with a bunch of users and products.  Each user can play with their own products, and the admin users can play with everyone's products.  You've got a `:products` resource at root, and a nested version to scope it under `:users`.
