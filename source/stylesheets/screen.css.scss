@@ -38,19 +38,21 @@
 .container {
   padding-top: 20px;
   #sidebar {
-    #tammersaleh, .skills {
-      color: black;
+    #tammersaleh {
       &:hover {
         color: black;
+        text-decoration: none;
       }
+    }
+    .skills { color: $text-muted; }
+    .bigtext {
+      div:first-child { margin-top: -0.3em; }
+      div             { margin-top: -0.5em; }
       font-family: "tablet-gothic-narrow",sans-serif;
       display: block;
       text-transform: uppercase;
       font-weight: 200;
       width: 100%;
-      div:first-child { margin-top: -0.3em; }
-      div { margin-top: -0.5em; }
-      .skill { color: $text-muted; }
     }
     .social>* { 
       font-size: 2em;
