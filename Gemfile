@@ -6,7 +6,6 @@ gem "s3_website"
 gem 'middleman-livereload'
 gem "nokogiri"
 gem "RedCloth"
-gem "travis"
 gem "dotenv"
 gem "rake"
 gem "builder"
