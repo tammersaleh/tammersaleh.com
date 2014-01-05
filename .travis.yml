@@ -4,9 +4,12 @@ rvm:
 install: bundle install --local
 script: bundle exec rake build
 after_success:
-- if [[ "$TRAVIS_PULL_REQUEST" != "true" && "$TRAVIS_BRANCH" != "master" ]]; then bundle exec rake s3 purge; fi
+- if [[ "$TRAVIS_PULL_REQUEST" == "true" ]]; then echo "Not deploying a pull request."; exit 0; fi
+- if [[ "$TRAVIS_BRANCH" != "master" ]];     then echo "Not deploying a branch.";       exit 0; fi
+- bundle exec rake s3 purge
 notifications:
   email:
+    on_success: always
     recipients:
     - me@tammersaleh.com
 env:
