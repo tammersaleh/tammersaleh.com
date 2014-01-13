@@ -24,19 +24,19 @@ Here's how you can use direnv as the magic bullet for managing your `$GOPATH`.
 
 ### Installing
 
-```
+~~~
 $ brew update
 $ brew install direnv
 $ echo 'eval "$(direnv hook bash)"' >> ~/.bashrc
-```
+~~~
 
 ### Configuring
 
 Now, in each of your go projects, create a `.envrc` file:
 
-```
+~~~
 ~/some/go/project $ echo 'export GOPATH=$(PWD)' > .envrc
-```
+~~~
 
 ### Security!
 
@@ -46,7 +46,7 @@ The first time you `cd` into a directory with a `.envrc` file, it will refuse to
 
 From now on, your `$GOPATH` will be correctly set if and only if you're somewhere inside that project.
 
-```
+~~~
  $ cd some/go/project/
 direnv: loading .envrc
 direnv export: +GOPATH
@@ -62,13 +62,13 @@ direnv: unloading
 direnv export: -GOPATH
 
 ~ $ echo $GOPATH
-```
+~~~
 
 ### So easy it's built in!
 
 In fact, this is so useful, it's actually [built into direnv](http://direnv.net/stdlib.html)!  Instead of setting the variable manually in your `.envrc` file, you can use the `layout` function that direnv provides:
 
-```
+~~~
 ~/some/go/project $ echo 'layout go' > .envrc
-```
+~~~
 
