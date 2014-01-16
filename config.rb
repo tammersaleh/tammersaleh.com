@@ -45,6 +45,10 @@ helpers do
   def index_article_background_url(article)
     "#{article.url}cover.png"
   end
+
+  def img(name, path)
+    "![#{name}](#{current_page.url + path})"
+  end
 end
 
 # Build-specific configuration
@@ -65,7 +69,7 @@ activate :directory_indexes
 activate :cache_buster
 
 module Middleman::Blog::BlogArticle
-  def body_with_absolute_img_tags
-    body.gsub(%r{src="([^/])}, 'src="' + url + '\1')
+  def body_with_fixed_img_tags
+    body.gsub(%r{src="/posts.atom(.*)}, 'src="' + url + '\1')
   end
 end

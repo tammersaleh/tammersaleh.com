@@ -1,0 +1,39 @@
+---
+date: 2010-01-13 12:00 PDT
+title: ! 'Automatic Fancy Ampersands with jQuery '
+description: A technique for automatically replacing ampersands with fancy versions using jQuery.
+---
+
+Back in 2008, Dan Cederholm posted a great design tip on [CSS-based fancy ampersands](http://simplebits.com/notebook/2008/08/14/ampersands-2/). The basics of this technique is that you surround every &amp; in your headers with a `<span class="ampersand">` tag.  Then, in CSS, you define `.ampersand` as something like the following:
+
+~~~ css
+span.ampersand {
+  font-family: Baskerville, Palatino, "Book Antiqua", serif;
+  font-style: italic;
+  font-weight: normal;
+}
+~~~
+
+...or, in [Sass](http://sass-lang.com/):
+
+~~~ sass
+.ampersand
+  :font-family Baskerville, Palatino, "Book Antiqua", serif
+  :font-style italic
+  :font-weight normal
+~~~
+
+Fancy ampersands are one of those little details that adds a subtle aesthetic touch, and gives the page an extra notch of professionalism.  Unfortunately, adding those spans by hand is both bothersome, and error-prone.  It also becomes difficult to make use of this technique for existing or automatically generated content.
+
+#### Luckily, that's why [god](http://ejohn.org/) created [jQuery](http://jquery.com/)!
+
+With a little addition to our `application.js`, we can have fancy ampersands inside all of our header tags (`h1`, `h2`, etc.):
+
+~~~ javascript
+$(document).ready(function(){
+  $(":header:contains('&')").each(function(){
+    $(this).html($(this).html().replace(/&amp;/, "<span class='ampersand'>&amp;</span>"))
+  });
+});
+~~~
+

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[My Octopress Blog]]></title>
+  <link href="http://yoursite.com/atom.xml" rel="self"/>
+  <link href="http://yoursite.com/"/>
+  <updated>2012-10-07T21:01:28-04:00</updated>
+  <id>http://yoursite.com/</id>
+  <author>
+    <name><![CDATA[Your Name]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Some good links]]></title>
+    <link href="http://yoursite.com/blog/2012/10/07/some-good-links/"/>
+    <updated>2012-10-07T00:00:00-04:00</updated>
+    <id>http://yoursite.com/blog/2012/10/07/some-good-links</id>
+    <content type="html"><![CDATA[<p><a href="http://cnn.com">A good link</a></p>
+
+<p><a href="http://google.com">Another good link</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Some good links]]></title>
+    <link href="http://yoursite.com/blog/2012/10/07/all-good-links/"/>
+    <updated>2012-10-07T00:00:00-04:00</updated>
+    <id>http://yoursite.com/blog/2012/10/07/all-good-links</id>
+    <content type="html"><![CDATA[<p><a href="http://cnn.com">A bad link</a></p>
+]]></content>
+  </entry>
+  
+</feed>
