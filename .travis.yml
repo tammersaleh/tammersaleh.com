@@ -1,12 +1,12 @@
 language: ruby
 rvm:
 - 2.0.0
-install: bundle install --local
-script: bundle exec rake build test
+install: time bundle install --local
+script: time bundle exec rake build test
 after_success:
 - if [[ "$TRAVIS_PULL_REQUEST" != "false" ]];  then echo "Not deploying a pull request."; exit 0; fi
 - if [[ "$TRAVIS_BRANCH"       != "master" ]]; then echo "Not deploying a branch.";       exit 0; fi
-- bundle exec rake s3 purge
+- time bundle exec rake s3 purge
 notifications:
   email:
     on_success: always
