@@ -70,6 +70,6 @@ activate :cache_buster
 
 module Middleman::Blog::BlogArticle
   def body_with_fixed_img_tags
-    body.gsub(%r{src="/posts.atom(.*)}, 'src="' + url + '\1')
+    body.gsub(%r{src="/posts.atom(.*)}, 'src="http://tammersaleh.com' + url + '\1')
   end
 end

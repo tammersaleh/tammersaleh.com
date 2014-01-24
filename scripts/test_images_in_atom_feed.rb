@@ -6,7 +6,7 @@ Bundler.require
 atom_content = open(".build/posts.atom")
 
 lines_with_src = atom_content.grep(%r{src=})
-paths = lines_with_src.map {|line| line.sub(%r{.*src="(.*)".*}, '\1').chomp }
+paths = lines_with_src.map {|line| line.sub(%r{.*src="http://tammersaleh.com(.*)".*}, '\1').chomp }
 files = paths.map {|path| File.join(".build", path)}
 missing_files = files.reject {|file| File.exists?(file) }
 
