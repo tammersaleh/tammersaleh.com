@@ -156,6 +156,11 @@ article {
 
 blockquote {
   clear: left;
+  cite {
+    float: right;
+    font-style: italic;
+    font-size: 75%;
+  }
 }
 
 footer {
