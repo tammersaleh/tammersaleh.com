@@ -1,3 +1,5 @@
+::I18n.config.enforce_available_locales = false
+
 require 'bootstrap-sass'
 require "active_support/core_ext/array"
 require 'dotenv'
@@ -61,6 +63,8 @@ activate :blog do |blog|
   blog.prefix = "posts"
   blog.permalink = ":title.html"
   blog.layout = "post"
+  blog.default_extension = ".markdown.erb"
+  blog.new_article_template = "scripts/article.tt"
 end
 
 page "/posts.atom", layout: false
