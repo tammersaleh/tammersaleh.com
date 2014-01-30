@@ -1,0 +1,29 @@
+---
+title: Using Dictionary.app with Vim
+date: 2014-01-29 13:54 PST
+description: A vim keyboard mapping to look up the word under the cursor in OS X's Dictionary.app.
+---
+
+I use Vim for all of my writing.  [This blog](https://github.com/tsaleh/tammersaleh.com), my books, and basically anything longer than a quick email are written in markdown through MacVim.  I find that I'm faster in Vim, which helps me stay focused on producing content.
+
+<%= img "Dictionary Preferences", "dictionary_preferences.png" %>
+{: .img_right}
+
+I also make heavy use of a thesaurus, and I find myself constantly breaking out Dictionary.app.  I have it set to show the thesaurus first, then Wikipedia, and finally the dictionary.  
+
+### Marrying the Two
+
+Vim has some built-in dictionary support, but it can't compete with seeing all of that information at a glance.
+
+It turns out that combining the two is actually incredibly easy due to Vim's keymapping functionality and the fact that OS X's Dictionary.app registers itself as a consumer of `dict://` URIs.  Simply add the following to your `~/.vimrc` file:
+
+~~~ vim
+" Use \d on top of a word to look it up in Dictionary.app
+nmap <silent> <Leader>d :!open dict://<cword><CR><CR>
+~~~
+
+Now, whenever you're curious about finding inventive[^1] ways of stating something - just type `\d` when your cursor is over the word.
+
+<%= img "Example", "example.png" %>
+
+[^1]: ...or creative, original, innovative, imaginative, ingenious, resourceful, unusual, fresh, novel, new, newfangled, experimental, avant-garde, groundbreaking, revolutionary, unorthodox, or unconventional*
