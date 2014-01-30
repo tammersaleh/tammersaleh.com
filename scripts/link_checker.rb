@@ -35,6 +35,10 @@ class URL < Struct.new(:build_root, :url_base, :url)
     not (url["://"] or url.starts_with?("mailto:"))
   end
 
+  def anchor?
+    url.starts_with?("#")
+  end
+
   def directory?
     url.ends_with?("/")
   end
@@ -80,6 +84,7 @@ class URLs
 
   def initialize(urls)
     @urls = urls
+    @urls.reject! {|u| u.anchor? }
     @urls.reject! {|u| u.root? }
     @urls.select! {|u| u.local? }
     @urls.map!    {|u| u.clean }
