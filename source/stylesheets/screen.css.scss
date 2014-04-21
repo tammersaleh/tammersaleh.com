@@ -52,7 +52,7 @@
     .bigtext {
       div:first-child { margin-top: -0.3em; }
       div             { margin-top: -0.5em; }
-      font-family: "tablet-gothic-narrow",sans-serif;
+      font-family: "tablet-gothic-narrow", "Tablet Gothic Narrow", sans-serif;
       display: block;
       text-transform: uppercase;
       font-weight: 200;
@@ -186,7 +186,7 @@ img {
 
 h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase;
-  font-family: "tablet-gothic-narrow",sans-serif;
+  font-family: "tablet-gothic-narrow", "Tablet Gothic Narrow", sans-serif;
   font-style: normal;
   code { text-transform: none; }
 }
