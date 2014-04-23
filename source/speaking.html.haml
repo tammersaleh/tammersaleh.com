@@ -1,0 +1,8 @@
+.presentation_index
+  - data.presentations.each do |presentation|
+    .presentation
+      .about
+        This is a presentation.
+      .video
+        = vimeo_embed(presentation.id, width: 400, height: 250) 
+

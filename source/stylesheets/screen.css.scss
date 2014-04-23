@@ -15,26 +15,19 @@
   #sidebar .social>*     { @extend .col-lg-3; }
   #page-content          { @extend .col-lg-9; }
   #page-content .article { @extend .col-lg-3; }
-  // footer                 { @extend .col-lg-12;}
 
   // Medium screen 992px - 1200px
   #sidebar               { @extend .col-md-3; }
   #sidebar .social>*     { @extend .col-md-3; }
   #page-content          { @extend .col-md-9; }
   #page-content .article { @extend .col-md-4; }
-  // footer                 { @extend .col-md-12;}
 
   // Small screen 768px - 991px
   #sidebar               { @extend .col-sm-4; }
   #sidebar .social>*     { @extend .col-sm-3; }
   #page-content          { @extend .col-sm-8; }
   #page-content .article { @extend .col-sm-6; }
-  // footer                 { @extend .col-sm-12;}
 
-  // Extra Small screen < 768px
-  // #sidebar               { @extend .col-xs-1; }
-  // #page-content          { @extend .col-xs-1; }
-  // #page-content .article { @extend .col-xs-1; }
   #sidebar #about_me { @extend .hidden-xs; }
 }
 

@@ -51,6 +51,12 @@ helpers do
   def img(name, path)
     "![#{name}](#{current_page.url + path})"
   end
+
+  def vimeo_embed(vimeo_id, opts = {})
+    w = opts[:width] || 500
+    h = opts[:height] || 280
+    "<iframe src='//player.vimeo.com/video/#{vimeo_id}' width='#{w}' height='#{h}' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>"
+  end
 end
 
 # Build-specific configuration
