@@ -47,60 +47,52 @@
 // style
 .container {
   padding-top: 20px;
-  #sidebar {
-    #tammersaleh {
-      &:hover {
-        color: black;
-        text-decoration: none;
-      }
+}
+
+#sidebar {
+  #tammersaleh {
+    &:hover {
+      color: black;
+      text-decoration: none;
     }
-    color: $text-muted;
-    .bigtext {
-      div:first-child { margin-top: -0.3em; }
-      div             { margin-top: -0.5em; }
-      font-family: "tablet-gothic-narrow", "Tablet Gothic Narrow", sans-serif;
-      display: block;
-      text-transform: uppercase;
-      font-weight: 200;
-      width: 100%;
+  }
+  color: $text-muted;
+  .bigtext {
+    div:first-child { margin-top: -0.3em; }
+    div             { margin-top: -0.5em; }
+    font-family: "tablet-gothic-narrow", "Tablet Gothic Narrow", sans-serif;
+    display: block;
+    text-transform: uppercase;
+    font-weight: 200;
+    width: 100%;
+  }
+  .social>* { 
+    font-size: 2em;
+    text-align: center;
+    color: $gray-light;
+    @include single_transition(all, 0.25s, ease);
+    &:hover {
+      color: black;
+      text-decoration: none;
     }
-    .social>* { 
-      font-size: 2em;
-      text-align: center;
-      color: $gray-light;
-      @include single_transition(all, 0.25s, ease);
-      &:hover {
-        color: black;
-        text-decoration: none;
-      }
+  }
+  p {
+    @extend small;
+    text-align: justify;
+    img {
+      border-top: 1px solid $gray-light;
+      border-bottom: 1px solid $gray-light;
     }
-    p {
-      @extend small;
-      text-align: justify;
-      img {
-        border-top: 1px solid $gray-light;
-        border-bottom: 1px solid $gray-light;
-      }
-    }
-    blockquote {
-      border: none;
-      padding-left: 0;
-      padding-right: 0;
-    }
+  }
+  blockquote {
+    border: none;
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 
-.wf-loading {
-  h1, h2, h3, h4, h5, h6 {
-    visibility: hidden;
-  }
-}
-.wf-active {
-  h1, h2, h3, h4, h5, h6 {
-    visibility: visible;
-  }
-}
-
+.wf-loading { h1, h2, h3, h4, h5, h6 { visibility: hidden;  } }
+.wf-active  { h1, h2, h3, h4, h5, h6 { visibility: visible; } }
 
 .article_index {
   .article {
@@ -161,6 +153,12 @@ article {
       .venue { @extend .text-muted; }
       .year  { @extend .text-muted; }
     }
+  }
+}
+
+#four_oh_four {
+  img {
+    padding-top: 2em;
   }
 }
 

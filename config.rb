@@ -74,6 +74,7 @@ activate :blog do |blog|
 end
 
 page "/posts.atom", layout: false
+page "/404.html", :directory_index => false
 
 activate :directory_indexes
 activate :cache_buster
