@@ -1,11 +1,62 @@
 [
-  { "id": "92622718" },
-  { "id": "84798435" },
-  { "id": "27265109" },
-  { "id": "26586848" },
-  { "id": "26586716" },
-  { "id": "26521809" },
-  { "id": "26492059" },
-  { "id": "26490075" },
-  { "id": "26489698" }
+  {
+    "id": "84798435",
+    "title": "Using Hierarchial Clustering for Better Lunch Conversations",
+    "year": "2013",
+    "venue": "La Conf"
+  },
+  {
+    "id": "92622718",
+    "title": "SOA AntiPatterns",
+    "year": "2012",
+    "venue": "Railsberry"
+  },
+  {
+    "id": "26586848",
+    "title": "Hashrocket Interview",
+    "year": "2011",
+    "venue": "RailsConf"
+  },
+  {
+    "id": "92741109",
+    "title": "Youre Doing It Wrong",
+    "year": "2009",
+    "venue": "Aloha on Rails"
+  },
+  {
+    "id": "26490075",
+    "title": "Ride the Toad",
+    "year": "2009",
+    "venue": "Pivotal Labs"
+  },
+  {
+    "id": "92741110",
+    "title": "Is Agile Too Slow?",
+    "year": "2009",
+    "venue": "Aloha on Rails"
+  },
+  {
+    "id": "26521809",
+    "title": "Aloha on Rails Interview",
+    "year": "2009",
+    "venue": "Aloha on Rails"
+  },
+  {
+    "id": "26492059",
+    "title": "Coding for Failure",
+    "year": "2008",
+    "venue": "RubyConf"
+  },
+  {
+    "id": "26489698",
+    "title": "BDD with Shoulda",
+    "year": "2008",
+    "venue": "MountainWest RubyConf"
+  },
+  {
+    "id": "26586716",
+    "title": "Introducing Shoulda",
+    "year": "2007",
+    "venue": "Boston Ruby Users Group"
+  }
 ]

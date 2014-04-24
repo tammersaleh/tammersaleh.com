@@ -55,7 +55,7 @@ helpers do
   def vimeo_embed(vimeo_id, opts = {})
     w = opts[:width] || 500
     h = opts[:height] || 280
-    "<iframe src='//player.vimeo.com/video/#{vimeo_id}' width='#{w}' height='#{h}' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>"
+    "<iframe src='//player.vimeo.com/video/#{vimeo_id}?title=0&byline=0&portrait=0' width='#{w}' height='#{h}' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>"
   end
 end
 

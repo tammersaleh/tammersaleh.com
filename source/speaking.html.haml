@@ -1,8 +1,20 @@
-.presentation_index
+#presentations
+  %h1.header Presentations 
+  %h1.header &amp; 
+  %h1.header Interviews
+  %hr
+
   - data.presentations.each do |presentation|
     .presentation
       .about
-        This is a presentation.
+        %h3.title
+          %a{href: "https://vimeo.com/#{presentation.id}"}
+            = presentation.title
+
+        %h4.venue
+          = presentation.venue
+        %h5.year
+          = presentation.year
       .video
         = vimeo_embed(presentation.id, width: 400, height: 250) 
 
