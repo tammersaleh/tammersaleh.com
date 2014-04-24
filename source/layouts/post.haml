@@ -2,6 +2,9 @@
   %article
     %h2.title
       = current_page.data.title
+    .reading_time
+      Average reading time is
+      %span.eta
     ~ yield
     %h4.metadata
       %hr

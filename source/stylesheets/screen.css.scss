@@ -136,6 +136,10 @@
 
 article {
   .title { margin-top: 0; }
+  .reading_time { 
+    @extend .text-muted;
+    margin-bottom: 1em; 
+  }
   .metadata { @extend .text-muted; }
 }
 

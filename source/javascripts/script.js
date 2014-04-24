@@ -17,6 +17,7 @@
 //
 //= require libs/jquery.lazyload.min.js
 //= require libs/bigtext.js
+//= require libs/readingTime.js
 
 (function() {
   var config = {
@@ -31,6 +32,7 @@
 })();
 
 $(function() {
+  $('article').readingTime();
   $(".background").lazyload({
     effect: "fadeIn",
     effectspeed: 900
