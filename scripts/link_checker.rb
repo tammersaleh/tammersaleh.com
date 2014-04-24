@@ -4,10 +4,13 @@ require 'bundler'
 Bundler.require
 
 $ret = 0
+$seen = []
 
 def process(build_root, file)
   URLs.get_urls_from(build_root, file).each do |url|
-    if url.file_exists?
+    if url.file_exists? 
+      next if $seen.include?(url)
+      $seen << url
       process(build_root, url.to_filename)
     else
       puts "MISSING: #{file} points to #{url}" 
