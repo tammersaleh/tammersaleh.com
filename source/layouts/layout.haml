@@ -10,7 +10,7 @@
   %body{:class => current_page.data.bodyclass}
     = partial "layouts/chromeframe"
     .container
-      #sidebar
+      #sidebar.animated.bounce
         = partial "layouts/sidebar_content"
       #page-content
         ~ yield

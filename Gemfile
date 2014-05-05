@@ -8,6 +8,7 @@ gem "RedCloth"
 gem "rake"
 gem "builder"
 gem 'bootstrap-sass'
+gem "animate-scss"
 
 group :development do
   gem "guard-livereload", require: false
