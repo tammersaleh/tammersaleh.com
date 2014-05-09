@@ -187,6 +187,10 @@ article {
   padding-left: $grid-gutter-width;
 }
 
+.clear {
+  clear: both;
+}
+
 blockquote {
   clear: left;
   cite {
