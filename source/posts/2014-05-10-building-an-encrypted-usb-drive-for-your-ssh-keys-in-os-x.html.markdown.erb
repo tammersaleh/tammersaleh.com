@@ -59,6 +59,10 @@ The key's randomart image is:
 +-----------------+
 ~~~
 
+### Add your newly generated SSH key to GitHub
+
+See GitHub's [instructions](https://github.com/pivotal-cf/cfgitbot-config) for adding your newly generated SSH key to your GitHub account.
+
 ### Script to Load Keys and Eject
 
 At this point, you could use the drive by manually adding the keys to your running agent and ejecting the drive.  But that's a lot of typing and feels fairly error prone.  Instead, let's script it.
@@ -81,7 +85,9 @@ fi
 /usr/sbin/diskutil umount force $DIR
 ~~~
 
-Now, you can simply run `loa/Volumes/keys/load` to load your keys and eject the drive automatically.  This makes for a very quick workflow.
+Make the script executable by running `chmod u+x /Volumes/keys/load`
+
+Now, you can simply run `/Volumes/keys/load` to load your keys and eject the drive automatically.  This makes for a very quick workflow.
 
 ~~~
 $ /Volumes/keys/load
