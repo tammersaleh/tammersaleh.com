@@ -95,41 +95,21 @@
 .wf-active  { h1, h2, h3, h4, h5, h6 { visibility: visible; } }
 
 .article_index {
-  .article {
-    margin-bottom: 20px;
-    a {
-      display: block;
-      height: 15em;
-      position: relative;
-
-      &:hover .background {  
-        @include filter(grayscale(0%));
-        @include opacity(1.0);
-      }
-      .background {
-        position: absolute;
-        z-index: 0;
-        height: 100%;
-        width: 100%;
-
-        background-position: center center;
-        background-size: cover;
-        background-repeat: no-repeat;
-
-        @include single_transition(all, 0.5s, ease);
-        @include filter(grayscale(100%));
-        @include filter(brightness(120%));
-        @include opacity(0.8);
-      }
-      h4 {
-        color: black;
-        z-index: 10;
-        background: rgba(255, 255, 255, 0.6);
-        margin-top: 0;
-        margin-bottom: 0;
-        position: absolute;
-        bottom: 0;
-      }
+  a.article {
+    margin-bottom: 1em;
+    &:hover .img { @include single-box-shadow; }
+    .img {
+      @extend .img-circle;
+      margin-left: auto;
+      margin-right: auto;
+      height: 10em;
+      width:  10em;
+      background-size: cover;
+      background-position: center center;
+    }
+    .title { 
+      text-align: center;
+      height: 5em; 
     }
   }
 }
@@ -212,7 +192,6 @@ img {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  text-transform: uppercase;
   font-family: "tablet-gothic-narrow", "Tablet Gothic Narrow", sans-serif;
   font-style: normal;
   code { text-transform: none; }

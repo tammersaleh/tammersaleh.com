@@ -1,7 +1,6 @@
 .article_index
   - blog.articles.each do |article|
-    .article
-      %a{href: article.url}
-        .background{"data-original" => index_article_background_url(article)}
-        %h4= article.title
+    %a.article{href: article.url}
+      .img{style: "background-image:url(#{index_article_background_url(article)})"}
+      %h4.title= article.title
 
