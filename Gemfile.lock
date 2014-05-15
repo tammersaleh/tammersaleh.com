@@ -9,6 +9,8 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
     addressable (2.3.6)
+    animate-scss (0.0.5)
+      sass
     aws-sdk (1.38.0)
       json (~> 1.4)
       nokogiri (>= 1.4.4)
@@ -170,6 +172,7 @@ PLATFORMS
 
 DEPENDENCIES
   RedCloth
+  animate-scss
   bootstrap-sass
   builder
   dotenv

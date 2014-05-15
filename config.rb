@@ -3,6 +3,7 @@
 require 'bootstrap-sass'
 require "active_support/core_ext/array"
 require 'dotenv'
+require 'animate-scss'
 Dotenv.load
 
 set :build_dir, ".build"
