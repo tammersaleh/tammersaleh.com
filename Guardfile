@@ -1,7 +1,7 @@
 # A sample Guardfile
 # More info at https://github.com/guard/guard#readme
 
-guard 'middleman' do
+guard 'middleman', verbose: true do
   watch(%r{^config.rb})
   watch(%r{^data/.*})
   watch(%r{^source/.*})
