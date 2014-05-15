@@ -121,6 +121,7 @@ article {
     margin-bottom: 1em; 
   }
   .metadata { @extend .text-muted; }
+  img { @extend .img-rounded; }
 }
 
 #presentations {
@@ -149,6 +150,7 @@ article {
 .img_left, .img_right {
   clear: both;
   max-width: percentage((6 / $grid-columns));
+
   @media (max-width: $screen-sm-max) {
     width: 100%;
     max-width: 100%;
