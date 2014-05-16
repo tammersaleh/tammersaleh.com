@@ -15,7 +15,6 @@
 //  require bootstrap-transition.js
 //  require bootstrap-typeahead.js
 //
-//= require libs/jquery.lazyload.min.js
 //= require libs/bigtext.js
 //= require libs/readingTime.js
 
@@ -32,11 +31,8 @@
 })();
 
 $(function() {
+  $('body').addClass("loaded");
   $('article').readingTime();
-  $(".background").lazyload({
-    effect: "fadeIn",
-    effectspeed: 900
-  });
 
   $.get("/recommendations.json", function(recommendations) {
     entry = recommendations[Math.floor(Math.random() * recommendations.length)]
