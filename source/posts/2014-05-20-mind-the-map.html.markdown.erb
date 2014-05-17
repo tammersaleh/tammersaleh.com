@@ -1,0 +1,56 @@
+---
+title: Mind the Map
+date: 2014-05-20 12:00 CEST
+description: Ignoring the surface area of your product will cause more challenges than any amount of technical debt.
+---
+
+I've dealt with a lot of technical debt in my life.  [Enough to fill a book](http://www.amazon.com/Rails-AntiPatterns-Refactoring-Addison-Wesley-Professional/dp/0321604814).  I've come to a conclusion:  **Technical Debt is almost always manageable.  Product debt often isn't.**
+
+#### Surface Area
+
+What do I mean by "product debt?"
+
+> Features that drastically and immeasurably increase your product's surface area.
+
+<%= img "Terrain", "terrain.jpg" %>
+{:.img_right}
+
+This form of debt usually comes around because of laziness on the product owner's part.  Instead of dedicating time and energy towards discovering exactly what knobs customers need, they give them everything in one fell swoop.
+
+*"Want to clean up your configuration file?  [How about we just give you all of Ruby?](http://www.getchef.com/chef/)"*
+
+*"Want to install a package in the cloud?  [How about we just give you full root access?](https://www.engineyard.com/)"*
+
+*"Want to gather stats from your processes?  [How about we just expose the entire runtime over the network?](http://en.wikipedia.org/wiki/Java_Management_Extensions)"*
+
+At first these feel like clever solutions to entire classes of customer feature requests.  "If we just give them X, then we never have to deal with feature requests like this again."  But by being lazy, you've created a number of huge problems for yourself.
+
+##### Unknown unknowns
+
+These decisions impart more features to the end user than they actually need.  It's hard as hell to take features away from customers, even the rarely used ones.  You're now committed to maintaining features you haven't yet thought of.
+
+##### Lack of Visibility
+
+To make matters worse, when you add sweeping features such as these, you're left blind as to how customers are actually using your product.  You've lost the tooling to give you insight as to how to make your product really shine.
+
+Which packages are they installing?  Which commands are they running?  Which metrics do they care about?
+
+##### Painted in a Corner
+
+Iterating yourself out of technical debt is easier because only your team deals with each change.  The channels of communication are few, and you can coordinate migrations through each step.
+
+With product debt, however, each change impacts a huge number of people who you have no direct contact with.  Removing an all-encompassing feature requires that you gradually add focused replacements until you believe the majority of your customers will be satisfied.  But, because you can't control when they migrate to these new tools, and you can't see exactly why they're still using the meta-feature you gave them years ago, this becomes a herculean task.
+
+<%= img "Topo", "topo.jpg" %>
+{:.img_left}
+
+#### Maintain the Map
+
+You *can* get yourself out of product debt, but it's incredibly painful.  Apple did it when they abandoned MacOS 9 in favor of a daring new OS X.  Heroku did it when they abandoned Bamboo for Cedar, and that took them years.  It involves patience, communication, insight and bravery.
+
+To avoid this situation in the first place, you need to start actively thinking about your product's surface area.
+
+Imagine a topography that describes the way your customers interact with your product.  Each new feature broadens that landscape, increasing the size of the terrain that you have to monitor and maintain.  Some features add fjords, and some add entire continents.  Elegant products achieve a high degree of focused utility by exposing very little territory for the customer to understand and interact with.  Instead, they focus on keeping that area meticulously maintained.  This focus on quality over quantity produces highly maintainable and flexible products.
+
+**Your job is to figure out what customers need, and give it to them using as little land as possible.**
+
