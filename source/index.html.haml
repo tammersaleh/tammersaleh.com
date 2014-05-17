@@ -2,6 +2,16 @@
 bodyclass: "frontpage"
 ---
 .article_index
+  .about
+    %h3
+      I like to write about programming, operations, development, and cloudy things.
+    %h3
+      :markdown
+        If you're new here, you may enjoy some of my most popular posts about 
+        being a [CTO (or VPE)](/posts/cto-vs-vpe/),
+        being a [great developer](/posts/the-number-one-trait-of-a-great-developer/),
+        or just about
+        [securing your SSH keys](/posts/building-an-encrypted-usb-drive-for-your-ssh-keys-in-os-x/).
   - blog.articles.each do |article|
     %a.article{href: article.url}
       .img{style: "background-image:url(#{index_article_background_url(article)})"}
