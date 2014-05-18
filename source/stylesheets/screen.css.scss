@@ -44,7 +44,7 @@
   #sidebar #about_me .skills { @extend .hidden-xs; }
   #sidebar #about_me .avatar { @extend .hidden-xs; }
   #sidebar #about_me .bio    { @extend .hidden-xs; }
-  .article_index .about      { @extend .hidden-xs; }
+  .article_index .welcome    { @extend .hidden-xs; }
 }
 
 // style
@@ -132,11 +132,11 @@ body.frontpage {
 .wf-active  { h1, h2, h3, h4, h5, h6 { visibility: visible; } }
 
 .article_index {
-  .about {
-    h3:first-of-type {
-      margin-top: 0;
-    }
-    margin-bottom: 60px;
+  .welcome {
+    width: 80%;
+    margin: 50px auto 60px auto;
+    font-style: italic;
+    @extend .lead;
   }
 
   a.article {
