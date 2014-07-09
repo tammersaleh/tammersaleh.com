@@ -6,7 +6,7 @@ require 'dotenv'
 Dotenv.load
 
 set :build_dir, ".build"
-set :markdown, enable_coderay: false
+set :markdown, enable_coderay: false, input: "GFM"
 
 ignore "*.graffle"
 

@@ -1,0 +1,190 @@
+---
+title: "UNIX Programming by Example: Runit"
+date: 2014-07-09 04:29 PDT
+description: Learning good UNIX programming technique by examining how Runit is built.
+---
+
+I've often heard from fellow developers that they don't feel they have a strong foundation of UNIX principles.  [The Unix Philosophy](http://en.wikipedia.org/wiki/Unix_philosophy) is a good set of meta-rules (much like SOLID principles), but I do better by seeing concrete examples.
+
+[This description of Runit](http://rubyists.github.io/2011/05/02/runit-for-ruby-and-everything-else.html) is such an example.  It makes graceful use of the filesystem, symlinks, convention-over-configuration, process semantics, tool modularity and so on.  
+
+If you read that article and fully understand all of the features Runit gives you and the benefit of the features it doesn't, then you're on your way to really understanding good UNIX development.
+
+Take a second to read through ["Runit for Ruby (And Everything Else)"](http://rubyists.github.io/2011/05/02/runit-for-ruby-and-everything-else.html) if you haven't already.  We're going to go through it, point by point, to get a practical understanding of what we should be aiming for when building UNIX friendly tools.
+
+### Conventions over Requirements over Configuration
+
+Good UNIX tools favor rewarding conformity over enforcing dogma.  Runit demonstrates this in spades.
+
+> As you can see, all services live in one place, defined by `$SVDIR` or `/service` by default, which `runsvdir` manages.
+
+...and, later:
+
+> We can [...] give a user control over their own `$SVDIR`, `/home/username/service` here.
+
+Everything Runit needs in order to operate is encapsulated in that one directory, conventionally `/service`, but also easily changed by a non-root user.  
+
+It would be tempting but misguided for the Runit developers to add a check to ensure it's being run as root.  By not enforcing that, and by allowing the directory to be configured by the environment, we've enabled a major feature: per-user service directories.
+
+This reminds me of the Ruby duck-typing philosophy.  Don't sprinkle aggressive type checks throughout your code. Instead, be more flexible and rely on the fact that your code will break cleanly when used improperly.  By doing so, you can open entirely new use-cases.
+
+We see this again in the implementation of runlevels:
+
+> Runlevels become (unlimited amount of) directories of services (in `/etc/runit/runsvdir`) which can be switched to quickly and simply.
+> 
+> ```
+> # Switch to the services described in `/etc/runit/runsvdir/primary`
+> $ runsvchdir primary
+> 
+> # Switch to the services described in `/etc/runit/runsvdir/failover`
+> $ runsvchdir failover
+> ```
+
+Runit doesn't place unnecessary and arbitrary constraints on the user.  It's simpler to outline conventions and allow the user to build functionality through normal tools like symlinks.  See this description of `runsvchdir`:
+
+> runsvchdir switches to the directory `/etc/runit/runsvdir/`, copies `current` to `previous`, and replaces `current` with a symlink pointing to dir.
+> 
+> Normally `/service` is a symlink to `current`, and runsvdir(8) is running `/service/`.
+
+So, all `runsvchdir` actually does is move symlinks around.  This is just an encouragement to follow good conventions. A user who "knows better" could easily build scripts to enable more complex tactics.  This is similar to how [capistrano manages the currently deployed application](https://github.com/capistrano/capistrano/wiki/Capistrano-Tasks#deploycreate_symlink).  Symlinks are also used for the `/service/*` entries:
+
+> The services in `/service/*` are symlinks to directories (usually in `/etc/sv/`) which must contain one executable file, named ‘run’.
+
+Note that `/etc/svs` is just an encouraged location for your actual service directories.  As King of Your Domain&trade;, you could decide to keep those in `/tmp/goingawaynextboot` -- Runit doesn't need to care, so it doesn't care.  But it does strongly suggest the convention of using `/etc/svs` by repeatedly referring to it in the documentation.
+
+On the other hand, Runit *does* need to know how to run your service.  It could allow you to configure that in a `runit.rc` file or some such.  But it takes a much easier and more oppinionated approach:  it requires that you have a `run` script.  It's simple for both Runit and the user, and it's much more predictable.
+
+Runit also leans on convention to enable an entire set of features around failure notifications:
+
+> When a process stops, if a file named `finish` exists and is executable, finish will be run with two arguments, the exit code and exit status of run.
+
+Note that the name of the script isn't configurable (since there's no real need) - it's just `finish`.  It's also entirely optional, since Runit can operate without it.  Runit is able to gracefully punt on the entire notification quagmire, because it respects the fact that...
+
+### Your Users are Developers
+
+Let's look at the output of `sv s` (short for `sv status`):
+
+```
+$ sudo sv s /service/*
+run: /service/callcenter: (pid 2870) 5266009s
+run: /service/postgres: (pid 3732) 7700117s
+run: /service/lighttpd: (pid 27321) 5208602s; run: log: (pid 3724) 7700117s
+run: /service/ssh: (pid 3757) 7700116s; run: log: (pid 3731) 7700117s  
+...
+```
+
+Note that all of the details for each service are listed on a single line, in a simple, but well-defined format.  This is easily parsable by both machines and humans.
+
+Of course it'd be easier for me to read if it converted the seconds to hours or days as appropriate, or if it aligned all of the columns.  But that would make it much harder for me to drive `sv` through other scripts.  As a UNIX user, I'm more than happy to make that trade-off.
+
+You can see this respect for developers in the way Runit enables dependencies between services.  Runit simply provides the ability to wait for another service to come up, and expects the user to write `run` scripts that use it:
+
+> Basic dependency example `/service/lighttpd/run`:
+> 
+> ```
+> #!/bin/sh -e
+> sv -w7 check postgresql
+> exec 2>&1 myprocess
+> ```
+
+This single feature (wait 7 seconds for the `postgresql` service to be running, exiting with an error if that timout is reached), when used by the end user in their `run` command, solves a whole world of dependency-management features in one blow.  
+
+You can even see this focus on scriptability in the lack of output in the happy paths:
+
+> Generally there will be no output from such commands, use -v to get some output (examples from here on out will use -v)
+
+This follows Eric Raymond’s ["Rule of Silence"](http://en.wikipedia.org/wiki/Unix_philosophy): When a program has nothing surprising to say, it should say nothing.
+
+Similarly, consider Runit's strategy for managing environment variables for each service:
+
+> A directory of files where an enviroment variable will be created for each file, with the value set to the contents of that file, may appear cumbersome at first glance.
+>
+> In practice, however, we find that changing one or two options is the most likely workflow.
+>
+> With the envdir setup, this becomes
+> 
+> ```
+> echo "value" > /service/foo/env/VARIABLE_NAME
+> ```
+
+If you respect the fact that your users are programmers, then it becomes immediately clear that this is much better than a flat file of key/value pairs.
+
+This also shows how we can gain simplicity by leaning heavily on the UNIX filesystem...
+
+### The Filesystem is Your Database 
+
+Consider, again, the example above.  To set environment variables for your service, you simply create a file.  Contrast that with [the heroku CLI](https://devcenter.heroku.com/articles/config-vars) (`heroku config:set GITHUB_USERNAME=joesmith`), or with [setting variables in the `.travis.yml` file](http://docs.travis-ci.com/user/build-configuration/#Set-environment-variables).  Both of these solutions require more code on the author's part, more congnitive load on the user, and (at least in the travis case) more effort to script.
+
+Runit's approach, however, is both easy and incredibly simple.  It achieved this simplicity because the authors understood that the UNIX filesystem wasn't just intended to hold MP3s.  It's your local database.
+
+You can see this same simplicity in adding and removing services:
+
+> Remove a service (stop it and make it not start back up, even on boot)
+> 
+> ```
+> $ rm /service/sshd
+> ```
+
+That's it.  Runit polls the filesystem, and constantly converges on the expected state.  Much simpler for the user to interact with than learning a new command line option.
+
+### Simplicity through Composability
+
+Runit also achieves simplicity by breaking itself up into many different tools with clear responsibilities: [runsvdir](http://smarden.org/runit/runsvdir.8.html), [runsvchdir](http://smarden.org/runit/runsvchdir.8.html) [runsv](http://smarden.org/runit/runsv.8.html), [svlogd](http://smarden.org/runit/svlogd.8.html), [chpst](http://smarden.org/runit/chpst.8.html), [sv](http://smarden.org/runit/sv.8.html), and more.  Most programmers understand the need to break their code into clean classes and modules, but they often fail to extend that into the overall user interface.  
+
+By breaking the interface up into multiple executables like this, you simplify the implementation and make each individual tool easier for the end user to understand.  The overall system may seem more complex, but that comes with the benefit of being able to easily drive various parts of the system through user-written scripts.
+
+Consider the Runit process hierarchy:
+
+```
+runit
+`- runsvdir
+   |- runsv
+   |  `- apache-ssl
+   |- runsv
+   |  `- crond
+   `- runsv
+      `- tinydns
+```
+
+The responsibilities are cleanly split between running many services (`runsvdir`) and monitoring/restarting a single service (`runsv`).  By moving the restarting logic to many `runsv` processes, the semantics of each is much simipler to understand and debug.  Having many processes with a single task each is better than a single master process with too many responsibilities.
+
+Runit also gains simplicity through a strong understanding of processes and pipes.
+
+### Understand Processes
+
+> Processes run in the foreground logging to stdout/stderr.
+
+The only thing cool about daemons is the name.  They're [a terrible hack](http://en.wikipedia.org/wiki/Daemon_(computing)#Creation) involving a voodoo ritual of over 10 steps that makes [old TSRs](http://en.wikipedia.org/wiki/Terminate_and_stay_resident_program) look like "good architecture."  Daemons were only ever devised as a workaround for the poor design of the original [init](http://www.unix.com/man-page/linux/5/init/).  Runit understands this, and expects that the services it monitors simply run in the forground as a normal god-fearing executable.
+
+Furthermore, it makes graceful use of stdout and UNIX pipes to handle service logging:
+
+> If the directory `log/` exists, it will be treated as a log service.
+> 
+> runsv will create a pipe and redirect standard out of the service (and its optional finish script) to `log/run`.
+> 
+> Log Service (for sshd) `/etc/sv/sshd/log/run`:
+> 
+> ```
+> #!/bin/sh
+> exec svlogd -t /var/log/sshd/
+> ```
+
+Using UNIX pipes simplifies the entire logging problem.  Processes no longer need to understand how to talk to syslog - they just print to STDOUT.  This is something [Twelve-Factor systems like Heroku and Cloud Foundry](http://12factor.net/logs) get right.
+
+### Become a Better Developer by Understanding UNIX
+
+The logging example above actually sums up everything we've talked about quite nicely:  
+
+* By respecting the fact that the user is a programmer, Runit enables them to implement whatever filtering or strange logging logic they need.
+* Runit doesn't enforce that users manage logs in any specific way, but encourages conventions by providing the `svlogd` logging tool.
+* Runit achieves simplicity by treating the logging service like any other process.
+* It leans on the filesystem: the `log` subdirectory is just another service directory, and could be shared amongst other services via symlinks.
+* It only enforces the conventions it has to: the `log` directory is entirely optional, but the `run` file is necessary (and isn't configurable).  Similarly, logging isn't required, but if it's used, then all logs *must* come via `STDOUT`.
+
+These principles are old, but there's a lot to learn from revisiting them.  You can become a significantly better developer by studying how a single, well-written UNIX tool makes graceful use of the filesystem, symlinks, convention-over-configuration, process semantics, tool modularity and so on.
+
+#### We're looking for engineers who are excited by this sort of topic on [the London Services team](http://t.co/SyEnZoyzlW). If you're interested in joining us, then I’d love to hear from you!
+{:.hero}
+
+Finally, thanks to [Mike Perham](http://www.mikeperham.com/), who recently wrote [a nice little piece about how much he appreciates runit](http://www.mikeperham.com/2014/07/07/use-runit).  It prompted this post by reminding me of how wonderful an example of proper UNIX programming runit (and it's lineage, [Daemontools](http://en.wikipedia.org/wiki/Daemontools)) truly is.
+

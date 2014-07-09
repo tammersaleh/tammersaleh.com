@@ -159,6 +159,7 @@ body.frontpage {
 }
 
 article {
+  .hero { margin: 5% 10%; }
   .title { margin-top: 0; }
   .reading_time { 
     @extend .text-muted;
@@ -219,10 +220,10 @@ article {
 
 blockquote {
   clear: left;
+  font-size: 1em;
   cite {
     float: right;
     font-style: italic;
-    font-size: 75%;
     padding-top: 0.5em;
   }
 }
