@@ -1,5 +1,11 @@
 [
   {
+    "id": "108775244",
+    "title": "Apache Cassandra on Pivotal Cloud Foundry",
+    "year": "2014",
+    "venue": "Cassandra Summit"
+  },
+  {
     "id": "100121659",
     "title": "Keep Calm and Ship Services",
     "year": "2014",
