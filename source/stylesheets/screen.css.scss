@@ -106,13 +106,13 @@
 }
 
 body.frontpage {
-  #sidebar .header, 
-  #sidebar .skills, 
-  #sidebar .avatar, 
-  #sidebar .bio,
-  #page-content { 
-    @extend .fade_in; 
-  }
+  // #sidebar .header, 
+  // #sidebar .skills, 
+  // #sidebar .avatar, 
+  // #sidebar .bio,
+  // #page-content { 
+  //   @extend .fade_in; 
+  // }
 
   #sidebar { 
     .header { @include transition-delay(1s); }
