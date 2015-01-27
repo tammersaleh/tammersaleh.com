@@ -59,6 +59,10 @@ helpers do
     h = opts[:height] || 280
     "<iframe src='//player.vimeo.com/video/#{vimeo_id}?title=0&byline=0&portrait=0' width='#{w}' height='#{h}' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>"
   end
+
+  def hacker_news_link(hn_id, title)
+    '<a href="https://news.ycombinator.com/item?id=' + hn_id + '">' + title + "</a>"
+  end
 end
 
 # Build-specific configuration

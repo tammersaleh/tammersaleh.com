@@ -1,6 +1,7 @@
 ---
 title: Stop Looking for Trouble
 date: 2015-01-25 02:16 PST
+hacker_news_id: "8952604"
 description: An adage to help yourself avoid over-architecting.
 ---
 

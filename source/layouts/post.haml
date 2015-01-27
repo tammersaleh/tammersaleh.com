@@ -6,11 +6,17 @@
       Average reading time is
       %span.eta
     ~ yield
+    .hero
+      Feel free to
+      %a{href: github_edit_url}
+        submit corrections 
+      via github 
+      - if current_page.data.hacker_news_id
+        or
+        = hacker_news_link(current_page.data.hacker_news_id, "discuss on Hacker News.")
     %h4.metadata
       %hr
       %small
         This post was written
         = time_ago_in_words(current_page.data.date)
         ago, which makes it almost certainly out of date.
-        %a{href: github_edit_url}
-          Feel free to submit corrections via github.
