@@ -1,5 +1,11 @@
 [
   {
+    "id": "118020043",
+    "title": "Microservice Anti-patterns",
+    "year": "2014",
+    "venue": "NordicAPIs"
+  },
+  {
     "id": "108775244",
     "title": "Apache Cassandra on Pivotal Cloud Foundry",
     "year": "2014",
