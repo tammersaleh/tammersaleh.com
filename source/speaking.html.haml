@@ -1,4 +1,4 @@
-#presentations
+#speaking
   %h1.header Presentations 
   %h1.header &amp; 
   %h1.header Interviews
@@ -15,6 +15,11 @@
           = presentation.venue
         %h5.year
           = presentation.year
+        - if presentation.slides
+          %h5.slides
+            %a{href: "/speaking/" + presentation.slides} 
+              Download the slides.
+              %i.icon-download
       .video
         = vimeo_embed(presentation.id, width: 400, height: 250) 
 

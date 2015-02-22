@@ -17,8 +17,8 @@
   #page-content          { @extend .col-lg-9; }
   #page-content .article { @extend .col-lg-3; }
 
-  #presentations .about  { @extend .col-md-6; }
-  #presentations .video  { @extend .col-md-6; }
+  #speaking .about       { @extend .col-md-6; }
+  #speaking .video       { @extend .col-md-6; }
 
   // Medium screen 992px - 1200px
   #sidebar               { @extend .col-md-3; }
@@ -27,8 +27,8 @@
   #page-content          { @extend .col-md-9; }
   #page-content .article { @extend .col-md-4; }
 
-  #presentations .about  { @extend .col-md-6; }
-  #presentations .video  { @extend .col-md-6; }
+  #speaking .about       { @extend .col-md-6; }
+  #speaking .video       { @extend .col-md-6; }
 
   // Small screen 768px - 991px
   #sidebar               { @extend .col-sm-4; }
@@ -37,8 +37,8 @@
   #page-content          { @extend .col-sm-8; }
   #page-content .article { @extend .col-sm-6; }
 
-  #presentations .about  { @extend .col-md-6; }
-  #presentations .video  { @extend .col-md-6; }
+  #speaking .about       { @extend .col-md-6; }
+  #speaking .video       { @extend .col-md-6; }
 
   // Extra Small screen < 768px
   #sidebar #about_me .skills { @extend .hidden-xs; }
@@ -141,7 +141,7 @@ article {
   img { @extend .img-rounded; }
 }
 
-#presentations {
+#speaking {
   .header { 
     @extend .text-center;
   }

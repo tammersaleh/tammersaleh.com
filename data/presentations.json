@@ -3,19 +3,22 @@
     "id": "118020043",
     "title": "Microservice Anti-patterns",
     "year": "2014",
-    "venue": "NordicAPIs"
+    "venue": "NordicAPIs",
+    "slides": "microservices_antipatterns.key.zip"
   },
   {
     "id": "108775244",
     "title": "Apache Cassandra on Pivotal Cloud Foundry",
     "year": "2014",
-    "venue": "Cassandra Summit"
+    "venue": "Cassandra Summit",
+    "slides": "Cassandra on Pivotal CF - Cassandra Summit 2014.key.zip"
   },
   {
     "id": "100121659",
     "title": "Keep Calm and Ship Services",
     "year": "2014",
-    "venue": "CF Summit"
+    "venue": "CF Summit",
+    "slides": "Keep Calm and Ship Services.key.zip"
   },
   {
     "id": "99145872",
@@ -27,7 +30,8 @@
     "id": "84798435",
     "title": "Using Hierarchial Clustering for Better Lunch Conversations",
     "year": "2013",
-    "venue": "La Conf"
+    "venue": "La Conf",
+    "slides": "laconf.key.zip"
   },
   {
     "id": "92622718",
