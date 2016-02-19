@@ -7,7 +7,7 @@ description: How to make an encrypted USB key to securely hold your SSH keys in 
 <%= img("Erase", "keychain.jpg") %>
 {: .img_right }
 
-Working on a Platform like [Cloud Foundry](http://www.gopivotal.com/platform-as-a-service/pivotal-cf), which is relied upon by a growing community of "serious" companies requires us to take security seriously as well.  
+Working on a Platform like [Cloud Foundry](http://pivotal.io/platform), which is relied upon by a growing community of "serious" companies requires us to take security seriously as well.  
 
 > Security is something you know, something you have, and something you are.
 
@@ -17,15 +17,23 @@ Here's how we've implemented two factor authentication across the board for our 
 
 Follow these instructions to increase your security at home and work as well.
 
-### Format the Drive
+### Choosing a USB Key
 {: .clear }
-
-<%= img("Erase", "erase.png") %>
-{: .img_left }
 
 We prefer the [Kingston DataTraveler](http://www.amazon.com/Kingston-Digital-DataTraveler-DTSE9H-16GBZET/dp/B00DYQYITG) drive due to its size and cost.  Once you've found a USB keychain drive to your liking, you'll want to reformat it using OS X's built-in encrypted filesystem.
 
-Plug your drive into your computer and open Disk Utility.  Select the disk (not the volume) on the left and navigate to the "Erase" tab.  You'll want to name the volume something simple (such as "keys") to make it easier to access on the command line.  And, of course, you'll want to format it using "Mac OS Extended (Case-sensitive, Journaled, Encrypted)."
+### Format the Drive
+
+<%= img("Erase", "erase-el-capitan.png") %>
+
+Plug your drive into your computer and open Disk Utility.  Select the disk (not the volume) on the left and navigate to the "Erase" tab.  You'll want to name the volume something simple (such as "keys") to make it easier to access on the command line.
+
+Depending on the format of your USB key's partition table, then the partition table is MBR, which doesn't support encryption, and you won't see encrypted partitions as options in the "Format" dropdown.  In that case, you'll have to do a two-step dance, formatting the drive twice:
+
+1. Once as `OS X Extended (Journaled)` using the `GUID Partition Map`, then..
+1. Again, using `Mac OS Extended (Case-sensitive, Journaled, Encrypted)`.
+
+If you see the encrypted options in the dropdown, then just jump straight to #2 above.
 
 Now, you'll be prompted for your decryption password whenever you insert the drive.  Be sure not to save the password into the OS X Keychain.
 
@@ -36,7 +44,7 @@ If you don't already have SSH keys, then you'll want to generate a new set.  In 
 
 You create a new SSH key pair by running `ssh-keygen`:
 
-~~~
+``` bash
 $ ssh-keygen -f /Volumes/keys/id_rsa -C "Tammer Saleh"
 Generating public/private rsa key pair.
 Enter passphrase (empty for no passphrase):
@@ -57,7 +65,7 @@ The key's randomart image is:
 |     x   x       |
 |                 |
 +-----------------+
-~~~
+```
 
 ### Script to Load Keys and Eject
 
@@ -65,7 +73,7 @@ At this point, you could use the drive by manually adding the keys to your runni
 
 Create the following script on your drive, and name it `load`:
 
-~~~
+```
 #!/usr/bin/env bash
 
 HOURS=$1
@@ -79,35 +87,32 @@ fi
 /usr/bin/ssh-add -D
 /usr/bin/ssh-add -t ${HOURS}H $KEY
 /usr/sbin/diskutil umount force $DIR
-~~~
+```
 
 You will need to mark the script as executable:
 
-~~~
+```
 chmod +x /Volumes/keys/load
-~~~
+```
 
 Now, you can simply run `/Volumes/keys/load` to load your keys and eject the drive automatically.  This makes for a very quick workflow.
 
-~~~
+``` bash
 $ /Volumes/keys/load
 All identities removed.
 Enter passphrase for /Volumes/keys/id_rsa: **********
 Identity added: /Volumes/keys/id_rsa (/Volumes/keys/id_rsa)
 Lifetime set to 3600 seconds
 Volume keys on disk3 force-unmounted
-~~~
+```
 
 ### Make a Backup Image
 
-<%= img("Backup Image", "backup_image.png") %>
-{: .img_right }
-
 Finally, you can make an encrypted backup image in case our USB drive shits the bed.
 
-Again, open Disk Utility.  This time, we select the "New Image" icon in the tool bar.  Save the image as `keys_backup`, and configure it to be quite small, encrypted, and using a sparse image to save space.
+<%= img("Backup Image", "backup-image-el-capitan.png") %>
 
-Once that's done, mount both drives and copy everything from your USB drive to the backup.
+Again, open Disk Utility.  This time, we select the `New Image`>`Image from "keys"` menu item.  Save the image as `keys_backup`, and configure it to be compressed and encrypted.
 
 Ideally, you'll store your backup somewhere super secure.  Another option is to simply create two USB drives, and store one in a locked box.  My wife and I have a [locked fireproof box](http://www.amazon.com/SentrySafe-500-FIRE-SAFE-Cubic-Black/dp/B000W8J75E) that we use for all of our personal documents (passports, etc), which is an ideal location.
 
