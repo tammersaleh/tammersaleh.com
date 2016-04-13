@@ -10,23 +10,10 @@
     var client = new Keen({
       projectId: "570e51de96773d675f805594",
       readKey: "7cf46fccf627ca9213d194fccef986a2762c17fb78b2af1e27e9230e14389e38e0abf385d8cd978d06fe88aeb1d32cb22da9d4935ce12b68d59f28bcfbde2c25c26ba2f69e6d6d842a893c7c6f9517060c8d3b85ddf272d5dee19347a4a5e615"
-    
     });
-    
     Keen.ready(function(){
-      
-      var query = new Keen.Query("count", {
-        eventCollection: "Loaded a Page",
-        groupBy: [
-        "parsed_page_url.path"
-    ],
-        timeframe: "this_14_days",
-        timezone: "UTC"
+      client.draw('page-loads-by-url', document.getElementById("mychart"), {
+        chartType: "barchart",
       });
-      
-      client.draw(query, document.getElementById("mychart"), {
-        // Custom configuration here
-      });
-      
     });
 
