@@ -2,7 +2,8 @@
   %h1.header Site stats 
   %hr
 
-  #mychart
+  #page-loads-by-url
+  #traffic-over-last-30-days
 
   = javascript_include_tag "https://d26b395fwzu5fz.cloudfront.net/3.4.0/keen.min.js"
 
@@ -12,8 +13,15 @@
       readKey: "7cf46fccf627ca9213d194fccef986a2762c17fb78b2af1e27e9230e14389e38e0abf385d8cd978d06fe88aeb1d32cb22da9d4935ce12b68d59f28bcfbde2c25c26ba2f69e6d6d842a893c7c6f9517060c8d3b85ddf272d5dee19347a4a5e615"
     });
     Keen.ready(function(){
-      client.draw('page-loads-by-url', document.getElementById("mychart"), {
-        chartType: "barchart",
-      });
+      client.draw("page-loads-by-url", 
+        document.getElementById("page-loads-by-url"), { 
+          chartType: "barchart",
+          legend: { position: "none" },
+        });
+      client.draw("traffic-over-last-30-days", 
+        document.getElementById("traffic-over-last-30-days"), { 
+          chartType: "columnchart",
+          legend: { position: "none" },
+        });
     });
 
