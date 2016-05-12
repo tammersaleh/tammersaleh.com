@@ -126,3 +126,7 @@ The major weakness is that we're trusting that the host machine hasn't been tamp
 The forced eject is blatant cargo culting.  When tried without forcing, the drive reports being in use, but `lsof` shows no processes using it.  This is the case even when the script is run from outside the drive, so I'm at a loss.
 
 Ideally, we could store our entire `~/.ssh` directory on the keychain.  This requires a symlink from `~/.ssh` to `/Volumes/keys/.ssh`, and has a number of other complications around permissions.  We haven't investigated furthur.
+
+### Alternatives
+
+A friend of mine [recently blogged about his alternative approach](http://plumber.sublimia.nl/post/introducing-keyguard/), which makes use of [an HTTP service that serves your SSH keys](https://github.com/cromega/keyguard), and authenticates with a [YubiKey](https://www.yubico.com/why-yubico/for-individuals/).
