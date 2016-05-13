@@ -73,11 +73,11 @@ At this point, you could use the drive by manually adding the keys to your runni
 
 Create the following script on your drive, and name it `load`:
 
-```
+``` bash
 #!/usr/bin/env bash
 
 HOURS=$1
-DIR=/Volumes/keys
+DIR=$(dirname $0)
 KEY=$DIR/id_rsa
 
 if [ -z $HOURS ]; then
