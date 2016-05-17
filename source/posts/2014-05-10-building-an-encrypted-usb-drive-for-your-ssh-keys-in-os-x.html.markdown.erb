@@ -76,6 +76,8 @@ Create the following script on your drive, and name it `load`:
 ``` bash
 #!/usr/bin/env bash
 
+set -e
+
 HOURS=$1
 DIR=$(dirname $0)
 KEY=$DIR/id_rsa
