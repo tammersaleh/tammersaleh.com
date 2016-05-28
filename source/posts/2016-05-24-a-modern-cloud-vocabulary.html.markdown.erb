@@ -1,0 +1,81 @@
+---
+title: A Modern Cloud Vocabulary
+date: 2016-05-24 03:44 PDT
+description: The Cloud is Chaos, and cloud-resilient systems must adhere to a new vocabulary in order to withstand it.
+---
+
+The Cloud is a quantum flux that pushes the limits of the definition of "eventually consistent".  I've seen things you people wouldn't believe.  VMs returning from a deprovision command _a year later_.  Entire regions destroyed by a router misconfig.  API calls returning completely different results ten times in a row.  Networks on fire off the shoulder of Orion.  
+
+Sorry... got carried away.
+
+In any case, **the Cloud is Chaos**. Cloud-resilient systems must adhere to a new vocabulary in order to withstand it, but many developers have never been exposed to these concepts.  They have their trade-offs, but systems built using these patterns are stronger, more resilient, and are overall easier to reason about.
+
+#### Declarative (vs Imperative)
+
+When I was a kid, just learning about computers and programming and such, my teacher asked us to describe the precise steps necessary to make a sandwich.  She then paired us up, had us perform those steps verbatim, and sat back and cackled as we made disasters of our lunch.  She was imparting an important lesson about how we interact with computers: Their power is that they do exactly what we tell them to do, their fundamental flaw is the same.
+
+This is the **imperative** model.  We tell the machine, step by step, what actions to perform.  We cross our fingers and hope that these actions will result in a sandwich.  If our instructions are wrong, then we end up with something else.  If our assumptions were wrong, and the mayo was on the left while the peanut butter was on the right, then we end up with something else.
+
+Imperative systems work well when the conditions are controlled and predictable.  If you know `i` started at `1`, then you know `i++` will result in `2`.
+
+Imperative systems make **actual** and **desired** state _implicit_, and make moving between them _explicit_.  In that way, they are the opposite of declarative systems.
+
+**Declarative** systems make actual and desired states first class concepts, and take the responsibility of bridging the gap between them (which we call **the delta**).  We use interact with systems by telling them how the world is _already supposed to be_, and watch as they scramble to catch up.
+
+> I should have a sandwich in front of me.
+>
+> Crap! You're right - there should be a sandwich there!  Let me make one!
+
+Declarative systems are much harder to build.  They have to be smart enough to find their own path to desired, routing around any obstacles in the way.  They can't make assumptions, and instead have to be able to discover the actual state of the world.  They're also less predictable.  How are we getting there?  Who knows?  Who cares?  Look - we're here!  And they can be verbose.  Instead of instructing the system to "add mayo" to fix your sandwich, you have to declare the entire sandwich all over again (mayo included).
+
+If imperative systems thrive in controlled environments, declarative systems excel in chaos.  
+
+(The Cloud is chaos)
+
+Declarative systems are one piece of the puzzle in resiliency.  Another is...
+
+#### Convergence
+
+When I think of convergence, I think of [the parable of the oak and the reed](https://en.wikipedia.org/wiki/The_Oak_and_the_Reed).  The oak is strong but rigid, while the reed is weak but survives the storm. 
+
+(The Cloud is that storm)
+
+<%= img("Image", "useless_box.gif") %>
+{: .img_right}
+
+[Convergence](https://en.wikipedia.org/wiki/Convergence) is a property of a system that says "no matter how hard you blow, I'll eventually be standing again."  Convergence goes hand in hand with declarative systems, as a convergent system needs to understand an explicit desired state.  Convergence works by continually monitoring the delta between actual and desired state and triggering the declarative system when that delta exists.  Often this works by taking a declarative system and simply running it in a loop.
+
+#### Idempotence
+
+[Idempotence](https://en.wikipedia.org/wiki/Idempotence#Computer_science_meaning) means an action has the same effect no matter if it's called once or many times.  Mathematically speaking, that means `f(f(x)) == f(x)`.  
+
+Idempotence is important in cloudy systems such as distributed databases.  Operating in the Cloud means operating in chaos (see a theme forming?), where messages may or may not make it to their destination.  We need to know that we can safely run the same command twice and get the desired result.
+
+* `x = 5` is idempotent, but `x++` isn't.  
+* `HTTP PUT` is idempotent, but `HTTP POST` isn't. 
+* `echo "foo" > bar` is idempotent, but `echo "foo" >> bar` isn't.
+
+Declarative systems are inherently idempotent.
+
+#### Immutability
+
+When I was a Unix geek[^geek], I managed 400 machines the old fashioned way -- SSH and hand-crafted bash loops.  This was a nightmare for a number of reasons...
+
+[^geek]: Past tense... Yeah, right.
+
+* It was error prone -- what if the server's down?
+* It created snowflakes with slightly different configurations than the rest.
+* It was impossible to reason about the contents of a server.  The only way to know the actual state was to SSH in and find out.
+
+Chef and Puppet automated this process, but perpetuated the fundamental flaw of gradually applying changes to the system.
+
+The programming world has long had the concept of immutable data structures (C's `const` being the simplest), but this concept has been extended to everything from server configurations to distributed databases.
+
+[Immutable infrastructure](http://chadfowler.com/2013/06/23/immutable-deployments.html) is the practice of burning entire VM images for each software deployment, and reprovisioning those servers entirely.  This [increases security](https://medium.com/built-to-adapt/the-three-r-s-of-enterprise-security-rotate-repave-and-repair-f64f6d6ba29d#.tbxfshlry) and reliability, removes snowflakes, and makes the servers easier to reason about.
+
+Immutability can also have a big impact on data stores.  It's easy to make performance optimisations if you can decide that the data will never be altered.  This also makes many distributed data strategies tractable.  Even if your data _can_ be changed, you can fake it by storing immutable versions and reading the most recent one.  This is the underlying principle of many modern eventually-consistent systems.  I don't know this for sure, but I'm willing to bet cash money that Twitter uses this trick to store tweets.
+
+### Know Your Vocabulary
+
+Understanding concepts like Declarative systems, Convergence, Idempotence, and Immutability, and knowing when and how to apply them will help you as you build architectures stable enough to withstand the chaotic mess of the Cloud.
+

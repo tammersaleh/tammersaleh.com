@@ -139,6 +139,20 @@ article {
   }
   .metadata { @extend .text-muted; }
   img { @extend .img-rounded; }
+  .footnotes {
+    padding-top: 1.5em;
+    font-size: 90%;
+    color: $gray;
+    ol {
+      padding-left: 1em;
+      a {
+        color: $gray-light;
+        &:hover {
+          color: $gray;
+        }
+      }
+    }
+  }
 }
 
 #speaking {
