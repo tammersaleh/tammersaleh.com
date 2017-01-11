@@ -1,5 +1,12 @@
 [
   {
+    "id": "198927025",
+    "title": "Microservice Anti-patterns",
+    "year": "2016",
+    "venue": "InfoQ, London",
+    "slides": "microservices_antipatterns.key.zip"
+  },
+  {
     "id": "118020043",
     "title": "Microservice Anti-patterns",
     "year": "2014",
