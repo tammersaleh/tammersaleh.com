@@ -12,7 +12,7 @@ Just for the love of google, here's what I've got for the "right way" of catchin
 begin
   response = Net::HTTP.post_form(...) # or any Net::HTTP call
 rescue Timeout::Error, Errno::EINVAL, Errno::ECONNRESET, EOFError,
-       Net::HTTPBadResponse, Net::HTTPHeaderSyntaxError, Net::ProtocolError => e
+       Net::HTTPBadResponse, Net::OpenTimeout, Net::ReadTimeout, Net::HTTPHeaderSyntaxError, Net::ProtocolError => e
   ...
 end
 ~~~
