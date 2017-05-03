@@ -1,7 +1,9 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
-gem "middleman", "~> 3.1"
+gem "middleman"
 gem "middleman-blog"
+gem "middleman-compass"
+gem "middleman-sprockets"
 gem "s3_website"
 gem "nokogiri"
 gem "RedCloth"

@@ -10,15 +10,13 @@ set :markdown, enable_coderay: false, input: "GFM"
 
 ignore "*.graffle"
 
-compass_config do |config|
-  config.output_style = :compact
-end
-
+# activate :compass
 # Automatic image dimensions on image_tag helper
 # activate :automatic_image_sizes
 activate :minify_css
 # This breaks the site.
 # activate :minify_javascript
+activate :sprockets
 
 helpers do
   # Calculate the years for a copyright
