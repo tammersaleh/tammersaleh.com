@@ -6,6 +6,8 @@
 FROM ruby:2.4.1
 LABEL maintainer "me@tammersaleh.com"
 
+ENV RUBYOPT="-KU -E utf-8:utf-8"
+
 RUN apt-get update && apt-get install -y build-essential nodejs libgmp3-dev
 
 WORKDIR /app
