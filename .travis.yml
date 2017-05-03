@@ -1,6 +1,6 @@
 language: ruby
 rvm:
-- 2.0.0
+- 2.4.1
 install: time bundle install --local
 script: time bundle exec rake build test
 after_success:
