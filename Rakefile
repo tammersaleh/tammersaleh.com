@@ -15,7 +15,7 @@ end
 desc "Deploy to S3"
 task :s3 do
   puts "Deploying to S3..."
-  system "s3_website push --site=.build --headless" or exit 1
+  system "s3_website push --site=.build" or exit 1
 end
 
 desc "Purge fastly"
