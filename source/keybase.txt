@@ -1,0 +1,55 @@
+==================================================================
+https://keybase.io/tammersaleh
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://tammersaleh.com
+  * I am tammersaleh (https://keybase.io/tammersaleh) on keybase.
+  * I have a public key ASCsAv_Ql9pO70cughM_5UyZNi_h2iUheYBCJeFjTNjoVQo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "010132e13c9b84ee7da71e42a73ce009043e7072dd5931184377f8d4ef832842f6ea0a",
+      "host": "keybase.io",
+      "kid": "0120ac02ffd097da4eef472e82133fe54c99362fe1da252179804225e1634cd8e8550a",
+      "uid": "a9c26b9ab5e6d76f6b5bc06d74ebe400",
+      "username": "tammersaleh"
+    },
+    "merkle_root": {
+      "ctime": 1509140254,
+      "hash": "c2c8e0ef8e5b1d947778f37c008486afa6724856f37db4e1ee3e7147b5971c0bbdc0346615c2ec5e5bf6a2fed6fa3d2d1c59de3b15ffcfb7dae5a0fb55dc2129",
+      "hash_meta": "aa8245224498c787ab9031132288e92ab5fbb709e23c87f429b1ca232d24b2fa",
+      "seqno": 1638959
+    },
+    "service": {
+      "hostname": "tammersaleh.com",
+      "protocol": "http:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "1.0.34"
+  },
+  "ctime": 1509140289,
+  "expire_in": 504576000,
+  "prev": "cb050bd166b175dd2a600a7e5590c92f9cda5cdfb8330677d5724615436906e5",
+  "seqno": 28,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgrAL/0JfaTu9HLoITP+VMmTYv4dolIXmAQiXhY0zY6FUKp3BheWxvYWTFA0p7ImJvZHkiOnsia2V5Ijp7ImVsZGVzdF9raWQiOiIwMTAxMzJlMTNjOWI4NGVlN2RhNzFlNDJhNzNjZTAwOTA0M2U3MDcyZGQ1OTMxMTg0Mzc3ZjhkNGVmODMyODQyZjZlYTBhIiwiaG9zdCI6ImtleWJhc2UuaW8iLCJraWQiOiIwMTIwYWMwMmZmZDA5N2RhNGVlZjQ3MmU4MjEzM2ZlNTRjOTkzNjJmZTFkYTI1MjE3OTgwNDIyNWUxNjM0Y2Q4ZTg1NTBhIiwidWlkIjoiYTljMjZiOWFiNWU2ZDc2ZjZiNWJjMDZkNzRlYmU0MDAiLCJ1c2VybmFtZSI6InRhbW1lcnNhbGVoIn0sIm1lcmtsZV9yb290Ijp7ImN0aW1lIjoxNTA5MTQwMjU0LCJoYXNoIjoiYzJjOGUwZWY4ZTViMWQ5NDc3NzhmMzdjMDA4NDg2YWZhNjcyNDg1NmYzN2RiNGUxZWUzZTcxNDdiNTk3MWMwYmJkYzAzNDY2MTVjMmVjNWU1YmY2YTJmZWQ2ZmEzZDJkMWM1OWRlM2IxNWZmY2ZiN2RhZTVhMGZiNTVkYzIxMjkiLCJoYXNoX21ldGEiOiJhYTgyNDUyMjQ0OThjNzg3YWI5MDMxMTMyMjg4ZTkyYWI1ZmJiNzA5ZTIzYzg3ZjQyOWIxY2EyMzJkMjRiMmZhIiwic2Vxbm8iOjE2Mzg5NTl9LCJzZXJ2aWNlIjp7Imhvc3RuYW1lIjoidGFtbWVyc2FsZWguY29tIiwicHJvdG9jb2wiOiJodHRwOiJ9LCJ0eXBlIjoid2ViX3NlcnZpY2VfYmluZGluZyIsInZlcnNpb24iOjF9LCJjbGllbnQiOnsibmFtZSI6ImtleWJhc2UuaW8gZ28gY2xpZW50IiwidmVyc2lvbiI6IjEuMC4zNCJ9LCJjdGltZSI6MTUwOTE0MDI4OSwiZXhwaXJlX2luIjo1MDQ1NzYwMDAsInByZXYiOiJjYjA1MGJkMTY2YjE3NWRkMmE2MDBhN2U1NTkwYzkyZjljZGE1Y2RmYjgzMzA2NzdkNTcyNDYxNTQzNjkwNmU1Iiwic2Vxbm8iOjI4LCJ0YWciOiJzaWduYXR1cmUifaNzaWfEQL3b26oflYJaGPn4w9jlI9DrBhWAZMGGB0t8Z6Psh9RHwExrmq1FYSd4nNWpRrR5bmTkzuibNMKOr6k7rYt4Wg6oc2lnX3R5cGUgpGhhc2iCpHR5cGUIpXZhbHVlxCAEd4xS2Exh7NQX194UHJ0fEQkZ6dPjb9JlxRgKN9Ud0KN0YWfNAgKndmVyc2lvbgE=
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/tammersaleh
+
+==================================================================
