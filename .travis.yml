@@ -4,8 +4,10 @@ rvm:
 install: time bundle install --local
 script: time bundle exec rake build test
 after_success:
-- if [[ "$TRAVIS_PULL_REQUEST" != "false" ]];  then echo "Not deploying a pull request."; exit 0; fi
-- if [[ "$TRAVIS_BRANCH"       != "master" ]]; then echo "Not deploying a branch.";       exit 0; fi
+- if [[ "$TRAVIS_PULL_REQUEST" != "false" ]];  then echo "Not deploying a pull request.";
+  exit 0; fi
+- if [[ "$TRAVIS_BRANCH"       != "master" ]]; then echo "Not deploying a branch.";       exit
+  0; fi
 - time bundle exec rake s3 purge
 notifications:
   email:
@@ -14,6 +16,9 @@ notifications:
     - me@tammersaleh.com
 env:
   global:
-  - secure: wRRtfLr+xMLK8+T8hz4zlfW6wNYGiUDM/dh6zZkwAQCIJ1Cfs6Frf9cRwCNZgUNWIBxAgLUQkyx+hLa1vBq2+C7qt7TVjsIWwKxlkg5bNFmp+kMji8PBhX11a8YvHdAduixqhCN5Pop8PxVFNja8ne7ZDmnEM2+/YO6wwRXaYH0=
-  - secure: EQhSokIkvfLzJqgm66+G5GSozj7dwhHkxhpjCQc3G6zth2oPOp2rlzk+KrWw8P2gjppSXAK9wODiv1DeEAysyfQDVfSrddfckVzD+tOX/6fcK0AJBCRPxNZpYPC5iio1Czehf3ALUdVYOaOu+S7wuUOjakEQNuZyujaF2yitSSI=
-  - secure: edF9pU+RTmpfK5qjNvU4trgSiyT0tB0WTZvRoAFUwgIZAJ9Uktp+TPP+IaOr7wiLEAyuTPVEiA3Jt6yOFmjfjz2ExJjXNQGr12H1WvfhTqjfJMVN+s5m5uMvk3Cv4HWLitpPLqJWH5b1LHqDK+OwWPaPsMFEG6gGS1+PG7y/m00=
+    FASTLY_KEY:
+      secure: a+2G/CaMPhzxrHINTDfR3u4ArBQqETOmGv0aTArHo1p6mJoI8Ih5nNRXDz49Y+3OqAFjv8/IZgSs6ba0disxkw3ZF26Iw22MMul73ToKwv6FGLgycdI4SqAVuAKLMMzl9yjK3fR8oPLvy8x3AhGcz0BIN8C+ZiuBS/lscf7dtt8=
+    AWS_ACCESS_KEY:
+      secure: l0fzXZ1o6tfpxS5d5p043v5J4H+HNj1OQIp6Bm5cgqgEuHpotRhfwG/ptV3GnbyXSf9mwsj1jVDyEsp9lLuVCVCsM+YdC//je/hlPwd5mI2SW2uTDuoMMMFac/lHHfI3DsyQZztcrL9NpDKsCshUSTNd2/GgGtwiTTZdoIulmOY=
+    AWS_SECRET:
+      secure: Xa60QbQsH3oj7EZ4vkcLBB13scFBjritpRbZ28eVsuvwPO6we+6834LbXsgn1RdvgYKR4mVhI3RLf2ib6yNH4IZYf6RrTO+MPq/pHCtNTp+bTpxcynNYmNhJCT3FZsdyZhknjwTudhZ3e492Uqumj0sxa/IUncxe3PjVwMRhzWQ=
