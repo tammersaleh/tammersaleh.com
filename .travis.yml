@@ -1,19 +1,29 @@
-language: ruby
-rvm:
-- 2.4.1
+language:
+  - ruby
+  - java
+jdk: openjdk8
+cache:
+  bundler: true
 install: time bundle install --local
 script: time bundle exec rake build test
+before_install:
+  - gem install bundler -v '= 1.14.6'
+
 after_success:
-- if [[ "$TRAVIS_PULL_REQUEST" != "false" ]];  then echo "Not deploying a pull request.";
-  exit 0; fi
-- if [[ "$TRAVIS_BRANCH"       != "master" ]]; then echo "Not deploying a branch.";       exit
-  0; fi
-- time bundle exec rake s3 purge
+  - env | grep TRAVIS
+  - echo "$FASTLY_KEY" | wc -c
+  - echo "$AWS_ACCESS_KEY" | wc -c
+  - echo "$AWS_SECRET" | wc -c
+  - if [[ "$TRAVIS_PULL_REQUEST" != "false" ]];  then echo "Not deploying a pull request.";
+    exit 0; fi
+  - if [[ "$TRAVIS_BRANCH"       != "master" ]]; then echo "Not deploying a branch.";       exit
+    0; fi
+  - time bundle exec rake s3 purge
 notifications:
   email:
     on_success: always
     recipients:
-    - me@tammersaleh.com
+      - me@tammersaleh.com
 env:
   global:
     FASTLY_KEY:
