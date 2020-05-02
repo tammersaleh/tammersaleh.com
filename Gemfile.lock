@@ -58,7 +58,7 @@ GEM
     execjs (2.7.0)
     fast_blank (1.0.0)
     fastimage (2.1.0)
-    ffi (1.9.18)
+    ffi (1.12.2)
     formatador (0.2.5)
     guard (2.14.1)
       formatador (>= 0.2.4)
