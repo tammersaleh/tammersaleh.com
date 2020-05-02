@@ -25,8 +25,8 @@ $ open http://localhost:4567
 ## Deploying
 
 This site is [auto-deployed to S3 by Travis
-CI](https://travis-ci.org/tsaleh/tammersaleh.com) on every push.  See the
-[.travis.yml](https://github.com/tsaleh/tammersaleh.com/blob/master/.travis.yml)
+CI](https://travis-ci.org/tammersaleh/tammersaleh.com) on every push.  See the
+[.travis.yml](https://github.com/tammersaleh/tammersaleh.com/blob/master/.travis.yml)
 file for details.
 
 Once you've deployed, you can use [Sizzy.co](http://sizzy.co) to [check the
